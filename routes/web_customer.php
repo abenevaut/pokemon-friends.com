@@ -23,5 +23,6 @@ Route::group(
             Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
                 Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'UsersController@dashboard']);
             });
+            Route::resource('users', 'UsersController');
         });
     });

@@ -13,25 +13,19 @@
 <div class="content">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+
+
+            <div class="col-lg-3">
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title m-0">Site en construction</h5>
-                    </div>
                     <div class="card-body">
-                        <p>Le site n'est pas disponible pour le moment.</p>
-                        @if (Route::has('register'))
-                            <a class="card-link" href="{{ route('register') }}">{{ trans('auth.register') }}</a>
-                        @endif
-                        @if (Route::has('login'))
-                            <a class="card-link" href="{{ route('login') }}">{{ trans('auth.login') }}</a>
-                        @endif
-                        @if (Route::has('anonymous.terms'))
-                            <a class="card-link" href="{{ route('anonymous.terms') }}">{{ trans('global.terms') }}</a>
-                        @endif
+
+
+
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>

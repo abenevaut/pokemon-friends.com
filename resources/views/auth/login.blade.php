@@ -58,7 +58,7 @@
     </div>
     {!! Form::close() !!}
     @if (Route::has('password.request'))
-    <p class="mb-1">
+    <p class="mt-3 mb-1">
         <a href="{{ route('password.request') }}">
             {{ trans('auth.forgot_password') }}
         </a>

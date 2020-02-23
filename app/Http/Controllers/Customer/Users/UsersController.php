@@ -27,12 +27,14 @@ class UsersController extends ControllerAbstract
     }
 
     /**
+     * @param Request $request
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
      */
-    public function dashboard()
+    public function dashboard(Request $request)
     {
         try {
-            return view('customer.users.users.dashboard', []);
+            return $this->edit($request->user());
         } catch (\Exception $exception) {
             app('sentry')->captureException($exception);
         }
@@ -50,7 +52,7 @@ class UsersController extends ControllerAbstract
     {
         try {
             return view(
-                'administrator.users.profiles.profile',
+                'customer.users.users.dashboard',
                 [
                     'profile' => $this->r_profiles->getUserProfile($user),
                     'families_situations' => $this
@@ -69,17 +71,6 @@ class UsersController extends ControllerAbstract
 
             throw $exception;
         }
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Exception
-     */
-    public function profile(Request $request)
-    {
-        return $this->edit($request->user());
     }
 
     /**

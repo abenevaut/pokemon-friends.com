@@ -26,7 +26,9 @@ return [
     'impersonate'        => 'Impersonate',
     'stop_impersonation' => 'Admin session',
 
-	'title' => 'Users',
+    'dashboard' => 'Dashboard',
+
+    'title' => 'Users',
 	'create.title' => 'New user',
 	'edit.title' => 'Edit user',
 	'show.title' => 'User :username',

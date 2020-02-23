@@ -52,17 +52,6 @@ class RegisterController extends ControllerAbstract
     }
 
     /**
-     * Show the message that explains registrations are closed.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function showNoRegistration()
-    {
-        // @todo xABE : Remove at the end of beta
-        return view('auth.noregistration');
-    }
-
-    /**
      * Get a validator for an incoming registration request.
      *
      * @param array $data

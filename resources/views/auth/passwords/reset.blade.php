@@ -67,5 +67,12 @@
         <a href="{{ route('login') }}">{{ trans('auth.login') }}</a>
     </p>
     @endif
+    @if (Route::has('register'))
+        <p class="mb-0">
+            <a href="{{ route('register') }}" class="text-center">
+                {{ trans('auth.register') }}
+            </a>
+        </p>
+    @endif
 </div>
 @endsection

@@ -26,6 +26,8 @@ return [
     'impersonate'        => 'Imiter',
     'stop_impersonation' => 'Session admin',
 
+    'dashboard' => 'Dashboard',
+
 	'title' => 'Utilisateurs',
 	'create.title' => 'Nouvel utilisateur',
 	'edit.title' => 'Éditer l\'utilisateur',
