@@ -83,12 +83,12 @@ class UsersController extends ControllerAbstract
      */
     public function update($id, ProfileFormRequest $request)
     {
-        try {
+//        try {
             $this->r_profiles->updateUserProfileWithRequest($request, $id);
-        } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
-            app('sentry')->captureException($exception);
-        }
+//        } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
+//            app('sentry')->captureException($exception);
+//        }
 
-        return redirect(route('backend.users.profile.index'));
+//        return redirect(route('customer.users.dashboard'));
     }
 }

@@ -30,14 +30,14 @@ class ProfileFormRequest extends RequestAbstract
     public function rules()
     {
         $rules = [
-            'birth_date' => 'date_format:"' . trans('global.date_format') . '"',
-            'family_situation' => 'in:'
-                . Profile::FAMILY_SITUATION_SINGLE . ','
-                . Profile::FAMILY_SITUATION_MARRIED . ','
-                . Profile::FAMILY_SITUATION_CONCUBINAGE . ','
-                . Profile::FAMILY_SITUATION_DIVORCEE . ','
-                . Profile::FAMILY_SITUATION_WIDOW_ER,
-            'maiden_name' => 'max:100',
+//            'birth_date' => 'date_format:"' . trans('global.date_format') . '"',
+//            'family_situation' => 'in:'
+//                . Profile::FAMILY_SITUATION_SINGLE . ','
+//                . Profile::FAMILY_SITUATION_MARRIED . ','
+//                . Profile::FAMILY_SITUATION_CONCUBINAGE . ','
+//                . Profile::FAMILY_SITUATION_DIVORCEE . ','
+//                . Profile::FAMILY_SITUATION_WIDOW_ER,
+//            'maiden_name' => 'max:100',
             'timezone' => 'required|in:' . collect(timezones())->implode(','),
             'locale' => 'required|in:' . collect(User::LOCALES)->implode(','),
         ];

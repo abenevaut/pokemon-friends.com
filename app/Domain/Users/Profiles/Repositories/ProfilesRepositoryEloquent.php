@@ -173,14 +173,14 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
         $id
     ): void {
         $data = [
-            'birth_date' => $request->has('birth_date')
-                ? Carbon::createFromFormat(
-                    trans('global.date_format'),
-                    $request->get('birth_date')
-                )->format('Y-m-d')
-                : null,
-            'family_situation' => $request->get('family_situation'),
-            'maiden_name' => $request->get('maiden_name'),
+//            'birth_date' => $request->has('birth_date')
+//                ? Carbon::createFromFormat(
+//                    trans('global.date_format'),
+//                    $request->get('birth_date')
+//                )->format('Y-m-d')
+//                : null,
+//            'family_situation' => $request->get('family_situation'),
+//            'maiden_name' => $request->get('maiden_name'),
             'is_sidebar_pined' => $request->get('is_sidebar_pined'),
         ];
         $data = array_filter($data, function($v) { return !is_null($v); });
