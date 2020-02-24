@@ -22,7 +22,9 @@ Route::group(
         Route::group(['namespace' => 'Users'], function () {
             Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
                 Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'UsersController@dashboard']);
+                Route::model('profile', \template\Domain\Users\Users\User::class);
+                Route::resource('profiles', 'ProfilesController');
             });
-            Route::resource('users', 'UsersController');
+            Route::resource('users', 'ProfilesController');
         });
     });

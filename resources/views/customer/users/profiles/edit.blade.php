@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        {!! Form::open(['route' => ['customer.users.update', $profile['data']['user']['identifier']], 'class' => 'form-horizontal', 'role' => 'form', 'autoprimary' => 'off', 'novalidate' => 'novalidate', 'method' => 'PUT']) !!}
+                        {!! Form::open(['route' => ['customer.users.profiles.update', $profile['data']['user']['identifier']], 'class' => 'form-horizontal', 'role' => 'form', 'autoprimary' => 'off', 'novalidate' => 'novalidate', 'method' => 'PUT']) !!}
                         <div class="card-body">
                             <div class="card-body">
                                 <div class="form-group row">

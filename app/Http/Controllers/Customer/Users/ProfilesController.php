@@ -1,10 +1,9 @@
 <?php
 
-namespace template\Http\Controllers\Administrator\Users;
+namespace template\Http\Controllers\Customer\Users;
 
-use Illuminate\Http\Request;
 use template\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use template\Http\Request\Administrator\Users\Profiles\ProfileFormRequest;
+use template\Http\Request\Customer\Users\Profiles\ProfileFormRequest;
 use template\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use template\Domain\Users\Users\User;
 
@@ -36,7 +35,7 @@ class ProfilesController extends ControllerAbstract
     {
         try {
             return view(
-                'administrator.users.profiles.profile',
+                'customer.users.profiles.edit',
                 [
                     'profile' => $this->r_profiles->getUserProfile($user),
                     'families_situations' => $this
@@ -60,19 +59,19 @@ class ProfilesController extends ControllerAbstract
     /**
      * Update the specified resource in storage.
      *
-     * @param integer $id Profile id
+     * @param User $user
      * @param ProfileFormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id, ProfileFormRequest $request)
+    public function update(User $user, ProfileFormRequest $request)
     {
-        try {
-            $this->r_profiles->updateUserProfileWithRequest($request, $id);
-        } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
-            app('sentry')->captureException($exception);
-        }
-
-        return redirect(route('backend.users.profile.index'));
+//        try {
+            $this->r_profiles->updateUserProfileWithRequest($request, $user);
+//        } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
+//            app('sentry')->captureException($exception);
+//        }
+//
+        return redirect(route('customer.users.dashboard'));
     }
 }

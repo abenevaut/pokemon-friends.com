@@ -4,14 +4,12 @@ namespace template\Domain\Users\Profiles\Repositories;
 
 use Illuminate\Container\Container as Application;
 use Illuminate\Support\Collection;
-use template\Infrastructure\Contracts\
-{
+use template\Infrastructure\Contracts\{
     Request\RequestAbstract,
     Repositories\RepositoryEloquentAbstract
 };
 use Carbon\Carbon;
-use template\Domain\Users\Users\
-{
+use template\Domain\Users\Users\{
     User,
     Repositories\UsersRepositoryEloquent
 };
@@ -170,7 +168,7 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
      */
     public function updateUserProfileWithRequest(
         RequestAbstract $request,
-        $id
+        User $user
     ): void {
         $data = [
 //            'birth_date' => $request->has('birth_date')
@@ -185,18 +183,20 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
         ];
         $data = array_filter($data, function($v) { return !is_null($v); });
 
-        $profile = $this->update($data, $id);
+        if ($data) {
+            $this->update($data, $user->profile->id);
+        }
 
         $data = [
             'timezone' => $request->get('timezone'),
             'locale' => $request->get('locale'),
+            'civility' => $request->get('civility'),
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
         ];
-        $data = array_filter($data, function($v) { return !is_null($v); });
 
         if ($data) {
-            $user = $this
-                ->r_users
-                ->update($data, $profile->user->id);
+            $user = $this->r_users->update($data, $user->id);
             $this->r_users->refreshSession($user);
         }
     }

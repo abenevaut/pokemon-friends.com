@@ -40,9 +40,9 @@ class Profile extends ModelAbstract implements ProfileFamiliesSituationsInterfac
      */
     protected $fillable = [
         'user_id',
-        'birth_date',
-        'family_situation',
-        'maiden_name',
+//        'birth_date',
+//        'family_situation',
+//        'maiden_name',
         'is_sidebar_pined',
     ];
 
