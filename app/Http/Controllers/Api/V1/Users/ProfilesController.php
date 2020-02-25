@@ -2,7 +2,9 @@
 
 namespace template\Http\Controllers\Api\V1\Users;
 
+use Doctrine\DBAL\Query\QueryBuilder;
 use Illuminate\Http\Request;
+use template\Domain\Users\Profiles\Profile;
 use template\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use template\Domain\Users\Users\Transformers\UserTransformer;
 use template\Domain\Users\Users\User;
@@ -26,6 +28,20 @@ class ProfilesController extends ControllerAbstract
     public function __construct(ProfilesRepositoryEloquent $r_profiles)
     {
         $this->r_profiles = $r_profiles;
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
+    {
+        $profiles = $this
+            ->r_profiles
+            ->scopeQuery(function (Profile $model) {
+                return $model->whereNotNull('friend_code');
+            })
+            ->paginate();
+        return response()->json($profiles);
     }
 
     /**

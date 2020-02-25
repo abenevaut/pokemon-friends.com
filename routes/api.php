@@ -43,7 +43,7 @@ Route::group(
                 Route::group(['prefix' => 'profiles', 'as' => 'profiles.'], function () {
                     Route::get('family-situations', 'ProfilesController@familySituations');
                 });
-                Route::resource('profiles', 'ProfilesController', ['only' => ['update']]);
+                Route::resource('profiles', 'ProfilesController', ['only' => ['index', 'update']]);
                 Route::get('user', 'UsersController@user');
             });
             Route::resource('users', 'UsersController', ['only' => ['show']]);

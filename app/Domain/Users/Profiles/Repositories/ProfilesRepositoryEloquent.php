@@ -152,6 +152,14 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     }
 
     /**
+     * @return Collection
+     */
+    public function getTeamsColors(): Collection
+    {
+        return new Collection(Profile::COLORS);
+    }
+
+    /**
      * {@inheritdoc}
      * @throws \Exception
      */
@@ -171,14 +179,16 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
         User $user
     ): void {
         $data = [
-//            'birth_date' => $request->has('birth_date')
-//                ? Carbon::createFromFormat(
-//                    trans('global.date_format'),
-//                    $request->get('birth_date')
-//                )->format('Y-m-d')
-//                : null,
-//            'family_situation' => $request->get('family_situation'),
-//            'maiden_name' => $request->get('maiden_name'),
+            'birth_date' => $request->has('birth_date')
+                ? Carbon::createFromFormat(
+                    trans('global.date_format'),
+                    $request->get('birth_date')
+                )->format('Y-m-d')
+                : null,
+            'family_situation' => $request->get('family_situation'),
+            'maiden_name' => $request->get('maiden_name'),
+            'friend_code' => $request->get('friend_code'),
+            'team_color' => $request->get('team_color'),
             'is_sidebar_pined' => $request->get('is_sidebar_pined'),
         ];
         $data = array_filter($data, function($v) { return !is_null($v); });

@@ -39,6 +39,7 @@ class ProfilesController extends ControllerAbstract
                 'administrator.users.profiles.profile',
                 [
                     'profile' => $this->r_profiles->getUserProfile($user),
+                    'teams' => $this->r_profiles->getTeamsColors(),
                     'families_situations' => $this
                         ->r_profiles
                         ->getFamilySituations()

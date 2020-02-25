@@ -11,7 +11,11 @@
                 <collapse-sidebar-component></collapse-sidebar-component>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto"></ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt"></i> {{ trans('auth.logout') }}</a>
+            </li>
+        </ul>
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="{{ route('administrator.users.dashboard') }}" class="brand-link">

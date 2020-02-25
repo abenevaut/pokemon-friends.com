@@ -76,9 +76,6 @@ class RegisterController extends ControllerAbstract
         return $this
             ->r_users
             ->registerUser(
-                $data['civility'],
-                $data['first_name'],
-                $data['last_name'],
                 $data['email'],
                 $data['password']
             );

@@ -38,6 +38,7 @@ class ProfilesController extends ControllerAbstract
                 'customer.users.profiles.edit',
                 [
                     'profile' => $this->r_profiles->getUserProfile($user),
+                    'teams' => $this->r_profiles->getTeamsColors(),
                     'families_situations' => $this
                         ->r_profiles
                         ->getFamilySituations()
@@ -66,12 +67,12 @@ class ProfilesController extends ControllerAbstract
      */
     public function update(User $user, ProfileFormRequest $request)
     {
-//        try {
+        try {
             $this->r_profiles->updateUserProfileWithRequest($request, $user);
-//        } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
-//            app('sentry')->captureException($exception);
-//        }
-//
-        return redirect(route('customer.users.dashboard'));
+        } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
+            app('sentry')->captureException($exception);
+        }
+
+        return redirect(route('customer.users.profiles.edit', ['id' => $user->uniqid]));
     }
 }

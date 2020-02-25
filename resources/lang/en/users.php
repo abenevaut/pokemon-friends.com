@@ -54,6 +54,11 @@ return [
     'profiles.birth_date' => 'Date de naissance',
     'profiles.providers_tokens' => 'Lier vos comptes sociaux',
     'profiles.edit.title' => 'Profil utilisateur',
+    'profiles.friend_code' => 'Friend code',
+    'profiles.team_color' => 'Couleur d\'équipe',
+    'profiles.teams_colors.blue' => 'Mystic, blue team',
+    'profiles.teams_colors.red' => 'Valor, red team',
+    'profiles.teams_colors.yellow' => 'Instinct, yellow team',
 
     'leads.title' => 'Leads',
     'leads.transformed_user' => 'Transformed user',

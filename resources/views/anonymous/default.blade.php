@@ -23,9 +23,16 @@
                 </ul>
             </div>
             <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                @if(Auth::check())
+                @if(Auth::check() && Auth::user()->is_customer)
                     <li class="nav-item">
                         <a href="{{ route('customer.users.dashboard') }}" class="nav-link"><i class="fa fa-user"></i> {{ trans('users.profiles.edit.title') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt"></i> {{ trans('auth.logout') }}</a>
+                    </li>
+                @elseif(Auth::check() && Auth::user()->is_administrator)
+                    <li class="nav-item">
+                        <a href="{{ route('administrator.users.dashboard') }}" class="nav-link"><i class="fas fa-tachometer-alt"></i> {{ trans('users.dashboard') }}</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt"></i> {{ trans('auth.logout') }}</a>
@@ -60,6 +67,9 @@
         {!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!} <a href="{{ route('anonymous.terms') }}">{{ trans('global.terms') }}</a>
     </footer>
 </div>
+@if(!Auth::check())
+@include('cookieConsent::index')
+@endif
 @include('partials.scripts')
 </body>
 </html>
