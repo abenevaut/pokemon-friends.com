@@ -1,6 +1,10 @@
 <?php namespace template\Domain\Users\Users\Repositories;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\{
+    Auth,
+    Gate
+};
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Validation\Validator as ContractsValidator;
 use template\Infrastructure\Contracts\
@@ -26,6 +30,13 @@ use template\Domain\Users\Leads\Lead;
 
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepositoryInterface
 {
+
+    public function boot()
+    {
+        if (!Gate::allows(User::ROLE_ADMINISTRATOR)) {
+//            $this->pushCriteria();
+        }
+    }
 
     /**
      * {@inheritdoc}
