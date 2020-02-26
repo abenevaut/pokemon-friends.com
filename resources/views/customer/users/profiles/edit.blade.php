@@ -51,7 +51,13 @@
                             <div class="form-group row">
                                 <label for="friend_code" class="col-sm-2 col-form-label">{{ trans('users.profiles.friend_code') }}</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="friend_code" placeholder="{{ trans('users.profiles.friend_code') }}" name="friend_code" value="{{ $profile['data']['friend_code'] }}">
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="friend_code"
+                                            placeholder="{{ trans('users.profiles.friend_code') }}"
+                                            name="friend_code"
+                                            value="{{ $profile['data']['friend_code'] }}" />
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -19,6 +19,7 @@ class UsersRegistrationsRepositoryEloquent extends UsersRepositoryEloquent imple
             . User::CIVILITY_MISS . ',' . User::CIVILITY_MISTER,
         'first_name' => 'max:100',
         'last_name' => 'max:100',
+        'friend_code' => 'required|min:12|max:12',
         'email' => 'required|email|max:80|unique:users',
         'password' => 'required|min:6|confirmed',
     ];

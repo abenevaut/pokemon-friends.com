@@ -8,6 +8,23 @@
     <div class="input-group mb-3">
         <input
                 type="text"
+                name="friend_code"
+                class="form-control {{ $errors && $errors->has('friend_code') ? 'is-invalid' : '' }}"
+                placeholder="{{ trans('users.profiles.friend_code') }}"
+                value="{{ old('friend_code') }}"
+        />
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-users"></span>
+            </div>
+        </div>
+        @if ($errors && $errors->has('friend_code'))
+            <div class="error mb-2">{{ $errors->first('friend_code') }}</div>
+        @endif
+    </div>
+    <div class="input-group mb-3">
+        <input
+                type="email"
                 name="email"
                 class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}"
                 placeholder="{{ trans('users.email') }}"
