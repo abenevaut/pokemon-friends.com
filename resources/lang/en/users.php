@@ -42,6 +42,7 @@ return [
 	'message_created_success' => "User successfully added",
 	'message_updated_success' => "User has been successfully updated",
 	'message_deleted_success' => "User has been deleted",
+    'message_password_reset_success' => "Password has been successfully changed",
 	'message_user_tried_to_delete_his_own_account_error' => 'You cannot delete your own user account',
 
     'profiles.family_situation' => 'Situation familiale',

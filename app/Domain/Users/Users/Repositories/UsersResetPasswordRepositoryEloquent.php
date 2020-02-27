@@ -1,4 +1,6 @@
-<?php namespace template\Domain\Users\Users\Repositories;
+<?php
+
+namespace template\Domain\Users\Users\Repositories;
 
 use template\Domain\Users\Users\{
     Repositories\UsersResetPasswordRepositoryInterface
@@ -17,10 +19,26 @@ class UsersResetPasswordRepositoryEloquent extends UsersRepositoryEloquent imple
     ];
 
     /**
+     * @var array
+     */
+    protected $changePasswordRules = [
+        'current_password' => 'required|validpassword',
+        'password' => 'required|min:6|confirmed',
+    ];
+
+    /**
      * {@inheritdoc}
      */
     public function getResetPasswordRules(): array
     {
         return $this->resetPasswordRules;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getChangePasswordRules(): array
+    {
+        return $this->changePasswordRules;
     }
 }

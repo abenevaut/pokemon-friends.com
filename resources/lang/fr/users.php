@@ -20,6 +20,7 @@ return [
 	'first_name' => 'Prénom',
 	'last_name' => 'Nom',
 	'email' => 'Courriel',
+	'current_password' => 'Mot de passe actuel',
 	'password' => 'Mot de passe',
 	'password_confirmation' => 'Confirmer le mot de passe',
 
@@ -42,6 +43,7 @@ return [
 	'message_created_success' => "L'utilisateur a bien été ajouté",
 	'message_updated_success' => "L'utilisateur a bien été mis à jour",
 	'message_deleted_success' => "L'utilisateur a bien été supprimé",
+	'message_password_reset_success' => "Le mot de passe a bien été changé",
 	'message_user_tried_to_delete_his_own_account_error' => 'Vous ne pouvez pas supprimer votre propre compte utilisateur',
 
     'profiles.family_situation' => 'Situation familiale',
