@@ -39,9 +39,6 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a href="{{ route('register') }}" class="nav-link">{{ trans('auth.register') }}</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('login') }}" class="nav-link"><i class="fa fa-sign-in-alt"></i> {{ trans('auth.login') }}</a>
                     </li>
                 @endif
