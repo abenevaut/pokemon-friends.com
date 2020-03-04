@@ -61,15 +61,15 @@ class ProfilesController extends ControllerAbstract
     /**
      * Update the specified resource in storage.
      *
-     * @param integer $id Profile id
+     * @param User $user
      * @param ProfileFormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id, ProfileFormRequest $request)
+    public function update(User $user, ProfileFormRequest $request)
     {
         try {
-            $this->r_profiles->updateUserProfileWithRequest($request, $id);
+            $this->r_profiles->updateUserProfileWithRequest($request, $user);
         } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
             app('sentry')->captureException($exception);
         }

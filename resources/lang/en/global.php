@@ -5,6 +5,7 @@ return [
     'baseline' => 'Meetings to fulfill your fantasies!',
     'changelog' => 'Changelog',
     'copyright' => '&copy; :date <a href=":route">:name</a>. All rights reserved.',
+    'version' => '<b>Version</b> :version',
     'terms' => 'Terms of Service',
     'social_networks_baseline' => 'Follow us on social media',
 

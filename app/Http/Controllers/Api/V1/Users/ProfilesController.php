@@ -57,7 +57,7 @@ class ProfilesController extends ControllerAbstract
         try {
             $this
                 ->r_profiles
-                ->updateUserProfileWithRequest($request, $user->profile->id);
+                ->updateUserProfileWithRequest($request, $user);
 
             $user = (new UserTransformer())->transform($user->refresh());
         } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
