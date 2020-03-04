@@ -176,13 +176,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-
-                        Boosted friends codes
-
-                    </div>
-                </div>
+                <anonymous-trainers-profiles-list-component profiles="{{ $profiles->toJson() }}"></anonymous-trainers-profiles-list-component>
             </div>
         </div>
         @endif

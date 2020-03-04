@@ -63,8 +63,5 @@ export default {
         });
     },
   },
-  filters: {
-    pkmnFriendCode: (code) => `${code.slice(0, 4)}-${code.slice(4, 8)}-${code.slice(8, 12)}`,
-  },
 };
 </script>
