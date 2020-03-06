@@ -2,18 +2,23 @@
 
 namespace template\Domain\Users\Profiles\Repositories;
 
+use Carbon\Carbon;
 use Illuminate\Container\Container as Application;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use template\Infrastructure\Contracts\{
     Request\RequestAbstract,
     Repositories\RepositoryEloquentAbstract
 };
-use Carbon\Carbon;
 use template\Domain\Users\Users\{
     User,
     Repositories\UsersRepositoryEloquent
 };
 use template\Domain\Users\Profiles\{
+    Criterias\NotAuthenticatedLimitCriteria,
+    Criterias\OrderByUpdateAtCriteria,
+    Criterias\WhereFriendCodeNotNullCriteria,
+    Criterias\WhereSponsoredCriteria,
     Profile,
     Events\ProfileUpdatedEvent,
     Presenters\ProfilesListPresenter
@@ -21,6 +26,15 @@ use template\Domain\Users\Profiles\{
 
 class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements ProfilesRepository
 {
+
+    /**
+     * @var array
+     */
+    protected $fieldSearchable = [
+        'user.gid' => 'like',
+        'friend_code' => 'like',
+        'team_color'
+    ];
 
     /**
      * @var UsersRepositoryEloquent|null
@@ -39,6 +53,23 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
     ) {
         parent::__construct($app);
         $this->r_users = $r_users;
+    }
+
+    /**
+     *
+     */
+    public function boot()
+    {
+        $this
+            ->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'))
+            ->pushCriteria(WhereFriendCodeNotNullCriteria::class)
+            ->pushCriteria(OrderByUpdateAtCriteria::class);
+
+        if (!Auth::check()) {
+            $this
+                ->pushCriteria(NotAuthenticatedLimitCriteria::class)
+                ->pushCriteria(WhereSponsoredCriteria::class);
+        }
     }
 
     /**

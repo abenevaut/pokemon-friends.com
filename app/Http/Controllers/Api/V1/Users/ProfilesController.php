@@ -2,8 +2,8 @@
 
 namespace template\Http\Controllers\Api\V1\Users;
 
-use Doctrine\DBAL\Query\QueryBuilder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use template\Domain\Users\Profiles\Profile;
 use template\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use template\Domain\Users\Users\Transformers\UserTransformer;
@@ -37,10 +37,8 @@ class ProfilesController extends ControllerAbstract
     {
         $profiles = $this
             ->r_profiles
-            ->scopeQuery(function (Profile $model) {
-                return $model->whereNotNull('friend_code');
-            })
             ->paginate();
+
         return response()->json($profiles);
     }
 

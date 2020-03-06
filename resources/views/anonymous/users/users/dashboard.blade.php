@@ -5,43 +5,38 @@
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0 text-dark">Inscrivez-vous pour partager votre code ami et ajouter de nouvelles connaissances!</h1>
+                <h1 class="m-0 text-dark text-center">Inscrivez-vous pour partager votre code ami et rejoindre vote communauté de dresseurs!</h1>
             </div>
         </div>
     </div>
 </div>
 <div class="content">
     <div class="container">
-        @if(Auth::check())
-        <trainers-profiles-list-component></trainers-profiles-list-component>
-        @else
+        @if(!Auth::check())
         <div class="row">
-            <div class="col-lg-8">
+            <div class="d-none d-md-block col-lg-8">
                 <div class="card card-widget widget-user">
                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header text-white" style="background: url(/images/pkmn-go-banner.jpg) no-repeat center center;">
+                    <div class="widget-user-header text-white" style="background: url(/images/pokemon-banner.jpg) no-repeat center center;">
                         <h3 class="widget-user-username text-right">{{ trans('pokemon.welcome') }}</h3>
                     </div>
                     <div class="widget-user-image">
-                        <img class="img-circle" src="/images/avatar.png" alt="User Avatar">
+                        <img class="img-circle" src="{{ asset('images/avatar.png') }}" alt="User Avatar">
                     </div>
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-{{--                                    <h5 class="description-header">3,200</h5>--}}
                                     <span class="description-text">Partagez des cados</span>
                                 </div>
                             </div>
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-{{--                                    <h5 class="description-header">13,000</h5>--}}
-                                    <span class="description-text">Obtenez des oeufs régionaux</span>
+                                    <span class="description-text">Combattez vos amis</span>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="description-block">
-{{--                                    <h5 class="description-header">35</h5>--}}
                                     <span class="description-text">Boostez votre XP</span>
                                 </div>
                             </div>
@@ -134,52 +129,42 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
+                        <div class="ribbon-wrapper ribbon-lg">
+                            <div class="ribbon bg-danger">
+                                BETA
+                            </div>
+                        </div>
 
-                        // en
-                        https://niantic.helpshift.com/a/pokemon-go/?p=web&l=en&s=friends-gifting-and-trading&f=friend-list-friendship-levels
-
-                        // fr
-                        https://niantic.helpshift.com/a/pokemon-go/?p=web&l=fr&s=friends-gifting-and-trading&f=friend-list-friendship-levels
+                        <p>Inscrivez-vous pour partager votre code ami et rejoindre vote communauté de dresseurs!</p>
+                        <p>L'équipe <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> travail activement sur les prochaines fonctionnalités de votre plateforme pour votre plus grand plaisir</p>
 
                     </div>
+                </div>
+                <div class="alert alert-info">
+                    <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a>, est un site communautaire qui n'est pas une filliale de Niantic.
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
-
-                        // en
-                        https://niantic.helpshift.com/a/pokemon-go/?p=web&l=en&s=friends-gifting-and-trading&f=friend-list-friendship-levels
-
-                        // fr
-                        https://niantic.helpshift.com/a/pokemon-go/?p=web&l=fr&s=friends-gifting-and-trading&f=friend-list-friendship-levels
-
+                        <iframe width="100%" src="https://www.youtube.com/embed/2GNw1j7fepI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <a
+                                class="btn btn-primary btn-block"
+                                target="_blank"
+                                rel="noopener noreferrer nofollow"
+                                href="https://niantic.helpshift.com/a/pokemon-go/?p=web&l={{ Session::get('locale') }}&s=friends-gifting-and-trading&f=friend-list-friendship-levels"
+                        >
+                            La documentation officiel
+                        </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-
-                        // en
-                        https://niantic.helpshift.com/a/pokemon-go/?p=web&l=en&s=friends-gifting-and-trading&f=friend-list-friendship-levels
-
-                        // fr
-                        https://niantic.helpshift.com/a/pokemon-go/?p=web&l=fr&s=friends-gifting-and-trading&f=friend-list-friendship-levels
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <anonymous-trainers-profiles-list-component profiles="{{ $profiles->toJson() }}"></anonymous-trainers-profiles-list-component>
             </div>
         </div>
         @endif
+        <trainers-profiles-list-component></trainers-profiles-list-component>
     </div>
 </div>
 @endsection

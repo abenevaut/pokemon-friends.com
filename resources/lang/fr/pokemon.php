@@ -2,6 +2,6 @@
 
 return [
 
-    'welcome' => "Maintenant, allez tous les attraper !",
+    'welcome' => "Maintenant, allez tous les partager !",
 
 ];

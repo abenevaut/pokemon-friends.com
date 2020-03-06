@@ -6,7 +6,7 @@
       <div v-for="profile in profiles.data"
            :key="profile.identifier"
            :id="profile.identifier"
-           class="col-lg-3"
+           class="col-lg-2"
       >
         <div
           :class="{

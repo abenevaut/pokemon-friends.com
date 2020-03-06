@@ -2,6 +2,8 @@
 
 namespace template\Http\Controllers\Anonymous\Users;
 
+use Illuminate\Support\Collection;
+use template\Domain\Users\Profiles\Presenters\ProfilesListPresenter;
 use template\Domain\Users\Profiles\Profile;
 use template\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use template\Infrastructure\Contracts\Controllers\ControllerAbstract;
@@ -29,22 +31,12 @@ class UsersController extends ControllerAbstract
      */
     public function dashboard()
     {
-        $profiles = $this
-            ->r_profile
-            ->scopeQuery(function (Profile $model) {
-                return $model
-                    ->limit(12)
-                    ->orderBy('updated_at');
-            })
-            ->get(['friend_code']);
-
         return view(
             'anonymous.users.users.dashboard',
             [
                 'metadata' => [
                     'title' => 'Template www',
                 ],
-                'profiles' => $profiles,
             ]
         );
     }

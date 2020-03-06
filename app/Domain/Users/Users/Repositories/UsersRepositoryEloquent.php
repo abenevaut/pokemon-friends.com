@@ -1,19 +1,14 @@
-<?php namespace template\Domain\Users\Users\Repositories;
+<?php
+
+namespace template\Domain\Users\Users\Repositories;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\{
-    Auth,
-    Gate
-};
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Validation\Validator as ContractsValidator;
 use template\Infrastructure\Contracts\
 {
     Repositories\RepositoryEloquentAbstract,
     Request\RequestAbstract
 };
 use template\Domain\Users\Users\{
-    Repositories\UsersRepositoryInterface,
     User,
     Criterias\EmailLikeCriteria,
     Criterias\FullNameLikeCriteria,
@@ -26,17 +21,9 @@ use template\Domain\Users\Users\{
     Events\UserTriedToDeleteHisOwnAccountEvent,
     Presenters\UsersListPresenter
 };
-use template\Domain\Users\Leads\Lead;
 
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepositoryInterface
 {
-
-    public function boot()
-    {
-        if (!Gate::allows(User::ROLE_ADMINISTRATOR)) {
-//            $this->pushCriteria();
-        }
-    }
 
     /**
      * {@inheritdoc}
