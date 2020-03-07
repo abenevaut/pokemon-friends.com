@@ -15,7 +15,7 @@ class UsersResetPasswordRepositoryEloquent extends UsersRepositoryEloquent imple
     protected $resetPasswordRules = [
         'token' => 'required',
         'email' => 'required|email|max:80',
-        'password' => 'required|min:6|confirmed',
+        'password' => 'required|confirmed|min:8',
     ];
 
     /**
@@ -23,7 +23,7 @@ class UsersResetPasswordRepositoryEloquent extends UsersRepositoryEloquent imple
      */
     protected $changePasswordRules = [
         'current_password' => 'required|validpassword',
-        'password' => 'required|min:6|confirmed',
+        'password' => 'required|confirmed|min:8',
     ];
 
     /**

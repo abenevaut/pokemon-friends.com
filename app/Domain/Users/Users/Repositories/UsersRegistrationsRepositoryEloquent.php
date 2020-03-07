@@ -21,7 +21,7 @@ class UsersRegistrationsRepositoryEloquent extends UsersRepositoryEloquent imple
         'last_name' => 'max:100',
         'friend_code' => 'required|min:12|max:12',
         'email' => 'required|email|max:80|unique:users',
-        'password' => 'required|min:6|confirmed',
+        'password' => 'required|confirmed|min:8',
     ];
 
     /**
