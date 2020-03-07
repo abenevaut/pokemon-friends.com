@@ -32,17 +32,17 @@
                         <div class="row">
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                    <span class="description-text">Partagez des cados</span>
+                                    <span class="description-text">{{ trans('global.share_gift') }}</span>
                                 </div>
                             </div>
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                    <span class="description-text">Combattez vos amis</span>
+                                    <span class="description-text">{{ trans('global.fight_friend') }}</span>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="description-block">
-                                    <span class="description-text">Boostez votre XP</span>
+                                    <span class="description-text">{{ trans('global.boost_xp') }}</span>
                                 </div>
                             </div>
                         </div>

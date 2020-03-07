@@ -8,6 +8,9 @@ return [
     'version' => '<b>Version</b> :version',
     'terms' => 'Terms of Service',
     'social_networks_baseline' => 'Follow us on social media',
+    'share_gift' => 'Share gifts',
+    'fight_friend' => 'Fight your friends',
+    'boost_xp' => 'Boost your XP',
 
     'beta' => 'Beta',
     'add' => 'Add',

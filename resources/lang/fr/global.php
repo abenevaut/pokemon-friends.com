@@ -8,6 +8,9 @@ return [
     'version' => '<b>Version</b> :version',
     'terms' => 'Conditions générales d\'utilisation',
     'social_networks_baseline' => 'Suivez nous sur les réseaux sociaux',
+    'share_gift' => 'Partagez des cadeaux',
+    'fight_friend' => 'Combattez vos amis',
+    'boost_xp' => 'Boostez votre XP',
 
     'beta' => 'Beta',
     'add' => 'Ajouter',
