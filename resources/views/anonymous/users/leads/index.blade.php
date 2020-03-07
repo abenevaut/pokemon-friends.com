@@ -34,7 +34,6 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="civility">{{ trans('users.civility') }}</label>
                                     <select name="civility" id="civility" class="form-control">
                                         @foreach ($civilities as $key => $trans)
                                         <option
@@ -49,7 +48,6 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="first_name">{{ trans('users.first_name') }}</label>
                                     <input
                                             type="text"
                                             name="first_name"
@@ -58,13 +56,12 @@
                                             value="{{ old('first_name', Auth::check() ? Auth::user()->first_name : '') }}"
                                     />
                                     @if ($errors && $errors->has('first_name'))
-                                    <span class="text-danger">{{ $errors->first('first_name') }}</span>
+                                        <span class="text-danger text-sm">{{ $errors->first('first_name') }}</span>
                                     @endif
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="last_name">{{ trans('users.last_name') }}</label>
                                     <input
                                             type="text"
                                             name="last_name"
@@ -73,13 +70,12 @@
                                             value="{{ old('last_name', Auth::check() ? Auth::user()->last_name : '') }}"
                                     />
                                     @if ($errors && $errors->has('last_name'))
-                                    <span class="text-danger">{{ $errors->first('last_name') }}</span>
+                                        <span class="text-danger text-sm">{{ $errors->first('last_name') }}</span>
                                     @endif
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">{{ trans('users.email') }}</label>
                             <input
                                     type="text"
                                     name="email"
@@ -88,11 +84,10 @@
                                     value="{{ old('email', Auth::check() ? Auth::user()->email : '') }}"
                             />
                             @if ($errors && $errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                <span class="text-danger text-sm">{{ $errors->first('email') }}</span>
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="subject">{{ trans('users.leads.subject') }}</label>
                             <input
                                     type="text"
                                     name="subject"
@@ -101,11 +96,10 @@
                                     value="{{ old('subject') }}"
                             />
                             @if ($errors && $errors->has('subject'))
-                            <span class="text-danger">{{ $errors->first('subject') }}</span>
+                                <span class="text-danger text-sm">{{ $errors->first('subject') }}</span>
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="message">{{ trans('users.leads.message') }}</label>
                             <textarea
                                     name="message"
                                     class="form-control @if ($errors && $errors->has('message')) is-invalid @endif"
@@ -115,13 +109,13 @@
                                 {{ old('message', '') }}
                             </textarea>
                             @if ($errors && $errors->has('message'))
-                            <span class="text-danger">{{ $errors->first('message') }}</span>
+                                <span class="text-danger text-sm">{{ $errors->first('message') }}</span>
                             @endif
                         </div>
                         <div>
                             <google-recaptcha-component></google-recaptcha-component>
                             @if ($errors && $errors->has('g-recaptcha-response'))
-                            <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                <span class="text-danger text-sm">{{ $errors->first('g-recaptcha-response') }}</span>
                             @endif
                         </div>
                     </div>
