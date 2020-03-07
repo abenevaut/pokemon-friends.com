@@ -69,11 +69,16 @@ class RegisterController extends ControllerAbstract
      */
     protected function create(array $data)
     {
-        return $this
+        $user = $this
             ->r_users
             ->registerUser(
                 $data['email'],
                 $data['password']
             );
+
+        $user->profile->friend_code = $data['friend_code'];
+        $user->profile->save();
+
+        return $user;
     }
 }

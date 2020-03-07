@@ -4,7 +4,8 @@ namespace template\Http\Controllers\Api\V1\Users;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use template\Domain\Users\Profiles\Profile;
+use template\Domain\Users\Profiles\Criterias\NotAuthenticatedLimitCriteria;
+use template\Domain\Users\Profiles\Criterias\WhereSponsoredCriteria;
 use template\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use template\Domain\Users\Users\Transformers\UserTransformer;
 use template\Domain\Users\Users\User;
@@ -35,6 +36,13 @@ class ProfilesController extends ControllerAbstract
      */
     public function index()
     {
+        if (!Auth::guard('api')->check()) {
+            $this
+                ->r_profiles
+                ->pushCriteria(NotAuthenticatedLimitCriteria::class)
+                ->pushCriteria(WhereSponsoredCriteria::class);
+        }
+
         $profiles = $this
             ->r_profiles
             ->paginate();
@@ -66,7 +74,7 @@ class ProfilesController extends ControllerAbstract
     }
 
     /**
-     * Profile familly situations.
+     * Profile family situations.
      *
      * @param Request $request
      *

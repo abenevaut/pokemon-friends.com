@@ -64,12 +64,6 @@ class ProfilesRepositoryEloquent extends RepositoryEloquentAbstract implements P
             ->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'))
             ->pushCriteria(WhereFriendCodeNotNullCriteria::class)
             ->pushCriteria(OrderByUpdateAtCriteria::class);
-
-        if (!Auth::check()) {
-            $this
-                ->pushCriteria(NotAuthenticatedLimitCriteria::class)
-                ->pushCriteria(WhereSponsoredCriteria::class);
-        }
     }
 
     /**
