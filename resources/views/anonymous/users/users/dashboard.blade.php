@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0 text-dark text-center">Inscrivez-vous pour partager votre code ami et rejoindre vote communauté de dresseurs!</h1>
+                <h1 class="m-0 text-dark text-center">{{ trans('global.baseline') }}</h1>
             </div>
         </div>
     </div>
@@ -16,9 +16,14 @@
         <div class="row">
             <div class="d-none d-md-block col-lg-8">
                 <div class="card card-widget widget-user">
+                    <div class="ribbon-wrapper ribbon-lg">
+                        <div class="ribbon bg-danger">
+                            {{ trans('global.beta') }}
+                        </div>
+                    </div>
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header text-white" style="background: url(/images/pokemon-banner.jpg) no-repeat center center;">
-                        <h3 class="widget-user-username text-right">{{ trans('pokemon.welcome') }}</h3>
+                        <h3 class="widget-user-username text-left">{{ trans('pokemon.welcome') }}</h3>
                     </div>
                     <div class="widget-user-image">
                         <img class="img-circle" src="{{ asset('images/avatar.png') }}" alt="User Avatar">
@@ -49,70 +54,78 @@
                     {!! Form::open(['route' => ['register'], 'method' => 'POST']) !!}
                     @honeypot
                     <div class="card-body">
-                        <div class="input-group mb-2">
-                            <input
-                                    type="text"
-                                    name="friend_code"
-                                    class="form-control {{ $errors && $errors->has('friend_code') ? 'is-invalid' : '' }}"
-                                    placeholder="{{ trans('users.profiles.friend_code') }}"
-                                    value="{{ old('friend_code') }}"
-                            />
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-users"></span>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input
+                                        type="text"
+                                        name="friend_code"
+                                        class="form-control {{ $errors && $errors->has('friend_code') ? 'is-invalid' : '' }}"
+                                        placeholder="{{ trans('users.profiles.friend_code') }}"
+                                        value="{{ old('friend_code') }}"
+                                />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-users"></span>
+                                    </div>
                                 </div>
                             </div>
                             @if ($errors && $errors->has('friend_code'))
-                                <div class="error mb-2">{{ $errors->first('friend_code') }}</div>
+                                <div class="text-danger text-sm">{{ $errors->first('friend_code') }}</div>
                             @endif
                         </div>
-                        <div class="input-group mb-2">
-                            <input
-                                    type="email"
-                                    name="email"
-                                    class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}"
-                                    placeholder="{{ trans('users.email') }}"
-                                    value="{{ old('email') }}"
-                            />
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input
+                                        type="email"
+                                        name="email"
+                                        class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}"
+                                        placeholder="{{ trans('users.email') }}"
+                                        value="{{ old('email') }}"
+                                />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
                                 </div>
                             </div>
                             @if ($errors && $errors->has('email'))
-                                <div class="error mb-2">{{ $errors->first('email') }}</div>
+                                <div class="text-danger text-sm">{{ $errors->first('email') }}</div>
                             @endif
                         </div>
-                        <div class="input-group mb-2">
-                            <input
-                                    type="password"
-                                    name="password"
-                                    class="form-control {{ $errors && $errors->has('password') ? 'is-invalid' : '' }}"
-                                    placeholder="{{ trans('users.password') }}"
-                            />
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input
+                                        type="password"
+                                        name="password"
+                                        class="form-control {{ $errors && $errors->has('password') ? 'is-invalid' : '' }}"
+                                        placeholder="{{ trans('users.password') }}"
+                                />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
                                 </div>
                             </div>
                             @if ($errors && $errors->has('password'))
-                                <div class="error mb-2">{{ $errors->first('password') }}</div>
+                                <div class="text-danger text-sm">{{ $errors->first('password') }}</div>
                             @endif
                         </div>
-                        <div class="input-group mb-2">
-                            <input
-                                    type="password"
-                                    name="password_confirmation"
-                                    class="form-control {{ $errors && $errors->has('password_confirmation') ? 'is-invalid' : '' }}"
-                                    placeholder="{{ trans('users.password_confirmation') }}"
-                            />
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input
+                                        type="password"
+                                        name="password_confirmation"
+                                        class="form-control {{ $errors && $errors->has('password_confirmation') ? 'is-invalid' : '' }}"
+                                        placeholder="{{ trans('users.password_confirmation') }}"
+                                />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
                                 </div>
                             </div>
                             @if ($errors && $errors->has('password_confirmation'))
-                                <div class="error mb-2">{{ $errors->first('password_confirmation') }}</div>
+                                <div class="text-danger text-sm">{{ $errors->first('password_confirmation') }}</div>
                             @endif
                         </div>
                         <div class="sm-p-t-10 clearfix"></div>
@@ -132,11 +145,6 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <div class="ribbon-wrapper ribbon-lg">
-                            <div class="ribbon bg-danger">
-                                BETA
-                            </div>
-                        </div>
 
                         <p>Inscrivez-vous pour partager votre code ami et rejoindre vote communauté de dresseurs!</p>
                         <p>L'équipe <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> travail activement sur les prochaines fonctionnalités de votre plateforme pour votre plus grand plaisir</p>

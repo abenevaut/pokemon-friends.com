@@ -116,6 +116,9 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="alert alert-info">
+                                Les informations suivante ne sont pas public (affichées sur internet) et ne sont pas transmisent à des services tiers.
+                            </div>
                             <div class="form-group row">
                                 <label for="first_name" class="col-sm-2 col-form-label">{{ trans('users.first_name') }}</label>
                                 <div class="col-sm-10">
@@ -179,8 +182,13 @@
                     {{ Form::close() }}
                 </div>
             </div>
-
             <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <h5><i class="icon fas fa-info"></i> Information</h5>
+                        Il n'est pas encore possible de changer son adresse email, mais vous pouvez en faire la demande sur <a href="{{ route('anonymous.contact.index') }}">la page de contact</a>.
+                    </div>
+                </div>
                 <div class="col-12">
                     {!! Form::open(['route' => ['customer.users.update-password', $profile['data']['user']['identifier']], 'class' => 'form-horizontal', 'role' => 'form', 'autoprimary' => 'off', 'novalidate' => 'novalidate', 'method' => 'PUT']) !!}
                     <div class="card">

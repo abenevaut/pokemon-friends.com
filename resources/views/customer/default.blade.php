@@ -24,14 +24,14 @@
             </div>
             <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                 <li class="nav-item">
-                    <a href="{{ route('customer.users.dashboard') }}" class="nav-link"><i class="fa fa-user"></i> {{ trans('users.profiles.edit.title') }}</a>
+                    <a href="{{ route('customer.users.dashboard') }}" class="nav-link"><i class="fa fa-user mr-2"></i>{{ trans('users.profiles.edit.title') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt"></i> {{ trans('auth.logout') }}</a>
+                    <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt mr-2"></i>{{ trans('auth.logout') }}</a>
                 </li>
                 @impersonating
                 <li class="nav-item">
-                    <a class="btn btn-primary" href="{{ route('impersonate.leave') }}"><i class="fa fa-user-times"></i> {{ trans('users.stop_impersonation') }}</a>
+                    <a class="btn btn-primary" href="{{ route('impersonate.leave') }}"><i class="fa fa-user-times mr-2"></i>{{ trans('users.stop_impersonation') }}</a>
                 </li>
                 @endImpersonating
             </ul>
@@ -90,7 +90,7 @@
 {{--                <a href="{{ config('services.twitter.url') }}" target="_blank" rel="noopener" title="twitter.com"><i class="fab fa-twitter"></i></a>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-        {!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!} <a href="{{ route('anonymous.terms') }}">{{ trans('global.terms') }}</a>
+        <span class="mr-1">{!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}</span><a href="{{ route('anonymous.terms') }}">{{ trans('global.terms') }}</a>
     </footer>
 </div>
 @include('partials.scripts')

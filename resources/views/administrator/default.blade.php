@@ -13,7 +13,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt"></i> {{ trans('auth.logout') }}</a>
+                <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt mr-2"></i>{{ trans('auth.logout') }}</a>
             </li>
         </ul>
     </nav>
@@ -135,7 +135,7 @@
         <div class="float-right d-none d-sm-block">
             {!! trans('global.version', ['version' => env('APP_TAG')]) !!}
         </div>
-        {!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}
+        <span class="mr-0">{!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}</span>
     </footer>
     <aside class="control-sidebar control-sidebar-dark"></aside>
 </div>

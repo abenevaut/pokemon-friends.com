@@ -16,6 +16,9 @@ return [
 	'role.customer' => 'Client',
 
 	'locale' => 'Langue',
+    'locale.fr' => 'Français',
+    'locale.en' => 'Anglais',
+
 	'timezone' => 'Fuseau horaire',
 	'first_name' => 'Prénom',
 	'last_name' => 'Nom',

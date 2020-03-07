@@ -16,10 +16,13 @@ return [
 	'role.customer' => 'Customer',
 
 	'locale' => 'Language',
+    'locale.fr' => 'French',
+    'locale.en' => 'English',
+
 	'timezone' => 'Time zone',
 	'first_name' => 'First name',
 	'last_name' => 'Last name',
-	'email' => 'email',
+	'email' => 'Email',
 	'password' => 'Password',
 	'password_confirmation' => 'Confirm password',
 

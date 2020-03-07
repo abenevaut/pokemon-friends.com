@@ -47,7 +47,7 @@ class RegisterController extends ControllerAbstract
     public function showRegistrationForm()
     {
         return view('auth.register', [
-            'civilities' => $this->r_users->getCivilities()
+            'civilities' => $this->r_users->getCivilities(),
         ]);
     }
 
