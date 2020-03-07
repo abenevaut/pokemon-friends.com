@@ -133,7 +133,7 @@
     </div>
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">
-            {!! trans('global.version', ['version' => env('APP_TAG')]) !!}
+            {!! trans('global.version', ['version' => env('APP_VERSION')]) !!}
         </div>
         <span class="mr-0">{!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}</span>
     </footer>
