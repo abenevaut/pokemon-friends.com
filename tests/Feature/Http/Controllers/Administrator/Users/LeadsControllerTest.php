@@ -28,10 +28,10 @@ class LeadsControllerTest extends TestCase
             ->assertSeeText('Leads')
             ->assertSeeText('Transform into a user')
             ->assertSeeText($leads->last()->email)
-            ->assertSeeText(htmlentities($leads->last()->civility_name))
+            ->assertSeeText($leads->last()->civility_name)
             ->assertSeeText($leads->last()->identifier)
             ->assertDontSeeText($leads->first()->email)
-            ->assertDontSeeText(htmlentities($leads->first()->civility_name))
+            ->assertDontSeeText($leads->first()->civility_name)
             ->assertDontSeeText($leads->first()->identifier)
             ->assertSuccessful();
     }
@@ -55,7 +55,31 @@ class LeadsControllerTest extends TestCase
             ->assertSeeText('Aucune action')
             ->assertSeeInOrder(['<tr id="lead_1">', '<i class="far fa-user-circle" title="Transformed user"></i>'])
             ->assertSeeText($lead->email)
-            ->assertSeeText(htmlentities($lead->civility_name))
+            ->assertSeeText($lead->civility_name)
+            ->assertSeeText($lead->identifier)
+            ->assertSuccessful();
+    }
+
+    public function testUpdateWithApostrophe()
+    {
+        $this->actingAsAdministrator();
+        $lead = factory(Lead::class)->create(['last_name' => "D'amore"]);
+        Notification::fake();
+        $this
+            ->assertAuthenticated()
+            ->put("/administrator/users/leads/{$lead->id}")
+            ->assertStatus(302)
+            ->assertRedirect('administrator/users/leads');
+        $lead->refresh();
+        Notification::assertSentTo($lead->user, CreatedAccountByAdministrator::class);
+
+        $this
+            ->assertAuthenticated()
+            ->get('/administrator/users/leads')
+            ->assertSeeText('Aucune action')
+            ->assertSeeInOrder(['<tr id="lead_1">', '<i class="far fa-user-circle" title="Transformed user"></i>'])
+            ->assertSeeText($lead->email)
+            ->assertSeeText($lead->civility_name)
             ->assertSeeText($lead->identifier)
             ->assertSuccessful();
     }
