@@ -5,7 +5,6 @@
     j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth={{ env('GOOGLE_TAG_AUTH') }}&gtm_preview=env-2&gtm_cookies_win=x';
     f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ env('GOOGLE_TAG_MANAGER') }}');
   dataLayer = [{
-    'env': '{{ config('env') }}',
-    'googleAnalyticsTests': '{{ env('GOOGLE_ANALYTICS_TESTS') }}'
+    'env': '{{ config('env') }}'
   }];
 </script>
