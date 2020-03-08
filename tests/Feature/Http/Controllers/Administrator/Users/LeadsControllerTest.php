@@ -28,10 +28,10 @@ class LeadsControllerTest extends TestCase
             ->assertSeeText('Leads')
             ->assertSeeText('Transform into a user')
             ->assertSeeText($leads->last()->email)
-            ->assertSeeText($leads->last()->civility_name)
+            ->assertSeeText(htmlentities($leads->last()->civility_name))
             ->assertSeeText($leads->last()->identifier)
             ->assertDontSeeText($leads->first()->email)
-            ->assertDontSeeText($leads->first()->civility_name)
+            ->assertDontSeeText(htmlentities($leads->first()->civility_name))
             ->assertDontSeeText($leads->first()->identifier)
             ->assertSuccessful();
     }
@@ -43,7 +43,7 @@ class LeadsControllerTest extends TestCase
         Notification::fake();
         $this
             ->assertAuthenticated()
-            ->put('/administrator/users/leads/'.$lead->id)
+            ->put("/administrator/users/leads/{$lead->id}")
             ->assertStatus(302)
             ->assertRedirect('administrator/users/leads');
         $lead->refresh();
@@ -55,7 +55,7 @@ class LeadsControllerTest extends TestCase
             ->assertSeeText('Aucune action')
             ->assertSeeInOrder(['<tr id="lead_1">', '<i class="far fa-user-circle" title="Transformed user"></i>'])
             ->assertSeeText($lead->email)
-            ->assertSeeText($lead->civility_name)
+            ->assertSeeText(htmlentities($lead->civility_name))
             ->assertSeeText($lead->identifier)
             ->assertSuccessful();
     }
