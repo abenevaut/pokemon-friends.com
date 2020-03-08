@@ -1,0 +1,19 @@
+module.exports = function(api) {
+  api.cache(false);
+  return {
+    presets: ['@vue/app', 'babel-preset-expo'],
+    plugins: [],
+    env: {
+      test: {
+        plugins: [
+          ['istanbul', {
+            useInlineSourceMaps: false,
+            exclude: [
+              '**/*.spec.js',
+            ],
+          }],
+        ],
+      },
+    },
+  };
+};

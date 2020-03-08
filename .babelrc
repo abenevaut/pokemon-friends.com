@@ -1,5 +1,5 @@
 {
-  "presets": ["@vue/app"],
+  "presets": ["@vue/app","babel-preset-expo"],
   "plugins": [],
   "env": {
     "test": {
