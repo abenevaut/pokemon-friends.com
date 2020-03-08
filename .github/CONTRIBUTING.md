@@ -9,6 +9,7 @@ All PRs have to follow the [conventional commits v1.0.x](https://www.conventiona
     - laradock or docker
     - theme
     - app (application or infrastructure - related to `app/Infrastructure` directory)
+    - mobile (mobile application directory)
     - auth (core domain - laravel imposed domain)
     - oauth (core domain - laravel passport imposed domain)
     - users (domain)
