@@ -29,3 +29,13 @@ travis.tar
 .nyc_output
 public/sitemap.xml
 http-client.env.json
+
+.expo/*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+web-report/

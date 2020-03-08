@@ -3,3 +3,7 @@
 [Pokemon Go friends web application](https://www.pokemon-friends.com)
 
 Based on [abenevaut/www-template](https://github.com/abenevaut/www-template) 
+
+# Mobile app
+
+https://vue-native.io/docs/installation.html
