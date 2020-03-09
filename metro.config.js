@@ -13,7 +13,7 @@ module.exports = (async () => {
   } = await getDefaultConfig();
   return {
     transformer: {
-      babelTransformerPath: require.resolve('./vueTransformerPlugin.js'),
+      babelTransformerPath: require.resolve('./app/mobile/vueTransformerPlugin.js'),
       getTransformOptions: async () => ({
         transform: {
           experimentalImportSupport: false,
