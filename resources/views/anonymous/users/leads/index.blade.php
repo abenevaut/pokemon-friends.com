@@ -34,7 +34,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <select name="civility" id="civility" class="form-control">
+                                    <select name="civility" id="civility" class="form-control" {{ Auth::check() ? 'readonly' : '' }}>
                                         @foreach ($civilities as $key => $trans)
                                         <option
                                                 value="{{ $key }}"
@@ -54,6 +54,7 @@
                                             class="form-control @if ($errors && $errors->has('first_name')) is-invalid @endif"
                                             placeholder="{{ trans('users.first_name') }}"
                                             value="{{ old('first_name', Auth::check() ? Auth::user()->first_name : '') }}"
+                                            {{ Auth::check() ? 'readonly' : '' }}
                                     />
                                     @if ($errors && $errors->has('first_name'))
                                         <span class="text-danger text-sm">{{ $errors->first('first_name') }}</span>
@@ -68,6 +69,7 @@
                                             class="form-control @if ($errors && $errors->has('last_name')) is-invalid @endif"
                                             placeholder="{{ trans('users.last_name') }}"
                                             value="{{ old('last_name', Auth::check() ? Auth::user()->last_name : '') }}"
+                                            {{ Auth::check() ? 'readonly' : '' }}
                                     />
                                     @if ($errors && $errors->has('last_name'))
                                         <span class="text-danger text-sm">{{ $errors->first('last_name') }}</span>
@@ -76,13 +78,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input
-                                    type="text"
-                                    name="email"
-                                    class="form-control @if ($errors && $errors->has('email')) is-invalid @endif"
-                                    placeholder="{{ trans('users.email') }}"
-                                    value="{{ old('email', Auth::check() ? Auth::user()->email : '') }}"
-                            />
+                            <div class="input-group">
+                                <input
+                                        type="text"
+                                        name="email"
+                                        class="form-control @if ($errors && $errors->has('email')) is-invalid @endif"
+                                        placeholder="{{ trans('users.email') }}"
+                                        value="{{ old('email', Auth::check() ? Auth::user()->email : '') }}"
+                                        {{ Auth::check() ? 'readonly' : '' }}
+                                />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
                             @if ($errors && $errors->has('email'))
                                 <span class="text-danger text-sm">{{ $errors->first('email') }}</span>
                             @endif
