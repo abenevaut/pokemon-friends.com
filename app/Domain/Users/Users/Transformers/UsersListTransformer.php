@@ -46,6 +46,9 @@ class UsersListTransformer extends TransformerAbstract
                 'can_impersonate' => $model->canImpersonate(),
                 'can_be_impersonated' => $model->canBeImpersonated(),
             ],
+            'created_at' => $model
+                ->created_at_tz
+                ->format(trans('global.date_format')),
         ];
 
         if ($model->lead instanceof Lead) {

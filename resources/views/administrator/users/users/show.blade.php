@@ -73,6 +73,15 @@
                                     </div>
 {{--                                    !When no report at all --}}
 
+                                    <div class="time-label"><span class="bg-info">{{ $user['data']['created_at'] }}</span></div>
+                                    <div>
+                                        <i class="fas fa-info bg-info"></i>
+                                        <div class="timeline-item">
+                                            <span class="time"><i class="far fa-clock mr-2"></i>{{ $user['data']['created_at'] }}</span>
+                                            <h3 class="timeline-header border-0">{{ trans('auth.registration') }}</h3>
+                                        </div>
+                                    </div>
+
                                     <div><i class="far fa-clock bg-gray"></i></div>
                                 </div>
 
