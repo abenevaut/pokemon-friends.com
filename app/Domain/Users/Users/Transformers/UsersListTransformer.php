@@ -1,5 +1,6 @@
 <?php namespace template\Domain\Users\Users\Transformers;
 
+use template\Domain\Users\Profiles\Profile;
 use template\Infrastructure\Contracts\Transformers\TransformerAbstract;
 use template\Domain\Users\Users\User;
 use template\Domain\Users\Leads\Lead;
@@ -36,6 +37,7 @@ class UsersListTransformer extends TransformerAbstract
                 'is_lead' => false,
                 'id' => 0,
             ],
+            'profile' => [],
             'locale' => [
                 'language' => $model->locale,
                 'timezone' => $model->timezone,
@@ -50,6 +52,24 @@ class UsersListTransformer extends TransformerAbstract
             $data['lead'] = [
                 'is_lead' => true,
                 'id' => $model->lead->id,
+            ];
+        }
+
+        if ($model->profile instanceof Profile) {
+            $data['profile'] = [
+                'friend_code' => $model->profile->friend_code,
+                'team_color' => $model->profile->team_color,
+                'family_situation' => [
+                    'key' => $model->profile->family_situation,
+                    'trans' => trans("profiles.family_situation.{$model->profile->family_situation}"),
+                ],
+                'maiden_name' => $model->profile->maiden_name,
+                'birth_date' => is_null($model->profile->birth_date_carbon)
+                    ? null
+                    : $model
+                        ->profile
+                        ->birth_date_carbon
+                        ->format(trans('global.date_format')),
             ];
         }
 
