@@ -45,7 +45,10 @@
                         <div class="form-group row">
                             <label for="friend_code" class="col-sm-2 col-form-label">{{ trans('users.profiles.friend_code') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="friend_code" placeholder="{{ trans('users.profiles.friend_code') }}" name="friend_code" value="{{ $user['data']['profile']['friend_code'] }}">
+                                <input type="text" class="form-control {{ $errors && $errors->has('friend_code') ? 'is-invalid' : '' }}" id="friend_code" placeholder="{{ trans('users.profiles.friend_code') }}" name="friend_code" value="{{ $user['data']['profile']['friend_code'] }}">
+                                @if ($errors && $errors->has('friend_code'))
+                                    <div class="text-danger text-sm">{{ $errors->first('friend_code') }}</div>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group row">
@@ -82,13 +85,19 @@
                         <div class="form-group row">
                             <label for="first_name" class="col-sm-2 col-form-label">{{ trans('users.first_name') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="first_name" placeholder="{{ trans('users.first_name') }}" name="first_name" value="{{ $user['data']['first_name'] }}">
+                                <input type="text" class="form-control {{ $errors && $errors->has('first_name') ? 'is-invalid' : '' }}" id="first_name" placeholder="{{ trans('users.first_name') }}" name="first_name" value="{{ $user['data']['first_name'] }}">
+                                @if ($errors && $errors->has('first_name'))
+                                    <div class="text-danger text-sm">{{ $errors->first('first_name') }}</div>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="last_name" class="col-sm-2 col-form-label">{{ trans('users.last_name') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="last_name" placeholder="{{ trans('users.last_name') }}" name="last_name" value="{{ $user['data']['last_name'] }}">
+                                <input type="text" class="form-control {{ $errors && $errors->has('last_name') ? 'is-invalid' : '' }}" id="last_name" placeholder="{{ trans('users.last_name') }}" name="last_name" value="{{ $user['data']['last_name'] }}">
+                                @if ($errors && $errors->has('last_name'))
+                                    <div class="text-danger text-sm">{{ $errors->first('last_name') }}</div>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group row">
@@ -159,7 +168,10 @@
                         <div class="form-group row">
                             <label for="maiden_name" class="col-sm-2 col-form-label">{{ trans('users.profiles.maiden_name') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="maiden_name" placeholder="{{ trans('users.profiles.maiden_name') }}" name="maiden_name" value="{{ $user['data']['profile']['maiden_name'] }}">
+                                <input type="text" class="form-control {{ $errors && $errors->has('maiden_name') ? 'is-invalid' : '' }}" id="maiden_name" placeholder="{{ trans('users.profiles.maiden_name') }}" name="maiden_name" value="{{ $user['data']['profile']['maiden_name'] }}">
+                                @if ($errors && $errors->has('maiden_name'))
+                                    <div class="text-danger text-sm">{{ $errors->first('maiden_name') }}</div>
+                                @endif
                             </div>
                         </div>
                     </div>
