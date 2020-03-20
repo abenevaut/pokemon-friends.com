@@ -3,6 +3,7 @@
 namespace template\Http\Request\Administrator\Users\Users;
 
 use Illuminate\Validation\Rule;
+use template\Domain\Users\Profiles\ProfilesTeamsColors;
 use template\Infrastructure\Contracts\Request\RequestAbstract;
 use template\Domain\Users\Users\User;
 
@@ -45,6 +46,10 @@ class UserFormRequest extends RequestAbstract
                 . User::CIVILITY_MISTER,
             'locale' => 'required|in:' . collect(User::LOCALES)->implode(','),
             'timezone' => 'required|in:' . collect(timezones())->implode(','),
+            'team_color' => 'in:'
+                . ProfilesTeamsColors::RED . ','
+                . ProfilesTeamsColors::BLUE . ','
+                . ProfilesTeamsColors::YELLOW,
         ];
     }
 }

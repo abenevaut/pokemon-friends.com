@@ -51,7 +51,7 @@
                         <div class="form-group row">
                             <label for="team_color" class="col-sm-2 col-form-label">{{ trans('users.profiles.team_color') }}</label>
                             <div class="col-sm-10">
-                                <select name="locale" id="locale" class="w-100 form-control">
+                                <select name="team_color" id="team_color" class="w-100 form-control">
                                     @foreach ($teams as $key)
                                         <option value="{{ $key }}" @if ($key === $user['data']['profile']['team_color']) selected="selected" @endif>
                                             {{ trans("users.profiles.teams_colors.{$key}") }}
@@ -96,7 +96,7 @@
                             <div class="col-sm-10">
                                 <select name="role" id="role" class="w-100 form-control">
                                     @foreach ($roles as $key)
-                                        <option value="{{ $key }}" @if ($key === $user['data']['role']) selected="selected" @endif>
+                                        <option value="{{ $key }}" @if ($key === $user['data']['role']['key']) selected="selected" @endif>
                                             {{ trans("users.role.{$key}") }}
                                         </option>
                                     @endforeach
