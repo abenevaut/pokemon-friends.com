@@ -65,102 +65,100 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <label for="locale" class="col-sm-2 col-form-label">{{ trans('users.locale') }}</label>
-                                <div class="col-sm-10">
-                                    <select name="locale" id="locale" class="w-100 form-control">
-                                        @foreach ($locales as $key)
-                                            <option value="{{ $key }}" @if ($key === $profile['data']['locale']['language']) selected="selected" @endif>
-                                                {{ trans('users.locale.' . $key) }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                        <div class="form-group row">
+                            <label for="locale" class="col-sm-2 col-form-label">{{ trans('users.locale') }}</label>
+                            <div class="col-sm-10">
+                                <select name="locale" id="locale" class="w-100 form-control">
+                                    @foreach ($locales as $key)
+                                        <option value="{{ $key }}" @if ($key === $profile['data']['locale']['language']) selected="selected" @endif>
+                                            {{ trans('users.locale.' . $key) }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group row">
-                                <label for="timezone" class="col-sm-2 col-form-label">{{ trans('users.timezone') }}</label>
-                                <div class="col-sm-10">
-                                    <select name="timezone" id="timezone" class="w-100 form-control">
-                                        @foreach ($timezones as $key)
-                                            <option value="{{ $key }}" @if ($key === $profile['data']['locale']['timezone']) selected="selected" @endif>{{ $key }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="timezone" class="col-sm-2 col-form-label">{{ trans('users.timezone') }}</label>
+                            <div class="col-sm-10">
+                                <select name="timezone" id="timezone" class="w-100 form-control">
+                                    @foreach ($timezones as $key)
+                                        <option value="{{ $key }}" @if ($key === $profile['data']['locale']['timezone']) selected="selected" @endif>{{ $key }}</option>
+                                    @endforeach
+                                </select>
                             </div>
+                        </div>
 
 
-                            <div class="form-group row">
-                                <label for="first_name" class="col-sm-2 col-form-label">{{ trans('users.civility') }}</label>
-                                <div class="col-sm-10">
-                                    <select name="civility" id="civility" class="w-100 form-control">
-                                        @foreach ($civilities as $key => $trans)
-                                            <option
-                                                    value="{{ $key }}"
-                                                    @if (Auth::check() && $key === $profile['data']['user']['civility']) selected="selected" @endif
-                                            >
-                                                {{ $trans }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                        <div class="form-group row">
+                            <label for="first_name" class="col-sm-2 col-form-label">{{ trans('users.civility') }}</label>
+                            <div class="col-sm-10">
+                                <select name="civility" id="civility" class="w-100 form-control">
+                                    @foreach ($civilities as $key => $trans)
+                                        <option
+                                                value="{{ $key }}"
+                                                @if (Auth::check() && $key === $profile['data']['user']['civility']) selected="selected" @endif
+                                        >
+                                            {{ $trans }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="first_name" class="col-sm-2 col-form-label">{{ trans('users.first_name') }}</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="first_name" placeholder="{{ trans('users.first_name') }}" name="first_name" value="{{ $profile['data']['user']['first_name'] }}">
-                                </div>
+                        <div class="form-group row">
+                            <label for="first_name" class="col-sm-2 col-form-label">{{ trans('users.first_name') }}</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="first_name" placeholder="{{ trans('users.first_name') }}" name="first_name" value="{{ $profile['data']['user']['first_name'] }}">
                             </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="last_name" class="col-sm-2 col-form-label">{{ trans('users.last_name') }}</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="last_name" placeholder="{{ trans('users.last_name') }}" name="last_name" value="{{ $profile['data']['user']['last_name'] }}">
-                                </div>
+                        <div class="form-group row">
+                            <label for="last_name" class="col-sm-2 col-form-label">{{ trans('users.last_name') }}</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="last_name" placeholder="{{ trans('users.last_name') }}" name="last_name" value="{{ $profile['data']['user']['last_name'] }}">
                             </div>
+                        </div>
 
 
-                            <div class="form-group row">
-                                <label for="family_situation" class="col-sm-2 col-form-label">{{ trans('users.profiles.family_situation') }}</label>
-                                <div class="col-sm-10">
-                                    <select name="family_situation" class="w-100 form-control">
-                                        @foreach ($families_situations as $key => $trans)
-                                            <option value="{{ $key }}" @if ($key === $profile['data']['family_situation']['key']) selected="selected" @endif>{{ $trans }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                        <div class="form-group row">
+                            <label for="family_situation" class="col-sm-2 col-form-label">{{ trans('users.profiles.family_situation') }}</label>
+                            <div class="col-sm-10">
+                                <select name="family_situation" class="w-100 form-control">
+                                    @foreach ($families_situations as $key => $trans)
+                                        <option value="{{ $key }}" @if ($key === $profile['data']['family_situation']['key']) selected="selected" @endif>{{ $trans }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group row">
-                                <label for="maiden_name" class="col-sm-2 col-form-label">{{ trans('users.profiles.maiden_name') }}</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="maiden_name" placeholder="{{ trans('users.profiles.maiden_name') }}" name="maiden_name" value="{{ $profile['data']['maiden_name'] }}">
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="maiden_name" class="col-sm-2 col-form-label">{{ trans('users.profiles.maiden_name') }}</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="maiden_name" placeholder="{{ trans('users.profiles.maiden_name') }}" name="maiden_name" value="{{ $profile['data']['maiden_name'] }}">
                             </div>
-                            <div class="form-group row">
-                                <label for="birth_date" class="col-sm-2 col-form-label">{{ trans('users.profiles.birth_date') }}</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="birth_date" placeholder="{{ trans('users.profiles.birth_date') }}" name="birth_date" value="{{ $profile['data']['birth_date'] }}" data-target="#birth_date" data-toggle="datetimepicker">
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="birth_date" class="col-sm-2 col-form-label">{{ trans('users.profiles.birth_date') }}</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="birth_date" placeholder="{{ trans('users.profiles.birth_date') }}" name="birth_date" value="{{ $profile['data']['birth_date'] }}" data-target="#birth_date" data-toggle="datetimepicker">
                             </div>
-                            <div class="form-group row">
-                                <label for="providers_tokens" class="col-sm-2 col-form-label">{{ trans('users.profiles.providers_tokens') }}</label>
-                                <div class="col-sm-10">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \template\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface::TWITTER]) }}">
-                                                <span class="pull-left"><i class="fab fa-twitter"></i></span>
-                                                <span class="bold">Lier Twitter</span>
-                                            </a>
-                                            <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \template\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface::GOOGLE]) }}">
-                                                <span class="pull-left"><i class="fab fa-google-plus"></i></span>
-                                                <span class="bold">Lier Google+</span>
-                                            </a>
-                                            <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \template\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface::LINKEDIN]) }}">
-                                                <span class="pull-left"><i class="fab fa-linkedin"></i></span>
-                                                <span class="bold">Lier Linkedin</span>
-                                            </a>
-                                        </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="providers_tokens" class="col-sm-2 col-form-label">{{ trans('users.profiles.providers_tokens') }}</label>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \template\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface::TWITTER]) }}">
+                                            <span class="pull-left"><i class="fab fa-twitter"></i></span>
+                                            <span class="bold">Lier Twitter</span>
+                                        </a>
+                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \template\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface::GOOGLE]) }}">
+                                            <span class="pull-left"><i class="fab fa-google-plus"></i></span>
+                                            <span class="bold">Lier Google+</span>
+                                        </a>
+                                        <a class="btn btn-block btn-info" href="{{ route('login_provider', ['provider' => \template\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface::LINKEDIN]) }}">
+                                            <span class="pull-left"><i class="fab fa-linkedin"></i></span>
+                                            <span class="bold">Lier Linkedin</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
