@@ -293,10 +293,10 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
      * {@inheritdoc}
      * @throws \Exception
      */
-    public function getUser($id): array
+    public function getUser(int $id): array
     {
         return $this
-            ->with(['lead'])
+            ->with(['lead', 'profile'])
             ->setPresenter(new UsersListPresenter())
             ->find($id);
     }
