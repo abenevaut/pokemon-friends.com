@@ -65,6 +65,9 @@ return [
     'profiles.teams_colors.red' => 'Valor, red team',
     'profiles.teams_colors.yellow' => 'Instinct, yellow team',
 
+    'reports.title' => 'Reports',
+    'reports.no_report' => 'No report',
+
     'leads.title' => 'Leads',
     'leads.transformed_user' => 'Transformed user',
     'leads.button.transform_into_user' => 'Transform into a user',

@@ -65,6 +65,9 @@ return [
     'profiles.teams_colors.red' => 'Bravoure, équipe rouge',
     'profiles.teams_colors.yellow' => 'Intuition, équipe jaune',
 
+    'reports.title' => 'Rapports',
+    'reports.no_report' => 'Aucun rapport',
+
     'leads.title' => 'Leads',
     'leads.transformed_user' => 'Transformed user',
     'leads.button.transform_into_user' => 'Transform into a user',
