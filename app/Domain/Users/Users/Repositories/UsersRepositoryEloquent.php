@@ -108,11 +108,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
      */
     public function getRoles(): Collection
     {
-        return collect([
-            User::ROLE_ADMINISTRATOR => trans('users.role.' . User::ROLE_ADMINISTRATOR),
-            User::ROLE_ACCOUNTANT => trans('users.role.' . User::ROLE_ACCOUNTANT),
-            User::ROLE_CUSTOMER => trans('users.role.' . User::ROLE_CUSTOMER),
-        ]);
+        return collect(User::ROLES);
     }
 
     /**
@@ -120,11 +116,7 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
      */
     public function getCivilities(): Collection
     {
-        return collect([
-            User::CIVILITY_MADAM => trans('users.civility.' . User::CIVILITY_MADAM),
-            User::CIVILITY_MISS => trans('users.civility.' . User::CIVILITY_MISS),
-            User::CIVILITY_MISTER => trans('users.civility.' . User::CIVILITY_MISTER),
-        ]);
+        return collect(User::CIVILITIES);
     }
 
     /**
