@@ -60,7 +60,7 @@ return [
     'profiles.providers_tokens' => 'Lier vos comptes sociaux',
     'profiles.edit.title' => 'Profil utilisateur',
     'profiles.friend_code' => 'Code ami',
-    'profiles.team_color' => 'Team color',
+    'profiles.team_color' => 'Couleur d\'équipe',
     'profiles.teams_colors.blue' => 'Sagesse, équipe bleu',
     'profiles.teams_colors.red' => 'Bravoure, équipe rouge',
     'profiles.teams_colors.yellow' => 'Intuition, équipe jaune',
