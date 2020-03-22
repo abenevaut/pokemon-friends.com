@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
                     factory(Lead::class)->create(['user_id' => $user->id]);
                 }
             });
+        factory(Lead::class, 10)->create();
     }
 }
