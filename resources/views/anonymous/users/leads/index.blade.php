@@ -42,7 +42,7 @@
                         <div class="info-box bg-light">
                             <div class="info-box-content">
                                 <span class="info-box-text text-center text-muted">{{ trans('global.next_features') }}</span>
-                                <span class="info-box-number text-center text-muted mb-0"><a href="{{ config('services.github.changelog') }}" target="_blank" rel="noopener" title="github.com"><i class="fab fa-github mr-2"></i>Github</a></span>
+                                <span class="info-box-number text-center text-muted mb-0"><a href="{{ config('services.github.nextgen') }}" target="_blank" rel="noopener" title="github.com"><i class="fab fa-github mr-2"></i>Github</a></span>
                             </div>
                         </div>
                     </div>

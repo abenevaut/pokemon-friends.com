@@ -16,6 +16,7 @@ return [
 
     'github' => [
         'url' => 'https://github.com/pokemon-friends-com/www',
+        'nextgen' => 'https://github.com/pokemon-friends-com/www/milestones',
         'changelog' => 'https://github.com/pokemon-friends-com/www/milestones?state=closed',
         'issues' => 'https://github.com/pokemon-friends-com/www/issues',
     ],
