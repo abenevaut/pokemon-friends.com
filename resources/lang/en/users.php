@@ -92,13 +92,14 @@ return [
     'leads.send' => 'Send',
     'leads.subject' => 'Subject',
     'leads.message' => 'Message',
-    'leads.baseline' => 'Are you missing information? A question ? Do not hesitate to contact us.',
+    'leads.baseline' => 'Are you missing information? A question ? Do not hesitate to contact us, we will respond as soon as possible.',
+    'leads.language_info' => '',
     'leads.certify' => 'You certify that the above information is true and correct.',
 
     'leads.handshake_title' => 'New contact, :civility_name',
     'leads.handshake_subject' => 'New contact, :subject',
     'leads.handshake_body_header' => 'You have just contacted us with the following message:',
-    'leads.handshake_body_footer' => 'We will respond as soon as possible. <br/> <br/> The :app_name team',
-    'leads.handshake_sent_success' => 'Your message has been sent',
+    'leads.handshake_body_footer' => 'We will respond as soon as possible.<br/><br/>The :app_name team',
+    'leads.handshake_sent_success' => 'Your message has been sent! A confirmation email has been sent to you.',
 
 ];

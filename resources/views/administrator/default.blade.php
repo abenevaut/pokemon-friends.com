@@ -94,7 +94,11 @@
         </div>
     </aside>
     <div class="content-wrapper">
-        @include('partials.session-message')
+        <div class="content">
+            <div class="container">
+                @include('partials.session-message')
+            </div>
+        </div>
         @yield('content')
     </div>
     <footer class="main-footer">

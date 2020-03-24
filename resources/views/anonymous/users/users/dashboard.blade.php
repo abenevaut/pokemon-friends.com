@@ -104,48 +104,6 @@
                                 <div class="text-danger text-sm">{{ $errors->first('email') }}</div>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input
-                                        type="password"
-                                        name="password"
-                                        class="form-control {{ $errors && $errors->has('password') ? 'is-invalid' : '' }}"
-                                        placeholder="{{ trans('users.password') }}"
-                                />
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <span class="fas fa-lock"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            @if ($errors && $errors->has('password'))
-                                <div class="text-danger text-sm">{{ $errors->first('password') }}</div>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input
-                                        type="password"
-                                        name="password_confirmation"
-                                        class="form-control {{ $errors && $errors->has('password_confirmation') ? 'is-invalid' : '' }}"
-                                        placeholder="{{ trans('users.password_confirmation') }}"
-                                />
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <span class="fas fa-lock"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            @if ($errors && $errors->has('password_confirmation'))
-                                <div class="text-danger text-sm">{{ $errors->first('password_confirmation') }}</div>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <google-recaptcha-component></google-recaptcha-component>
-                            @if ($errors && $errors->has('g-recaptcha-response'))
-                                <span class="text-danger text-sm">{{ $errors->first('g-recaptcha-response') }}</span>
-                            @endif
-                        </div>
                         <div class="sm-p-t-10 clearfix"></div>
                         <div class="row">
                             <div class="col-12">
