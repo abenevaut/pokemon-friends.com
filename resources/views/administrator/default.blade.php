@@ -26,7 +26,7 @@
         <div class="sidebar">
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{ asset('images/avatar.png') }}" class="img-circle elevation-2" alt="{{ Auth::user()->full_name }}">
+                    <img src="{{ asset('images/avatar.jpg') }}" class="img-circle elevation-2" alt="{{ Auth::user()->full_name }}">
                 </div>
                 <div class="info">
                     <a href="{{ route('administrator.users.profiles.edit', ['id' => Auth::user()->uniqid]) }}" class="d-block">{{ Auth::user()->full_name }}</a>
