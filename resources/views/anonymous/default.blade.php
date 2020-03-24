@@ -37,13 +37,13 @@
                         <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt mr-2"></i>{{ trans('auth.logout') }}</a>
                     </li>
                 @else
-                    @if (Route::currentRouteNamed())
+                    @if (Route::currentRouteNamed(Route::currentRouteName()))
                     <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" href="#"><i class="fas fa-language"></i></a>
                         <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-right">
                         @foreach(\template\Infrastructure\Interfaces\Domain\Locale\LocalesInterface::LOCALES as $locale)
                             @if (Session::get('locale') !== $locale)
-                            <a href="{{ route(\Route::currentRouteName(), ['locale' => $locale]) }}" class="dropdown-item">
+                            <a href="{{ route(Route::currentRouteName(), ['locale' => $locale]) }}" class="dropdown-item">
                                 <i class="far fa-flag mr-2"></i>{{ trans("users.locale.${locale}") }}
                             </a>
                             @endif

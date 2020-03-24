@@ -19,6 +19,10 @@ return [
 	'locale' => 'Langue',
     'locale.fr' => 'Français',
     'locale.en' => 'Anglais',
+    'locale.es' => 'Espagnol',
+    'locale.de' => 'Allemand',
+    'locale.zh-CN' => 'Chinois',
+    'locale.ru' => 'Russe',
 
 	'timezone' => 'Fuseau horaire',
 	'first_name' => 'Prénom',
