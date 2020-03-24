@@ -18,6 +18,7 @@
         "ext-gd": "*",
         "ext-imagick": "*",
         "ext-json": "*",
+        "abenevaut/laravel-settings": "^7.0",
         "babenkoivan/scout-elasticsearch-driver": "^4.0",
         "barryvdh/laravel-cors": "^0.11.4",
         "barryvdh/laravel-elfinder": "^0.4.2",
@@ -39,10 +40,12 @@
         "predis/predis": "^1.1",
         "prettus/l5-repository": "^2.6",
         "pusher/pusher-php-server": "^4.0",
+        "repat/spatie-crawler-redis": "^0.1.1",
         "sentry/sentry-laravel": "^1.1",
+        "spatie/crawler": "^4.6",
         "spatie/laravel-backup": "^6.3",
         "spatie/laravel-cookie-consent": "^2.11",
-        "spatie/laravel-honeypot": "^1.4",
+        "spatie/laravel-honeypot": "^2.0",
         "spatie/laravel-medialibrary": "^7.10",
         "spatie/laravel-sitemap": "^5.3"
     },
@@ -58,7 +61,7 @@
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.3",
-        "sebastian/phpcpd": "^4.1",
+        "sebastian/phpcpd": "^5.0",
         "squizlabs/php_codesniffer": "^3.4"
     },
     "config": {

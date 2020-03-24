@@ -16,12 +16,20 @@ return [
 
     'github' => [
         'url' => 'https://github.com/pokemon-friends-com/www',
+        'nextgen' => 'https://github.com/pokemon-friends-com/www/milestones',
         'changelog' => 'https://github.com/pokemon-friends-com/www/milestones?state=closed',
+        'issues' => 'https://github.com/pokemon-friends-com/www/issues',
     ],
 
     'google_recaptcha' => [
-        'sitekey' => env('GOOGLE_RECAPTCHA_SITEKEY'),
-        'serverkey' => env('GOOGLE_RECAPTCHA_SERVERKEY'),
+        'sitekey' => env('GOOGLE_RECAPTCHA_SITEKEY', ''),
+        'serverkey' => env('GOOGLE_RECAPTCHA_SERVERKEY', ''),
+    ],
+
+    'google_tag_manager' => [
+        'id' => env('GOOGLE_TM_ID', ''),
+        'auth' => env('GOOGLE_TM_AUTH', ''),
+        'env' => env('GOOGLE_TM_ENV', ''),
     ],
 
     'twitter' => [
