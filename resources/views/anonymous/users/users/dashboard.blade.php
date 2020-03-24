@@ -46,18 +46,17 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="row">
-                            <div class="col-12">
-                                <p>Inscrivez-vous pour partager votre code ami et rejoindre vote communauté de dresseurs!</p>
-                                <p>L'équipe <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> travail activement sur les prochaines fonctionnalités de votre plateforme pour votre plus grand plaisir</p>
-                            </div>
-                            <div class="col-12">
-                                <div class="alert alert-info">
-                                    <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a>, est un site communautaire qui n'est pas une filliale de Niantic.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row"></div>
+
+                        <p>
+                            <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> est un annuaire de codes amis Pokemon GO
+                        </p>
+                        <ul>
+                            <li>Parcourez des dizaines de codes amis et ajoutez les facilement, en une photo, sur votre jeu Pokemon Go grâce au QRcode</li>
+                            <li>Inscrivez-vous pour partager votre code ami et être vous aussi ajoutez par des dresseurs de la communauté.</li>
+                        </ul>
+
+                        <p><a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a>, est un site communautaire qui n'est pas une filliale de Niantic.</p>
+
                     </div>
                 </div>
             </div>
