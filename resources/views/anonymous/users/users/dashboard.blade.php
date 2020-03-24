@@ -46,17 +46,30 @@
                             </div>
                         </div>
                         <hr>
-
                         <p>
-                            <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> est un annuaire de codes amis Pokemon GO
+                            <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> est un annuaire communautaire de codes amis Pokemon Go
                         </p>
                         <ul>
-                            <li>Parcourez des dizaines de codes amis et ajoutez les facilement, en une photo, sur votre jeu Pokemon Go grâce au QRcode</li>
-                            <li>Inscrivez-vous pour partager votre code ami et être vous aussi ajoutez par des dresseurs de la communauté.</li>
+                            <li>Parcourez des dizaines de codes amis</li>
+                            <li>Ajoutez, en une photo, de nouveaux amis sur votre jeu Pokemon Go</li>
+                            <li>Inscrivez-vous et partagez votre code ami</li>
                         </ul>
-
-                        <p><a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a>, est un site communautaire qui n'est pas une filliale de Niantic.</p>
-
+                    </div>
+                </div>
+                <div class="card card-widget widget-user">
+                    <div class="ribbon-wrapper ribbon-sm">
+                        <div class="ribbon bg-info">
+                            à venir
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            L'équipe <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> travail activement sur les prochaines fonctionnalités de votre plateforme pour votre plus grand plaisir
+                        </p>
+                        <ul>
+                            <li>Enregistrez ou rejoingnez des équipes composées de vos amis</li>
+                            <li>Organiser votre équipe, donnez-vous rendez-vous pour les raids, créez des événement qu'aucun membre de votre équipe ne pourra louper</li>
+                        </ul>
                     </div>
                 </div>
             </div>
