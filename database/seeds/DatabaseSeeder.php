@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
                     'user_id' => $user->id,
                     'friend_code' => '500161205617',
                     'team_color' => \template\Domain\Users\Profiles\ProfilesTeamsColors::BLUE,
+                    'sponsored' => true,
                 ]);
             });
 
@@ -50,6 +51,7 @@ class DatabaseSeeder extends Seeder
                     'user_id' => $user->id,
                     'friend_code' => '500161205617',
                     'team_color' => \template\Domain\Users\Profiles\ProfilesTeamsColors::RED,
+                    'sponsored' => true,
                 ]);
             });
 
