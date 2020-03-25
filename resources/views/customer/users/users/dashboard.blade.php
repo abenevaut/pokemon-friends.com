@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="content-header">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1><i class="fas fa-tachometer-alt mr-2"></i>{{ trans('users.dashboard') }}</h1>
@@ -16,7 +16,7 @@
     </div>
 </section>
 <section class="content">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 <example-component></example-component>
