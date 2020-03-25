@@ -80,4 +80,22 @@ class RegisterFriendCodeJobTest extends TestCase
             'team_color' => ProfilesTeamsColors::DEFAULT,
         ]);
     }
+
+    public function testToRegisterFriendCodeWhenFriendCodeIsNotValid()
+    {
+        $friendCode = $this->faker->word;
+
+        (new RegisterFriendCodeJob($friendCode))
+            ->handle(
+                app()->make(UsersRegistrationsRepositoryEloquent::class),
+                app()->make(ProfilesRepositoryEloquent::class)
+            );
+
+        $this->assertDatabaseMissing('users_profiles', [
+            'friend_code' => $friendCode
+        ]);
+        $this->assertDatabaseMissing('users', [
+            'email' => "{$friendCode}@pokemon-friends.com",
+        ]);
+    }
 }

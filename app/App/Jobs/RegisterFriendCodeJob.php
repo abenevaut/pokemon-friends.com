@@ -7,6 +7,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\Validator;
 use template\Domain\Users\Profiles\Profile;
 use template\Domain\Users\Profiles\ProfilesTeamsColors;
 use template\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
@@ -54,6 +55,25 @@ class RegisterFriendCodeJob implements ShouldQueue
         ProfilesRepositoryEloquent $r_profiles
     ) {
         try {
+            $validator = Validator::make(
+                [
+                    'friend_code' => $this->friendCode,
+                    'team_color' => $this->teamColor,
+                ],
+                [
+                    'friend_code' => 'required|string|numeric|digits:12',
+                    'team_color' => 'required|in:'
+                        . ProfilesTeamsColors::DEFAULT . ','
+                        . ProfilesTeamsColors::RED . ','
+                        . ProfilesTeamsColors::BLUE . ','
+                        . ProfilesTeamsColors::YELLOW,
+                ]
+            );
+
+            if ($validator->fails()) {
+                throw new \Exception($validator->errors());
+            }
+
             $profile = $r_profiles->findByField('friend_code', $this->friendCode);
 
             if ($profile->count() && $profile->first()->is_claimable) {
