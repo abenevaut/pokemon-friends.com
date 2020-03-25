@@ -7,6 +7,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use template\Domain\Users\Profiles\Profile;
 use template\Domain\Users\Profiles\ProfilesTeamsColors;
 use template\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use template\Domain\Users\Users\Repositories\UsersRegistrationsRepositoryEloquent;
@@ -36,9 +37,9 @@ class RegisterFriendCodeJob implements ShouldQueue
      */
     public function __construct(
         string $friendCode,
-        string $teamColor = ProfilesTeamsColors::BLUE
+        string $teamColor = ProfilesTeamsColors::DEFAULT
     ) {
-        $this->friendCode = filter_var($friendCode, FILTER_SANITIZE_NUMBER_INT);
+        $this->friendCode = $friendCode;
         $this->teamColor = $teamColor;
     }
 
@@ -53,17 +54,23 @@ class RegisterFriendCodeJob implements ShouldQueue
         ProfilesRepositoryEloquent $r_profiles
     ) {
         try {
-//            $r_profiles
+            $profile = $r_profiles->findByField('friend_code', $this->friendCode);
 
-            $user = $r_users
-                ->registerUser(
-                    "{$this->friendCode}@pokemon-friends.com",
-                    bcrypt($this->friendCode)
-                );
+            if ($profile->count() && $profile->first()->is_claimable) {
+                $profile->first()->friend_code = $this->friendCode;
+                $profile->first()->team_color = $this->teamColor;
+                $profile->first()->save();
+            } elseif (!$profile->count()) {
+                $user = $r_users
+                    ->registerUser(
+                        Profile::claimableEmail($this->friendCode),
+                        bcrypt($this->friendCode)
+                    );
 
-            $user->profile->friend_code = $this->friendCode;
-            $user->profile->save();
-
+                $user->profile->friend_code = $this->friendCode;
+                $user->profile->team_color = $this->teamColor;
+                $user->profile->save();
+            }
         } catch (\Exception $exception) {
             app('sentry')->captureException($exception);
         }

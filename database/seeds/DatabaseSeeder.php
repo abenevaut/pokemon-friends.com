@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         factory(User::class)
             ->states(User::ROLE_ADMINISTRATOR)
             ->create([
-                'email' => 'admin@pokemon-friends.com'
+                'email' => 'admin@pokemon-friends.com',
+                'locale' => 'en',
             ])
             ->each(function ($user) {
                 factory(Profile::class)->create([
@@ -31,7 +32,8 @@ class DatabaseSeeder extends Seeder
         factory(User::class)
             ->states(User::ROLE_ACCOUNTANT)
             ->create([
-                'email' => 'accountant@pokemon-friends.com'
+                'email' => 'accountant@pokemon-friends.com',
+                'locale' => 'en',
             ])
             ->each(function ($user) {
                 factory(Profile::class)->create(['user_id' => $user->id]);
@@ -40,7 +42,8 @@ class DatabaseSeeder extends Seeder
         factory(User::class)
             ->states(User::ROLE_CUSTOMER)
             ->create([
-                'email' => 'customer@pokemon-friends.com'
+                'email' => 'customer@pokemon-friends.com',
+                'locale' => 'en',
             ])
             ->each(function ($user) {
                 factory(Profile::class)->create([
