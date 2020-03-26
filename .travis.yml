@@ -41,7 +41,7 @@ jobs:
     install:
       - composer install -o --no-interaction --prefer-dist --no-suggest
     script:
-      - vendor/bin/phps --standard=PSR12
+      - vendor/bin/phpcs --standard=PSR12
   - stage: test
     name: pokemon-friends-com/www PHP
     language: php
