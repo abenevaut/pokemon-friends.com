@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <example-component></example-component>
+                <trainers-profiles-list-component></trainers-profiles-list-component>
             </div>
         </div>
     </div>
