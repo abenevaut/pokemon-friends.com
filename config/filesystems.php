@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => 'local',
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+    'cloud' => 's3',
 
     /*
     |--------------------------------------------------------------------------
@@ -59,9 +59,24 @@ return [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
+            'region' => env('AWS_DEFAULT_REGION', 'eu-west-3'),
+            'bucket' => env('AWS_FILES_BUCKET', 'www.pokemon-friends.com.local'),
+            'url' => sprintf(
+                'https://s3.%s.amazonaws.com',
+                env('AWS_DEFAULT_REGION', 'eu-west-3')
+            ),
+        ],
+
+        'asset-cdn' => [
+            'driver' => 's3',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION', 'eu-west-3'),
+            'bucket' => env('AWS_ASSETS_BUCKET', 'assets.pokemon-friends.com.local'),
+            'url' => sprintf(
+                'https://s3.%s.amazonaws.com',
+                env('AWS_DEFAULT_REGION', 'eu-west-3')
+            ),
         ],
 
     ],

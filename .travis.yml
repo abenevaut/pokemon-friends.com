@@ -66,7 +66,7 @@ jobs:
         if [[ "$CODECLIMATE" = "on" ]]; then
           ./cc-test-reporter before-build
         fi
-      - npm run prod
+      - npm run dev
       - php artisan elfinder:publish
     script:
       - vendor/bin/phpunit
@@ -150,19 +150,18 @@ jobs:
       - nvm use
     install:
       - cp .env.example .env
-      - npm install
       - composer install -o --no-interaction --prefer-dist --no-suggest
       - npm install
-    before_script:
       - php artisan elfinder:publish
     script:
-      - npm run prod
+      - npm run production
     before_deploy:
       - chmod 777 bin/*.sh
       - bash bin/decrypt_travis_enc_files.sh
       - eval "$(ssh-agent -s)"
       - chmod 600 /tmp/deploy_rsa
       - ssh-add /tmp/deploy_rsa
+      - php artisan asset-cdn:sync
     deploy:
       - provider: script
         skip_cleanup: true
