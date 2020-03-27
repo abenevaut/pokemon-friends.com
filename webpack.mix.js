@@ -5,6 +5,32 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+let webpackPlugins = [
+  new StyleLintPlugin({
+    configFile: '.stylelintrc',
+    context: 'resources/sass',
+  }),
+  new CopyWebpackPlugin([
+    {
+      from: 'resources/images',
+      to: 'images',
+    },
+  ]),
+  new ImageminPlugin({
+    test: /\.(jpe?g|png|gif)$/i, // |svg
+    pngquant: {
+      quality: '65-80',
+    },
+    plugins: [
+      imageminMozjpeg({
+        quality: 65,
+        // Set the maximum memory to use in kbytes
+        maxMemory: 1000 * 512,
+      }),
+    ],
+  }),
+];
+
 mix
   .autoload({
     jquery: ['$', 'window.jQuery', 'jQuery', 'window.$', 'jquery', 'window.jquery'],
@@ -56,31 +82,7 @@ mix
         },
       ],
     },
-    plugins: [
-      new StyleLintPlugin({
-        configFile: '.stylelintrc',
-        context: 'resources/sass',
-      }),
-      new CopyWebpackPlugin([
-        {
-          from: 'resources/images',
-          to: 'images',
-        },
-      ]),
-      new ImageminPlugin({
-        test: /\.(jpe?g|png|gif)$/i, // |svg
-        pngquant: {
-          quality: '65-80',
-        },
-        plugins: [
-          imageminMozjpeg({
-            quality: 65,
-            // Set the maximum memory to use in kbytes
-            maxMemory: 1000 * 512,
-          }),
-        ],
-      }),
-    ],
+    plugins: [],
   });
 
 /*
@@ -98,8 +100,14 @@ mix
   .js('resources/js/app.js', 'public/js')
   .sass('resources/sass/app.scss', 'public/css');
 
-if (mix.config.production) {
-  mix.version();
+if (mix.inProduction()) {
+  mix
+    .version()
+    .setResourceRoot('/assets.pokemon-friends.com/');
 } else {
   mix.sourceMaps();
 }
+
+mix.webpackConfig({
+  plugins: webpackPlugins
+});
