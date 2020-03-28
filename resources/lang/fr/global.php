@@ -7,14 +7,12 @@ return [
     'copyright' => '&copy; :date <a href=":route">:name</a>. Tous les droits sont réservés.',
     'environment' => '<b>Environnement</b> :environment',
     'social_networks_baseline' => 'Suivez nous sur les réseaux sociaux',
-    'share_gift' => 'Partagez des cadeaux',
-    'fight_friend' => 'Combattez vos amis',
-    'boost_xp' => 'Boostez votre XP',
 
     'our_news' => 'Notre actualité',
     'next_features' => 'Prochaines fonctionnalités',
     'bugs_reported' => 'Bugs rapportés',
 
+    'to_come_up' => 'à venir',
     'beta' => 'Beta',
     'add' => 'Ajouter',
     'cancel' => 'Annuler',

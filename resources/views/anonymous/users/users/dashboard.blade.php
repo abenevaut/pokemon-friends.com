@@ -17,60 +17,39 @@
         <div class="row">
             <div class="d-none d-md-block col-lg-8">
                 <div class="card card-widget widget-user">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-danger">
-                            {{ trans('global.beta') }}
-                        </div>
-                    </div>
+                    <div class="ribbon-wrapper ribbon-lg"><div class="ribbon bg-danger">{{ trans('global.beta') }}</div></div>
                     <div class="widget-user-header text-white" style="background:url(/images/pokemon-banner.jpg) no-repeat center center;">
                         <h3 class="widget-user-username text-left">{{ trans('users.welcome') }}</h3>
                     </div>
                     <div class="widget-user-image">
-                        <img class="img-circle" src="{{ asset_cdn('images/avatar.jpg') }}" alt="User Avatar">
+                        <img class="img-circle" src="{{ asset_cdn('images/avatar.jpg') }}" alt="Avatar">
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                    <span class="description-text">{{ trans('global.share_gift') }}</span>
+                                    <span class="description-text">{{ trans('users.anonymous.dashboard.share_gift') }}</span>
                                 </div>
                             </div>
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                    <span class="description-text">{{ trans('global.fight_friend') }}</span>
+                                    <span class="description-text">{{ trans('users.anonymous.dashboard.fight_friend') }}</span>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="description-block">
-                                    <span class="description-text">{{ trans('global.boost_xp') }}</span>
+                                    <span class="description-text">{{ trans('users.anonymous.dashboard.boost_xp') }}</span>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <p>
-                            <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> est un annuaire communautaire de codes amis Pokemon Go
-                        </p>
-                        <ul>
-                            <li>Parcourez des dizaines de codes amis</li>
-                            <li>Ajoutez, en une photo, de nouveaux amis sur votre jeu Pokemon Go</li>
-                            <li>Inscrivez-vous et partagez votre code ami</li>
-                        </ul>
+                        {!! trans('users.anonymous.dashboard.features', ['home_url' => route('anonymous.dashboard'), 'app_name' => config('app.name')]) !!}
                     </div>
                 </div>
                 <div class="card card-widget widget-user">
-                    <div class="ribbon-wrapper ribbon-sm">
-                        <div class="ribbon bg-info">
-                            à venir
-                        </div>
-                    </div>
+                    <div class="ribbon-wrapper ribbon-lg"><div class="ribbon bg-info">{{ trans('global.to_come_up') }}</div></div>
                     <div class="card-body">
-                        <p>
-                            L'équipe <a href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a> travail activement sur les prochaines fonctionnalités de votre plateforme pour votre plus grand plaisir
-                        </p>
-                        <ul>
-                            <li>Enregistrez ou rejoingnez des équipes composées de vos amis</li>
-                            <li>Organiser votre équipe, donnez-vous rendez-vous pour les raids, créez des événement qu'aucun membre de votre équipe ne pourra louper</li>
-                        </ul>
+                        {!! trans('users.anonymous.dashboard.to_come_up', ['home_url' => route('anonymous.dashboard'), 'app_name' => config('app.name')]) !!}
                     </div>
                 </div>
             </div>
