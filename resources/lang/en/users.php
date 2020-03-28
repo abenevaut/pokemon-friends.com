@@ -165,7 +165,8 @@ return [
     'leads.lead_succefully_transformed_to_user' => 'The lead has been transformed into a user, an email has been sent to initialize the account.',
     'leads.transform_message' => 'Are you sure you want to transform this lead :username ?',
 
-    'leads.contacts' => 'Contacts',
+    'leads.contact' => 'Contact',
+    'leads.anonymous.meta.description_contacts' => "Are you missing information? A question ? Do not hesitate to contact us, we will respond as soon as possible.",
     'leads.contact_form' => 'Contact form',
     'leads.send' => 'Send',
     'leads.subject' => 'Subject',

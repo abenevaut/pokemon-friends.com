@@ -24,7 +24,7 @@ class UsersController extends ControllerAbstract
     }
 
     /**
-     * Display anonymous dashboard.
+     * Display anonymous users dashboard.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
