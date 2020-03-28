@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'keywords' => 'pokemon,pokemon go,go,community,friends,pokemon go friends,pokemon friends',
+    'keywords' => 'pokemon,pokemon go,community,friends,pokemon go friends,pokemon friends, friend code, pokemon go code',
 
     /*
     |--------------------------------------------------------------------------
