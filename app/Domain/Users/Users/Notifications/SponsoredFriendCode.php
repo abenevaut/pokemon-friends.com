@@ -16,6 +16,12 @@ class SponsoredFriendCode extends Notification
      */
     protected $user;
 
+    protected $hash_tags = [
+        '#PokemonGo',
+        '#pokemonfriends',
+        '#GOBattle',
+    ];
+
     /**
      * CreatedAccountByAdministrator constructor.
      *
@@ -47,9 +53,10 @@ class SponsoredFriendCode extends Notification
 
     public function toTwitter($notifiable)
     {
-        return new TwitterStatusUpdate(
-            "A trainer, {$this->user->profile->formated_friend_code}, is looking for new friends! #PokemonGo #pokemonfriends #GOBattle"
-        );
+        $friend_code = $this->user->profile->formated_friend_code;
+        $hash_tags = implode(' ', $this->hash_tags);
+
+        return new TwitterStatusUpdate("A trainer, {$friend_code}, is looking for new friends! {$hash_tags}");
     }
 
     /**
