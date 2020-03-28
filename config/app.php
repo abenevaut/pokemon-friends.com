@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'pokemon-friends'),
+    'name' => env('APP_NAME', 'pkmn-friends'),
 
     /*
     |--------------------------------------------------------------------------

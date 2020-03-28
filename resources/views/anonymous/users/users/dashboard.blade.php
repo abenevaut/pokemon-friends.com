@@ -1,11 +1,13 @@
 @extends('anonymous.default')
 
+@section('title', $metadata['title'])
+
 @section('content')
 <div class="content-header">
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0 text-dark text-center">{{ trans('global.baseline') }}</h1>
+                <h1 class="m-0 text-dark text-center">{{ trans('users.baseline') }}</h1>
             </div>
         </div>
     </div>
@@ -21,7 +23,7 @@
                         </div>
                     </div>
                     <div class="widget-user-header text-white" style="background:url(/images/pokemon-banner.jpg) no-repeat center center;">
-                        <h3 class="widget-user-username text-left">{{ trans('pokemon.welcome') }}</h3>
+                        <h3 class="widget-user-username text-left">{{ trans('users.welcome') }}</h3>
                     </div>
                     <div class="widget-user-image">
                         <img class="img-circle" src="{{ asset_cdn('images/avatar.jpg') }}" alt="User Avatar">
@@ -126,25 +128,8 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <iframe width="100%" src="https://www.youtube.com/embed/2GNw1j7fepI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <a
-                                class="btn btn-primary btn-block"
-                                target="_blank"
-                                rel="noopener noreferrer nofollow"
-                                href="https://niantic.helpshift.com/a/pokemon-go/?p=web&l={{ Session::get('locale') }}&s=friends-gifting-and-trading&f=friend-list-friendship-levels"
-                        >
-                            La documentation officiel
-                        </a>
-                    </div>
-                </div>
-                <div class="info-box bg-light">
-                    <div class="info-box-content">
-                        <span class="info-box-text text-center text-muted">{{ trans('global.our_news') }}</span>
-                        <span class="info-box-number text-center text-muted mb-0"><a href="{{ config('services.twitter.url') }}" target="_blank" rel="noopener" title="twitter.com"><i class="fab fa-twitter mr-2"></i>Twitter</a></span>
-                    </div>
-                </div>
+                @include('partials.card_official_doc')
+                @include('partials.card_our_news')
             </div>
         </div>
         <trainers-profiles-list-component></trainers-profiles-list-component>

@@ -8,10 +8,9 @@ return [
     'civility.miss' => 'Miss',
     'civility.mister' => 'Mister',
     'civility_name' => 'Civility name',
-    'full_name' => 'Full name',
 
-    'roles' => 'Roles',
     'role' => 'Role',
+    'roles' => 'Roles',
     'role.administrator' => 'Administrator',
     'role.accountant' => 'Accountant',
     'role.customer' => 'Customer',
@@ -25,17 +24,96 @@ return [
     'locale.ru' => 'Russian',
 
     'timezone' => 'Time zone',
-    'first_name' => 'First name',
-    'last_name' => 'Last name',
-    'email' => 'Email',
-    'current_password' => 'Current password',
-    'password' => 'Password',
-    'password_confirmation' => 'Confirm password',
 
     'impersonate' => 'Impersonate',
     'stop_impersonation' => 'Admin session',
 
+    'full_name' => 'Full name',
+    'first_name' => 'First name',
+    'last_name' => 'Last name',
+    'email' => 'Email',
+    'password' => 'Password',
+    'password_confirmation' => 'Confirm password',
+    'password_current' => 'Current password',
+
+    'home' => 'Home',
     'dashboard' => 'Dashboard',
+    'baseline' => 'Sign up to share your friend code and join your trainer community!',
+    'welcome' => "Now go share 'em all!",
+
+    'terms' => 'Terms of Service',
+    'anonymous.meta.description_terms' => "www.pokemon-friends.com is a friend sharing code platform from the Pokemon Go game. The company is unrelated to the publisher of the game.",
+    'terms-of-services' => '<h2>Introduction</h2>
+<p>
+    <a href=":home_url">www.pokemon-friends.com</a> is a friend sharing code platform from the Pokemon Go game.
+</p>
+<p>
+    As part of its business, the company <a href=":home_url">www.pokemon-friends.com</a>, is required to collect and process information, some of which are referred to as "personal data". <a href=":home_url">www.pokemon-friends.com</a> attaches great importance to privacy, and only uses data responsibly and confidentially and for a specific purpose.
+</p>
+<p>
+    The company <a href=":home_url">www.pokemon-friends.com</a> is unrelated to the publisher of the game (https://www.pokemongo.com/en-us/ & https://nianticlabs.com).
+</p>
+<h2>Données personnelles</h2>
+<p>
+    Sur le site web <a href=":home_url">www.pokemon-friends.com</a>, il y a 2 types de données susceptibles d’être recueillies :
+    <ul>
+        <li>
+            <b>Les données transmises directement</b><br/>
+            Ces données sont celles que vous nous transmettez directement, via un formulaire de création de compte utilisateur, de contact ou bien par contact direct par email. Sont obligatoires dans le formulaire de contact le champs « civilité, prénom et nom » et « email ».
+        </li>
+        <li>
+            <b>Les données collectées automatiquement</b><br/>
+            Lors de vos visites, une fois votre consentement donné, nous pouvons recueillir des informations de type « web analytics » relatives à votre navigation, la durée de votre consultation, votre adresse IP, votre type et version de navigateur. La technologie utilisée est le cookie.
+        </li>
+    </ul>
+</p>
+<h2>Utilisation des données</h2>
+<p>
+    Les données que vous nous transmettez directement sont utilisées dans le but de :
+    <ul>
+        <li>vous re-contacter et/ou dans le cadre de la demande que vous nous faites via notre formulaire de contact ou par courriel</li>
+        <li>de personnaliser l\'interface <a href=":home_url">www.pokemon-friends.com</a> pour une experience utilisateur optimale</li>
+    </ul>
+    Les données « web analytics » sont collectées sous forme anonyme (en enregistrant des adresses IP anonymes) par Google Analytics, et nous permettent de mesurer l\'audience de notre site web, les consultations et les éventuelles erreurs afin d’améliorer constamment l’expérience des utilisateurs. Ces données sont utilisées par <a href=":home_url">www.pokemon-friends.com</a>, responsable du traitement des données, et ne seront jamais cédées à un tiers ni utilisées à d’autres fins que celles détaillées ci-dessus.
+</p>
+<h2>Base légale</h2>
+<p>
+    Les données personnelles ne sont collectées qu’après consentement obligatoire de l’utilisateur. Ce consentement est valablement recueilli (boutons et cases à cocher), libre, clair et sans équivoque.
+</p>
+<h2>Durée de conservation</h2>
+<p>
+    Les données seront sauvegardées durant une durée maximale de 3 ans.
+</p>
+<h2>Cookies</h2>
+<p>
+    Les cookies sont des fichiers texte placés sur votre ordinateur, pour aider le site internet à analyser l’utilisation du site par ses utilisateurs.<br/>
+    <a href="https://wikis.ec.europa.eu/display/WEBGUIDE/04.+Cookies#section_2">Loi sur les cookies</a>
+</p>
+<p>
+    Voici la liste des cookies utilisées et leur objectif :
+    <ul>
+        <li>Cookies Google Analytics (<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage">liste exhaustive</a>) : Web analytics, un service d’analyse de site internet fourni par Google Inc. (« Google ») (<a href="https://www.google.com/policies/privacy/partners/" target="_blank" rel="noopener">plus d\'information ici</a>).</li>
+        <li>"laravel_cookie_consent" : Permet de garder en mémoire le fait que vous acceptez les cookies afin de ne plus vous importuner lors de votre prochaine visite.</li>
+    </ul>
+</p>
+<h2>Vos droits concernant les données personnelles</h2>
+<p>
+    Vous avez le droit de consultation, demande de modification ou d’effacement sur l’ensemble de vos données personnelles. Vous pouvez également retirer votre consentement au traitement de vos données.
+</p>
+<h2>Contact délégué à la protection des données</h2>
+<p>
+    Antoine Benevaut - <a href=":contact_url">Formulaire de contact</a>
+</p>
+<h2>Hébergement web</h2>
+<p>
+    https://www.fortrabbit.com<br>
+    Adresse : Görlitzer Str. 52 10997 Berlin<br>
+    Téléphone : +49 30 609 80 784 0
+</p>
+<h2>Code open source</h2>
+<p>
+    L\'intégralité du code source de ce site internet est consultable sur <a href="https://github.com/pokemon-friends-com/www">Github.com</a>
+</p>',
 
     'title' => 'Users',
     'create.title' => 'New user',

@@ -63,7 +63,7 @@
                 <a href="{{ config('services.twitter.url') }}" target="_blank" rel="noopener" title="twitter.com"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-        <span class="mr-1">{!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}</span><span class="mr-1"><a href="{{ route('anonymous.terms') }}">{{ trans('global.terms') }}</a></span>
+        <span class="mr-1">{!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}</span><span class="mr-1"><a href="{{ route('anonymous.terms') }}">{{ trans('users.terms') }}</a></span>
     </footer>
     <aside class="control-sidebar control-sidebar-dark"></aside>
 </div>
