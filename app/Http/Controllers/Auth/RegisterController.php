@@ -14,7 +14,6 @@ use template\Domain\Users\Users\User;
 class RegisterController extends ControllerAbstract
 {
     use RegistersUsers;
-    use AuthRedirectTrait;
 
     /*
     |--------------------------------------------------------------------------

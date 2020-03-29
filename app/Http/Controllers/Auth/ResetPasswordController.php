@@ -9,7 +9,6 @@ use template\Infrastructure\Contracts\Controllers\ControllerAbstract;
 class ResetPasswordController extends ControllerAbstract
 {
     use ResetsPasswords;
-    use AuthRedirectTrait;
 
     /*
     |--------------------------------------------------------------------------

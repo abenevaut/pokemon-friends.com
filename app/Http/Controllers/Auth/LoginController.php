@@ -13,7 +13,6 @@ use template\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
 class LoginController extends ControllerAbstract
 {
     use AuthenticatesUsers;
-    use AuthRedirectTrait;
 
     /*
     |--------------------------------------------------------------------------
