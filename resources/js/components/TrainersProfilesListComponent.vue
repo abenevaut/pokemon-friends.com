@@ -14,7 +14,11 @@
            'card-danger': 'red' === profile.team_color,
            'card-warning': 'yellow' === profile.team_color,
         }"
-          class="card card-outline"
+          class="card card-outline
+
+bg-dark
+
+"
         >
           <div class="card-header text-center">{{ profile.friend_code | pkmnFriendCode }}</div>
           <div class="card-boddy text-center" v-html="profile.qr_code"></div>

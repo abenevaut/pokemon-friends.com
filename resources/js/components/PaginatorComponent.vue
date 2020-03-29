@@ -1,7 +1,11 @@
 <template>
   <div class="row" v-if="shouldPaginate">
     <div class="col-lg-12">
-      <div class="card">
+      <div class="card
+
+bg-dark
+
+">
         <div class="card-footer">
           <button type="button"
                   v-show="prevUrl"

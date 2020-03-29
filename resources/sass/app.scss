@@ -5,7 +5,24 @@
 @import "~admin-lte/plugins/sweetalert2/sweetalert2.css";
 @import "~admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4";
 @import "~admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4";
-@import "~admin-lte/dist/css/adminlte.css";
+
+// Bootstrap
+// ---------------------------------------------------
+@import '~bootstrap/scss/functions';
+@import '~admin-lte/build/scss/bootstrap-variables';
+@import '~bootstrap/scss/bootstrap';
+
+// Variables and Mixins
+// ---------------------------------------------------
+@import '~admin-lte/build/scss/variables';
+@import '~admin-lte/build/scss/mixins';
+
+@import '~admin-lte/build/scss/parts/core';
+@import '~admin-lte/build/scss/parts/components';
+@import '~admin-lte/build/scss/parts/extra-components';
+@import '~admin-lte/build/scss/parts/pages';
+@import '~admin-lte/build/scss/parts/plugins';
+@import '~admin-lte/build/scss/parts/miscellaneous';
 
 // Google Fonts
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700);

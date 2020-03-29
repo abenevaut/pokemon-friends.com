@@ -8,7 +8,12 @@
         <div class="container">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"><i class="fas fa-file-signature mr-2"></i>{{ trans('users.terms') }}</h1>
+                    <h1 class="m-0
+{{--text-dark--}}
+
+                            text-light
+
+"><i class="fas fa-file-signature mr-2"></i>{{ trans('users.terms') }}</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,7 +36,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card
+
+bg-dark
+
+">
                         <div class="card-body">
                             {!! trans('users.terms-of-services', ['home_url' => route('anonymous.dashboard'), 'contact_url' => route('anonymous.contact.index')]) !!}
                         </div>

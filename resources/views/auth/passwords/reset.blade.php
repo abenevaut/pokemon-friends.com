@@ -1,7 +1,11 @@
 @extends('auth.default')
 
 @section('content')
-<div class="card-body login-card-body">
+<div class="card-body login-card-body
+
+bg-dark
+
+">
     <p class="login-box-msg">{{ trans('auth.forgot_password') }}</p>
     {!! Form::open(['route' => ['password.update'], 'method' => 'POST']) !!}
     @honeypot
@@ -11,11 +15,19 @@
             <input
                     type="text"
                     name="email"
-                    class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}"
+                    class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}
+
+                            bg-dark
+
+"
                     placeholder="{{ trans('users.email') }}" value="{{ old('email') }}"
             />
             <div class="input-group-append">
-                <div class="input-group-text">
+                <div class="input-group-text
+
+bg-dark
+
+">
                     <span class="fas fa-envelope"></span>
                 </div>
             </div>
@@ -29,11 +41,19 @@
             <input
                     type="password"
                     name="password"
-                    class="form-control {{ $errors && $errors->has('password') ? 'is-invalid' : '' }}"
+                    class="form-control {{ $errors && $errors->has('password') ? 'is-invalid' : '' }}
+
+                            bg-dark
+
+"
                     placeholder="{{ trans('users.password') }}"
             />
             <div class="input-group-append">
-                <div class="input-group-text">
+                <div class="input-group-text
+
+bg-dark
+
+">
                     <span class="fas fa-lock"></span>
                 </div>
             </div>
@@ -47,11 +67,19 @@
             <input
                     type="password"
                     name="password_confirmation"
-                    class="form-control {{ $errors && $errors->has('password_confirmation') ? 'is-invalid' : '' }}"
+                    class="form-control {{ $errors && $errors->has('password_confirmation') ? 'is-invalid' : '' }}
+
+                            bg-dark
+
+"
                     placeholder="{{ trans('users.password_confirmation') }}"
             />
             <div class="input-group-append">
-                <div class="input-group-text">
+                <div class="input-group-text
+
+bg-dark
+
+">
                     <span class="fas fa-lock"></span>
                 </div>
             </div>

@@ -8,7 +8,10 @@
     <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark"><i class="fas fa-envelope mr-2"></i>{{ trans('users.leads.contact') }}</h1>
+                <h1 class="m-0
+{{--                text-dark--}}
+
+                        text-light"><i class="fas fa-envelope mr-2"></i>{{ trans('users.leads.contact') }}</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -31,7 +34,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card
+
+bg-dark
+
+">
                     <div class="card-body">
                         {!! trans('users.leads.baseline') !!}
                     </div>
@@ -41,14 +48,22 @@
                 @include('partials.row_socials_news')
             </div>
             <div class="col-8">
-                <div class="card">
+                <div class="card
+
+bg-dark
+
+">
                     {!! Form::open(['route' => ['anonymous.contact.store'], 'method' => 'POST', 'data-user_identifier' => (Auth::check() ? Auth::user()->uniqid : 0)]) !!}
                     @honeypot
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <select name="civility" id="civility" class="form-control" {{ Auth::check() ? 'readonly' : '' }}>
+                                    <select name="civility" id="civility" class="form-control
+
+bg-dark
+
+" {{ Auth::check() ? 'readonly' : '' }}>
                                         @foreach ($civilities as $key)
                                         <option
                                                 value="{{ $key }}"
@@ -65,7 +80,11 @@
                                     <input
                                             type="text"
                                             name="first_name"
-                                            class="form-control @if ($errors && $errors->has('first_name')) is-invalid @endif"
+                                            class="form-control @if ($errors && $errors->has('first_name')) is-invalid @endif
+
+                                                    bg-dark
+
+"
                                             placeholder="{{ trans('users.first_name') }}"
                                             value="{{ old('first_name', Auth::check() ? Auth::user()->first_name : '') }}"
                                             {{ Auth::check() ? 'readonly' : '' }}
@@ -80,7 +99,11 @@
                                     <input
                                             type="text"
                                             name="last_name"
-                                            class="form-control @if ($errors && $errors->has('last_name')) is-invalid @endif"
+                                            class="form-control @if ($errors && $errors->has('last_name')) is-invalid @endif
+
+                                                    bg-dark
+
+"
                                             placeholder="{{ trans('users.last_name') }}"
                                             value="{{ old('last_name', Auth::check() ? Auth::user()->last_name : '') }}"
                                             {{ Auth::check() ? 'readonly' : '' }}
@@ -96,13 +119,21 @@
                                 <input
                                         type="text"
                                         name="email"
-                                        class="form-control @if ($errors && $errors->has('email')) is-invalid @endif"
+                                        class="form-control @if ($errors && $errors->has('email')) is-invalid @endif
+
+                                                bg-dark
+
+"
                                         placeholder="{{ trans('users.email') }}"
                                         value="{{ old('email', Auth::check() ? Auth::user()->email : '') }}"
                                         {{ Auth::check() ? 'readonly' : '' }}
                                 />
                                 <div class="input-group-append">
-                                    <div class="input-group-text">
+                                    <div class="input-group-text
+
+bg-dark
+
+">
                                         <span class="fas fa-envelope"></span>
                                     </div>
                                 </div>
@@ -115,7 +146,11 @@
                             <input
                                     type="text"
                                     name="subject"
-                                    class="form-control @if ($errors && $errors->has('message')) is-invalid @endif"
+                                    class="form-control @if ($errors && $errors->has('message')) is-invalid @endif
+
+                                            bg-dark
+
+"
                                     placeholder="{{ trans('users.leads.subject') }}"
                                     value="{{ old('subject') }}"
                             />
@@ -127,7 +162,11 @@
                             <span class="text-sm">{!! trans('users.leads.language_info') !!}</span>
                             <textarea
                                     name="message"
-                                    class="form-control @if ($errors && $errors->has('message')) is-invalid @endif"
+                                    class="form-control @if ($errors && $errors->has('message')) is-invalid @endif
+
+                                            bg-dark
+
+"
                                     style="min-height:100px;"
                                     placeholder="{{ trans('users.leads.message') }}"
                             >
@@ -164,7 +203,11 @@
             </div>
             <div class="col-4">
                 @include('partials.card_official_doc')
-                <div class="card">
+                <div class="card
+
+bg-dark
+
+">
                     <div class="card-body">
                         {{ trans('global.social_networks_baseline') }}
                         <ul>

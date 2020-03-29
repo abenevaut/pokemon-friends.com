@@ -6,7 +6,14 @@
 <body class="hold-transition layout-top-nav">
 @include('partials.googletag-body')
 <div id="template" class="wrapper">
-    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+    <nav class="main-header navbar navbar-expand-md
+
+
+{{--     navbar-light navbar-white--}}
+    navbar-dark navbar-gray-dark border-bottom-0
+
+
+">
         <div class="container">
             <a href="{{ route('anonymous.dashboard') }}" class="navbar-brand">
                 <img src="{{ asset_cdn('images/pokeball.jpg') }}" alt="{{ config('app.name') }}" class="brand-image img-circle">
@@ -40,7 +47,11 @@
                     @if (Route::currentRouteNamed(Route::currentRouteName()))
                     <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" href="#"><i class="fas fa-language"></i></a>
-                        <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-right">
+                        <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-right
+
+bg-dark
+
+">
                         @foreach(\template\Infrastructure\Interfaces\Domain\Locale\LocalesInterface::LOCALES as $locale)
                             @if (Session::get('locale') !== $locale)
                             <a href="{{ route(Route::currentRouteName(), ['locale' => $locale]) }}" class="dropdown-item">
@@ -63,7 +74,11 @@
             </ul>
         </div>
     </nav>
-    <div class="content-wrapper">
+    <div class="content-wrapper"
+
+         style="background-color:#41474c;"
+
+    >
         <div class="content">
             <div class="container">
                 @include('partials.session-message')
@@ -71,7 +86,11 @@
         </div>
         @yield('content')
     </div>
-    <footer class="main-footer">
+    <footer class="main-footer
+
+bg-dark border-top-0
+
+">
         <div class="float-right d-none d-sm-inline">
             <div class="d-none d-sm-block mb-2">
                 {{ trans('global.social_networks_baseline') }}

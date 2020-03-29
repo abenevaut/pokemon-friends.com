@@ -1,7 +1,11 @@
 @extends('auth.default')
 
 @section('content')
-<div class="card-body login-card-body">
+<div class="card-body login-card-body
+
+bg-dark
+
+">
     <p class="login-box-msg">{{ trans('auth.forgot_password') }}</p>
     @if (session('status'))
         <div class="alert alert-success text-sm" role="alert">{{ session('status') }}</div>
@@ -13,12 +17,20 @@
             <input
                     type="text"
                     name="email"
-                    class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}"
+                    class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}
+
+                            bg-dark
+
+"
                     placeholder="{{ trans('users.email') }}"
                     value="{{ old('email', Auth::check() ? Auth::user()->email : '') }}"
             />
             <div class="input-group-append">
-                <div class="input-group-text">
+                <div class="input-group-text
+
+bg-dark
+
+">
                     <span class="fas fa-envelope"></span>
                 </div>
             </div>
