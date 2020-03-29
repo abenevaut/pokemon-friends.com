@@ -17,6 +17,23 @@ class UsersControllerTest extends TestCase
     use DatabaseMigrations;
     use DatabaseTransactions;
 
+    public function testToVisitDashboardAsAnonymous()
+    {
+        $this
+            ->get('/administrator/users/dashboard')
+            ->assertStatus(302)
+            ->assertRedirect('/login');
+    }
+
+    public function testToVisitDashboardAsCustomer()
+    {
+        $this->actingAsCustomer();
+        $this
+            ->assertAuthenticated()
+            ->get('/administrator/users/dashboard')
+            ->assertStatus(403);
+    }
+
     public function testToVisitDashboardAsAdministrator()
     {
         $this->actingAsAdministrator();
@@ -27,12 +44,14 @@ class UsersControllerTest extends TestCase
             ->assertSuccessful();
     }
 
-    public function testToVisitDashboardAsAnonymous()
+    public function testToVisitAnonymousDashboardAsAdministrator()
     {
+        $this->actingAsAdministrator();
         $this
-            ->get('/administrator/users/dashboard')
+            ->assertAuthenticated()
+            ->get('/')
             ->assertStatus(302)
-            ->assertRedirect('/login');
+            ->assertRedirect('/administrator/users/dashboard');
     }
 
     public function testIndex()

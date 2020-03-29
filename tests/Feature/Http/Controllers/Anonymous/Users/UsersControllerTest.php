@@ -18,13 +18,13 @@ class UsersControllerTest extends TestCase
         $this
             ->get('/')
             ->assertSuccessful()
-            ->assertSee('Sign up to share your friend code and join your trainer community!')
-            ->assertSee('Now go share &#039;em all!')
-            ->assertSee('Home')
-            ->assertSee('Contact')
-            ->assertSee('Terms of Service')
-            ->assertSee('Login')
-            ->assertSee('Register');
+            ->assertSeeText('Sign up to share your friend code and join your trainer community!')
+            ->assertSeeText('Now go share &#039;em all!')
+            ->assertSeeText('Home')
+            ->assertSeeText('Contact')
+            ->assertSeeText('Terms of Service')
+            ->assertSeeText('Login')
+            ->assertSeeText('Register');
     }
 
     public function testAnonymousDashboardInFrench()
@@ -32,13 +32,13 @@ class UsersControllerTest extends TestCase
         $this
             ->get('/?locale=fr')
             ->assertSuccessful()
-            ->assertSee('Inscrivez-vous pour partager votre code ami et rejoindre vote communauté de dresseurs!')
-            ->assertSee('Maintenant, allez tous les partager !')
-            ->assertSee('Accueil')
-            ->assertSee('Contact')
-            ->assertSee('Conditions générales d&#039;utilisation')
-            ->assertSee('Se connecter')
-            ->assertSee('S&#039;inscrire');
+            ->assertSeeText('Inscrivez-vous pour partager votre code ami et rejoindre vote communauté de dresseurs!')
+            ->assertSeeText('Maintenant, allez tous les partager !')
+            ->assertSeeText('Accueil')
+            ->assertSeeText('Contact')
+            ->assertSeeText('Conditions générales d&#039;utilisation')
+            ->assertSeeText('Se connecter')
+            ->assertSeeText('S&#039;inscrire');
     }
 
     public function testAnonymousDashboardInGerman()
@@ -46,13 +46,13 @@ class UsersControllerTest extends TestCase
         $this
             ->get('/?locale=de')
             ->assertSuccessful()
-            ->assertSee('Sign up to share your friend code and join your trainer community!')
-            ->assertSee('Now go share &#039;em all!')
-            ->assertSee('Home')
-            ->assertSee('Contact')
-            ->assertSee('Terms of Service')
-            ->assertSee('Einloggen')
-            ->assertSee('Registrieren');
+            ->assertSeeText('Sign up to share your friend code and join your trainer community!')
+            ->assertSeeText('Now go share &#039;em all!')
+            ->assertSeeText('Home')
+            ->assertSeeText('Contact')
+            ->assertSeeText('Terms of Service')
+            ->assertSeeText('Einloggen')
+            ->assertSeeText('Registrieren');
     }
 
     public function testAnonymousDashboardInSpanish()
@@ -60,13 +60,13 @@ class UsersControllerTest extends TestCase
         $this
             ->get('/?locale=es')
             ->assertSuccessful()
-            ->assertSee('Sign up to share your friend code and join your trainer community!')
-            ->assertSee('Now go share &#039;em all!')
-            ->assertSee('Home')
-            ->assertSee('Contact')
-            ->assertSee('Terms of Service')
-            ->assertSee('Iniciar sesión')
-            ->assertSee('Registrarse');
+            ->assertSeeText('Sign up to share your friend code and join your trainer community!')
+            ->assertSeeText('Now go share &#039;em all!')
+            ->assertSeeText('Home')
+            ->assertSeeText('Contact')
+            ->assertSeeText('Terms of Service')
+            ->assertSeeText('Iniciar sesión')
+            ->assertSeeText('Registrarse');
     }
 
     public function testAnonymousDashboardInRussian()
@@ -74,13 +74,13 @@ class UsersControllerTest extends TestCase
         $this
             ->get('/?locale=ru')
             ->assertSuccessful()
-            ->assertSee('Sign up to share your friend code and join your trainer community!')
-            ->assertSee('Now go share &#039;em all!')
-            ->assertSee('Home')
-            ->assertSee('Contact')
-            ->assertSee('Terms of Service')
-            ->assertSee('Авторизоваться')
-            ->assertSee('регистр');
+            ->assertSeeText('Sign up to share your friend code and join your trainer community!')
+            ->assertSeeText('Now go share &#039;em all!')
+            ->assertSeeText('Home')
+            ->assertSeeText('Contact')
+            ->assertSeeText('Terms of Service')
+            ->assertSeeText('Авторизоваться')
+            ->assertSeeText('регистр');
     }
 
     public function testAnonymousDashboardInChinese()
@@ -88,13 +88,13 @@ class UsersControllerTest extends TestCase
         $this
             ->get('/?locale=zh-CN')
             ->assertSuccessful()
-            ->assertSee('Sign up to share your friend code and join your trainer community!')
-            ->assertSee('Now go share &#039;em all!')
-            ->assertSee('Home')
-            ->assertSee('Contact')
-            ->assertSee('Terms of Service')
-            ->assertSee('登录')
-            ->assertSee('寄存器');
+            ->assertSeeText('Sign up to share your friend code and join your trainer community!')
+            ->assertSeeText('Now go share &#039;em all!')
+            ->assertSeeText('Home')
+            ->assertSeeText('Contact')
+            ->assertSeeText('Terms of Service')
+            ->assertSeeText('登录')
+            ->assertSeeText('寄存器');
     }
 
     public function testTerms()
@@ -102,7 +102,7 @@ class UsersControllerTest extends TestCase
         $this
             ->get('/terms-of-services')
             ->assertSuccessful()
-            ->assertSee('www.pokemon-friends.com is a friend sharing code platform from the Pokemon Go game.');
+            ->assertSeeText('www.pokemon-friends.com is a friend sharing code platform from the Pokemon Go game.');
     }
 
     public function testTermsInFrench()
@@ -110,6 +110,6 @@ class UsersControllerTest extends TestCase
         $this
             ->get('/terms-of-services?locale=fr')
             ->assertSuccessful()
-            ->assertSee('www.pokemon-friends.com est une plateforme de partage de code ami du jeu Pokemon Go.');
+            ->assertSeeText('www.pokemon-friends.com est une plateforme de partage de code ami du jeu Pokemon Go.');
     }
 }
