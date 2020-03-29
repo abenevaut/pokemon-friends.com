@@ -17,7 +17,10 @@ Route::group(
         'namespace' => 'Administrator',
         'prefix' => \template\Domain\Users\Users\User::ROLE_ADMINISTRATOR,
         'domain' => env('APP_DOMAIN'),
-        'middleware' => ['auth', 'role:'.\template\Domain\Users\Users\User::ROLE_ADMINISTRATOR],
+        'middleware' => [
+            'auth',
+            'role:' . \template\Domain\Users\Users\User::ROLE_ADMINISTRATOR
+        ],
     ],
     function () {
         Route::resource('settings', 'Settings\SettingsController', ['only' => ['index', 'store']]);
@@ -35,4 +38,5 @@ Route::group(
             });
             Route::resource('users', 'UsersController');
         });
-    });
+    }
+);
