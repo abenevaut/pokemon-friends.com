@@ -33,5 +33,9 @@ return [
     'logout' => 'Se déconnecter',
     'login_message_success' => 'Vous êtes maintenant connecté(e)',
 
+    'login_with_provider_failed' => 'Ce compte :provider n\'est lié à aucun compte utilisateur, veuillez-vous connecter avec vos identifiants habituels puis lier votre compte pour utiliser le système de connexion sociale',
+    'link_provider_success' => 'La liaison de votre compte :provider avec votre compte utilisateur c\'est correctement déroulée',
+    'link_provider_failed' => 'La liaison de votre compte :provider avec votre compte utilisateur n\'a pas pu se faire',
+
 ];
 

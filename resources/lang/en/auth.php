@@ -34,4 +34,8 @@ return [
     'logout' => 'Sign out',
     'login_message_success' => 'You are now connected',
 
+    'login_with_provider_failed' => 'This :provider account is not linked to any user account, please log in with your usual credentials then link your account to use the social login system',
+    'link_provider_success' => 'The link between your :provider account and your user account is correctly completed',
+    'link_provider_failed' => 'The link of your :provider account with your user account could not be done',
+
 ];

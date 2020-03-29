@@ -85,7 +85,7 @@ class LoginController extends ControllerAbstract
     {
         $this->r_users->refreshSession($user);
 
-        return redirect()->intended($this->redirectTo());
+        return redirect()->intended(route('anonymous.dashboard'));
     }
 
     /**
@@ -102,13 +102,10 @@ class LoginController extends ControllerAbstract
         } catch (\InvalidArgumentException $exception) {
             app('sentry')->captureException($exception);
 
-            return redirect(route('anonymous.dashboard'))
+            return redirect(route('login'))
                 ->with(
                     'message-error',
-                    sprintf(
-                        trans('auth.link_provider_failed'),
-                        ucfirst(strtolower($provider))
-                    )
+                    trans('auth.link_provider_failed', ['provider' => $provider]),
                 );
         }
     }
@@ -133,10 +130,7 @@ class LoginController extends ControllerAbstract
             return redirect(route('anonymous.dashboard'))
                 ->with(
                     'message-error',
-                    sprintf(
-                        trans('auth.link_provider_failed'),
-                        ucfirst(strtolower($provider))
-                    )
+                    trans('auth.link_provider_failed', ['provider' => $provider])
                 );
         }
 
@@ -162,20 +156,14 @@ class LoginController extends ControllerAbstract
                 return redirect($this->redirectTo())
                     ->with(
                         'message-success',
-                        sprintf(
-                            trans('auth.link_provider_success'),
-                            ucfirst(strtolower($provider))
-                        )
+                        trans('auth.link_provider_success', ['provider' => $provider])
                     );
             }
 
             return redirect($this->redirectTo())
                 ->with(
                     'message-error',
-                    sprintf(
-                        trans('auth.link_provider_failed'),
-                        ucfirst(strtolower($provider))
-                    )
+                    trans('auth.link_provider_failed', ['provider' => $provider])
                 );
         }
 
@@ -195,20 +183,13 @@ class LoginController extends ControllerAbstract
 
             Auth::login($providerToken->user, true);
 
-            return redirect($this->redirectTo());
+            return redirect(route('anonymous.dashboard'));
         }
-
-        /*
-         * @xabe todo : try to link account via provider user mail, create token and login the user
-         */
 
         return redirect(route('login'))
             ->with(
                 'message-error',
-                sprintf(
-                    trans('auth.login_with_provider_failed'),
-                    ucfirst(strtolower($provider))
-                )
+                trans('auth.login_with_provider_failed', ['provider' => $provider])
             );
     }
 }
