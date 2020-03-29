@@ -115,7 +115,6 @@ class UsersRepositoryEloquentTest extends TestCase
             [
                 User::ROLE_ADMINISTRATOR,
                 User::ROLE_CUSTOMER,
-                User::ROLE_ACCOUNTANT,
             ],
             $this->r_users->getRoles()->toArray()
         );

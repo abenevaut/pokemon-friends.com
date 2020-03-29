@@ -15,13 +15,6 @@ trait AuthRedirectTrait
     protected $redirectTo = 'customer.users.dashboard';
 
     /**
-     * Where to redirect accountants after login.
-     *
-     * @var string
-     */
-    protected $redirectToAccountantSection = 'accountant.files.index';
-
-    /**
      * Where to redirect administrators after login.
      *
      * @var string
@@ -35,8 +28,6 @@ trait AuthRedirectTrait
     {
         if (Auth::user()->is_administrator) {
             return route($this->redirectToBackend);
-        } elseif (Auth::user()->is_accountant) {
-            return route($this->redirectToAccountantSection);
         }
 
         return route($this->redirectTo);

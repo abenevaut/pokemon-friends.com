@@ -47,9 +47,6 @@ $factory
     ->state(User::class, User::ROLE_CUSTOMER, [
         'role' => User::ROLE_CUSTOMER,
     ])
-    ->state(User::class, User::ROLE_ACCOUNTANT, [
-        'role' => User::ROLE_ACCOUNTANT,
-    ])
     ->state(User::class, User::DEFAULT_LOCALE, [
         'locale' => User::DEFAULT_LOCALE,
     ])

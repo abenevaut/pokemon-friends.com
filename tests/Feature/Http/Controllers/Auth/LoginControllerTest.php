@@ -68,23 +68,4 @@ class LoginControllerTest extends TestCase
 //            return $event->user->id === $user->id;
 //        });
     }
-
-    public function testIfLoginCanBeSubmittedWithValidAccountantUserCredentials()
-    {
-        $user = factory(User::class)->states(User::ROLE_ACCOUNTANT)->create();
-        Event::fake();
-        $this
-            ->post('/login', [
-                'email' => $user->email,
-                'password' => $this->getDefaultPasswordBcrypted(),
-            ])
-            ->assertStatus(302)
-            ->assertRedirect('/');
-//        Event::assertDispatched(LoginEvent::class, function ($event) use ($user) {
-//            return $event->user->id === $user->id;
-//        });
-//        Event::assertDispatched(UserRefreshSessionEvent::class, function ($event) use ($user) {
-//            return $event->user->id === $user->id;
-//        });
-    }
 }

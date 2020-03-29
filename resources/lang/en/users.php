@@ -12,7 +12,6 @@ return [
     'role' => 'Role',
     'roles' => 'Roles',
     'role.administrator' => 'Administrator',
-    'role.accountant' => 'Accountant',
     'role.customer' => 'Customer',
 
     'locale' => 'Language',
