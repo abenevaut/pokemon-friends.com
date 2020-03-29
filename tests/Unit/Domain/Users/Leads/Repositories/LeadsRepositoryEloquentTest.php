@@ -72,7 +72,7 @@ class LeadsRepositoryEloquentTest extends TestCase
         });
         $this->assertDatabaseMissing('users_leads', $lead->toArray());
 
-        // @todo xABE : https://github.com/abenevaut/www/issues/234
+        // @todo xABE : Lead have to be soft deletable
 //        $this->assertDatabaseHas('users_leads', $lead->toArray());
 //        $this->assertSoftDeleted('users_leads', $lead->toArray());
     }
@@ -84,7 +84,7 @@ class LeadsRepositoryEloquentTest extends TestCase
 
     public function testAllWithTrashed()
     {
-        $this->markTestSkipped('@todo xABE : https://github.com/obsession/www/issues/234');
+        $this->markTestSkipped('@todo xABE : Lead have to be soft deletable');
 
         factory(Lead::class)->create();
         factory(Lead::class)->create();
@@ -94,7 +94,7 @@ class LeadsRepositoryEloquentTest extends TestCase
 
     public function testOnlyTrashed()
     {
-        $this->markTestSkipped('@todo xABE : https://github.com/obsession/www/issues/234');
+        $this->markTestSkipped('@todo xABE : Lead have to be soft deletable');
 
         factory(Lead::class)->create();
         factory(Lead::class)->create();
@@ -106,7 +106,7 @@ class LeadsRepositoryEloquentTest extends TestCase
     {
         factory(Lead::class)->create();
         $lead = factory(Lead::class)->create();
-        // @todo xABE : https://github.com/abenevaut/www/issues/234
+        // @todo xABE : Lead have to be soft deletable
 //        factory(Lead::class)->states('deleted')->create();
         $repositoryLead = $this
             ->r_leads
@@ -121,7 +121,7 @@ class LeadsRepositoryEloquentTest extends TestCase
     {
         factory(Lead::class)->create();
         $lead = factory(Lead::class)->create();
-        // @todo xABE : https://github.com/abenevaut/www/issues/234
+        // @todo xABE : Lead have to be soft deletable
 //        factory(Lead::class)->states('deleted')->create();
         $repositoryLead = $this
             ->r_leads
@@ -147,7 +147,7 @@ class LeadsRepositoryEloquentTest extends TestCase
          */
         factory(Lead::class)->create();
         $lead = factory(Lead::class)->create();
-        // @todo xABE : https://github.com/abenevaut/www/issues/234
+        // @todo xABE : Lead have to be soft deletable
 //        factory(Lead::class)->states('deleted')->create();
         $repositoryLead = $this
             ->r_leads
@@ -168,7 +168,7 @@ class LeadsRepositoryEloquentTest extends TestCase
     {
         factory(Lead::class)->create();
         $lead = factory(Lead::class)->create();
-        // @todo xABE : https://github.com/abenevaut/www/issues/234
+        // @todo xABE : Lead have to be soft deletable
 //        factory(Lead::class)->states('deleted')->create();
         $user = $this->r_leads->createUserFromLead($lead);
         $this->assertEquals($lead->email, $user->email);
