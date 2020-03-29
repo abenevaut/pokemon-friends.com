@@ -13,35 +13,84 @@ class RegisterControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testIfRegisterIsCorrectlyDisplayed()
+    public function testToVisitRegister()
     {
         $this
             ->get('/register')
-            ->assertSuccessful();
+            ->assertSuccessful()
+            ->assertSeeText('Registration Form')
+            ->assertSee('Friend code')
+            ->assertSee('Email')
+            ->assertSee('Password')
+            ->assertSee('Confirm password')
+            ->assertSeeText('Register');
     }
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testRegistration()
+    public function testToSubmitRegister()
     {
-        $this->markTestSkipped('https://github.com/obsession-city/www/issues/40');
-        $user = factory(User::class)->states(User::ROLE_CUSTOMER)->make();
+        $email = $this->faker->email;
         $profile = factory(Profile::class)->make();
-
         $this
-            ->post('/register', $user->toArray() + $profile->toArray() + [
+            ->from('/register')
+            ->post('/register', $profile->toArray() + [
+                    'email' => $email,
+                    'password' => $this->getDefaultPassword(),
+                    'password_confirmation' => $this->getDefaultPassword()
+                ])
+            ->assertStatus(302)
+            ->assertRedirect('/');
+        $this->assertDatabaseHas('users', [
+            'email' => $email,
+        ]);
+    }
+
+    public function testToSubmitRegisterWithInvalidEmail()
+    {
+        $email = $this->faker->word;
+        $profile = factory(Profile::class)->make();
+        $this
+            ->followingRedirects()
+            ->from('/register')
+            ->post('/register', $profile->toArray() + [
+                    'email' => $email,
+                    'password' => $this->getDefaultPassword(),
+                    'password_confirmation' => $this->getDefaultPassword()
+                ])
+            ->assertSuccessful()
+            ->assertSeeText('The email must be a valid email address.');
+        $this->assertDatabaseMissing('users', [
+            'email' => $email,
+        ]);
+    }
+
+    public function testToSubmitRegisterAndClaimProfile()
+    {
+        $email = $this->faker->email;
+        $friend_code = $this->faker->numberBetween(100000000000, 999999999999);
+        $userClaimable = factory(User::class)->states(User::ROLE_CUSTOMER)->create([
+            'email' => $friend_code . '@pokemon-friends.com',
+        ]);
+        factory(Profile::class)->create([
+            'user_id' => $userClaimable->id,
+            'friend_code' => $friend_code
+        ]);
+        $this
+            ->from('/register')
+            ->post('/register', [
+                'friend_code' => $friend_code,
+                'email' => $email,
                 'password' => $this->getDefaultPassword(),
                 'password_confirmation' => $this->getDefaultPassword()
             ])
             ->assertStatus(302)
-            ->assertRedirect('/dashboard');
+            ->assertRedirect('/');
+        $this->assertDatabaseHas('users', [
+            'id' => $userClaimable->id,
+            'email' => $email,
+        ]);
+        $this->assertDatabaseHas('users_profiles', [
+            'user_id' => $userClaimable->id,
+            'friend_code' => $friend_code,
+        ]);
     }
 }

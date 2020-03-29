@@ -18,48 +18,51 @@ class ForgotPasswordControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function testIfForgotPasswordIsCorrectlyDisplayed()
+    public function testToVisitForgotPassword()
     {
         $this
             ->get('/password/reset')
             ->assertSuccessful()
-            ->assertSee('Change your password')
+            ->assertSeeText('Change your password')
             ->assertSee('Email')
-            ->assertSee('Send');
+            ->assertSeeText('Send');
     }
 
-    public function testIfForgotPasswordCanBeSubmittedWithValidUserEmail()
+    public function testToSubmitForgotPasswordWithValidUserEmail()
     {
         $user = factory(User::class)->create();
         Notification::fake();
         $this
+            ->from('/password/reset')
             ->post('/password/email', ['email' => $user->email])
             ->assertStatus(302)
-            ->assertRedirect('/');
+            ->assertRedirect('/password/reset');
         $user->refresh();
         Notification::assertSentTo($user, ResetPassword::class);
     }
 
-    public function testIfForgotPasswordCanBeSubmittedWithNotValidEmail()
+    public function testToSubmitForgotPasswordWithNotValidEmail()
     {
         $email = $this->faker->word(20);
         Notification::fake();
         $this
+            ->from('/password/reset')
             ->post('/password/email', ['email' => $email])
             ->assertStatus(302)
-            ->assertRedirect('/');
+            ->assertRedirect('/password/reset');
         Notification::assertNotSentTo([], ResetPassword::class);
     }
 
-    public function testIfForgotPasswordCanBeSubmittedWithNotValidUserEmail()
+    public function testToSubmitForgotPasswordWithNotValidUserEmail()
     {
         $email = $this->faker->email;
         Notification::fake();
         $this
+            ->from('/password/reset')
             ->post('/password/email', ['email' => $email])
             ->assertStatus(302)
-            ->assertRedirect('/')
-            ->assertSessionHasErrors(['email' => trans('passwords.user')]);
+            ->assertRedirect('/password/reset')
+            ->assertSessionHasErrors(['email' => 'We can\'t find a user with that e-mail address.']);
         Notification::assertNotSentTo([], ResetPassword::class);
     }
 }

@@ -56,7 +56,7 @@ class LeadsControllerTest extends TestCase
         $this->assertDatabaseMissing('users_leads', $lead);
     }
 
-    public function testStoreWithBadEmail()
+    public function testStoreWithInvalidEmail()
     {
         $lead = factory(Lead::class)->raw();
         Event::fake();

@@ -58,22 +58,6 @@ class LoginController extends ControllerAbstract
     }
 
     /**
-     * Validate the user login request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    protected function validateLogin(Request $request)
-    {
-        $request->validate([
-            $this->username() => 'required|string',
-            'password' => 'required|string',
-        ]);
-    }
-
-    /**
      * The user has been authenticated.
      *
      * @param  Request $request
@@ -85,7 +69,7 @@ class LoginController extends ControllerAbstract
     {
         $this->r_users->refreshSession($user);
 
-        return redirect()->intended(route('anonymous.dashboard'));
+        return redirect(route('anonymous.dashboard'));
     }
 
     /**

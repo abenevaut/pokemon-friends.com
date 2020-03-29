@@ -41,7 +41,7 @@ class LoginControllerTest extends TestCase
             ->assertSuccessful()
             ->assertSeeText('Se connecter')
             ->assertSeeText('Changer votre mot de passe')
-            ->assertSeeText('S&#039;inscrire');
+            ->assertSeeText(e('S\'inscrire'));
     }
 
     public function testToVisitLoginPageInGerman()
@@ -136,7 +136,7 @@ class LoginControllerTest extends TestCase
             ->assertSeeText('The password field is required.');
     }
 
-    public function testToSubmitLoginFormWithBadEmail()
+    public function testToSubmitLoginFormWithInvalidEmail()
     {
         $this
             ->followingRedirects()
