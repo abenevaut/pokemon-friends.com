@@ -13,7 +13,7 @@ class UsersControllerTest extends TestCase
     use OAuthTestCaseTrait;
     use DatabaseMigrations;
 
-    public function testAnonymousDashboard()
+    public function testToVisitDashboard()
     {
         $this
             ->get('/')
@@ -27,7 +27,7 @@ class UsersControllerTest extends TestCase
             ->assertSeeText('Register');
     }
 
-    public function testAnonymousDashboardInFrench()
+    public function testToVisitDashboardInFrench()
     {
         $this
             ->get('/?locale=fr')
@@ -41,7 +41,7 @@ class UsersControllerTest extends TestCase
             ->assertSeeText('S&#039;inscrire');
     }
 
-    public function testAnonymousDashboardInGerman()
+    public function testToVisitDashboardInGerman()
     {
         $this
             ->get('/?locale=de')
@@ -55,7 +55,7 @@ class UsersControllerTest extends TestCase
             ->assertSeeText('Registrieren');
     }
 
-    public function testAnonymousDashboardInSpanish()
+    public function testToVisitDashboardInSpanish()
     {
         $this
             ->get('/?locale=es')
@@ -69,7 +69,7 @@ class UsersControllerTest extends TestCase
             ->assertSeeText('Registrarse');
     }
 
-    public function testAnonymousDashboardInRussian()
+    public function testToVisitDashboardInRussian()
     {
         $this
             ->get('/?locale=ru')
@@ -83,7 +83,7 @@ class UsersControllerTest extends TestCase
             ->assertSeeText('регистр');
     }
 
-    public function testAnonymousDashboardInChinese()
+    public function testToVisitDashboardInChinese()
     {
         $this
             ->get('/?locale=zh-CN')
@@ -97,7 +97,7 @@ class UsersControllerTest extends TestCase
             ->assertSeeText('寄存器');
     }
 
-    public function testTerms()
+    public function testToVisitTerms()
     {
         $this
             ->get('/terms-of-services')
@@ -105,7 +105,7 @@ class UsersControllerTest extends TestCase
             ->assertSeeText('www.pokemon-friends.com is a friend sharing code platform from the Pokemon Go game.');
     }
 
-    public function testTermsInFrench()
+    public function testToVisitTermsInFrench()
     {
         $this
             ->get('/terms-of-services?locale=fr')
