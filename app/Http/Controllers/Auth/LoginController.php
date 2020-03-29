@@ -116,74 +116,74 @@ class LoginController extends ControllerAbstract
      *
      * @param $provider
      *
-     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function handleProviderCallback($provider)
     {
-        $providerUser = null;
-
         try {
             $providerUser = Socialite::driver($provider)->user();
-        } catch (\InvalidArgumentException $exception) {
-            app('sentry')->captureException($exception);
 
-            return redirect(route('anonymous.dashboard'))
-                ->with(
-                    'message-error',
-                    trans('auth.link_provider_failed', ['provider' => $provider])
-                );
-        }
-
-        if (!empty($providerUser) && Auth::check()) {
-            $isTokenAvailableForUser = $this
-                ->r_providers_tokens
-                ->checkIfTokenIsAvailableForUser(
-                    Auth::user(),
-                    $providerUser->id,
-                    $provider
-                );
-
-            if ($isTokenAvailableForUser) {
-                $this
+            if (!empty($providerUser) && Auth::check()) {
+                $isTokenAvailableForUser = $this
                     ->r_providers_tokens
-                    ->saveUserTokenForProvider(
+                    ->checkIfTokenIsAvailableForUser(
                         Auth::user(),
-                        $provider,
                         $providerUser->id,
-                        $providerUser->token
+                        $provider
                     );
 
-                return redirect($this->redirectTo())
+                if ($isTokenAvailableForUser) {
+                    $this
+                        ->r_providers_tokens
+                        ->saveUserTokenForProvider(
+                            Auth::user(),
+                            $provider,
+                            $providerUser->id,
+                            $providerUser->token
+                        );
+
+                    return redirect(route('anonymous.dashboard'))
+                        ->with(
+                            'message-success',
+                            trans('auth.link_provider_success', ['provider' => $provider])
+                        );
+                }
+
+                return redirect('login')
                     ->with(
-                        'message-success',
-                        trans('auth.link_provider_success', ['provider' => $provider])
+                        'message-error',
+                        trans('auth.link_provider_failed', ['provider' => $provider])
                     );
             }
 
-            return redirect($this->redirectTo())
+            $providerToken = $this
+                ->r_providers_tokens
+                ->findUserForProvider($providerUser->id, $provider);
+
+            if ($providerToken) {
+                $this
+                    ->r_providers_tokens
+                    ->update(
+                        [
+                            'provider_token' => $providerUser->token,
+                        ],
+                        $providerToken->id
+                    );
+
+                Auth::login($providerToken->user, true);
+
+                return redirect(route('anonymous.dashboard'));
+            }
+        } catch (\InvalidArgumentException $exception) {
+            app('sentry')->captureException($exception);
+
+            return redirect(route('login'))
                 ->with(
                     'message-error',
                     trans('auth.link_provider_failed', ['provider' => $provider])
                 );
-        }
-
-        $providerToken = $this
-            ->r_providers_tokens
-            ->findUserForProvider($providerUser->id, $provider);
-
-        if (!is_null($providerToken)) {
-            $this
-                ->r_providers_tokens
-                ->update(
-                    [
-                        'provider_token' => $providerUser->token,
-                    ],
-                    $providerToken->id
-                );
-
-            Auth::login($providerToken->user, true);
-
-            return redirect(route('anonymous.dashboard'));
         }
 
         return redirect(route('login'))

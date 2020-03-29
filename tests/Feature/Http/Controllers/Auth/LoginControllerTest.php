@@ -2,7 +2,11 @@
 
 namespace Tests\Feature\Http\Controllers\Auth;
 
-use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\{
+    Contracts\Provider as SocialiteProvider,
+    Facades\Socialite,
+    Two\User as SocialiteUser
+};
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -156,9 +160,9 @@ class LoginControllerTest extends TestCase
             ->assertSeeText('These credentials do not match our records.');
     }
 
-    public function testToLogWithSocialProvider()
+    public function testToLogOnSocialProvider()
     {
-        $provider = \Mockery::mock(\Laravel\Socialite\Contracts\Provider::class);
+        $provider = \Mockery::mock(SocialiteProvider::class);
         $provider
             ->shouldReceive('redirect')
             ->andReturn(redirect($this->faker->url));
@@ -173,7 +177,7 @@ class LoginControllerTest extends TestCase
             ->assertRedirect();
     }
 
-    public function testToLogWithSocialProviderThatNotExists()
+    public function testToLogOnUnknownSocialProvider()
     {
         Socialite::shouldReceive('driver')
             ->with('unknown')
@@ -184,36 +188,42 @@ class LoginControllerTest extends TestCase
             ->from('/login')
             ->get('/login/unknown')
             ->assertSuccessful()
-            ->assertSeeText('Login');
-//            ->assertSeeText('La liaison de votre compte unknown avec votre compte utilisateur n\'a pas pu se faire');
+            ->assertLocation('/login')
+            ->assertSeeText('The link of your unknown account with your user account could not be done');
     }
 
-//    public function testToLogWithSocialProviderOnCallback()
-//    {
-//        $abstractUser = \Mockery::mock(\Laravel\Socialite\Two\User::class)
-//            ->shouldReceive('getId')
-//            ->andReturn($this->faker->uuid)
-//            ->shouldReceive('getEmail')
-//            ->andReturn($this->faker->email)
-//            ->shouldReceive('getNickname')
-//            ->andReturn($this->faker->userName)
-//            ->shouldReceive('getName')
-//            ->andReturn($this->faker->name)
-//            ->shouldReceive('getAvatar')
-//            ->andReturn('https://en.gravatar.com/userimage');
-//
-//        $provider = \Mockery::mock(\Laravel\Socialite\Contracts\Provider::class)
-//            ->shouldReceive('user')
-//            ->andReturn($abstractUser);
-//
-//        Socialite::shouldReceive('driver')
-//            ->with('twitter')
-//            ->andReturn($provider);
-//
-//        $this
-//            ->followingRedirects()
-//            ->from('/login/twitter')
-//            ->get('/login/twitter/callback')
-//            ->assertSuccessful();
-//    }
+    public function testToLogSocialProviderUser()
+    {
+        $abstractUser = \Mockery::mock(SocialiteUser::class);
+        $abstractUser
+            ->shouldReceive('getId')
+            ->andReturn($this->faker->uuid)
+            ->shouldReceive('getEmail')
+            ->andReturn($this->faker->email)
+            ->shouldReceive('getNickname')
+            ->andReturn($this->faker->userName)
+            ->shouldReceive('getName')
+            ->andReturn($this->faker->name)
+            ->shouldReceive('getAvatar')
+            ->andReturn('https://en.gravatar.com/userimage');
+
+        $provider = \Mockery::mock(SocialiteProvider::class);
+        $provider
+            ->shouldReceive('user')
+            ->andReturn($abstractUser);
+
+        Socialite::shouldReceive('driver')
+            ->with('twitter')
+            ->andReturn($provider);
+
+        $this
+            ->followingRedirects()
+            ->from('/login/twitter')
+            ->get('/login/twitter/callback')
+            ->assertLocation('/login')
+            ->assertSeeText(
+                'This twitter account is not linked to any user account,'
+                . ' please log in with your usual credentials then link your account to use the social login system'
+            );
+    }
 }
