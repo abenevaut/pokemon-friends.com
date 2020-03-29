@@ -42,6 +42,10 @@ jobs:
       - composer install -o --no-interaction --prefer-dist --no-suggest
     script:
       - vendor/bin/phpcs --standard=PSR12 app
+      - vendor/bin/phpcs --standard=PSR12 components
+      - vendor/bin/phpcs --standard=PSR12 database
+      - vendor/bin/phpcs --standard=PSR12 routes
+      - vendor/bin/phpcs --standard=PSR12 tests
   - stage: test
     name: pokemon-friends-com/www PHP
     language: php
