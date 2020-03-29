@@ -11,10 +11,11 @@
 |
 */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-
 use template\Domain\Users\ProvidersTokens\ProviderToken;
 
+/**
+ * @var \Illuminate\Database\Eloquent\Factory $factory
+ */
 $factory
     ->define(template\Domain\Users\ProvidersTokens\ProviderToken::class, function (Faker\Generator $faker) {
         return [

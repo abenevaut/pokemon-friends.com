@@ -43,7 +43,7 @@ jobs:
     script:
       - vendor/bin/phpcs --standard=PSR12 app
       - vendor/bin/phpcs --standard=PSR12 components
-      - vendor/bin/phpcs --standard=PSR12 database
+      - vendor/bin/phpcs --standard=PSR12 database/factories
       - vendor/bin/phpcs --standard=PSR12 routes
       - vendor/bin/phpcs --standard=PSR12 tests
   - stage: test

@@ -11,10 +11,11 @@
 |
 */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-
 use template\Domain\Users\Users\User;
 
+/**
+ * @var \Illuminate\Database\Eloquent\Factory $factory
+ */
 $factory
     ->define(User::class, function (Faker\Generator $faker) {
         static $password;

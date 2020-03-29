@@ -13,7 +13,9 @@
 
 use template\Domain\Files\Medias\Media;
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/**
+ * @var \Illuminate\Database\Eloquent\Factory $factory
+ */
 $factory
     ->define(Media::class, function (Faker\Generator $faker) {
         return [
