@@ -29,6 +29,7 @@ return [
 
 
     'login' => 'Se connecter',
+    'login_twitter' => 'Connectez-vous via Twitter',
     'keep_loged_in' => 'Restez connecté',
     'logout' => 'Se déconnecter',
     'login_message_success' => 'Vous êtes maintenant connecté(e)',

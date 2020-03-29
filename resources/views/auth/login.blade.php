@@ -67,6 +67,12 @@
         </div>
     </div>
     {!! Form::close() !!}
+    <div class="social-auth-links text-center mb-3">
+        <hr/>
+        <a href="{{ route('login_provider', ['provider' => 'twitter']) }}" class="btn btn-block btn-primary btn-twitter">
+            <i class="fab fa-twitter mr-2"></i>{{ trans('auth.login_twitter') }}
+        </a>
+    </div>
     @if (Route::has('password.request'))
     <p class="mt-3 mb-1">
         <a href="{{ route('password.request') }}">

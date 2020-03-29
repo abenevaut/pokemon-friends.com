@@ -30,6 +30,7 @@ return [
 
 
     'login' => 'Login',
+    'login_twitter' => 'Sign in using Twitter',
     'keep_loged_in' => 'Stay connected',
     'logout' => 'Sign out',
     'login_message_success' => 'You are now connected',

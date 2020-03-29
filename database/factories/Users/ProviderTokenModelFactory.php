@@ -22,7 +22,7 @@ $factory
             'user_id' => 0,
             'provider' => $faker->randomElement(ProviderToken::PROVIDERS),
             'provider_id' => $faker->randomDigitNotNull,
-            'provider_token' => str_random(10),
+            'provider_token' => $faker->randomDigitNotNull,
         ];
     })
     ->state(ProviderToken::class, ProviderToken::GOOGLE, [

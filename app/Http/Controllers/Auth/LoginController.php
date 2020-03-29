@@ -125,7 +125,7 @@ class LoginController extends ControllerAbstract
         try {
             $providerUser = Socialite::driver($provider)->user();
 
-            if (!empty($providerUser) && Auth::check()) {
+            if ($providerUser && Auth::check()) {
                 $isTokenAvailableForUser = $this
                     ->r_providers_tokens
                     ->checkIfTokenIsAvailableForUser(
@@ -151,7 +151,7 @@ class LoginController extends ControllerAbstract
                         );
                 }
 
-                return redirect('login')
+                return back()
                     ->with(
                         'message-error',
                         trans('auth.link_provider_failed', ['provider' => $provider])
