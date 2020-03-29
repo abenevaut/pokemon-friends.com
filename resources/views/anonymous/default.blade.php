@@ -54,7 +54,11 @@ bg-dark
 ">
                         @foreach(\template\Infrastructure\Interfaces\Domain\Locale\LocalesInterface::LOCALES as $locale)
                             @if (Session::get('locale') !== $locale)
-                            <a href="{{ route(Route::currentRouteName(), ['locale' => $locale]) }}" class="dropdown-item">
+                            <a href="{{ route(Route::currentRouteName(), ['locale' => $locale]) }}" class="dropdown-item
+
+bg-dark
+
+">
                                 <i class="far fa-flag mr-2"></i>{{ trans("users.locale.${locale}") }}
                             </a>
                             @endif
