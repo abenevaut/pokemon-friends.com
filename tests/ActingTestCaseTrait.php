@@ -2,8 +2,7 @@
 
 namespace Tests;
 
-use template\Domain\Users\
-{
+use template\Domain\Users\{
     Users\User,
     Profiles\Profile
 };
@@ -11,12 +10,12 @@ use template\Domain\Users\
 trait ActingTestCaseTrait
 {
 
-    protected function getDefaultPassword()
+    protected function getDefaultPassword(): string
     {
         return 'azerty42';
     }
 
-    protected function getDefaultPasswordBcrypted()
+    protected function getDefaultPasswordBcrypted(): string
     {
         return bcrypt($this->getDefaultPassword());
     }

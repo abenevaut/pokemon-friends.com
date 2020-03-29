@@ -1,4 +1,6 @@
-<?php namespace Tests\Unit\Domain\Users\Leads\Repositories;
+<?php
+
+namespace Tests\Unit\Domain\Users\Leads\Repositories;
 
 use template\Domain\Users\Leads\Events\LeadCreatedEvent;
 use template\Domain\Users\Leads\Events\LeadDeletedEvent;
@@ -13,7 +15,6 @@ use template\Domain\Users\Leads\Repositories\LeadsRepositoryEloquent;
 
 class LeadsRepositoryEloquentTest extends TestCase
 {
-
     use DatabaseMigrations;
 
     /**

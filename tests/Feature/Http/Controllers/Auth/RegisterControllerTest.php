@@ -1,4 +1,6 @@
-<?php namespace Tests\Feature\Http\Controllers\Auth;
+<?php
+
+namespace Tests\Feature\Http\Controllers\Auth;
 
 use template\Domain\Users\Profiles\Profile;
 use template\Domain\Users\Users\User;
@@ -9,7 +11,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RegisterControllerTest extends TestCase
 {
-
     use DatabaseMigrations;
 
     /**
@@ -37,10 +38,9 @@ class RegisterControllerTest extends TestCase
 
         $this
             ->post('/register', $user->toArray() + $profile->toArray() + [
-                    'password' => $this->getDefaultPassword(),
-                    'password_confirmation' => $this->getDefaultPassword()
-                ]
-            )
+                'password' => $this->getDefaultPassword(),
+                'password_confirmation' => $this->getDefaultPassword()
+            ])
             ->assertStatus(302)
             ->assertRedirect('/dashboard');
     }

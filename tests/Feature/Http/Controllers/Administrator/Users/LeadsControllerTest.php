@@ -7,9 +7,11 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Notification;
+use template\Domain\Users\Users\{
+    Notifications\CreatedAccountByAdministrator,
+    User
+};
 use template\Domain\Users\{
-    Users\Notifications\CreatedAccountByAdministrator,
-    Users\User,
     Profiles\Profile,
     Leads\Lead
 };

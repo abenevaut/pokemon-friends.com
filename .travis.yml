@@ -45,7 +45,7 @@ jobs:
       - vendor/bin/phpcs --standard=PSR12 components
       - vendor/bin/phpcs --standard=PSR12 database/factories
       - vendor/bin/phpcs --standard=PSR12 routes
-      - vendor/bin/phpcs --standard=PSR12 tests
+      - vendor/bin/phpcs --standard=PSR12 tests --extensions=php
   - stage: test
     name: pokemon-friends-com/www PHP
     language: php

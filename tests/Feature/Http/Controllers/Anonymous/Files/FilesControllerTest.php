@@ -17,8 +17,8 @@ class FilesControllerTest extends TestCase
     public function testDocumentEndpoint()
     {
         File::copy(
-            '/'.base_path('resources/images/test.jpg'),
-            '/'.storage_path('app/public/file001.jpg')
+            '/' . base_path('resources/images/test.jpg'),
+            '/' . storage_path('app/public/file001.jpg')
         );
 
         $this
@@ -50,7 +50,7 @@ class FilesControllerTest extends TestCase
 
         File::delete([
             storage_path('app/public/file002.jpg'),
-            storage_path('app/thumbnails/file002.jpg')
+            storage_path('app/thumbnails/file002.jpg'),
         ]);
     }
 
