@@ -38,7 +38,6 @@ class LeadsControllerTest extends TestCase
                 'email' => '',
                 'subject' => '',
                 'message' => '',
-                'g-recaptcha-response' => '',
                 'certify' => '',
             ], [], [], ['HTTP_REFERER' => '/contact'])
             ->assertStatus(302)
@@ -69,7 +68,6 @@ class LeadsControllerTest extends TestCase
                 'email' => $this->faker->text,
                 'subject' => $this->faker->text,
                 'message' => $this->faker->text,
-                'g-recaptcha-response' => '',
                 'certify' => true,
             ], [], [], ['HTTP_REFERER' => '/contact'])
             ->assertStatus(302)
@@ -96,7 +94,6 @@ class LeadsControllerTest extends TestCase
                 'email' => $lead['email'],
                 'subject' => $this->faker->text,
                 'message' => $this->faker->text,
-                'g-recaptcha-response' => '',
                 'certify' => true,
             ])
             ->assertStatus(302)
@@ -127,7 +124,6 @@ class LeadsControllerTest extends TestCase
                 'email' => $lead['email'],
                 'subject' => $this->faker->text,
                 'message' => $this->faker->text,
-                'g-recaptcha-response' => '',
                 'certify' => true,
             ])
             ->assertStatus(302)
@@ -157,7 +153,6 @@ class LeadsControllerTest extends TestCase
                 'email' => $lead['email'],
                 'subject' => $this->faker->text,
                 'message' => $this->faker->text,
-                'g-recaptcha-response' => '',
                 'certify' => true,
             ])
             ->assertStatus(302)
