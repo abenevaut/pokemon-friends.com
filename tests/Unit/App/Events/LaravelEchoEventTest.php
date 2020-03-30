@@ -14,6 +14,6 @@ class LaravelEchoEventTest extends TestCase
     {
         $event = new LaravelEchoEvent($this->faker->word);
         $this->assertEquals($event->broadcastAs(), 'my-event');
-        $this->assertEquals($event->broadcastOn(),['my-channel']);
+        $this->assertEquals($event->broadcastOn(), ['my-channel']);
     }
 }
