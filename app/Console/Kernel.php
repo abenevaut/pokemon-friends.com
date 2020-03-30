@@ -28,6 +28,7 @@ class Kernel extends ConsoleKernel
         PushFileToCloudCommand::class,
         RemoveFileFromCloudCommand::class,
         TestLaravelEchoCommand::class,
+        \checkCoverage\Console\Commands\CheckCoverageCommand::class,
     ];
 
     /**

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93d44c8a6701173c040e19668681e9e4",
+    "content-hash": "897d1b7ef39e69a8475e89dcd3beba40",
     "packages": [
         {
             "name": "abenevaut/laravel-settings",
@@ -8188,6 +8188,39 @@
     ],
     "packages-dev": [
         {
+            "name": "abenevaut/laravel-check-coverage",
+            "version": "dev-feat/test-anonymous",
+            "dist": {
+                "type": "path",
+                "url": "./components/abenevaut/laravel-check-coverage",
+                "reference": "b25f057845a82099cae1d1d619dd0c64a07b3491"
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "php": "^7.3.0"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "checkCoverage\\": ""
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "GPL-3.0"
+            ],
+            "description": "Laravel command to verify coverage percentage.",
+            "keywords": [
+                "coverage",
+                "laravel",
+                "phpunit"
+            ]
+        },
+        {
             "name": "barryvdh/laravel-debugbar",
             "version": "v3.2.9",
             "source": {
@@ -11179,7 +11212,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "abenevaut/laravel-check-coverage": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
@@ -11188,5 +11223,7 @@
         "ext-imagick": "*",
         "ext-json": "*"
     },
-    "platform-dev": []
+    "platform-dev": {
+        "ext-simplexml": "*"
+    }
 }
