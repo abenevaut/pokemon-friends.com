@@ -83,12 +83,6 @@
                             <p>{{ trans('files.title') }}</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('administrator.settings.index') }}" class="nav-link @if (Route::currentRouteNamed('administrator.settings.index')) active @endif">
-                            <i class="nav-icon fas fa-cogs"></i>
-                            <p>{{ trans('settings.title') }}</p>
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </div>

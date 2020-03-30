@@ -23,7 +23,6 @@ Route::group(
         ],
     ],
     function () {
-        Route::resource('settings', 'Settings\SettingsController', ['only' => ['index', 'store']]);
         Route::group(['namespace' => 'Files'], function () {
             Route::get('files', ['as' => 'files.index', 'uses' => 'FilesController@index']);
             Route::any('files/connector', ['as' => 'files.connector', 'uses' => 'FilesController@connector']);
