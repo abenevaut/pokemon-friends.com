@@ -46,7 +46,6 @@ class CrawlPokemonGoFriendCodesCommand extends CommandAbstract
     {
         try {
             $maximumCrawl = $this->option('maximum-crawl');
-
             $crawler = Crawler::create()
                 ->setUserAgent(config('app.name'))
                 ->respectRobots()
