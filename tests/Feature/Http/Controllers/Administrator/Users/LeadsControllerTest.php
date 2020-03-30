@@ -70,7 +70,6 @@ class LeadsControllerTest extends TestCase
         $this
             ->assertAuthenticated()
             ->put("/administrator/users/leads/{$lead->id}")
-            ->assertStatus(302)
             ->assertRedirect('administrator/users/leads');
         $lead->refresh();
         Notification::assertSentTo($lead->user, CreatedAccountByAdministrator::class);
