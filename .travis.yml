@@ -7,6 +7,7 @@ git:
 addons:
   chrome: stable
   hosts:
+    - localhost
     - www.pokemon-friends.com.local
   ssh_known_hosts:
     - github.com

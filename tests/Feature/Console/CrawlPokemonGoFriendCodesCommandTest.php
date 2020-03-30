@@ -17,7 +17,7 @@ class CrawlPokemonGoFriendCodesCommandTest extends TestCase
     {
         Bus::fake();
         $this
-            ->artisan('crawler:pokemongofriendcodes', ['--maximum-crawl' => 1])
+            ->artisan('crawler:pokemongofriendcodes', ['--maximum-crawl' => 5])
             ->assertExitCode(0);
         Bus::assertDispatched(RegisterFriendCodeJob::class);
     }
