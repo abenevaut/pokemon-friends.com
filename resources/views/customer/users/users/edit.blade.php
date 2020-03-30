@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    {!! Form::open(['route' => ['customer.users.profiles.update', $profile['data']['user']['identifier']], 'class' => 'form-horizontal', 'role' => 'form', 'autoprimary' => 'off', 'novalidate' => 'novalidate', 'method' => 'PUT']) !!}
+                    {!! Form::open(['route' => ['customer.users.update', $profile['data']['user']['identifier']], 'class' => 'form-horizontal', 'role' => 'form', 'autoprimary' => 'off', 'novalidate' => 'novalidate', 'method' => 'PUT']) !!}
                     <div class="card">
                         <div class="card-header">
                             Join the friend code list
@@ -188,21 +188,21 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    {!! Form::open(['route' => ['customer.users.update-password', $profile['data']['user']['identifier']], 'class' => 'form-horizontal', 'role' => 'form', 'autoprimary' => 'off', 'novalidate' => 'novalidate', 'method' => 'PUT']) !!}
+                    {!! Form::open(['route' => ['customer.users.password', $profile['data']['user']['identifier']], 'class' => 'form-horizontal', 'role' => 'form', 'autoprimary' => 'off', 'novalidate' => 'novalidate', 'method' => 'PUT']) !!}
                     <div class="card">
                         <div class="card-header">
                             Update password
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
-                                <label for="current_password"
+                                <label for="password_current"
                                        class="col-sm-3 col-form-label text-sm-right">{{ trans('users.password_current') }}</label>
                                 <div class="col-sm-9">
                                     <input
                                             type="password"
-                                            name="current_password"
+                                            name="password_current"
                                             class="form-control"
-                                            id="current_password"
+                                            id="password_current"
                                             placeholder="{{ trans('users.password_current') }}"
                                             value=""/>
                                 </div>

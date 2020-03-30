@@ -182,14 +182,14 @@
 
 
                         <div class="form-group row">
-                            <label for="current_password"
+                            <label for="password_current"
                                    class="col-sm-2 col-form-label">{{ trans('users.password_current') }}</label>
                             <div class="col-sm-10">
                                 <input
                                         type="password"
-                                        name="current_password"
+                                        name="password_current"
                                         class="form-control"
-                                        id="current_password"
+                                        id="password_current"
                                         placeholder="{{ trans('users.password_current') }}"
                                         value=""/>
                             </div>

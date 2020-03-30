@@ -29,6 +29,25 @@ class ResetPasswordControllerTest extends TestCase
             ->assertSee('Confirm password');
     }
 
+    public function testToSubmitPasswordReset()
+    {
+        $newPassword = $this->faker->password(8);
+        $user = factory(User::class)->state(User::ROLE_CUSTOMER)->create();
+        $token = Password::broker()->createToken($user);
+        $this
+            ->from("/password/reset/{$token}")
+            ->post('password/reset', [
+                'token' => $token,
+                'email' => $user->email,
+                'password' => $newPassword,
+                'password_confirmation' => $newPassword,
+            ])
+            ->assertRedirect('/');
+        $user->refresh();
+        $this->assertFalse(Hash::check($this->getDefaultPassword(), $user->password));
+        $this->assertTrue(Hash::check($newPassword, $user->password));
+    }
+
     public function testToSubmitPasswordResetWithInvalidEmail()
     {
         $newPassword = $this->faker->password(8);
@@ -107,28 +126,9 @@ class ResetPasswordControllerTest extends TestCase
                 'password_confirmation' => $newPassword,
             ])
             ->assertSuccessful()
-            ->assertSee('The password must be at least 8 characters.');
+            ->assertSeeText('The password must be at least 8 characters.');
         $user->refresh();
         $this->assertFalse(Hash::check($newPassword, $user->password));
         $this->assertTrue(Hash::check($this->getDefaultPassword(), $user->password));
-    }
-
-    public function testToSubmitPasswordReset()
-    {
-        $newPassword = $this->faker->password(8);
-        $user = factory(User::class)->state(User::ROLE_CUSTOMER)->create();
-        $token = Password::broker()->createToken($user);
-        $this
-            ->from("/password/reset/{$token}")
-            ->post('password/reset', [
-                'token' => $token,
-                'email' => $user->email,
-                'password' => $newPassword,
-                'password_confirmation' => $newPassword,
-            ])
-            ->assertRedirect('/');
-        $user->refresh();
-        $this->assertFalse(Hash::check($this->getDefaultPassword(), $user->password));
-        $this->assertTrue(Hash::check($newPassword, $user->password));
     }
 }
