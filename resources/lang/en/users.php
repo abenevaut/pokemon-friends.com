@@ -37,6 +37,8 @@ return [
 
     'home' => 'Home',
     'dashboard' => 'Dashboard',
+    'change_password' => 'Change your password',
+    'change_email' => 'It is not yet possible to change his email address, but you can request it on <a href=":contact_url">contact page</a>.',
     'baseline' => 'Sign up to share your friend code and join your trainer community!',
     'welcome' => "Now go share 'em all!",
     'anonymous.dashboard.share_gift' => 'Share gifts',

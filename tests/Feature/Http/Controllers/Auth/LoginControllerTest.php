@@ -232,7 +232,7 @@ class LoginControllerTest extends TestCase
         $this
             ->from('/login')
             ->get("/login/twitter/callback")
-            ->assertRedirect('/')
+            ->assertRedirect('/login')
             ->assertSessionDoesntHaveErrors('message-error');
     }
 
@@ -301,7 +301,7 @@ class LoginControllerTest extends TestCase
         $this
             ->from('/login')
             ->get("/login/twitter/callback")
-            ->assertRedirect('/')
+            ->assertRedirect('/login')
             ->assertSessionHas(
                 'message-success',
                 'The link between your twitter account and your user account is correctly completed'

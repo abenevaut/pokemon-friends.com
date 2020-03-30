@@ -86,7 +86,7 @@ class LoginController extends ControllerAbstract
         } catch (\InvalidArgumentException $exception) {
             app('sentry')->captureException($exception);
 
-            return redirect(route('login'))
+            return back()
                 ->with(
                     'message-error',
                     trans('auth.link_provider_failed', ['provider' => $provider]),
@@ -128,7 +128,7 @@ class LoginController extends ControllerAbstract
                             $providerUser->token
                         );
 
-                    return redirect(route('anonymous.dashboard'))
+                    return back()
                         ->with(
                             'message-success',
                             trans('auth.link_provider_success', ['provider' => $provider])
@@ -158,19 +158,19 @@ class LoginController extends ControllerAbstract
 
                 Auth::login($providerToken->user, true);
 
-                return redirect(route('anonymous.dashboard'));
+                return back();
             }
         } catch (\InvalidArgumentException $exception) {
             app('sentry')->captureException($exception);
 
-            return redirect(route('login'))
+            return back()
                 ->with(
                     'message-error',
                     trans('auth.link_provider_failed', ['provider' => $provider])
                 );
         }
 
-        return redirect(route('login'))
+        return back()
             ->with(
                 'message-error',
                 trans('auth.login_with_provider_failed', ['provider' => $provider])
