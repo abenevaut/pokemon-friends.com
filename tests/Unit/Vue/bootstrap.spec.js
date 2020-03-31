@@ -15,5 +15,4 @@ describe('bootstrap.js', () => {
     assert.ok(window.axios);
     assert.ok(window.axios.defaults.headers.common['X-CSRF-TOKEN'], 'CSRF_TOKEN');
   });
-
 });

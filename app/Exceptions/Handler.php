@@ -40,6 +40,7 @@ class Handler extends ExceptionHandler
         // @codeCoverageIgnoreStart
         if (
             !app()->environment('local')
+            && !app()->environment('testing')
             && app()->bound('sentry')
             && $this->shouldReport($exception)
         ) {
@@ -65,6 +66,7 @@ class Handler extends ExceptionHandler
         // @codeCoverageIgnoreStart
         if (
             !app()->environment('local')
+            && !app()->environment('testing')
             && $this->shouldReport($exception)
         ) {
             return response()

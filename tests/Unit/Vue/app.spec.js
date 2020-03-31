@@ -10,5 +10,4 @@ describe('app.js', () => {
   it('validate initialization', () => {
     assert.ok(true);
   });
-
 });
