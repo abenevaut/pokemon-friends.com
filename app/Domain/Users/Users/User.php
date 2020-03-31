@@ -31,10 +31,10 @@ use template\Domain\Users\Leads\{
 };
 use template\Domain\Users\Profiles\Traits\ProfileableTrait;
 use template\Domain\Users\ProvidersTokens\ProviderToken;
-use template\Domain\Users\Users\
-{
+use template\Domain\Users\Users\{
     Notifications\CreatedAccountByAdministrator,
     Notifications\ResetPassword,
+    Notifications\SponsoredFriendCode,
     Traits\NamableTrait,
     Traits\GenrableTrait
 };
@@ -139,6 +139,18 @@ class User extends AuthenticatableModelAbstract implements
     }
 
     /**
+     * Send the sponsored friend code to twitter..
+     *
+     * @return $this
+     */
+    public function sendSponsoredFriendCodeNotification()
+    {
+        $this->notify(new SponsoredFriendCode($this));
+
+        return $this;
+    }
+
+    /**
      * Is the user able to impersonated others users ?
      *
      * @return bool
@@ -176,16 +188,6 @@ class User extends AuthenticatableModelAbstract implements
     public function getIsCustomerAttribute()
     {
         return self::ROLE_CUSTOMER === $this->role;
-    }
-
-    /**
-     * Is the user accountant ?
-     *
-     * @return bool
-     */
-    public function getIsAccountantAttribute()
-    {
-        return self::ROLE_ACCOUNTANT === $this->role;
     }
 
     /**

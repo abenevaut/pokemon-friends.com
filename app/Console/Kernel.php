@@ -6,9 +6,9 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use template\Console\Commands\{
     GenerateSitemapCommand,
-    GetFileFromAwsCommand,
-    PushFileToAwsCommand,
-    RemoveFileOnAwsCommand,
+    Files\GetFileFromCloudCommand,
+    Files\PushFileToCloudCommand,
+    Files\RemoveFileFromCloudCommand,
     TestLaravelEchoCommand,
     CrawlPokemonGoFriendCodesCommand
 };
@@ -24,10 +24,11 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         CrawlPokemonGoFriendCodesCommand::class,
         GenerateSitemapCommand::class,
-        GetFileFromAwsCommand::class,
-        PushFileToAwsCommand::class,
-        RemoveFileOnAwsCommand::class,
+        GetFileFromCloudCommand::class,
+        PushFileToCloudCommand::class,
+        RemoveFileFromCloudCommand::class,
         TestLaravelEchoCommand::class,
+        \checkCoverage\Console\Commands\CheckCoverageCommand::class,
     ];
 
     /**
@@ -40,10 +41,16 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule
-            ->command('sitemap:generate')
-            ->hourly()
+            ->command('queue:work', [
+                env('QUEUE_CONNECTION'),
+                '--stop-when-empty',
+            ])
+            ->everyMinute()
             ->withoutOverlapping();
-
+        $schedule
+            ->command('sitemap:generate')
+            ->everyFiveMinutes()
+            ->withoutOverlapping();
         $schedule
             ->command('crawler:pokemongofriendcodes')
             ->monthly()
@@ -57,6 +64,10 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
+        if (!$this->app->environment('production')) {
+            $this->registerCommand(new \checkCoverage\Console\Commands\CheckCoverageCommand());
+        }
+
         require base_path('routes/console.php');
     }
 }

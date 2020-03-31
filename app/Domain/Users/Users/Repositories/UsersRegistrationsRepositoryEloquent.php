@@ -18,8 +18,10 @@ class UsersRegistrationsRepositoryEloquent extends UsersRepositoryEloquent imple
      * @var array
      */
     protected $registrationRules = [
-        'civility' => 'in:' . User::CIVILITY_MADAM . ','
-            . User::CIVILITY_MISS . ',' . User::CIVILITY_MISTER,
+        'civility' => 'in:'
+            . User::CIVILITY_MADAM . ','
+            . User::CIVILITY_MISS . ','
+            . User::CIVILITY_MISTER,
         'first_name' => 'max:100',
         'last_name' => 'max:100',
         'friend_code' => 'required|min:12|max:12',
@@ -32,17 +34,7 @@ class UsersRegistrationsRepositoryEloquent extends UsersRepositoryEloquent imple
      */
     public function registrationValidator(array $data): ContractsValidator
     {
-        $rules = $this->registrationRules;
-        $rules['g-recaptcha-response'] = 'required';
-
-        if (
-            app()->environment('local')
-            || app()->environment('testing')
-        ) {
-            unset($rules['g-recaptcha-response']);
-        }
-
-        return Validator::make($data, $rules);
+        return Validator::make($data, $this->registrationRules);
     }
 
     /**

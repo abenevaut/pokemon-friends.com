@@ -12,7 +12,7 @@
                 <collapse-sidebar-component></collapse-sidebar-component>
             </li>
             <li class="nav-item">
-                <a href="{{ route('anonymous.contact.index') }}" class="nav-link @if (Route::currentRouteNamed('anonymous.contact.index')) active @endif"><i class="fas fa-envelope mr-2"></i>{{ trans('users.leads.contacts') }}</a>
+                <a href="{{ route('anonymous.contact.index') }}" class="nav-link @if (Route::currentRouteNamed('anonymous.contact.index')) active @endif"><i class="fas fa-envelope mr-2"></i>{{ trans('users.leads.contact') }}</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -32,7 +32,7 @@
                     <img src="{{ asset_cdn('images/avatar.jpg') }}" class="img-circle elevation-2" alt="{{ Auth::user()->full_name }}">
                 </div>
                 <div class="info">
-                    <a href="{{ route('customer.users.profiles.edit', ['id' => Auth::user()->uniqid]) }}" class="d-block">{{ Auth::user()->full_name }}</a>
+                    <a href="{{ route('customer.users.edit', ['id' => Auth::user()->uniqid]) }}" class="d-block">{{ Auth::user()->full_name }}</a>
                 </div>
             </div>
             <nav class="mt-2">
@@ -43,6 +43,11 @@
                             <p>{{ trans('users.dashboard') }}</p>
                         </a>
                     </li>
+                    @impersonating
+                    <li class="nav-item">
+                        <a class="btn btn-primary" href="{{ route('impersonate.leave') }}"><i class="fa fa-user-times mr-2"></i>{{ trans('users.stop_impersonation') }}</a>
+                    </li>
+                    @endImpersonating
                 </ul>
             </nav>
         </div>
@@ -63,7 +68,7 @@
                 <a href="{{ config('services.twitter.url') }}" target="_blank" rel="noopener" title="twitter.com"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-        <span class="mr-1">{!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}</span><span class="mr-1"><a href="{{ route('anonymous.terms') }}">{{ trans('global.terms') }}</a></span>
+        <span class="mr-1">{!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}</span><span class="mr-1"><a href="{{ route('anonymous.terms') }}">{{ trans('users.terms') }}</a></span>
     </footer>
     <aside class="control-sidebar control-sidebar-dark"></aside>
 </div>

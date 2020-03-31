@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'pokemon-friends'),
+    'name' => env('APP_NAME', 'pkmn-friends'),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'keywords' => 'pokemon,pokemon go,go,community,friends,pokemon go friends,pokemon friends',
+    'keywords' => 'pokemon,pokemon go,community,friends,pokemon go friends,pokemon friends, friend code, pokemon go code',
 
     /*
     |--------------------------------------------------------------------------
@@ -192,7 +192,6 @@ return [
         /*
          * Package Service Providers...
          */
-        abenevaut\Settings\App\Providers\SettingsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -253,7 +252,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Settings'  => abenevaut\Settings\App\Facades\SettingsFacade::class,
 
     ],
 
