@@ -17,6 +17,7 @@
 
         >{{ config('app.name') }}</a>
     </div>
+    @include('partials.session-message')
     <div class="card">
         @yield('content')
     </div>
