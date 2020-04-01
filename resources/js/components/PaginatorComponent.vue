@@ -8,14 +8,14 @@
                   @click.prevent="page--"
                   class="sub btn btn-default btn-sm"
           >
-            <i class="fas fa-chevron-left"></i> Previous
+            {{ $t('pagination.previous') }}
           </button>
           <button type="button"
                   v-show="nextUrl"
                   @click.prevent="page++"
                   class="add btn btn-default btn-sm float-right"
           >
-            Next <i class="fas fa-chevron-right"></i>
+            {{ $t('pagination.next') }}
           </button>
         </div>
       </div>

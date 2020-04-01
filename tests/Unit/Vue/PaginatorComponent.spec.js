@@ -1,61 +1,42 @@
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 // Define alias at webpack.mix.js.
 import PaginatorComponent from '@/components/PaginatorComponent.vue';
 
 const sinon = require('sinon');
 
-// const WrappedPaginatorComponent = {
-//   components: { PaginatorComponent },
-//   template: `<div><PaginatorComponent v-bind="$attrs" v-on="$listeners" /></div>`
-// };
-
 describe('PaginatorComponent.vue', () => {
 
   it('show pagination for page 2 and go to previous page', async () => {
-    const broadcast = sinon.stub();
-    const wrapper = mount(PaginatorComponent, {
+    const wrapper = shallowMount(PaginatorComponent, {
       propsData: {
-        prev_page_url: '/endpoint?page=1',
-        current_page: 2,
-        next_page_url: '/endpoint?page=3',
+        data: {
+          current_page: 2,
+          prev_page_url: '/endpoint?page=1',
+          next_page_url: '/endpoint?page=3',
+        },
+      },
+      mocks: {
+        $t: (key) => key,
       },
     });
 
-    wrapper.setMethods({
-      broadcast,
-    });
-
+    await wrapper.vm.$nextTick();
+    wrapper.vm.$options.watch.data.call(wrapper.vm);
     await wrapper.vm.$nextTick();
 
-    expect(wrapper.find('button.sub').displayed()).toBeTruthy();
-    expect(wrapper.find('button.add').displayed()).toBeTruthy();
+    const subButton = wrapper.find('button.sub');
+    const eventChanged = wrapper.emitted('changed');
+    expect(wrapper.vm.$data.page).toEqual(2);
+    expect(subButton.exists()).toBeTruthy();
+    expect(wrapper.contains('button.add')).toBeTruthy();
+    subButton.trigger('click.prevent');
 
-    wrapper.find('button.sub').trigger('click');
+    wrapper.vm.$options.watch.page.call(wrapper.vm);
+    await wrapper.vm.$nextTick();
+
     expect(wrapper.vm.$data.page).toEqual(1);
-    expect(broadcast.calledOnce).toBeTruthy();
-  });
-
-  it('show pagination for page 2 and go to next page', async () => {
-    const broadcast = sinon.stub();
-    const wrapper = mount(PaginatorComponent, {
-      propsData: {
-        prev_page_url: '/endpoint?page=1',
-        current_page: 2,
-        next_page_url: '/endpoint?page=3',
-      },
-    });
-
-    // wrapper.setMethods({
-    //   broadcast,
-    // });
-
-    await wrapper.vm.$nextTick();
-
-    expect(wrapper.find('button.sub').displayed()).toBeTruthy();
-    expect(wrapper.find('button.add').displayed()).toBeTruthy();
-
-    wrapper.find('button.add').trigger('click');
-    expect(wrapper.vm.$data.page).toEqual(3);
-    // expect(broadcast.calledOnce).toBeTruthy();
+    expect(eventChanged).toBeTruthy();
+    expect(eventChanged.length).toBe(2);
+    expect(eventChanged[0]).toEqual([wrapper.vm.$data.page]);
   });
 });

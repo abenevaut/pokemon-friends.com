@@ -45,10 +45,7 @@ mix
       extensions: [
         '*',
         '.js',
-        '.jsx',
         '.vue',
-        '.ts',
-        '.tsx',
       ],
     },
     module: {
@@ -58,16 +55,6 @@ mix
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules|tests)/,
-        },
-        {
-          test: /\.tsx?$/,
-          loader: 'ts-loader',
-          options: {
-            appendTsSuffixTo: [
-              /\.vue$/,
-            ],
-          },
-          exclude: /node_modules/,
         },
         {
           // Exposes jQuery for use outside Webpack build
