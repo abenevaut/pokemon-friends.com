@@ -24,8 +24,13 @@ require('admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-
 Vue.use(VueInternationalization);
 const i18n = new VueInternationalization({
   locale: document.head.querySelector('meta[name="locale"]'),
+  fallbackLocale: 'en',
   messages: Locale,
 });
+
+/**
+ * Vue filters
+ */
 
 Vue.filter('pkmnFriendCode', (code) => `${code.slice(0, 4)}-${code.slice(4, 8)}-${code.slice(8, 12)}`);
 

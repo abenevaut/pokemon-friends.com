@@ -13,7 +13,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "mocha": "cross-env NODE_ENV=testing mocha-webpack --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/bootstrap.js tests/Unit/Vue/\\\\*.spec.js",
         "mocha-watch": "cross-env NODE_ENV=testing mocha-webpack --watch --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/bootstrap.js tests/Unit/Vue/\\\\*.spec.js",
-        "test": "cross-env NODE_ENV=testing nyc --reporter=lcov npm run mocha"
+        "test": "cross-env NODE_ENV=testing nyc npm run mocha"
     },
     "devDependencies": {
         "@sentry/browser": "^5.13.2",
@@ -32,6 +32,8 @@
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-loader": "^3.0.3",
         "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-lodash": "^6.0.0",
+        "eslint-plugin-no-jquery": "^2.3.2",
         "eslint-plugin-vue": "^6.2.1",
         "expect": "^25.1.0",
         "expose-loader": "^0.7.5",
@@ -51,7 +53,7 @@
         "nyc": "^15.0.0",
         "popper.js": "^1.16",
         "pusher-js": "^5.1.1",
-        "resolve-url-loader": "3.1.1",
+        "resolve-url-loader": "^3.1.1",
         "sass": "^1.26.2",
         "sass-loader": "8.*",
         "sinon": "^9.0.0",
@@ -61,7 +63,6 @@
         "stylelint-webpack-plugin": "^1.2.3",
         "ts-loader": "^6.2.1",
         "typescript": "^3.8.3",
-        "underscore": "^1.9.2",
         "vue": "^2.6.11",
         "vue-eslint-parser": "^7.0.0",
         "vue-i18n": "^8.16.0",

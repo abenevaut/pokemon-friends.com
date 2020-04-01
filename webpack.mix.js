@@ -5,7 +5,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-let webpackPlugins = [
+const webpackPlugins = [
   new StyleLintPlugin({
     configFile: '.stylelintrc',
     context: 'resources/sass',
@@ -96,5 +96,5 @@ if (mix.inProduction()) {
 }
 
 mix.webpackConfig({
-  plugins: webpackPlugins
+  plugins: webpackPlugins,
 });

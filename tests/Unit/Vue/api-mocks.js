@@ -1,4 +1,4 @@
-const _ = require('underscore');
+const _ = require('lodash');
 const axios = require('axios');
 const sinon = require('sinon');
 

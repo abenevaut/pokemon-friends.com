@@ -2,18 +2,13 @@
     "include": [
         "resources/js/**/*.{js,vue}"
     ],
-    "extension": [
-        ".js",
-        ".vue"
-    ],
     "exclude": [
-        "**/test",
-        "**/tests"
+        "**/*.spec.js"
     ],
     "reporter": [
         "text-summary",
-        "html"
+        "lcov"
     ],
-    "sourceMap": true,
+    "report-dir": "./coverage",
     "all": true
 }
