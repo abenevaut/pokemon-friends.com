@@ -6,14 +6,14 @@
           <button type="button"
                   v-show="prevUrl"
                   @click.prevent="page--"
-                  class="btn btn-default btn-sm"
+                  class="sub btn btn-default btn-sm"
           >
             <i class="fas fa-chevron-left"></i> Previous
           </button>
           <button type="button"
                   v-show="nextUrl"
                   @click.prevent="page++"
-                  class="btn btn-default btn-sm float-right"
+                  class="add btn btn-default btn-sm float-right"
           >
             Next <i class="fas fa-chevron-right"></i>
           </button>
