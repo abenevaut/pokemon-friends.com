@@ -39,8 +39,7 @@ class Handler extends ExceptionHandler
     {
         // @codeCoverageIgnoreStart
         if (
-            !app()->environment('local')
-            && !app()->environment('testing')
+            $this->app->environment('production')
             && app()->bound('sentry')
             && $this->shouldReport($exception)
         ) {
@@ -65,8 +64,7 @@ class Handler extends ExceptionHandler
     {
         // @codeCoverageIgnoreStart
         if (
-            !app()->environment('local')
-            && !app()->environment('testing')
+            $this->app->environment('production')
             && $this->shouldReport($exception)
         ) {
             return response()

@@ -16,6 +16,7 @@ describe('SentryDialogComponent.vue', () => {
 
     const user = sinon.stub();
     const wrapper = shallowMount(SentryDialogComponent, {
+      props: { eventId: 'eventIdTest' },
       watch: { user },
     });
 
