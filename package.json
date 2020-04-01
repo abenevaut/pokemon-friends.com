@@ -11,8 +11,8 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "mocha": "cross-env NODE_ENV=testing mocha-webpack --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/bootstrap.js tests/Unit/AppJs/\\\\*.spec.js",
-        "mocha-watch": "cross-env NODE_ENV=testing mocha-webpack --watch --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/bootstrap.js tests/Unit/AppJs/\\\\*.spec.js",
+        "mocha": "cross-env NODE_ENV=testing mochapack --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/bootstrap.js tests/Unit/AppJs/\\\\*.spec.js",
+        "mocha-watch": "cross-env NODE_ENV=testing mochapack --watch --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/bootstrap.js tests/Unit/AppJs/\\\\*.spec.js",
         "test": "cross-env NODE_ENV=testing nyc npm run mocha"
     },
     "devDependencies": {
@@ -45,7 +45,7 @@
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
         "mocha": "^5.2.0",
-        "mocha-webpack": "^2.0.0-beta.0",
+        "mochapack": "^1.1.13",
         "mock-echo": "^1.1.1",
         "moment": "^2.24.0",
         "nyc": "^15.0.0",
