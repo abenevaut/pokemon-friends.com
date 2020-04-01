@@ -29,11 +29,8 @@
     "vue"
   ],
   "rules": {
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "lodash/import-scope": [2, "member"],
+    "lodash/prefer-lodash-method": [2, {"ignoreObjects": ["Vue"]}]
   }
 }

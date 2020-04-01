@@ -43,6 +43,7 @@ Vue.filter('pkmnFriendCode', (code) => `${code.slice(0, 4)}-${code.slice(4, 8)}-
  */
 
 const files = require.context('./components/', true, /\.vue$/i);
+// eslint-disable-next-line
 files.keys().map((key) => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 /**
