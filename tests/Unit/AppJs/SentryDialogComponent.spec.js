@@ -6,7 +6,6 @@ const sinon = require('sinon');
 const apiMocks = require('./api-mocks');
 
 describe('SentryDialogComponent.vue', () => {
-
   beforeEach(() => {
     apiMocks.beforeEach();
   });

@@ -1,5 +1,4 @@
 describe('bootstrap.js', () => {
-
   before(() => {
     document.getElementsByTagName("head")[0].innerHTML = "<meta name='csrf-token' content='CSRF_TOKEN'>";
     // Define alias at webpack.mix.js.
