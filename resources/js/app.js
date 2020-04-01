@@ -1,3 +1,7 @@
+import Vue from 'vue';
+import VueInternationalization from 'vue-i18n';
+import Locale from './vue-i18n-locales.generated';
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -14,7 +18,6 @@ require('admin-lte/plugins/sweetalert2/sweetalert2.all');
 require('admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4');
 const Sentry = require('@sentry/browser');
 const Integrations = require('@sentry/integrations');
-const Vue = require('vue');
 
 Sentry.init({
   dsn: process.env.MIX_SENTRY_PUBLIC_DSN,
@@ -25,6 +28,21 @@ Sentry.init({
     }),
   ],
 });
+
+/**
+ * Vue i18n
+ */
+
+Vue.use(VueInternationalization);
+const i18n = new VueInternationalization({
+  locale: document.head.querySelector('meta[name="locale"]'),
+  fallbackLocale: 'en',
+  messages: Locale,
+});
+
+/**
+ * Vue filters
+ */
 
 Vue.filter('pkmnFriendCode', (code) => `${code.slice(0, 4)}-${code.slice(4, 8)}-${code.slice(8, 12)}`);
 
@@ -37,6 +55,7 @@ Vue.filter('pkmnFriendCode', (code) => `${code.slice(0, 4)}-${code.slice(4, 8)}-
  */
 
 const files = require.context('./components/', true, /\.vue$/i);
+// eslint-disable-next-line
 files.keys().map((key) => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 /**
@@ -56,4 +75,5 @@ Vue.component('passport-personal-access-tokens', require('./components/passport/
 // eslint-disable-next-line
 const app = new Vue({
   el: '#template',
+  i18n,
 });
