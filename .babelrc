@@ -4,17 +4,9 @@
   ],
   "plugins": [],
   "env": {
-    "test": {
+    "testing": {
       "plugins": [
-        [
-          "istanbul",
-          {
-            "useInlineSourceMaps": false,
-            "exclude": [
-              "**/*.spec.js"
-            ]
-          }
-        ]
+        ["istanbul", {}]
       ]
     }
   }
