@@ -20,8 +20,6 @@ if (mix.inProduction()) {
   mix
     .version()
     .setResourceRoot('/assets.pokemon-friends.com/');
-} else {
-  mix.sourceMaps();
 }
 
 mix
@@ -87,5 +85,6 @@ mix
       }),
     ],
   })
+  .sourceMaps(false, 'eval')
   .js('resources/js/app.js', 'public/js')
   .sass('resources/sass/app.scss', 'public/css');
