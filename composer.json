@@ -41,6 +41,7 @@
         "pusher/pusher-php-server": "^4.0",
         "repat/spatie-crawler-redis": "^0.1.1",
         "sentry/sentry-laravel": "^1.1",
+        "shakurov/coinbase": "^0.7.6",
         "spatie/crawler": "^4.6",
         "spatie/laravel-backup": "^6.3",
         "spatie/laravel-cookie-consent": "^2.11",
