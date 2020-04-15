@@ -56,8 +56,8 @@ class UsersController extends ControllerAbstract
             'anonymous.users.users.show',
             [
                 'metadata' => [
-                    'title' => "Be friend on pokemon GO! {$user->profile->formated_friend_code}",
-                    'description' => "This trainer, {$user->profile->formated_friend_code}, is looking for new friends!",
+                    'title' => trans('users.trainer.meta.title'),
+                    'description' => trans('users.trainer.meta.description', ['friend_code' => $user->profile->formated_friend_code]),
                 ],
                 'friend_code' => $user->profile->formated_friend_code,
                 'qr' => $qr,
