@@ -60,10 +60,15 @@ class UsersController extends ControllerAbstract
      *
      * @param User $user
      *
-     * @return string
+     * @return \Illuminate\Http\Response|mixed
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function qr(User $user)
     {
+        if (!$user || $user->deleted_at || !$user->profile->friend_code) {
+            abort(404);
+        }
+
         if (Cache::has("qr_code_gif.{$user->profile->friend_code}")) {
             $qr = Cache::get("qr_code_gif.{$user->profile->friend_code}");
         } else {
@@ -78,6 +83,6 @@ class UsersController extends ControllerAbstract
             Cache::put("qr_code_gif.{$user->profile->friend_code}", $qr, $expiresAt);
         }
 
-        return $qr;
+        return response()->make($qr, 200, ['Content-Type' => 'image/gif']);
     }
 }

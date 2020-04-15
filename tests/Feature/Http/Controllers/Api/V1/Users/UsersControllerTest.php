@@ -17,7 +17,7 @@ class UsersControllerTest extends TestCase
     use OAuthTestCaseTrait;
     use DatabaseMigrations;
 
-    public function testUserEndpoint()
+    public function testToGetUser()
     {
         $user = factory(User::class)->create();
         factory(Profile::class)->create(['user_id' => $user->id]);
@@ -29,12 +29,22 @@ class UsersControllerTest extends TestCase
             ->assertExactJson((new UserTransformer())->transform($user));
     }
 
-    public function testUserAsAnonymousEndpoint()
+    public function testToGetUserAsAnonymous()
     {
-        // Do not act as anyone to get Unauthenticated exception.
         $this
             ->getJson('/api/v1/users/user')
             ->assertStatus(401)
             ->assertExactJson(['error' => 'Unauthenticated.']);
+    }
+
+    public function testToGetUserQrCode()
+    {
+        $user = factory(User::class)->create();
+        factory(Profile::class)->create(['user_id' => $user->id]);
+        Passport::actingAs($user);
+
+        $this
+            ->getJson("/api/v1/users/trainer/{$user->uniqid}")
+            ->assertSuccessful();
     }
 }
