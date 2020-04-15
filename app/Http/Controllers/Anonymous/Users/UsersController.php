@@ -42,7 +42,8 @@ class UsersController extends ControllerAbstract
             $qr = Cache::get("qr_code_png.{$user->profile->friend_code}");
         } else {
             $qr = (new Client([
-                'base_uri' => "https://api.qrserver.com/v1/create-qr-code/?size=300x300&format=png&data={$user->profile->friend_code}",
+                'base_uri' => 'https://api.qrserver.com/v1/create-qr-code/'
+                    . "?size=300x300&format=png&data={$user->profile->friend_code}",
             ]))
                 ->request('GET')
                 ->getBody()
@@ -57,7 +58,12 @@ class UsersController extends ControllerAbstract
             [
                 'metadata' => [
                     'title' => trans('users.trainer.meta.title'),
-                    'description' => trans('users.trainer.meta.description', ['friend_code' => $user->profile->formated_friend_code]),
+                    'description' => trans(
+                        'users.trainer.meta.description',
+                        [
+                            'friend_code' => $user->profile->formated_friend_code
+                        ]
+                    ),
                 ],
                 'friend_code' => $user->profile->formated_friend_code,
                 'qr' => $qr,
