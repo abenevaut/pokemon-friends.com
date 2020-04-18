@@ -13,6 +13,12 @@
 
 use Spatie\Honeypot\ProtectAgainstSpam;
 
+Route::get('sitemap.xml', function () {
+    $sitemap = \Illuminate\Support\Facades\Storage::disk('asset-cdn')
+        ->get('sitemap.xml');
+    return response()->make(200, $sitemap, ['Content-type' => 'text/xml']);
+});
+
 Route::group(
     [
         'as' => 'anonymous.',
