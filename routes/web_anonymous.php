@@ -11,11 +11,21 @@
 |
 */
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\{Cache, Storage};
 use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::get('sitemap.xml', function () {
-    $sitemap = \Illuminate\Support\Facades\Storage::disk('asset-cdn')
-        ->get('sitemap.xml');
+    $sitemap = null;
+
+    if (Cache::has('sitemap.xml')) {
+        $sitemap = Cache::get('sitemap.xml');
+    } else {
+        $sitemap = Storage::disk('asset-cdn')->get('sitemap.xml');
+        $expiresAt = Carbon::now()->addMinutes(180);
+        Cache::put('sitemap.xml', $sitemap, $expiresAt);
+    }
+
     return response()->make(200, $sitemap, ['Content-type' => 'text/xml']);
 });
 
