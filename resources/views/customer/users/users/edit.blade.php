@@ -1,22 +1,25 @@
 @extends('customer.default')
 
-{{--@section('js')--}}
-{{--    <script type="text/javascript">--}}
-{{--      (function (W, D, $) {--}}
-{{--        $(D).ready(function() {--}}
+@section('js')
+<script type="text/javascript">
+  (function (W, D, $) {
+    $(D).ready(function() {
 
-{{--          $('.select2').select2({--}}
-{{--            theme: 'bootstrap4'--}}
-{{--          });--}}
+      // $('.select2').select2({
+      //   theme: 'bootstrap4'
+      // });
 
-{{--          $('#birth_date').datetimepicker({--}}
-{{--            locale: $('meta[name="locale"]').attr('content'),--}}
-{{--            format: 'L'--}}
-{{--          });--}}
-{{--        });--}}
-{{--      })(window, document, jQuery);--}}
-{{--    </script>--}}
-{{--@endsection--}}
+      $('#birth_date').flatpickr({
+        enableTime: false,
+        dateFormat: '{{ trans('global.date_format') }}',
+        minDate: '{{ \Carbon\Carbon::create(date('Y'), 1, 1, 0, 0, 0, $profile['data']['locale']['timezone'])->subYears(80)->format('Y-m') }}',
+        maxDate: 'today',
+      });
+
+    });
+  })(window, document, jQuery);
+</script>
+@endsection
 
 @section('content')
     <section class="content-header">
@@ -125,13 +128,19 @@
                             <div class="form-group row">
                                 <label for="first_name" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.first_name') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="first_name" placeholder="{{ trans('users.first_name') }}" name="first_name" value="{{ $profile['data']['user']['first_name'] }}">
+                                    <input type="text" class="form-control {{ $errors && $errors->has('first_name') ? 'is-invalid' : '' }}" id="first_name" placeholder="{{ trans('users.first_name') }}" name="first_name" value="{{ $profile['data']['user']['first_name'] }}">
+                                    @if ($errors && $errors->has('first_name'))
+                                        <div class="text-danger text-sm">{{ $errors->first('first_name') }}</div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="last_name" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.last_name') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="last_name" placeholder="{{ trans('users.last_name') }}" name="last_name" value="{{ $profile['data']['user']['last_name'] }}">
+                                    <input type="text" class="form-control {{ $errors && $errors->has('last_name') ? 'is-invalid' : '' }}" id="last_name" placeholder="{{ trans('users.last_name') }}" name="last_name" value="{{ $profile['data']['user']['last_name'] }}">
+                                    @if ($errors && $errors->has('last_name'))
+                                        <div class="text-danger text-sm">{{ $errors->first('last_name') }}</div>
+                                    @endif
                                 </div>
                             </div>
 {{--                            <div class="form-group row">--}}
@@ -150,12 +159,15 @@
 {{--                                    <input type="text" class="form-control" id="maiden_name" placeholder="{{ trans('users.profiles.maiden_name') }}" name="maiden_name" value="{{ $profile['data']['maiden_name'] }}">--}}
 {{--                                </div>--}}
 {{--                            </div>--}}
-{{--                            <div class="form-group row">--}}
-{{--                                <label for="birth_date" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.profiles.birth_date') }}</label>--}}
-{{--                                <div class="col-sm-9">--}}
-{{--                                    <input type="text" class="form-control" id="birth_date" placeholder="{{ trans('users.profiles.birth_date') }}" name="birth_date" value="{{ $profile['data']['birth_date'] }}" data-target="#birth_date" data-toggle="datetimepicker">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            <div class="form-group row">
+                                <label for="birth_date" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.profiles.birth_date') }}</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control {{ $errors && $errors->has('birth_date') ? 'is-invalid' : '' }}" id="birth_date" placeholder="{{ trans('users.profiles.birth_date') }}" name="birth_date" value="{{ $profile['data']['birth_date'] }}"/>
+                                    @if ($errors && $errors->has('birth_date'))
+                                        <div class="text-danger text-sm">{{ $errors->first('birth_date') }}</div>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card">
