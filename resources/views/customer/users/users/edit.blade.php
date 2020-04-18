@@ -58,7 +58,7 @@
                                             id="friend_code"
                                             placeholder="{{ trans('users.profiles.friend_code') }}"
                                             name="friend_code"
-                                            value="{{ $profile['data']['friend_code'] }}" />
+                                            value="{{ old('friend_code', $profile['data']['friend_code']) }}" />
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -66,7 +66,7 @@
                                 <div class="col-sm-9">
                                     <select name="team_color" id="team_color" class="select2 w-100 form-control">
                                         @foreach ($teams as $key)
-                                            <option value="{{ $key }}" @if ($key === $profile['data']['team_color']) selected="selected" @endif>
+                                            <option value="{{ $key }}" @if ($key === old('team_color', $profile['data']['team_color'])) selected="selected" @endif>
                                                 {{ trans("users.profiles.teams_colors.{$key}") }}
                                             </option>
                                         @endforeach
@@ -82,7 +82,7 @@
                                 <div class="col-sm-9">
                                     <select name="locale" id="locale" class="select2 w-100 form-control">
                                         @foreach ($locales as $key)
-                                            <option value="{{ $key }}" @if ($key === $profile['data']['locale']['language']) selected="selected" @endif>
+                                            <option value="{{ $key }}" @if ($key === old('locale', $profile['data']['locale']['language'])) selected="selected" @endif>
                                                 {{ trans("users.locale.{$key}") }}
                                             </option>
                                         @endforeach
@@ -94,7 +94,7 @@
                                 <div class="col-sm-9">
                                     <select name="timezone" id="timezone" class="select2 w-100 form-control">
                                         @foreach ($timezones as $key)
-                                            <option value="{{ $key }}" @if ($key === $profile['data']['locale']['timezone']) selected="selected" @endif>{{ $key }}</option>
+                                            <option value="{{ $key }}" @if ($key === old('timezone', $profile['data']['locale']['timezone'])) selected="selected" @endif>{{ $key }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -117,7 +117,7 @@
                                         @foreach ($civilities as $key => $trans)
                                             <option
                                                     value="{{ $key }}"
-                                                    @if (Auth::check() && $key === $profile['data']['user']['civility']) selected="selected" @endif
+                                                    @if (Auth::check() && $key === old('civility', $profile['data']['user']['civility'])) selected="selected" @endif
                                             >
                                                 {{ $trans }}
                                             </option>
@@ -128,7 +128,7 @@
                             <div class="form-group row">
                                 <label for="first_name" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.first_name') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control {{ $errors && $errors->has('first_name') ? 'is-invalid' : '' }}" id="first_name" placeholder="{{ trans('users.first_name') }}" name="first_name" value="{{ $profile['data']['user']['first_name'] }}">
+                                    <input type="text" class="form-control {{ $errors && $errors->has('first_name') ? 'is-invalid' : '' }}" id="first_name" placeholder="{{ trans('users.first_name') }}" name="first_name" value="{{ old('first_name', $profile['data']['user']['first_name']) }}">
                                     @if ($errors && $errors->has('first_name'))
                                         <div class="text-danger text-sm">{{ $errors->first('first_name') }}</div>
                                     @endif
@@ -137,7 +137,7 @@
                             <div class="form-group row">
                                 <label for="last_name" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.last_name') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control {{ $errors && $errors->has('last_name') ? 'is-invalid' : '' }}" id="last_name" placeholder="{{ trans('users.last_name') }}" name="last_name" value="{{ $profile['data']['user']['last_name'] }}">
+                                    <input type="text" class="form-control {{ $errors && $errors->has('last_name') ? 'is-invalid' : '' }}" id="last_name" placeholder="{{ trans('users.last_name') }}" name="last_name" value="{{ old('last_name', $profile['data']['user']['last_name']) }}">
                                     @if ($errors && $errors->has('last_name'))
                                         <div class="text-danger text-sm">{{ $errors->first('last_name') }}</div>
                                     @endif
@@ -162,7 +162,7 @@
                             <div class="form-group row">
                                 <label for="birth_date" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.profiles.birth_date') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control {{ $errors && $errors->has('birth_date') ? 'is-invalid' : '' }}" id="birth_date" placeholder="{{ trans('users.profiles.birth_date') }}" name="birth_date" value="{{ $profile['data']['birth_date'] }}"/>
+                                    <input type="text" class="form-control {{ $errors && $errors->has('birth_date') ? 'is-invalid' : '' }}" id="birth_date" placeholder="{{ trans('users.profiles.birth_date') }}" name="birth_date" value="{{ old('birth_date', $profile['data']['birth_date']) }}"/>
                                     @if ($errors && $errors->has('birth_date'))
                                         <div class="text-danger text-sm">{{ $errors->first('birth_date') }}</div>
                                     @endif

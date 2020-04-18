@@ -27,8 +27,8 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'no_action' => 'No action',
-    'date_format' => 'Y-m-d',
-    'datetime_format' => 'Y-m-d H\hi',
+    'date_format' => 'm/d/Y',
+    'datetime_format' => 'm/d/Y H\hi',
     'today' => 'Today',
     'information' => 'Information',
 
