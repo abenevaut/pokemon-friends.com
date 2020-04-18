@@ -105,14 +105,14 @@ class UsersController extends ControllerAbstract
      *
      * @return string
      */
-    public function qrGoogle(string $data)
-    {
-        return (new Client([
-            'base_uri' => 'https://chart.googleapis.com/chart'
-                . "?cht=qr&chs=300x300&choe=UTF-8&chld=L|0&chl={$data}",
-        ]))
-            ->request('GET')
-            ->getBody()
-            ->getContents();
-    }
+    //public function qrGoogle(string $data)
+    //{
+    //    return (new Client([
+    //        'base_uri' => 'https://chart.googleapis.com/chart'
+    //            . "?cht=qr&chs=300x300&choe=UTF-8&chld=L|0&chl={$data}",
+    //    ]))
+    //        ->request('GET')
+    //        ->getBody()
+    //        ->getContents();
+    //}
 }
