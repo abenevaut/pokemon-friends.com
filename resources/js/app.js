@@ -17,6 +17,7 @@ require('admin-lte/plugins/select2/js/i18n/en');
 require('admin-lte/plugins/sweetalert2/sweetalert2.all');
 require('admin-lte/plugins/ekko-lightbox/ekko-lightbox');
 require('flatpickr');
+require('vanilla-lazyload');
 const Sentry = require('@sentry/browser');
 const Integrations = require('@sentry/integrations');
 
