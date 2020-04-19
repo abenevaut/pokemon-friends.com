@@ -36,7 +36,10 @@ class VersionCommand extends Command
         if (app()->environment('local')) {
             $version = env('APP_TAG');
             $file = base_path('config/version.php');
-            $bytes_written = File::put($file, "<?php\n\nreturn [\n\t'app_tag' => '{$version}',\n];");
+            $bytes_written = File::put(
+                $file,
+                "<?php\n\nreturn [\n\t'app_tag' => '{$version}',\n];"
+            );
 
             $this->info("Version {$version}");
 
@@ -44,7 +47,9 @@ class VersionCommand extends Command
                 $this->error("Error writing to file");
             }
         } else {
-            $this->error('You must to be in "local" environment to use this command!');
+            $this->error(
+                'You must to be in "local" environment to use this command!'
+            );
         }
     }
 }

@@ -49,7 +49,6 @@ class CoinBaseEventsListener
      */
     public function handleCreatedChargeEvent(CoinbaseWebhookCall $webhookCall)
     {
-
     }
 
     /**
@@ -59,7 +58,6 @@ class CoinBaseEventsListener
      */
     public function handleConfirmedChargeEvent(CoinbaseWebhookCall $webhookCall)
     {
-
     }
 
     /**
@@ -69,7 +67,6 @@ class CoinBaseEventsListener
      */
     public function handleFailedChargeEvent(CoinbaseWebhookCall $webhookCall)
     {
-
     }
 
     /**
@@ -79,7 +76,6 @@ class CoinBaseEventsListener
      */
     public function handleDelayedChargeEvent(CoinbaseWebhookCall $webhookCall)
     {
-
     }
 
     /**
@@ -89,7 +85,6 @@ class CoinBaseEventsListener
      */
     public function handlePendingChargeEvent(CoinbaseWebhookCall $webhookCall)
     {
-
     }
 
     /**
@@ -99,6 +94,5 @@ class CoinBaseEventsListener
      */
     public function handleResolvedChargeEvent(CoinbaseWebhookCall $webhookCall)
     {
-
     }
 }

@@ -36,6 +36,5 @@ class HandleResolvedChargeJob implements ShouldQueue
      */
     public function handle()
     {
-
     }
 }
