@@ -2,6 +2,7 @@
 
 namespace template\Domain\Users\Users\Repositories;
 
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use template\Infrastructure\Contracts\
 {
@@ -9,6 +10,7 @@ use template\Infrastructure\Contracts\
     Request\RequestAbstract
 };
 use template\Domain\Users\Users\{
+    Presenters\TrainerPresenter,
     User,
     Criterias\EmailLikeCriteria,
     Criterias\FullNameLikeCriteria,
@@ -242,6 +244,27 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
             ->with(['lead'])
             ->setPresenter(new UsersListPresenter())
             ->paginate();
+    }
+
+    /**
+     * @param bool $sponsoredOnly
+     *
+     * @return $this
+     */
+    public function getTrainers(bool $sponsoredOnly = true): self
+    {
+        return $this
+            ->with('profile')
+            ->setPresenter(TrainerPresenter::class)
+            ->whereHas('profile', function ($model) use ($sponsoredOnly) {
+                if ($sponsoredOnly) {
+                    $model->whereDate('sponsored', '=', Carbon::now()->format('Y-m-d'));
+                }
+
+                return $model
+                    ->whereNotNull('friend_code')
+                    ->orderBy('sponsored', 'desc');
+            });
     }
 
     /**

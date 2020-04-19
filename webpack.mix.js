@@ -27,37 +27,39 @@ mix
     jquery: ['$', 'window.jQuery', 'jQuery', 'window.$'],
     moment: ['moment', 'window.moment'],
     'pusher-js': ['Pusher', 'window.Pusher'],
+    'vanilla-lazyload': ['LazyLoad', 'window.LazyLoad'],
   })
   .webpackConfig({
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'resources/js'),
       },
-      extensions: [
-        '.js',
-        '.vue',
-      ],
+      extensions: ['.js', '.vue'],
     },
     module: {
-      rules: [
-        {
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules|tests)/,
-        },
-        {
-          // Exposes jQuery for use outside Webpack build
-          test: require.resolve('jquery'),
-          use: [{
-            loader: 'expose-loader',
-            options: 'jQuery',
-          }, {
-            loader: 'expose-loader',
-            options: '$',
-          }],
-        },
-      ],
+      rules: [{
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /(node_modules|tests)/,
+      }, {
+        // Exposes jQuery for use outside Webpack build
+        test: require.resolve('jquery'),
+        use: [{
+          loader: 'expose-loader',
+          options: 'jQuery',
+        }, {
+          loader: 'expose-loader',
+          options: '$',
+        }],
+      }, {
+        // Exposes LazyLoad for use outside Webpack build
+        test: require.resolve('vanilla-lazyload'),
+        use: [{
+          loader: 'expose-loader',
+          options: 'LazyLoad',
+        }],
+      }],
     },
     plugins: [
       new StyleLintPlugin({

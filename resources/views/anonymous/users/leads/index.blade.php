@@ -3,6 +3,33 @@
 @section('title', $metadata['title'])
 @section('description', $metadata['description'])
 
+@section('css')
+<style>
+    .ekko-lightbox-nav-overlay a>* {
+        color: var(--red);
+    }
+</style>
+@endsection
+
+@section('js')
+<script>
+  $(function () {
+    $(document).ready(function() {
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+          alwaysShowClose: true
+        });
+      });
+      (new LazyLoad({
+        elements_selector: ".lazy"
+      }))
+      .update();
+    });
+  })
+</script>
+@endsection
+
 @section('content')
 <div class="content-header">
     <div class="container">
@@ -169,6 +196,7 @@
                 </div>
             </div>
         </div>
+        @include('partials.row_trainers', ['trainers' => $users])
     </div>
 </div>
 @endsection

@@ -130,7 +130,12 @@ return [
     The entire source code of this website is available on <a href="https://github.com/pokemon-friends-com/www">Github.com</a>
 </p>',
 
+    'trainer.meta.title' => 'Let\'s be friends on Pokemon Go!',
+    'trainer.meta.description' => 'This trainer, :friend_code, is looking for new Pokemon Go friends!',
+    'trainer.social_share_qr' => 'Share your QR code on your social networks',
+
     'title' => 'Users',
+    'trainers.title' => 'Trainers',
     'create.title' => 'New user',
     'edit.title' => 'Edit user',
     'show.title' => 'User :username',

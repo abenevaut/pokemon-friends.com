@@ -11,7 +11,8 @@ use template\Console\Commands\{
     Files\RemoveFileFromCloudCommand,
     TestLaravelEchoCommand,
     CrawlPokemonGoFriendCodesCommand,
-    VersionCommand
+    VersionCommand,
+    DailySponsorshipCommand
 };
 
 class Kernel extends ConsoleKernel
@@ -30,6 +31,7 @@ class Kernel extends ConsoleKernel
         RemoveFileFromCloudCommand::class,
         TestLaravelEchoCommand::class,
         VersionCommand::class,
+        DailySponsorshipCommand::class,
     ];
 
     /**
@@ -52,6 +54,10 @@ class Kernel extends ConsoleKernel
         $schedule
             ->command('sitemap:generate')
             ->everyFiveMinutes()
+            ->withoutOverlapping();
+        $schedule
+            ->command('pkmn:daily-sponsor')
+            ->daily()
             ->withoutOverlapping();
         $schedule
             ->command('crawler:pokemongofriendcodes')

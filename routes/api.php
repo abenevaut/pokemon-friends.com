@@ -17,6 +17,7 @@ Route::group(
     [
         'prefix' => 'oauth',
         'namespace' => 'OAuth',
+        'middleware' => 'api',
     ],
     function () {
         Route::post('login', 'LoginController@login');
@@ -35,7 +36,31 @@ Route::group(
 Route::group(
     [
         'prefix' => 'v1',
+        'as' => 'v1.',
         'namespace' => 'Api\V1',
+        'middleware' => [
+            'throttle:3000,1',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+    ],
+    function () {
+        Route::group([
+            'namespace' => 'Users',
+            'prefix' => 'users',
+            'as' => 'users.',
+            'middleware' => 'cache.headers:public;max_age=2628000;etag'
+        ], function () {
+            Route::get('qr/{user}.png', ['as' => 'qr', 'uses' => 'UsersController@qr']);
+        });
+    }
+);
+
+Route::group(
+    [
+        'prefix' => 'v1',
+        'as' => 'v1.',
+        'namespace' => 'Api\V1',
+        'middleware' => 'api',
     ],
     function () {
         Route::group(['namespace' => 'Users'], function () {
@@ -50,8 +75,9 @@ Route::group(
 Route::group(
     [
         'prefix' => 'v1',
+        'as' => 'v1.',
         'namespace' => 'Api\V1',
-        'middleware' => 'auth:api'
+        'middleware' => ['api', 'auth:api'],
     ],
     function () {
         Route::group(['namespace' => 'Users'], function () {
@@ -61,7 +87,7 @@ Route::group(
                     Route::get('family-situations', 'ProfilesController@familySituations');
                 });
                 Route::resource('profiles', 'ProfilesController', ['only' => ['update']]);
-                Route::get('user', 'UsersController@user');
+                Route::get('user', ['as' => 'user', 'uses' => 'UsersController@user']);
             });
             Route::resource('users', 'UsersController', ['only' => ['show']]);
         });
