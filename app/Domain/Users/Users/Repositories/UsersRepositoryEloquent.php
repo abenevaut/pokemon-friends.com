@@ -260,7 +260,9 @@ class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements User
                     $model->where('sponsored', '=', '1');
                 }
 
-                return $model->orderBy('sponsored', 'desc');
+                return $model
+                    ->whereNotNull('friend_code')
+                    ->orderBy('sponsored', 'desc');
             });
     }
 
