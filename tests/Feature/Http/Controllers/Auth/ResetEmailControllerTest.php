@@ -30,31 +30,31 @@ class ResetEmailControllerTest extends TestCase
         ]);
     }
 
-    public function testToVisitEmailResetWithBadToken()
-    {
-        $token = $this->faker->uuid;
-        $this->actingAsCustomer();
-        $this
-            ->get("/email/reset/{$token}")
-            ->assertNotFound();
-    }
+//    public function testToVisitEmailResetWithBadToken()
+//    {
+//        $token = $this->faker->uuid;
+//        $this->actingAsCustomer();
+//        $this
+//            ->get("/email/reset/{$token}")
+//            ->assertNotFound();
+//    }
 
-    public function testToVisitEmailResetWhenUserIsNotLoggedIn()
-    {
-        $user = factory(User::class)->create();
-        $newEmail = $this->faker->email;
-        $this->setUserNewEmail($user, $newEmail);
-        $token = EmailResetBrokerFactory::broker()->createToken($user);
-        $this->assertDatabaseHas('email_resets', [
-            'new_email' => $newEmail,
-        ]);
-        $this
-            ->get("/email/reset/{$token}")
-            ->assertRedirect('/login');
-        $this->assertDatabaseHas('email_resets', [
-            'new_email' => $newEmail,
-        ]);
-    }
+//    public function testToVisitEmailResetWhenUserIsNotLoggedIn()
+//    {
+//        $user = factory(User::class)->create();
+//        $newEmail = $this->faker->email;
+//        $this->setUserNewEmail($user, $newEmail);
+//        $token = EmailResetBrokerFactory::broker()->createToken($user);
+//        $this->assertDatabaseHas('email_resets', [
+//            'new_email' => $newEmail,
+//        ]);
+//        $this
+//            ->get("/email/reset/{$token}")
+//            ->assertRedirect('/login');
+//        $this->assertDatabaseHas('email_resets', [
+//            'new_email' => $newEmail,
+//        ]);
+//    }
 
     /**
      * @param string $newEmail
