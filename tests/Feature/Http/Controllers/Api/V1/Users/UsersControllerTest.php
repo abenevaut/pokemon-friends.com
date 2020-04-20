@@ -68,10 +68,10 @@ class UsersControllerTest extends TestCase
     public function testToGetUserQrCodeWhenUserNotSponsored()
     {
         $user = factory(User::class)->states(User::ROLE_CUSTOMER)->create();
-        factory(Profile::class)->create(['user_id' => $user->id, 'friend_code' => null]);
+        factory(Profile::class)->create(['user_id' => $user->id, 'friend_code' => null, 'sponsored' => null]);
         $this
             ->get("/api/v1/users/qr/{$user->uniqid}.png")
-            ->assertNotFound();
+            ->assertSuccessful();
     }
 
     public function testToGetUserQrCodeWhenUserDeleted()
