@@ -38,7 +38,7 @@ return [
     'home' => 'Accueil',
     'dashboard' => 'Dashboard',
     'change_password' => 'Changer votre mot de passe',
-    'change_email' => 'Il n\'est pas encore possible de changer son adresse email, mais vous pouvez en faire la demande sur <a href=":contact_url">la page de contact</a>.',
+    'change_email' => 'Changer votre courriel',
     'baseline' => 'Inscrivez-vous pour partager votre code ami et rejoindre vote communauté de dresseurs!',
     'welcome' => "Maintenant, allez tous les partager !",
     'anonymous.dashboard.share_gift' => 'Partagez des cadeaux',

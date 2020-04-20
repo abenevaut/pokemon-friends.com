@@ -12,6 +12,7 @@ use template\Domain\Users\Users\Transformers\TrainerTransformer;
 use template\Domain\Users\Users\User;
 use template\Http\Request\Customer\Users\Profiles\ProfileFormRequest;
 use template\Http\Request\Customer\Users\Users\PasswordFormRequest;
+use template\Http\Request\Customer\Users\Users\ChangeEmailFormRequest;
 use template\Infrastructure\Contracts\Controllers\ControllerAbstract;
 
 class UsersController extends ControllerAbstract
@@ -122,5 +123,21 @@ class UsersController extends ControllerAbstract
         event(new PasswordReset($user));
 
         return redirect(route('customer.users.edit', ['id' => $user->uniqid]));
+    }
+
+    /**
+     * Request email update.
+     *
+     * @param User $user
+     * @param ChangeEmailFormRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function changeEmail(User $user, ChangeEmailFormRequest $request)
+    {
+        $user->resetEmail($request->get('email'));
+
+        return redirect(route('customer.users.edit', ['id' => $user->uniqid]))
+            ->with('message-success', trans('auth.message_email_validation'));
     }
 }
