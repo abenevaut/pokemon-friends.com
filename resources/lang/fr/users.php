@@ -171,6 +171,9 @@ return [
     'profiles.teams_colors.blue' => 'Sagesse, équipe bleu',
     'profiles.teams_colors.red' => 'Bravoure, équipe rouge',
     'profiles.teams_colors.yellow' => 'Intuition, équipe jaune',
+    'profiles.teams_colors.default' => 'Aucune équipe sélectionnée',
+
+    'profile.info.only_admin_can_view_following_data' => 'Seul vous et les administrateurs peuvent consulter les informations suivantes',
 
     'reports.title' => 'Rapports',
     'reports.no_report' => 'Aucun rapport',

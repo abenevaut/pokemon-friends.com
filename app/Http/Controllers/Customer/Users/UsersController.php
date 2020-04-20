@@ -47,22 +47,31 @@ class UsersController extends ControllerAbstract
      */
     public function edit(User $user)
     {
-        return view(
-            'customer.users.users.edit',
-            [
-                'profile' => $this->r_profiles->getUserProfile($user),
-                'teams' => $this->r_profiles->getTeamsColors(),
-                'families_situations' => $this
-                    ->r_profiles
-                    ->getFamilySituations()
-                    ->mapWithKeys(function ($item) {
-                        return [$item => trans("users.profiles.family_situation.{$item}")];
-                    }),
-                'timezones' => $this->r_users->getTimezones(),
-                'locales' => $this->r_users->getLocales(),
-                'civilities' => $this->r_users->getCivilities(),
-            ]
-        );
+        $profile = $this->r_profiles->getUserProfile($user);
+        $teams = $this->r_profiles->getTeamsColors();
+        $families_situations = $this
+            ->r_profiles
+            ->getFamilySituations()
+            ->mapWithKeys(function ($item) {
+                return [$item => trans("users.profiles.family_situation.{$item}")];
+            });
+        $timezones = $this->r_users->getTimezones();
+        $locales = $this->r_users->getLocales();
+        $civilities = $this
+            ->r_users
+            ->getCivilities()
+            ->mapWithKeys(function ($item) {
+                return [$item => trans("users.civility.{$item}")];
+            });
+
+        return view('customer.users.users.edit', compact(
+            'profile',
+            'teams',
+            'families_situations',
+            'timezones',
+            'locales',
+            'civilities',
+        ));
     }
 
     /**
@@ -76,9 +85,10 @@ class UsersController extends ControllerAbstract
      */
     public function update(User $user, ProfileFormRequest $request)
     {
+        $id = $user->uniqid;
         $this->r_profiles->updateUserProfileWithRequest($request, $user);
 
-        return redirect(route('customer.users.edit', ['id' => $user->uniqid]));
+        return redirect(route('customer.users.edit', compact('id')));
     }
 
     /**
