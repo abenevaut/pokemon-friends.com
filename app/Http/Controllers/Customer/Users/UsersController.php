@@ -24,7 +24,9 @@ class UsersController extends ControllerAbstract
      */
     protected $r_users;
 
-
+    /**
+     * @var ProfilesRepositoryEloquent
+     */
     protected $r_profiles;
 
     /**
