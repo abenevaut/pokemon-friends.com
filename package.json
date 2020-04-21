@@ -3,6 +3,7 @@
     "description": "www.pokemon-friends.com",
     "author": "Antoine Benevaut",
     "homepage": "https://www.pokemon-friends.com",
+    "bugs": "https://github.com/pokemon-friends-com/www/issues",
     "private": true,
     "main": "resources/js/app.js",
     "engines": {
