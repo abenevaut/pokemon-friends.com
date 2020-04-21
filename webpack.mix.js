@@ -35,10 +35,8 @@ const faviconConfig = {
   },
 };
 
-if (mix.inProduction()) {
-  if (process.env.USE_CDN) {
-    faviconConfig.publicPath = `https://s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${process.env.AWS_ASSETS_BUCKET}/`;
-  }
+if (mix.inProduction() && process.env.USE_CDN) {
+  faviconConfig.publicPath = `https://s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${process.env.AWS_ASSETS_BUCKET}/`;
   mix.version().setResourceRoot(`/${process.env.AWS_ASSETS_BUCKET}/`);
 }
 
