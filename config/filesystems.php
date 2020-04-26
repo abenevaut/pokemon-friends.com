@@ -43,7 +43,7 @@ return [
 
     'disks' => [
         'object-storage' => [
-            'driver' => app()->environment('production')
+            'driver' => 'production' === env('APP_ENV', 'production')
                 ? 'object-storage'
                 : 'local',
             'root' => storage_path('app'),
