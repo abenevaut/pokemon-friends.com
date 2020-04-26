@@ -62,6 +62,7 @@
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.46",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
+        "phpstan/phpstan": "^0.12.19",
         "phpunit/phpunit": "^8.3",
         "sebastian/phpcpd": "^5.0",
         "squizlabs/php_codesniffer": "^3.4"
