@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => 'local',
+    'default' => 'object-storage',
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'cloud' => 's3',
+    'cloud' => 'object-storage',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,43 +42,30 @@ return [
     */
 
     'disks' => [
-
-        'local' => [
-            'driver' => 'local',
-            'root' => storage_path('app'),
+        'object-storage' => [
+            'driver' => 'production' === env('APP_ENV', 'production')
+                ? 'object-storage'
+                : 'local',
+            'root' => 'production' === env('APP_ENV', 'production')
+                ? 'private'
+                : storage_path('app'),
         ],
-
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL') . '/storage',
-            'visibility' => 'public',
+        'thumbnails' => [
+            'driver' => 'production' === env('APP_ENV', 'production')
+                ? 'object-storage'
+                : 'local',
+            'root' => 'production' === env('APP_ENV', 'production')
+                ? 'private/thumbnails'
+                : storage_path('app/thumbnails'),
         ],
-
-        's3' => [
-            'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION', 'eu-west-3'),
-            'bucket' => env('AWS_FILES_BUCKET', 'www.pokemon-friends.com.local'),
-            'url' => sprintf(
-                'https://s3.%s.amazonaws.com',
-                env('AWS_DEFAULT_REGION', 'eu-west-3')
-            ),
-        ],
-
         'asset-cdn' => [
-            'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION', 'eu-west-3'),
-            'bucket' => env('AWS_ASSETS_BUCKET', 'assets.pokemon-friends.com.local'),
-            'url' => sprintf(
-                'https://s3.%s.amazonaws.com',
-                env('AWS_DEFAULT_REGION', 'eu-west-3')
-            ),
+            'driver' => 'production' === env('APP_ENV', 'production')
+                ? 'object-storage'
+                : 'local',
+            'root' => 'production' === env('APP_ENV', 'production')
+                ? null
+                : public_path(),
         ],
-
     ],
 
 ];

@@ -19,6 +19,7 @@
         "barryvdh/laravel-elfinder": "^0.4.2",
         "fedeisas/laravel-mail-css-inliner": "^2.3",
         "fideloper/proxy": "^4.0",
+        "fortrabbit/laravel-object-storage": "^1.0",
         "lab404/laravel-impersonate": "^1.4",
         "laravel-notification-channels/twitter": "^3.0",
         "laravel/cashier-mollie": "^1.0",
@@ -29,7 +30,6 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.8",
         "league/csv": "^9.3",
-        "league/flysystem-aws-s3-v3": "^1.0",
         "league/fractal": "^0.19.2",
         "league/glide": "^1.5",
         "league/glide-laravel": "^1.0",
@@ -61,6 +61,7 @@
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.46",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
+        "phpstan/phpstan": "^0.12.19",
         "phpunit/phpunit": "^8.3",
         "sebastian/phpcpd": "^5.0",
         "squizlabs/php_codesniffer": "^3.4"

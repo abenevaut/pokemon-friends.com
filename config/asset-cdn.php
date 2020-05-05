@@ -1,15 +1,8 @@
 <?php
 
 return [
-
     'use_cdn' => env('USE_CDN', false),
-
-    'cdn_url' => sprintf(
-        'https://s3.%s.amazonaws.com/%s',
-        env('AWS_DEFAULT_REGION', 'eu-west-3'),
-        env('AWS_ASSETS_BUCKET', 'assets.pokemon-friends.com.local')
-    ),
-
+    'cdn_url' => env('OBJECT_STORAGE_URL', 'https://pkmn-friends.objects.frb.io'),
     'filesystem' => [
         'disk' => 'asset-cdn',
         'options' => [
@@ -19,12 +12,9 @@ return [
             'CacheControl' => 'max-age=31536000, public',
         ],
     ],
-
     'files' => [
         'ignoreDotFiles' => true,
-
         'ignoreVCS' => true,
-
         'include' => [
             'paths' => [
                 'css',
@@ -33,31 +23,20 @@ return [
                 'js',
                 'packages',
             ],
-            'files' => [
-                //
-            ],
-            'extensions' => [
-                //
-            ],
-            'patterns' => [
-                //
-            ],
+            'files' => [],
+            'extensions' => [],
+            'patterns' => [],
         ],
-
         'exclude' => [
             'paths' => [
-                //
+                'trainers'
             ],
             'files' => [
-                //
+                'README.md',
+                'sitemap.xml',
             ],
-            'extensions' => [
-                //
-            ],
-            'patterns' => [
-                //
-            ],
+            'extensions' => [],
+            'patterns' => [],
         ],
     ],
-
 ];

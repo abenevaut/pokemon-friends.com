@@ -35,9 +35,18 @@ const faviconConfig = {
   },
 };
 
-if (mix.inProduction() && process.env.USE_CDN) {
-  faviconConfig.publicPath = `https://s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${process.env.AWS_ASSETS_BUCKET}/`;
-  mix.version().setResourceRoot(`/${process.env.AWS_ASSETS_BUCKET}/`);
+if (mix.inProduction()) {
+  mix.version();
+
+  if (process.env.USE_CDN) {
+    faviconConfig.publicPath = process.env.OBJECT_STORAGE_URL
+      ? process.env.OBJECT_STORAGE_URL
+      : 'https://pkmn-friends.objects.frb.io/';
+
+    // Amazon S3 way.
+    // faviconConfig.publicPath = `https://s3.${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${process.env.AWS_ASSETS_BUCKET}/`;
+    // mix.version().setResourceRoot(`/${process.env.AWS_ASSETS_BUCKET}/`);
+  }
 }
 
 mix
