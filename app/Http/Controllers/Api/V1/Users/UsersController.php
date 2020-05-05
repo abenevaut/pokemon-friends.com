@@ -58,19 +58,20 @@ class UsersController extends ControllerAbstract
     /**
      * Get user QR code image.
      *
+     * @param Request $request
      * @param User $user
      *
      * @return \Illuminate\Http\Response|mixed
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function qr(User $user)
+    public function qr(Request $request, User $user)
     {
         if (!$user || $user->deleted_at || !$user->profile->friend_code) {
             abort(404);
         }
 
-        if (!$user->profile->getMedia('trainer')->first()) {
-            $user
+        if (!$user->profile->hasMedia('trainer')) {
+            return $user
                 ->profile
                 ->addMediaFromUrl(
                     'https://api.qrserver.com/v1/create-qr-code/'
@@ -78,9 +79,10 @@ class UsersController extends ControllerAbstract
                 )
                 ->setName($user->profile->friend_code)
                 ->setFileName("{$user->profile->friend_code}.png")
-                ->toMediaCollection('trainer');
+                ->toMediaCollection('trainer')
+                ->toResponse($request);
         }
 
-        return $user->profile->getMedia('trainer')->first();
+        return $user->profile->getMedia('trainer')->first()->toResponse($request);
     }
 }
