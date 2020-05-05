@@ -69,50 +69,18 @@ class UsersController extends ControllerAbstract
             abort(404);
         }
 
-        if (Cache::has("qr_code_png.{$user->profile->friend_code}")) {
-            $qr = Cache::get("qr_code_png.{$user->profile->friend_code}");
-        } else {
-            $qr = $this->qrServer($user->profile->friend_code);
-            $expiresAt = Carbon::now()->addMinutes(4320); // 72 hours
-            Cache::put("qr_code_png.{$user->profile->friend_code}", $qr, $expiresAt);
+        if (!$user->profile->getMedia('trainer')->first()) {
+            $user
+                ->profile
+                ->addMediaFromUrl(
+                    'https://api.qrserver.com/v1/create-qr-code/'
+                    . "?size=300x300&format=png&data={$user->profile->friend_code}"
+                )
+                ->setName($user->profile->friend_code)
+                ->setFileName("{$user->profile->friend_code}.png")
+                ->toMediaCollection('trainer');
         }
 
-        return response()->make($qr, 200, ['Content-Type' => 'image/png']);
+        return $user->profile->getMedia('trainer')->first();
     }
-
-    /**
-     * Get user QR code image from qrserver.
-     *
-     * @param string $data
-     *
-     * @return string
-     */
-    public function qrServer(string $data)
-    {
-        return (new Client([
-            'base_uri' => 'https://api.qrserver.com/v1/create-qr-code/'
-                . "?size=300x300&format=png&data={$data}",
-        ]))
-            ->request('GET')
-            ->getBody()
-            ->getContents();
-    }
-
-    /**
-     * Get user QR code image from google.
-     *
-     * @param string $data
-     *
-     * @return string
-     */
-    //public function qrGoogle(string $data)
-    //{
-    //    return (new Client([
-    //        'base_uri' => 'https://chart.googleapis.com/chart'
-    //            . "?cht=qr&chs=300x300&choe=UTF-8&chld=L|0&chl={$data}",
-    //    ]))
-    //        ->request('GET')
-    //        ->getBody()
-    //        ->getContents();
-    //}
 }
