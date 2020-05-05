@@ -2,8 +2,6 @@
 
 namespace template\Console\Commands;
 
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Storage;
 use template\Domain\Files\Medias\Repositories\MediasRepositoryEloquent;
 use template\Domain\Users\Profiles\Profile;
 use template\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
