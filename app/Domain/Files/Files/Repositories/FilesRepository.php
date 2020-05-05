@@ -4,19 +4,9 @@ namespace template\Domain\Files\Files\Repositories;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Filesystem\FilesystemAdapter;
-use Illuminate\Support\Facades\
-{
-    File,
-    Response
-};
-use League\Glide\{
-    Responses\LaravelResponseFactory,
-    ServerFactory
-};
-use Barryvdh\Elfinder\{
-    Connector,
-    Session\LaravelSession
-};
+use Illuminate\Support\Facades\Storage;
+use League\Glide\{Responses\LaravelResponseFactory, ServerFactory};
+use Barryvdh\Elfinder\{Connector, Session\LaravelSession};
 use template\Domain\Users\Users\User;
 
 define('ELFINDER_DROPBOX_CONSUMERKEY', '');
@@ -115,7 +105,7 @@ class FilesRepository
         $dir = 'packages/barryvdh/' . $this->package;
         $locale = str_replace("-", "_", $this->app->config->get('app.locale'));
 
-        if (!file_exists(public_path("/$dir/js/i18n/elfinder.$locale.js"))) {
+        if (!file_exists(public_path("/{$dir}/js/i18n/elfinder.{$locale}.js"))) {
             $locale = false;
         }
 
@@ -130,14 +120,8 @@ class FilesRepository
      */
     public function streamPublicDocument(string $path)
     {
-        $path = storage_path('app/public/' . $path);
-
-        if (File::exists($path)) {
-            $file = File::get($path);
-            $type = File::mimeType($path);
-
-            return Response::make($file, 200)
-                ->header("Content-Type", $type);
+        if (Storage::cloud()->exists($path)) {
+            return Storage::cloud()->response(basename($path));
         }
 
         throw new \Exception();
@@ -151,8 +135,8 @@ class FilesRepository
     public function streamPublicThumbnail(string $path)
     {
         return ServerFactory::create([
-            'source' => app('filesystem')->disk('public')->getDriver(),
-            'cache' => storage_path('app/thumbnails'),
+            'source' => Storage::cloud()->getDriver(),
+            'cache' => Storage::disk('thumbnails')->getDriver(),
             'driver' => 'imagick',
             'response' => new LaravelResponseFactory(app('request')),
         ])
