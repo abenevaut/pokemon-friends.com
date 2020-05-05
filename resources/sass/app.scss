@@ -23,3 +23,7 @@ $text-color: #fff;
 @import 'cookie-consent';
 @import 'buttons/twitter';
 @import 'buttons/google';
+
+.ekko-lightbox-nav-overlay a>* {
+  color: var(--red);
+}
