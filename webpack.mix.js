@@ -5,7 +5,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 const faviconConfig = {
   logo: path.resolve(__dirname, 'resources/images/pokeball.png'),
-  prefix: 'images/',
+  prefix: 'assets/images/',
   cache: true,
   inject: false,
   mode: 'webapp',
@@ -40,6 +40,8 @@ if (mix.inProduction() && process.env.USE_CDN) {
     ? process.env.OBJECT_STORAGE_URL
     : 'https://pkmn-friends.objects.frb.io/';
 }
+
+mix.config.fileLoaderDirs.fonts = 'assets/fonts';
 
 mix
   .autoload({
@@ -88,7 +90,7 @@ mix
       new CopyWebpackPlugin([
         {
           from: 'resources/images',
-          to: 'images',
+          to: 'assets/images',
         },
       ]),
       new ImageminPlugin({
@@ -108,5 +110,5 @@ mix
     ],
   })
   .sourceMaps(false, 'eval')
-  .js('resources/js/app.js', 'public/js')
-  .sass('resources/sass/app.scss', 'public/css');
+  .js('resources/js/app.js', 'public/assets/js')
+  .sass('resources/sass/app.scss', 'public/assets/css');
