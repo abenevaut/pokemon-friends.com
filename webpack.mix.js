@@ -18,7 +18,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
  |
  */
 
-let publicPath = null;
+let publicPath = '';
 if (mix.inProduction() && process.env.USE_CDN) {
   publicPath = process.env.OBJECT_STORAGE_URL
     ? process.env.OBJECT_STORAGE_URL
