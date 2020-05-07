@@ -18,25 +18,9 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
  |
  */
 
-const faviconConfig = {
-  logo: path.resolve(__dirname, 'resources/images/pokeball.png'),
-  prefix: 'assets/images/',
-  cache: true,
-  inject: false,
-  mode: 'webapp',
-  devMode: 'webapp',
-  favicons: {
-    background: '#fff',
-    theme_color: '#fff',
-    icons: {
-      coast: false,
-      yandex: false,
-    },
-  },
-};
-
+let publicPath = null;
 if (mix.inProduction() && process.env.USE_CDN) {
-  faviconConfig.publicPath = process.env.OBJECT_STORAGE_URL
+  publicPath = process.env.OBJECT_STORAGE_URL
     ? process.env.OBJECT_STORAGE_URL
     : 'https://pkmn-friends.objects.frb.io/';
 }
@@ -106,7 +90,23 @@ mix
           }),
         ],
       }),
-      new FaviconsWebpackPlugin(faviconConfig),
+      new FaviconsWebpackPlugin({
+        logo: path.resolve(__dirname, 'resources/images/pokeball.png'),
+        prefix: 'images/',
+        cache: true,
+        inject: false,
+        mode: 'webapp',
+        devMode: 'webapp',
+        publicPath,
+        favicons: {
+          background: '#fff',
+          theme_color: '#fff',
+          icons: {
+            coast: false,
+            yandex: false,
+          },
+        },
+      }),
     ],
   })
   .sourceMaps(false, 'eval')
