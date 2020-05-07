@@ -134,7 +134,7 @@ class UsersController extends ControllerAbstract
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function changeEmail(User $user, ChangeEmailFormRequest $request)
+    public function email(User $user, ChangeEmailFormRequest $request)
     {
         $user->resetEmail($request->get('email'));
 
