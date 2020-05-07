@@ -120,7 +120,7 @@ class GenerateSitemapCommand extends CommandAbstract
                 });
             });
 
-        $sitemap->writeToDisk('asset-cdn', 'sitemap.xml');
+        $sitemap->writeToDisk('object-storage', 'sitemap.xml');
 
         $this->info('sitemap:generate : success!');
 
