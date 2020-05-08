@@ -2,6 +2,8 @@
 
 namespace Tests;
 
+use NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler;
+use template\Exceptions\Handler;
 use Illuminate\Foundation\{
     Testing\TestCase as BaseTestCase,
     Testing\WithFaker,
@@ -29,5 +31,28 @@ abstract class TestCase extends BaseTestCase
     public function dateTimeFormat()
     {
         return trans('global.date_time_format');
+    }
+
+    protected function disableExceptionHandling()
+    {
+        $this->oldExceptionHandler = $this->app->make(ExceptionHandler::class);
+        $this
+            ->app
+            ->instance(ExceptionHandler::class,
+                new class extends Handler {
+
+                    public function __construct()
+                    {
+                    }
+
+                    public function report(\Exception $e)
+                    {
+                    }
+
+                    public function render($request, \Exception $e)
+                    {
+                        throw $e;
+                    }
+                });
     }
 }

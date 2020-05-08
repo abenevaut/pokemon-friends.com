@@ -165,6 +165,9 @@ class UsersControllerTest extends TestCase
 
     public function testToSubmitUpdateEmail()
     {
+
+        $this->disableExceptionHandling();
+
         $newEmail = $this->faker->email;
         $user = $this->actingAsCustomer();
         Notification::fake();
