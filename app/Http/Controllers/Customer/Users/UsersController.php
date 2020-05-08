@@ -136,7 +136,7 @@ class UsersController extends ControllerAbstract
      */
     public function email(User $user, ChangeEmailFormRequest $request)
     {
-        $user->resetEmail($request->get('email'));
+//        $user->resetEmail($request->get('email'));
 
         return redirect(route('customer.users.edit', ['user' => $user->uniqid]))
             ->with('message-success', trans('auth.message_email_validation'));
