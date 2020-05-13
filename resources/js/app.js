@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueInternationalization from 'vue-i18n';
+// import { BootstrapVue, IconsPlugin, ModalPlugin } from 'bootstrap-vue';
 import Locale from './vue-i18n-locales.generated';
 
 /**
@@ -18,6 +19,7 @@ require('admin-lte/plugins/sweetalert2/sweetalert2.all');
 require('admin-lte/plugins/ekko-lightbox/ekko-lightbox');
 require('flatpickr');
 require('qrcode');
+const ClipboardJS = require('clipboard');
 const LazyLoad = require('vanilla-lazyload');
 const Sentry = require('@sentry/browser');
 const Integrations = require('@sentry/integrations');
@@ -47,22 +49,18 @@ const i18n = new VueInternationalization({
 });
 
 /**
+ * Vue BootstrapVue
+ */
+
+// Vue.use(BootstrapVue);
+// Vue.use(IconsPlugin);
+// Vue.use(ModalPlugin);
+
+/**
  * Vue filters
  */
 
 Vue.filter('pkmnFriendCode', (code) => `${code.slice(0, 4)}-${code.slice(4, 8)}-${code.slice(8, 12)}`);
-
-/**
- * Vue directives
- */
-
-Vue.directive('ekko-lightbox', () => {
-  jQuery(document).on('click', '[data-toggle="lightbox"]', () => {
-    jQuery(this).ekkoLightbox({
-      alwaysShowClose: true,
-    });
-  });
-});
 
 /**
  * The following block of code may be used to automatically register your
@@ -96,7 +94,6 @@ const app = new Vue({
   i18n,
 });
 
-(new LazyLoad({
-  elements_selector: '.lazy',
-}))
-  .update();
+(new LazyLoad({ elements_selector: '.lazy' })).update();
+// eslint-disable-next-line
+new ClipboardJS('.btn-copy');

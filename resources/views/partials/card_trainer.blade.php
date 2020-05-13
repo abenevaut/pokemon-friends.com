@@ -1,5 +1,8 @@
 <div class="card card-outline card-team-{{ $trainer['team_color'] }}">
-    <div class="card-header text-center">{{ $trainer['friend_code'] }}</div>
+    <div class="card-header text-center">
+        {{ $trainer['friend_code'] }}
+        <button type="button" class="btn btn-primary btn-copy" data-clipboard-text="{{ $trainer['friend_code'] }}"><i class="fas fa-copy"></i></button>
+    </div>
     <div class="card-boddy text-center">
         <figure class="imghvr-fade m-1">
             {{-- <img src="{{ asset_cdn('images/pokeball.jpg') }}" data-src="{{ $trainer['qr'] }}" class="img-fluid lazy" alt="{{ $trainer['friend_code'] }}"> --}}

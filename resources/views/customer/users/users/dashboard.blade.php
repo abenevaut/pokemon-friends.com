@@ -17,7 +17,6 @@
 </section>
 <section class="content">
     <div class="container">
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -44,9 +43,31 @@
                 </div>
             </div>
         </div>
-        <div>
-            @include('partials.row_trainers', ['trainers' => $users])
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group row mb-0">
+                            <span for="alert" class="col-4 col-form-label text-sm-center">share your QrCode on your live stream</span>
+                            <div class="col-6">
+
+
+                                <div class="input-guard">
+                                    <div class="input-guard__text"><i class="fas fa-lock mr-2" aria-hidden="true"></i>Click to show</div>
+                                    <input type="text" id="alert" class="form-control" readonly="readonly" value="{{ route('anonymous.users.alert', ['hash' => $user['identifier']]) }}"/>
+                                </div>
+
+
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-primary btn-copy" data-clipboard-target="#alert"><i class="fas fa-copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        @include('partials.row_trainers', ['trainers' => $users])
     </div>
 </section>
 @endsection
