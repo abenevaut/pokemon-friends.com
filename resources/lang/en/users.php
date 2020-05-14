@@ -136,7 +136,8 @@ return [
     'trainer.social_share_qr' => 'Share your QR code on your social networks',
 
     'title' => 'Users',
-    'trainers' => 'Trainers - page :page',
+    'trainers' => 'Trainers',
+    'trainers.title' => 'Trainers - page :page',
     'trainers.description' => 'Trainers list - page :page',
     'create.title' => 'New user',
     'edit.title' => 'Edit user',

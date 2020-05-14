@@ -136,7 +136,8 @@ return [
     'trainer.social_share_qr' => 'Partagez votre QR code sur vos réseaux sociaux',
 
     'title' => 'Utilisateurs',
-    'trainers' => 'Dresseurs - page :page',
+    'trainers' => 'Dresseurs',
+    'trainers.title' => 'Dresseurs - page :page',
     'trainers.description' => 'Liste des dresseurs - page :page',
     'create.title' => 'Nouvel utilisateur',
     'edit.title' => 'Éditer l\'utilisateur',

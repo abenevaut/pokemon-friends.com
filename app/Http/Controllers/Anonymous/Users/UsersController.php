@@ -43,7 +43,7 @@ class UsersController extends ControllerAbstract
     {
         $page = $request->get('page') ?? 1;
         $metadata = [
-            'title' => trans('users.trainers', compact('page')),
+            'title' => trans('users.trainers.title', compact('page')),
             'description' => trans('users.trainers.description', compact('page')),
         ];
         $users = $this
