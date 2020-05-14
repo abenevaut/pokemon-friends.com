@@ -30,8 +30,6 @@ class Kernel extends ConsoleKernel
         GetFileFromCloudCommand::class,
         PushFileToCloudCommand::class,
         RemoveFileFromCloudCommand::class,
-        TestLaravelEchoCommand::class,
-        VersionCommand::class,
         DailySponsorshipCommand::class,
         GetQrCodeForFriendCodesCommand::class,
     ];
@@ -64,6 +62,8 @@ class Kernel extends ConsoleKernel
     {
         if (!$this->app->environment('production')) {
             $this->registerCommand(new \checkCoverage\Console\Commands\CheckCoverageCommand());
+            $this->registerCommand(new VersionCommand());
+            $this->registerCommand(new TestLaravelEchoCommand());
         }
 
         require base_path('routes/console.php');
