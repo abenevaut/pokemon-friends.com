@@ -4,6 +4,9 @@
 @section('description', $metadata['description'])
 @section('image', $qr)
 @section('card', 'summary')
+@section('schema')
+    {!! $schema->toScript() !!}
+@endsection
 
 @section('content')
     <div class="card-body login-card-body text-center">

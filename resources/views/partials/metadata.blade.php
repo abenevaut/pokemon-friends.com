@@ -17,6 +17,7 @@
 <meta name="timezone" content="{{ Session::get('timezone') }}">
 <meta name="robots" content="@yield('robots', config('view.robots'))">
 <meta name="description" content="@yield('description', config('app.description'))" />
+@yield('schema')
 <meta name="keywords" content="@yield('keywords', config('app.keywords'))" />
 <meta name="author" content="{{ config('services.twitter.url') }}" />
 <meta name="copyright" content="{{ config('app.copyright') }}" />
