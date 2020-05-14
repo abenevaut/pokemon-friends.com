@@ -131,7 +131,7 @@ return [
     L\'intégralité du code source de ce site internet est consultable sur <a href="https://github.com/pokemon-friends-com/www">Github.com</a>
 </p>',
 
-    'trainer' => 'Soyons amis sur Pokemon Go!',
+    'trainer' => 'Soyons amis sur Pokemon Go! :friend_code',
     'trainer.description' => 'Cet entraîneur, :friend_code, recherche de nouveaux amis Pokemon Go!',
     'trainer.social_share_qr' => 'Partagez votre QR code sur vos réseaux sociaux',
 
