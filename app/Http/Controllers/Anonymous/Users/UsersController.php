@@ -2,10 +2,10 @@
 
 namespace template\Http\Controllers\Anonymous\Users;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Honeypot\ProtectAgainstSpam;
 use template\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
-use template\Domain\Users\Users\Transformers\TrainerTransformer;
 use template\Domain\Users\Users\User;
 use template\Infrastructure\Contracts\Controllers\ControllerAbstract;
 
@@ -34,23 +34,23 @@ class UsersController extends ControllerAbstract
     /**
      * Display resources list.
      *
+     * @param Request $request
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
+        $page = $request->get('page') ?? 1;
         $metadata = [
-            'title' => trans('users.trainer.meta.title'),
-            'description' => config('app.description'),
+            'title' => trans('users.trainers', compact('page')),
+            'description' => trans('users.trainers.description', compact('page')),
         ];
         $users = $this
             ->r_users
             ->getTrainers(!Auth::check())
             ->paginate(config('repository.pagination.trainers'));
 
-        return view('anonymous.users.users.index', compact(
-            'metadata',
-            'users',
-        ));
+        return view('anonymous.users.users.index', compact('metadata', 'users'));
     }
 
     /**
@@ -64,16 +64,11 @@ class UsersController extends ControllerAbstract
             abort(404);
         }
 
-        $metadata = [
-            'title' => trans('users.trainer.meta.title'),
-            'description' => trans(
-                'users.trainer.meta.description',
-                [
-                    'friend_code' => $user->profile->formated_friend_code
-                ]
-            ),
-        ];
         $friend_code = $user->profile->formated_friend_code;
+        $metadata = [
+            'title' => trans('users.trainer', compact('friend_code')),
+            'description' => trans('users.trainer.description', compact('friend_code')),
+        ];
         $nickname = $user->profile->nickname;
         $qr = route('v1.users.qr', ['user' => $user->uniqid]);
 
@@ -116,7 +111,7 @@ class UsersController extends ControllerAbstract
     {
         $metadata = [
             'title' => trans('users.terms'),
-            'description' => trans('users.anonymous.meta.description_terms'),
+            'description' => trans('users.terms.description'),
         ];
 
         return view('anonymous.users.users.terms', compact('metadata'));
