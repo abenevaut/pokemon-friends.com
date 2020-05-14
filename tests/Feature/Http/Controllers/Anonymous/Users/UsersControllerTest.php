@@ -23,14 +23,14 @@ class UsersControllerTest extends TestCase
         $this
             ->get("/trainers/{$user->uniqid}")
             ->assertSuccessful()
-            ->assertSee(e("Let's be friends on Pokemon Go! {$user->uniqid}"))
+            ->assertSee(e("Let's be friends on Pokemon Go! {$user->formated_friend_code}"))
             ->assertSee(
                 "This trainer, {$user->profile->formated_friend_code}, is looking for new Pokemon Go friends!"
             );
         $this
             ->get("/trainer/{$user->uniqid}")
             ->assertSuccessful()
-            ->assertSee(e("Let's be friends on Pokemon Go! {$user->uniqid}"))
+            ->assertSee(e("Let's be friends on Pokemon Go! {$user->formated_friend_code}"))
             ->assertSee(
                 "This trainer, {$user->profile->formated_friend_code}, is looking for new Pokemon Go friends!"
             );
@@ -43,14 +43,14 @@ class UsersControllerTest extends TestCase
         $this
             ->get("/trainers/{$user->uniqid}?locale=fr")
             ->assertSuccessful()
-            ->assertSee("Soyons amis sur Pokemon Go! {$user->uniqid}")
+            ->assertSee("Soyons amis sur Pokemon Go! {$user->formated_friend_code}")
             ->assertSee(
                 "Cet entraîneur, {$user->profile->formated_friend_code}, recherche de nouveaux amis Pokemon Go!"
             );
         $this
             ->get("/trainer/{$user->uniqid}?locale=fr")
             ->assertSuccessful()
-            ->assertSee("Soyons amis sur Pokemon Go! {$user->uniqid}")
+            ->assertSee("Soyons amis sur Pokemon Go! {$user->formated_friend_code}")
             ->assertSee(
                 "Cet entraîneur, {$user->profile->formated_friend_code}, recherche de nouveaux amis Pokemon Go!"
             );
