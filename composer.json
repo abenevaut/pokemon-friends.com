@@ -113,10 +113,6 @@
         ]
     },
     "repositories": {
-        "abenevaut/laravel-check-coverage": {
-            "type": "path",
-            "url": "./components/abenevaut/laravel-check-coverage"
-        },
         "yaquawa/laravel-email-reset": {
             "type": "vcs",
             "url": "git@github.com:abenevaut/laravel-email-reset.git"
