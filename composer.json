@@ -57,7 +57,7 @@
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "josiasmontag/laravel-redis-mock": "^1.2",
-        "laravel/dusk": "^5.5",
+        "laravel/dusk": "^6.1",
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.46",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
