@@ -26,7 +26,7 @@
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.2",
         "laravel/passport": "^7.4",
-        "laravel/scout": "^7.1",
+        "laravel/scout": "^8.0",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.0",
