@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce721eed95c7fe02ff4d80968820c04d",
+    "content-hash": "ba5e8afd1ccea6909d98b9052675279d",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -6265,16 +6265,16 @@
         },
         {
             "name": "spatie/laravel-cookie-consent",
-            "version": "2.12.0",
+            "version": "2.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-cookie-consent.git",
-                "reference": "c8cf8e4ae2d4d9e768c20b31d42f8fc428a121a7"
+                "reference": "e455e6b45c68464ab8aad585ed51d1a098f967e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/c8cf8e4ae2d4d9e768c20b31d42f8fc428a121a7",
-                "reference": "c8cf8e4ae2d4d9e768c20b31d42f8fc428a121a7",
+                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/e455e6b45c68464ab8aad585ed51d1a098f967e4",
+                "reference": "e455e6b45c68464ab8aad585ed51d1a098f967e4",
                 "shasum": ""
             },
             "require": {
@@ -6328,7 +6328,7 @@
                 "law",
                 "spatie"
             ],
-            "time": "2020-03-03T14:46:48+00:00"
+            "time": "2020-05-14T16:57:04+00:00"
         },
         {
             "name": "spatie/laravel-honeypot",
@@ -12032,6 +12032,5 @@
     },
     "platform-dev": {
         "ext-simplexml": "*"
-    },
-    "plugin-api-version": "1.1.0"
+    }
 }
