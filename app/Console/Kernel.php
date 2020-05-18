@@ -6,9 +6,6 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use template\Console\Commands\{
     GenerateSitemapCommand,
-    Files\GetFileFromCloudCommand,
-    Files\PushFileToCloudCommand,
-    Files\RemoveFileFromCloudCommand,
     TestLaravelEchoCommand,
     CrawlPokemonGoFriendCodesCommand,
     VersionCommand,
@@ -26,9 +23,6 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         CrawlPokemonGoFriendCodesCommand::class,
         GenerateSitemapCommand::class,
-        GetFileFromCloudCommand::class,
-        PushFileToCloudCommand::class,
-        RemoveFileFromCloudCommand::class,
         DailySponsorshipCommand::class,
     ];
 
@@ -59,7 +53,6 @@ class Kernel extends ConsoleKernel
     protected function commands()
     {
         if (!$this->app->environment('production')) {
-            $this->registerCommand(new \checkCoverage\Console\Commands\CheckCoverageCommand());
             $this->registerCommand(new VersionCommand());
             $this->registerCommand(new TestLaravelEchoCommand());
         }
