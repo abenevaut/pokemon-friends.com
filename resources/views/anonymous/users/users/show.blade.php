@@ -15,6 +15,7 @@
             <h2 class="text-primary">{{ $nickname }}</h2>
         @endif
         <img class="img-fluid lazy" src="{{ asset_cdn('images/pokeball.jpg') }}" data-src="{{ $qr }}" alt="{{ $friend_code }}">
+        @include('partials.row_amazon')
         @if (Auth::check())
             <a href="{{ route('anonymous.dashboard') }}" class="btn btn-primary btn-block mt-4"><i class="fas fa-tachometer-alt mr-2"></i>{{ trans('users.dashboard') }}</a>
         @else
