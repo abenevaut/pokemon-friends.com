@@ -22,8 +22,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         CrawlPokemonGoFriendCodesCommand::class,
-        GenerateSitemapCommand::class,
         DailySponsorshipCommand::class,
+        GenerateSitemapCommand::class,
+        TestLaravelEchoCommand::class,
     ];
 
     /**
@@ -54,7 +55,6 @@ class Kernel extends ConsoleKernel
     {
         if (!$this->app->environment('production')) {
             $this->registerCommand(new VersionCommand());
-            $this->registerCommand(new TestLaravelEchoCommand());
         }
 
         require base_path('routes/console.php');
