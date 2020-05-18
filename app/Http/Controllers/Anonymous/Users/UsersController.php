@@ -5,7 +5,6 @@ namespace template\Http\Controllers\Anonymous\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Honeypot\ProtectAgainstSpam;
-use Spatie\SchemaOrg\Schema;
 use template\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
 use template\Domain\Users\Users\User;
 use template\Infrastructure\Contracts\Controllers\ControllerAbstract;
@@ -72,19 +71,15 @@ class UsersController extends ControllerAbstract
         ];
         $nickname = $user->profile->nickname;
         $qr = route('v1.users.qr', ['user' => $user->uniqid]);
+        $schema = $user
+            ->profile
+            ->friend_code_schema
+            ->about($metadata['description']);
 
-        $schema = Schema::barcode()
-            ->name($friend_code)
-            ->about($metadata['description'])
-            ->productionCompany(Schema::organization()->name('Niantic'));
-
-        return view('anonymous.users.users.show', compact(
-            'metadata',
-            'schema',
-            'friend_code',
-            'nickname',
-            'qr',
-        ));
+        return view(
+            'anonymous.users.users.show',
+            compact('metadata', 'schema', 'friend_code', 'nickname', 'qr')
+        );
     }
 
     /**
