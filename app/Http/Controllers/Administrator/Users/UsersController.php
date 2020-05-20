@@ -182,7 +182,7 @@ class UsersController extends ControllerAbstract
      */
     public function update(User $user, UserUpdateFormRequest $request)
     {
-        $redirect_to = redirect(route('administrator.users.index'));
+        $redirectTo = redirect(route('administrator.users.index'));
 
         try {
             $this
@@ -213,10 +213,10 @@ class UsersController extends ControllerAbstract
                 ]);
         } catch (\Prettus\Validator\Exceptions\ValidatorException $exception) {
             app('sentry')->captureException($exception);
-            $redirect_to->withException($exception);
+            $redirectTo->withException($exception);
         }
 
-        return $redirect_to;
+        return $redirectTo;
     }
 
     /**

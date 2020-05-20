@@ -19,20 +19,20 @@ class LeadsController extends ControllerAbstract
     /**
      * @var LeadsRepositoryEloquent
      */
-    public $r_leads;
+    public $rLeads;
 
     /**
      * LeadsController constructor.
      *
      * @param UsersRepositoryEloquent $rUsers
-     * @param LeadsRepositoryEloquent $r_leads
+     * @param LeadsRepositoryEloquent $rLeads
      */
     public function __construct(
         UsersRepositoryEloquent $rUsers,
-        LeadsRepositoryEloquent $r_leads
+        LeadsRepositoryEloquent $rLeads
     ) {
         $this->rUsers = $rUsers;
-        $this->r_leads = $r_leads;
+        $this->rLeads = $rLeads;
     }
 
     /**
@@ -50,7 +50,7 @@ class LeadsController extends ControllerAbstract
             ->rUsers
             ->getTrainers()
             ->paginate(config('repository.pagination.limit'));
-        $civilities = $this->r_leads->getCivilities();
+        $civilities = $this->rLeads->getCivilities();
         
         return view('anonymous.users.leads.index', compact(
             'metadata',
@@ -73,7 +73,7 @@ class LeadsController extends ControllerAbstract
 
         if (!$lead) {
             $lead = $this
-                ->r_leads
+                ->rLeads
                 ->qualifyLead(
                     $request->get('civility'),
                     $request->get('first_name'),

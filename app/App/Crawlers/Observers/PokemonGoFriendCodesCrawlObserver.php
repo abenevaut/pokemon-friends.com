@@ -2,6 +2,7 @@
 
 namespace template\App\Crawlers\Observers;
 
+use DOMDocument;
 use Exception;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\ResponseInterface;
@@ -26,7 +27,7 @@ class PokemonGoFriendCodesCrawlObserver extends CrawlObserver
         ResponseInterface $response,
         ?UriInterface $foundOnUrl = null
     ) {
-        $doc = new \DOMDocument();
+        $doc = new DOMDocument();
         @$doc->loadHTML($response->getBody());
 
         if ($doc->getElementsByTagName("img")) {
