@@ -34,17 +34,17 @@ class LoginController extends ControllerAbstract
     /**
      * @var ProvidersTokensRepositoryEloquent|null
      */
-    protected $r_providers_tokens = null;
+    protected $rProvidersTokens = null;
 
     /**
      * LoginController constructor.
      *
      * @param UsersRepositoryEloquent $rUsers
-     * @param ProvidersTokensRepositoryEloquent $r_providers_tokens
+     * @param ProvidersTokensRepositoryEloquent $rProvidersTokens
      */
     public function __construct(
         UsersRepositoryEloquent $rUsers,
-        ProvidersTokensRepositoryEloquent $r_providers_tokens
+        ProvidersTokensRepositoryEloquent $rProvidersTokens
     ) {
         $this->middleware('guest', [
             'except' => [
@@ -55,7 +55,7 @@ class LoginController extends ControllerAbstract
         ]);
 
         $this->rUsers = $rUsers;
-        $this->r_providers_tokens = $r_providers_tokens;
+        $this->rProvidersTokens = $rProvidersTokens;
     }
 
     /**
@@ -112,7 +112,7 @@ class LoginController extends ControllerAbstract
 
             if ($providerUser && Auth::check()) {
                 $isTokenAvailableForUser = $this
-                    ->r_providers_tokens
+                    ->rProvidersTokens
                     ->checkIfTokenIsAvailableForUser(
                         Auth::user(),
                         $providerUser->id,
@@ -121,7 +121,7 @@ class LoginController extends ControllerAbstract
 
                 if ($isTokenAvailableForUser) {
                     $this
-                        ->r_providers_tokens
+                        ->rProvidersTokens
                         ->saveUserTokenForProvider(
                             Auth::user(),
                             $provider,
@@ -144,12 +144,12 @@ class LoginController extends ControllerAbstract
             }
 
             $providerToken = $this
-                ->r_providers_tokens
+                ->rProvidersTokens
                 ->findUserForProvider($providerUser->id, $provider);
 
             if ($providerToken) {
                 $this
-                    ->r_providers_tokens
+                    ->rProvidersTokens
                     ->update(
                         [
                             'provider_token' => $providerUser->token,

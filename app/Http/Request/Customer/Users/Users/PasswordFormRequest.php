@@ -53,6 +53,7 @@ class PasswordFormRequest extends RequestAbstract
 
     /**
      * Determine if the user is authorized to make this request.
+     * @SuppressWarnings("unused")
      *
      * @return bool
      */
