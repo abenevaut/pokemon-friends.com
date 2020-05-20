@@ -15,20 +15,20 @@ class UsersController extends ControllerAbstract
     /**
      * @var UsersRepositoryEloquent
      */
-    protected $r_users;
+    protected $rUsers;
 
     /**
      * UsersController constructor.
      *
-     * @param UsersRepositoryEloquent $r_users
+     * @param UsersRepositoryEloquent $rUsers
      */
-    public function __construct(UsersRepositoryEloquent $r_users)
+    public function __construct(UsersRepositoryEloquent $rUsers)
     {
         $this
             ->middleware(ProtectAgainstSpam::class)
             ->only('index');
 
-        $this->r_users = $r_users;
+        $this->rUsers = $rUsers;
     }
 
     /**
@@ -46,7 +46,7 @@ class UsersController extends ControllerAbstract
             'description' => trans('users.trainers.description', compact('page')),
         ];
         $users = $this
-            ->r_users
+            ->rUsers
             ->getTrainers(!Auth::check())
             ->paginate(config('repository.pagination.trainers'));
 
@@ -94,7 +94,7 @@ class UsersController extends ControllerAbstract
             'description' => config('app.description'),
         ];
         $users = $this
-            ->r_users
+            ->rUsers
             ->getTrainers()
             ->paginate(config('repository.pagination.limit'));
 

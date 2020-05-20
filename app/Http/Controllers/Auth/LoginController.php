@@ -29,7 +29,7 @@ class LoginController extends ControllerAbstract
     /**
      * @var UsersRepositoryEloquent|null
      */
-    protected $r_users = null;
+    protected $rUsers = null;
 
     /**
      * @var ProvidersTokensRepositoryEloquent|null
@@ -39,11 +39,11 @@ class LoginController extends ControllerAbstract
     /**
      * LoginController constructor.
      *
-     * @param UsersRepositoryEloquent $r_users
+     * @param UsersRepositoryEloquent $rUsers
      * @param ProvidersTokensRepositoryEloquent $r_providers_tokens
      */
     public function __construct(
-        UsersRepositoryEloquent $r_users,
+        UsersRepositoryEloquent $rUsers,
         ProvidersTokensRepositoryEloquent $r_providers_tokens
     ) {
         $this->middleware('guest', [
@@ -54,7 +54,7 @@ class LoginController extends ControllerAbstract
             ],
         ]);
 
-        $this->r_users = $r_users;
+        $this->rUsers = $rUsers;
         $this->r_providers_tokens = $r_providers_tokens;
     }
 
@@ -68,7 +68,7 @@ class LoginController extends ControllerAbstract
      */
     protected function authenticated(Request $request, $user)
     {
-        $this->r_users->refreshSession($user);
+        $this->rUsers->refreshSession($user);
 
         return redirect(route('anonymous.dashboard'));
     }

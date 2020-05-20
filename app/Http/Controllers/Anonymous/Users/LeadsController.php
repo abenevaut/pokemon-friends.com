@@ -14,7 +14,7 @@ class LeadsController extends ControllerAbstract
     /**
      * @var UsersRepositoryEloquent
      */
-    protected $r_users;
+    protected $rUsers;
 
     /**
      * @var LeadsRepositoryEloquent
@@ -24,14 +24,14 @@ class LeadsController extends ControllerAbstract
     /**
      * LeadsController constructor.
      *
-     * @param UsersRepositoryEloquent $r_users
+     * @param UsersRepositoryEloquent $rUsers
      * @param LeadsRepositoryEloquent $r_leads
      */
     public function __construct(
-        UsersRepositoryEloquent $r_users,
+        UsersRepositoryEloquent $rUsers,
         LeadsRepositoryEloquent $r_leads
     ) {
-        $this->r_users = $r_users;
+        $this->rUsers = $rUsers;
         $this->r_leads = $r_leads;
     }
 
@@ -47,7 +47,7 @@ class LeadsController extends ControllerAbstract
             'description' => trans('users.leads.anonymous.meta.description_contacts'),
         ];
         $users = $this
-            ->r_users
+            ->rUsers
             ->getTrainers()
             ->paginate(config('repository.pagination.limit'));
         $civilities = $this->r_leads->getCivilities();

@@ -71,7 +71,7 @@ jobs:
     script:
       - vendor/bin/phpmd app text phpmd.xml
       - vendor/bin/phpmd components text phpmd.xml
-      - vendor/bin/phpmd components tests phpmd.xml
+      - vendor/bin/phpmd tests text phpmd.xml
   - stage: test
     name: PHP tests
     language: php

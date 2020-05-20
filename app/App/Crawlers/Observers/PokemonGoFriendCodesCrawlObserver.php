@@ -2,6 +2,7 @@
 
 namespace template\App\Crawlers\Observers;
 
+use Exception;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
@@ -61,6 +62,6 @@ class PokemonGoFriendCodesCrawlObserver extends CrawlObserver
         RequestException $requestException,
         ?UriInterface $foundOnUrl = null
     ) {
-        throw new \Exception('Crawler failed');
+        throw new Exception('Crawler failed');
     }
 }
