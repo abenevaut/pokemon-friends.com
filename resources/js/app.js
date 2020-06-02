@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueInternationalization from 'vue-i18n';
-// import { BootstrapVue, IconsPlugin, ModalPlugin } from 'bootstrap-vue';
 import Locale from './vue-i18n-locales.generated';
 
 /**
