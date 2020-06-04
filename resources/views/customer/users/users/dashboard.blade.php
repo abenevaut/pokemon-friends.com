@@ -28,8 +28,8 @@
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="card elevation-2"><div class="card-boddy text-center m-1"><img src="{{ $user['qr'] }}" class="img-fluid" alt="{{ $user['friend_code'] }}"></div></div>
-                                <div class="text-center text-sm lead"><a href="{{ route('anonymous.trainers.show', ['trainer' => $user['identifier']]) }}"><i class="fas fa-eye mr-1"></i>{{ $user['friend_code'] }}</a></div>
+                                <div class="card elevation-2"><div class="card-boddy text-center m-1"><img src="{{ $user['qr'] }}" class="img-fluid" alt="{{ $user['friend_code']['formated'] }}"></div></div>
+                                <div class="text-center text-sm lead"><a href="{{ route('anonymous.trainers.show', ['trainer' => $user['identifier']]) }}"><i class="fas fa-eye mr-1"></i>{{ $user['friend_code']['formated'] }}</a></div>
                             </div>
                             <div class="col-3">
                                 <div class="h-100 d-flex flex-row justify-content-center align-items-center">
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         @include('partials.row_trainers', ['trainers' => $users])
     </div>
 </section>
