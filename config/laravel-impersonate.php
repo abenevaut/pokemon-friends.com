@@ -28,7 +28,7 @@ return [
      * Only used in the built-in controller.
      * * Use 'back' to redirect to the previous page
      */
-    'take_redirect_to' => 'users.users.dashboard',
+    'take_redirectTo' => 'anonymous.dashboard',
 
     /**
      * The URI to redirect after leaving an impersonation.
@@ -36,6 +36,6 @@ return [
      * Only used in the built-in controller.
      * Use 'back' to redirect to the previous page
      */
-    'leave_redirect_to' => 'administrator.users.dashboard',
+    'leave_redirectTo' => 'anonymous.dashboard',
 
 ];
