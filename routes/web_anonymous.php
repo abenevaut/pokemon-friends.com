@@ -47,7 +47,7 @@ Route::group(
         Route::group(['namespace' => 'Users'], function () {
             Route::get('/', ['as' => 'dashboard', 'uses' => 'UsersController@dashboard'])->middleware('guest');
             Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-                Route::get('alert/{hash}', ['as' => 'alert', 'uses' => 'UsersController@alert']);
+                Route::get('alert/{user}', ['as' => 'alert', 'uses' => 'UsersController@alert']);
             });
             Route::get('trainer/{user}', ['as' => 'trainer', 'uses' => 'UsersController@show']);
             Route::get('terms-of-services', ['as' => 'terms', 'uses' => 'UsersController@terms']);

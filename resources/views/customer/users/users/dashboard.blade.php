@@ -35,7 +35,6 @@
                                 <div class="h-100 d-flex flex-row justify-content-center align-items-center">
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('anonymous.trainers.show', ['trainer' => $user['identifier']])) }}&t={{ urlencode(trans('users.trainer.meta.title')) }}" class="btn btn-primary mr-2" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
                                     <a href="https://twitter.com/intent/tweet?url={{ urlencode(route('anonymous.trainers.show', ['trainer' => $user['identifier']])) }}&text={{ urlencode(trans('users.trainer.meta.title')) }}&via=pkmn_friends" class="btn btn-default btn-twitter mr-2 text-white" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-                                    {{--<a href="" class="btn btn btn-primary mr-2"><i class="far fa-copy"></i></a>--}}
                                 </div>
                             </div>
                         </div>
