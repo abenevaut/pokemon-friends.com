@@ -223,6 +223,7 @@ export default {
       datetime_format: 'm/d/Y H\\hi',
       today: 'Today',
       information: 'Information',
+      copied: 'copied',
       automated_requested_email: 'This email is an automatic message sent following your request.',
     },
     passwords: {
@@ -753,6 +754,7 @@ export default {
       datetime_format: 'd/m/Y H\\hi',
       today: "Aujourd'hui",
       information: 'Information',
+      copied: 'copié',
       automated_requested_email: 'Ce courriel est un message automatique envoyé suite à votre demande.',
     },
     passwords: {
