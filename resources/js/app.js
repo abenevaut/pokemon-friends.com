@@ -108,7 +108,7 @@ const app = new Vue({
         })
         .fire({
           type: 'success',
-          title: 'copied',
+          title: app.$t('global.copied'),
         });
       event.clearSelection();
     },
