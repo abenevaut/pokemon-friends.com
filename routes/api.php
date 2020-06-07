@@ -41,14 +41,13 @@ Route::group(
         'middleware' => 'api',
     ],
     function () {
-        Route::group(['namespace' => 'Users'], function () {
-            Route::model('profile', \template\Domain\Users\Users\User::class);
-            Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-                Route::group(['middleware' => 'cache.headers:public;max_age=2628000;etag'], function () {
-                    Route::get('qr/{user}.png', ['as' => 'qr', 'uses' => 'UsersController@qr']);
-                });
-                Route::resource('profiles', 'ProfilesController', ['only' => ['index']]);
-            });
+        Route::group([
+            'namespace' => 'Users',
+            'prefix' => 'users',
+            'as' => 'users.',
+            'middleware' => 'cache.headers:public;max_age=2628000;etag'
+        ], function () {
+            Route::get('qr/{user}.png', ['as' => 'qr', 'uses' => 'UsersController@qr']);
         });
     }
 );

@@ -50,17 +50,9 @@ export default {
     };
   },
   mounted() {
-    this.prepareComponent();
+    this.getTokens();
   },
   methods: {
-
-    /**
-      * Prepare the component (Vue 2.x).
-      */
-    prepareComponent() {
-      this.getTokens();
-    },
-
     /**
       * Get all of the authorized tokens for the user.
       */
@@ -69,7 +61,6 @@ export default {
         this.tokens = response.data;
       });
     },
-
     /**
       * Revoke the given token.
       */

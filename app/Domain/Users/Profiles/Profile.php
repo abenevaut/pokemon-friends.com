@@ -4,6 +4,7 @@ namespace template\Domain\Users\Profiles;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Cashier\Billable;
 use Spatie\MediaLibrary\
 {
     HasMedia\HasMedia,
@@ -26,6 +27,7 @@ use template\Domain\Users\Profiles\ProfilesTeamsColors;
 
 class Profile extends ModelAbstract implements ProfileFamiliesSituationsInterface, HasMedia, ProfilesTeamsColors
 {
+    use Billable;
     use HasMediaTrait;
     use SoftDeletes;
     use TimeStampsTz;
@@ -124,6 +126,14 @@ class Profile extends ModelAbstract implements ProfileFamiliesSituationsInterfac
         return Schema::barcode()
             ->name($this->friend_code)
             ->productionCompany(Schema::organization()->name('Niantic'));
+    }
+
+    public function mollieCustomerFields()
+    {
+        return [
+            'email' => $this->user->email,
+            'name' => $this->user->full_name,
+        ];
     }
 
     /**

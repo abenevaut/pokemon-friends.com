@@ -2,6 +2,7 @@
 
 namespace template\App\Providers;
 
+use Carbon\Carbon;
 use Laravel\Passport\Passport;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -31,8 +32,9 @@ class AuthServiceProvider extends ServiceProvider
             'bot' => 'This client is a bot',
             'twitch' => 'This client is a twitch bot',
         ]);
+        Passport::tokensExpireIn(Carbon::now()->addDays(15));
+        Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
         Passport::routes();
-        Passport::personalAccessClientId(config('passport.personal_access_client_id'));
 
         Gate::define(UserRolesInterface::ROLE_ADMINISTRATOR, function ($user) {
             return $user->is_administrator;

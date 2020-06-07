@@ -1,4 +1,19 @@
+@user_uniqid = 5ed905c33039a
+
+GET {{host}}/api/v1/users/qr/{{user_uniqid}}.png?XDEBUG_SESSION_START=PHPSTORM
+Accept: application/json
+Cache-Control: no-cache
+
+###
+
 GET {{host}}/api/v1/users/user?XDEBUG_SESSION_START=PHPSTORM
+Authorization: Bearer {{bearer}}
+Accept: application/json
+Cache-Control: no-cache
+
+###
+
+GET {{host}}/api/v1/users/channels?XDEBUG_SESSION_START=PHPSTORM
 Authorization: Bearer {{bearer}}
 Accept: application/json
 Cache-Control: no-cache
