@@ -1628,16 +1628,16 @@
         },
         {
             "name": "laravel/cashier-mollie",
-            "version": "v1.13.0",
+            "version": "v1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/cashier-mollie.git",
-                "reference": "a77b2111d21dba2cc29d65bebb8acbb98a4d703b"
+                "reference": "5a83f2ac63615f9654a3af188ddf78245dd4f3be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/cashier-mollie/zipball/a77b2111d21dba2cc29d65bebb8acbb98a4d703b",
-                "reference": "a77b2111d21dba2cc29d65bebb8acbb98a4d703b",
+                "url": "https://api.github.com/repos/laravel/cashier-mollie/zipball/5a83f2ac63615f9654a3af188ddf78245dd4f3be",
+                "reference": "5a83f2ac63615f9654a3af188ddf78245dd4f3be",
                 "shasum": ""
             },
             "require": {
@@ -1705,7 +1705,7 @@
                 "sepa",
                 "subscriptions"
             ],
-            "time": "2020-06-04T18:03:49+00:00"
+            "time": "2020-06-05T09:05:18+00:00"
         },
         {
             "name": "laravel/framework",
@@ -4312,16 +4312,16 @@
         },
         {
             "name": "prettus/l5-repository",
-            "version": "2.6.45",
+            "version": "2.6.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "c4d9d5834445e13d9ea0f00bfa23c67a0202aab1"
+                "reference": "5d5379a838d349447f1e09dcdc0426dfde3affb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/c4d9d5834445e13d9ea0f00bfa23c67a0202aab1",
-                "reference": "c4d9d5834445e13d9ea0f00bfa23c67a0202aab1",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/5d5379a838d349447f1e09dcdc0426dfde3affb1",
+                "reference": "5d5379a838d349447f1e09dcdc0426dfde3affb1",
                 "shasum": ""
             },
             "require": {
@@ -4374,7 +4374,7 @@
                 "model",
                 "repository"
             ],
-            "time": "2020-05-22T06:32:04+00:00"
+            "time": "2020-06-08T14:47:39+00:00"
         },
         {
             "name": "prettus/laravel-validation",
@@ -5446,16 +5446,16 @@
         },
         {
             "name": "spatie/laravel-cookie-consent",
-            "version": "2.12.4",
+            "version": "2.12.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-cookie-consent.git",
-                "reference": "e455e6b45c68464ab8aad585ed51d1a098f967e4"
+                "reference": "46ad2dd6d20cf931d9a2ca98926cdbf8407d612c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/e455e6b45c68464ab8aad585ed51d1a098f967e4",
-                "reference": "e455e6b45c68464ab8aad585ed51d1a098f967e4",
+                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/46ad2dd6d20cf931d9a2ca98926cdbf8407d612c",
+                "reference": "46ad2dd6d20cf931d9a2ca98926cdbf8407d612c",
                 "shasum": ""
             },
             "require": {
@@ -5509,7 +5509,7 @@
                 "law",
                 "spatie"
             ],
-            "time": "2020-05-14T16:57:04+00:00"
+            "time": "2020-06-08T10:07:44+00:00"
         },
         {
             "name": "spatie/laravel-honeypot",
@@ -10036,16 +10036,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.25",
+            "version": "0.12.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "9619551d68b2d4c0d681a8df73f3c847c798ee64"
+                "reference": "2abbd3253e38a258137f647f4e5fdbcb13142c3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9619551d68b2d4c0d681a8df73f3c847c798ee64",
-                "reference": "9619551d68b2d4c0d681a8df73f3c847c798ee64",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/2abbd3253e38a258137f647f4e5fdbcb13142c3e",
+                "reference": "2abbd3253e38a258137f647f4e5fdbcb13142c3e",
                 "shasum": ""
             },
             "require": {
@@ -10074,7 +10074,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2020-05-10T20:36:16+00:00"
+            "time": "2020-06-08T21:28:12+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
