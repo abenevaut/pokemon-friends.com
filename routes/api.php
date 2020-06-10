@@ -57,7 +57,7 @@ Route::group(
         'prefix' => 'v1',
         'as' => 'v1.',
         'namespace' => 'Api\V1',
-        'middleware' => ['api', 'client'],
+        // 'middleware' => ['api', 'client'],
     ],
     function () {
         Route::group(['namespace' => 'Users'], function () {
@@ -77,12 +77,7 @@ Route::group(
     ],
     function () {
         Route::group(['namespace' => 'Users'], function () {
-            Route::model('profile', \template\Domain\Users\Users\User::class);
             Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-                Route::group(['prefix' => 'profiles', 'as' => 'profiles.'], function () {
-                    Route::get('family-situations', 'ProfilesController@familySituations');
-                });
-                Route::resource('profiles', 'ProfilesController', ['only' => ['update']]);
                 Route::get('user', ['as' => 'user', 'uses' => 'UsersController@user']);
             });
             Route::resource('users', 'UsersController', ['only' => ['show']]);

@@ -71,6 +71,11 @@ class Profile extends ModelAbstract implements ProfileFamiliesSituationsInterfac
     protected $hidden = [
     ];
 
+    public function getLocale()
+    {
+        return $this->user->preferredLocale();
+    }
+
     public static function claimableEmail(string $friendCode): string
     {
         return "{$friendCode}@pokemon-friends.com";
@@ -134,6 +139,17 @@ class Profile extends ModelAbstract implements ProfileFamiliesSituationsInterfac
             'email' => $this->user->email,
             'name' => $this->user->full_name,
         ];
+    }
+
+    /**
+     * Get the receiver information for the invoice.
+     * Typically includes the name and some sort of (E-mail/physical) address.
+     *
+     * @return array An array of strings
+     */
+    public function getInvoiceInformation()
+    {
+        return [$this->user->full_name, $this->user->email];
     }
 
     /**
