@@ -225,15 +225,14 @@
       <path value="$PROJECT_DIR$/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
       <path value="$PROJECT_DIR$/vendor/phpmd/phpmd" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
     </include_path>
   </component>
   <component name="PhpProjectServersManager">
     <servers>
-      <server host="https://www.pokemon-friends.com.local" id="4b2b94ef-9cd6-48bf-8fe1-8c4b13e4f3de" name="www.pokemon-friend.fr.local" use_path_mappings="true">
-        <path_mappings>
-          <mapping local-root="$PROJECT_DIR$/public" remote-root="/var/www" />
-        </path_mappings>
-      </server>
+      <server host="https://www.pokemon-friends.com.local" id="4b2b94ef-9cd6-48bf-8fe1-8c4b13e4f3de" name="www.pokemon-friend.fr.local" use_path_mappings="true" />
+      <server host="127.0.0.1" id="ef6d717b-9a6c-46a5-8934-02fe6dda5840" name="php artisan serve" port="8000" use_path_mappings="true" />
     </servers>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

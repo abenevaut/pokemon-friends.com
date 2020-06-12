@@ -1,11 +1,9 @@
 import './bootstrap';
-import 'moment';
-import 'owl.carousel';
-import 'jquery-sticky';
-import 'jquery-parallax.js';
 import '@abenevaut/gameforest/src/js/index';
 import Vue from 'vue';
 import LazyLoad from 'vanilla-lazyload';
+import ClipboardJS from 'clipboard';
+import Swal from 'admin-lte/plugins/sweetalert2/sweetalert2.all';
 import * as Sentry from '@sentry/browser';
 import * as Integrations from '@sentry/integrations';
 import VueInternationalization from 'vue-i18n';
@@ -61,7 +59,7 @@ files.keys().map((key) => Vue.component(key.split('/').pop().split('.')[0], file
 
 // eslint-disable-next-line
 const app = new Vue({
-  el: '#template',
+  el: '#app',
   i18n,
 });
 
@@ -69,3 +67,24 @@ const app = new Vue({
   elements_selector: '.lazy',
 }))
   .update();
+(new ClipboardJS('.btn-copy'))
+  .on(
+    'success',
+    (event) => {
+      Swal
+        .mixin({
+          toast: true,
+          position: 'bottom-end',
+          showConfirmButton: false,
+          timer: 3000,
+        })
+        .fire({
+          type: 'success',
+          title: app.$t('global.copied'),
+        });
+      event.clearSelection();
+    },
+  );
+$(() => {
+  $('.easypiechart').easyPieChart();
+});

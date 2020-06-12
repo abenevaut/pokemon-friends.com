@@ -1,14 +1,4 @@
-<!-- js: vendor -->
 <script src="{{ asset_cdn('js/theme.js?v=' . config('version.app_tag') ) }}"></script>
-
-<!-- js: plugins -->
-<script>
-  $(function() {
-    $('.easypiechart').easyPieChart();
-  });
-</script>
-
-<!-- theme settings -->
 <script>
   var gameforest = {
     disqus: 'gameforestyakuzieu',
@@ -19,4 +9,3 @@
     }
   }
 </script>
-@yield('js')

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 class Handler extends ExceptionHandler
 {
 
-    private $sentryID;
+    private $sentryId;
 
     /**
      * A list of the exception types that should not be reported.
@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
         // @codeCoverageIgnoreStart
         if (app()->bound('sentry') && $this->shouldReport($exception)) {
             // bind the event ID for Feedback
-            $this->sentryID = app('sentry')->captureException($exception);
+            $this->sentryId = app('sentry')->captureException($exception);
         }
         // @codeCoverageIgnoreEnd
 
@@ -73,7 +73,7 @@ class Handler extends ExceptionHandler
                 ->view(
                     'errors.500',
                     [
-                        'sentryID' => $this->sentryID,
+                        'sentryId' => $this->sentryId,
                     ],
                     500
                 );

@@ -5,44 +5,32 @@
 </head>
 <body class="fixed-navbar">
 @include('partials.googletag-body')
-<div id="template" class="site">
+<div id="app" class="site">
     <header class="site-header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="ya ya-bar"></i>
-                </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ya ya-bar"></i></button>
                 <a class="navbar-brand" href="{{ route('anonymous.dashboard') }}">{{ config('app.name') }}</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="{{ route('anonymous.dashboard') }}" class="nav-link @if (Route::currentRouteNamed('anonymous.dashboard')) active @endif">
                                 @if(Auth::check())
-                                    <i class="fas fa-tachometer-alt mr-2"></i>{{ trans('users.dashboard') }}
+                                    {{ trans('users.dashboard') }}
                                 @else
-                                    <i class="fas fa-home mr-2"></i>{{ trans('users.home') }}
+                                    {{ trans('users.home') }}
                                 @endif
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('anonymous.contact.index') }}" class="nav-link @if (Route::currentRouteNamed('anonymous.contact.index')) active @endif"><i class="fas fa-envelope mr-2"></i>{{ trans('users.leads.contact') }}</a>
+                            <a href="{{ route('anonymous.contact.index') }}" class="nav-link @if (Route::currentRouteNamed('anonymous.contact.index')) active @endif">{{ trans('users.leads.contact') }}</a>
                         </li>
                     </ul>
                 </div>
-                <!-- end .navbar-collapse -->
-
-{{--                <form class="navbar-search" action="search.html" method="post">--}}
-{{--                    <div class="container">--}}
-{{--                        <input class="form-control mr-sm-2" type="search" placeholder="Search for games, posts..." aria-label="Search">--}}
-{{--                        <i class="ya ya-times search-close"></i>--}}
-{{--                    </div>--}}
-{{--                </form>--}}
-                <!-- end .navbar-search -->
-
                 <ul class="navbar-nav navbar-right flex-row d-flex align-items-center">
                     @if(Auth::check())
                         <li class="nav-item">
-                            <a href="{{ route('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt mr-2"></i>{{ trans('auth.logout') }}</a>
+                            <a href="{{ route('logout') }}" class="nav-link">{{ trans('auth.logout') }}</a>
                         </li>
                     @else
 {{--                        @if (Route::currentRouteNamed(Route::currentRouteName()))--}}
@@ -60,7 +48,10 @@
 {{--                            </li>--}}
 {{--                        @endif--}}
                         <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link"><i class="fa fa-sign-in-alt mr-2"></i>{{ trans('auth.login') }}</a>
+                            <a href="{{ route('register') }}" class="nav-link">{{ trans('auth.register') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" class="nav-link">{{ trans('auth.login') }}</a>
                         </li>
                     @endif
                     @impersonating
@@ -68,39 +59,27 @@
                         <a class="btn btn-primary" href="{{ route('impersonate.leave') }}"><i class="fa fa-user-times mr-2"></i>{{ trans('users.stop_impersonation') }}</a>
                     </li>
                     @endImpersonating
-{{--                    <li class="nav-item"><a class="nav-link toggle-search" href="#"><i class="ya ya-search"></i></a></li>--}}
                 </ul>
-                <!-- end .navbar-nav -->
             </div>
         </nav>
     </header>
-    <!-- end .site-header -->
-
     <div class="site-content" role="main">
-
     @yield('content')
-
     <footer class="site-footer bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0 pb-1 pb-md-0">
-                    <div class="footer-title">About Gameforest</div>
-                    <p>Gameforest is a Bootstrap Gaming theme what is built on the world's most popular front-end framework. Clean and well coded professional front-end files are included in your downloaded package.</p>
-{{--                    <a class="btn btn-outline-light mt-2" href="https://themeforest.net/item/gameforest-responsive-gaming-html-theme/5007730" target="_blank" role="button">Purchase theme</a>--}}
+                    <div class="footer-title">Pokemon go "friends codes" sharing community</div>
+                    <p>Create your own qr code, with your Pokemon go friend code, and share it on social networks easily with our app. Get new friends by adding available friend code to your Pokemon go account.</p>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0 pb-1 pb-md-0">
-                    <div class="footer-title">Most represented regions</div>
                     <div class="footer-tags">
-                        <a href="#">Playstation 4</a>
-                        <a href="#">Xbox One</a>
-                        <a href="#">God of War</a>
-                        <a href="#">Bioshock</a>
-                        <a href="#">Uncharted 4</a>
-                        <a href="#">Uplay</a>
-                        <a href="#">Steam</a>
-                        <a href="#">Wordpress</a>
-                        <a href="#">Rachet</a>
-                        <a href="#">Github</a>
+                        <a href="javascript:void(0);">Pokemon Go</a>
+                        <a href="javascript:void(0);">Community</a>
+                        <a href="javascript:void(0);">Friends codes</a>
+                        <a href="javascript:void(0);">qRcode sharing</a>
+                        <a href="javascript:void(0);">Streamers</a>
+                        <a href="javascript:void(0);">GoSnapshot</a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -109,11 +88,11 @@
                     <div class="form-group">
                         <div class="input-group">
                             <input
-                                    type="text"
-                                    name="friend_code"
-                                    class="form-control {{ $errors && $errors->has('friend_code') ? 'is-invalid' : '' }}"
-                                    placeholder="{{ trans('users.profiles.friend_code') }}"
-                                    value="{{ old('friend_code') }}"
+                                type="text"
+                                name="friend_code"
+                                class="form-control {{ $errors && $errors->has('friend_code') ? 'is-invalid' : '' }}"
+                                placeholder="{{ trans('users.profiles.friend_code') }}"
+                                value="{{ old('friend_code') }}"
                             />
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -128,11 +107,11 @@
                     <div class="form-group">
                         <div class="input-group">
                             <input
-                                    type="email"
-                                    name="email"
-                                    class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}"
-                                    placeholder="{{ trans('users.email') }}"
-                                    value="{{ old('email') }}"
+                                type="email"
+                                name="email"
+                                class="form-control {{ $errors && $errors->has('email') ? 'is-invalid' : '' }}"
+                                placeholder="{{ trans('users.email') }}"
+                                value="{{ old('email') }}"
                             />
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -156,7 +135,6 @@
                 </div>
             </div>
         </div>
-
         <div class="footer-bottom">
             <div class="container d-flex flex-column flex-md-row">
                 <div class="order-2 order-md-1">
@@ -168,20 +146,14 @@
                 </div>
                 <div class="footer-social order-1 order-md-2 ml-md-auto text-center text-md-right">
                     <span class="d-none d-sm-block mb-2">{{ trans('global.social_networks_baseline') }}</span>
-{{--                    <a href="https://facebook.com/yakuthemes" target="_blank" rel="noopener" data-toggle="tooltip" title="facebook"><i class="ya ya-facebook"></i></a>--}}
                     <a href="{{ config('services.twitter.url') }}" target="_blank" rel="noopener" data-toggle="tooltip" title="twitter.com"><i class="ya ya-twitter"></i></a>
-{{--                    <a href="#" target="_blank" rel="noopener" data-toggle="tooltip" title="instagram"><i class="ya ya-instagram"></i></a>--}}
                     <a href="{{ config('services.discord.url') }}" target="_blank" rel="noopener" data-toggle="tooltip" title="discord.com"><i class="ya ya-discord"></i></a>
-{{--                    <a href="#" target="_blank" rel="noopener" data-toggle="tooltip" title="youtube"><i class="ya ya-youtube"></i></a>--}}
                     <a href="{{ config('services.github.url') }}" target="_blank" rel="noopener" data-toggle="tooltip" title="github.com"><i class="ya ya-github"></i></a>
-{{--                    <a href="#" target="_blank" rel="noopener" data-toggle="tooltip" title="twitch"><i class="ya ya-twitch"></i></a>--}}
                 </div>
             </div>
         </div>
     </footer>
-    <!-- end .site-footer -->
 </div>
-<!-- end .site -->
 @if(!Auth::check())
     @include('cookieConsent::index')
 @endif
