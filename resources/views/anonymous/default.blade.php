@@ -48,10 +48,10 @@
 {{--                            </li>--}}
 {{--                        @endif--}}
                         <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link">{{ trans('auth.register') }}</a>
+                            <a href="{{ route('register') }}" class="nav-link @if (Route::currentRouteNamed('register')) active @endif">{{ trans('auth.register') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link">{{ trans('auth.login') }}</a>
+                            <a href="{{ route('login') }}" class="nav-link @if (Route::currentRouteNamed('login')) active @endif">{{ trans('auth.login') }}</a>
                         </li>
                     @endif
                     @impersonating
@@ -69,8 +69,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0 pb-1 pb-md-0">
-                    <div class="footer-title">Pokemon go "friends codes" sharing community</div>
-                    <p>Create your own qr code, with your Pokemon go friend code, and share it on social networks easily with our app. Get new friends by adding available friend code to your Pokemon go account.</p>
+                    <div class="footer-title">{{ trans('users.welcome') }}</div>
+                    <p>Create your own qRcode, with your Pokemon go friend code, and share it on social networks easily with our app. Get new friends by adding available friend code to your Pokemon go account.</p>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0 pb-1 pb-md-0">
                     <div class="footer-tags">
@@ -139,6 +139,7 @@
             <div class="container d-flex flex-column flex-md-row">
                 <div class="order-2 order-md-1">
                     <div class="footer-links d-none d-md-inline-block">
+                        <a href="{{ route('anonymous.contact.index') }}" target="_blank" rel="noopener">{{ trans('users.leads.contact') }}</a>
                         <a href="{{ route('anonymous.terms') }}" target="_blank" rel="noopener">{{ trans('users.terms') }}</a>
                         <a href="{{ config('services.github.changelog') }}" target="_blank" rel="noopener">Changelog</a>
                     </div>

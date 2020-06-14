@@ -1,4 +1,5 @@
 import './bootstrap';
+import 'ekko-lightbox';
 import '@abenevaut/gameforest/src/js/index';
 import Vue from 'vue';
 import LazyLoad from 'vanilla-lazyload';

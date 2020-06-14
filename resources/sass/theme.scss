@@ -1,3 +1,4 @@
+@import "~ekko-lightbox";
 @import "~@abenevaut/gameforest/src/sass/theme";
 
 $figcaption-bg: $blue;
@@ -7,7 +8,6 @@ $text-color: #fff;
   cursor: pointer;
 }
 
-$gray-x-light: grey;
 @import 'pkmn-teams';
 @import 'cookie-consent';
 .ekko-lightbox-nav-overlay a>* {
@@ -31,4 +31,34 @@ $gray-x-light: grey;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   color: transparent;
 }
-
+.card-team-red,
+.card-team-valor {
+  border-top: 3px solid #dc3545!important;
+}
+.card-team-blue,
+.card-team-mystic {
+  border-top: 3px solid #007bff!important;
+}
+.card-team-yellow,
+.card-team-instinct {
+  border-top: 3px solid #ffc107!important;
+}
+.bg-team-default {
+  background-color: #d2d6de!important;
+  color: white!important;
+}
+.bg-team-red,
+.bg-team-valor {
+  background-color: #dc3545!important;
+  color: white;
+}
+.bg-team-blue,
+.bg-team-mystic {
+  background-color: #007bff!important;
+  color: white;
+}
+.bg-team-yellow,
+.bg-team-instinct {
+  background: #ffc107!important;
+  color: white;
+}

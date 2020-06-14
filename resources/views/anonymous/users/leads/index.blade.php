@@ -4,20 +4,16 @@
 @section('description', $metadata['description'])
 
 @section('content')
-<div class="content">
+<section>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        {!! trans('users.leads.baseline') !!}
-                    </div>
+            <div class="row">
+                <div class="col-11 col-md-8 text-center mx-auto mb-4">
+                    <i class="fas fa-envelope icon"></i>
+                    <h2 class="font-weight-bold font-size-lg">{!! trans('users.leads.contact') !!}</h2>
+                    <p class="lead">{!! trans('users.leads.baseline') !!}</p>
                 </div>
             </div>
             <div class="col-12">
-                @include('partials.row_socials_news')
-            </div>
-            <div class="col-12 col-md-8">
                 <div class="card">
                     {!! Form::open(['route' => ['anonymous.contact.store'], 'method' => 'POST', 'data-user_identifier' => (Auth::check() ? Auth::user()->uniqid : 0)]) !!}
                     @honeypot
@@ -27,12 +23,12 @@
                                 <div class="form-group">
                                     <select name="civility" id="civility" class="form-control" {{ Auth::check() ? 'readonly' : '' }}>
                                         @foreach ($civilities as $key)
-                                        <option
-                                                value="{{ $key }}"
-                                                @if (Auth::check() && $key === Auth::user()->civility) selected="selected" @endif
-                                        >
-                                            {{ trans("users.civility.{$key}") }}
-                                        </option>
+                                            <option
+                                                    value="{{ $key }}"
+                                                    @if (Auth::check() && $key === Auth::user()->civility) selected="selected" @endif
+                                            >
+                                                {{ trans("users.civility.{$key}") }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -108,8 +104,8 @@
                                     style="min-height:100px;"
                                     placeholder="{{ trans('users.leads.message') }}"
                             >
-                                {{ old('message', '') }}
-                            </textarea>
+                            {{ old('message', '') }}
+                        </textarea>
                             @if ($errors && $errors->has('message'))
                                 <span class="text-danger text-sm">{{ $errors->first('message') }}</span>
                             @endif
@@ -133,12 +129,7 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-            <div class="d-none d-md-block col-md-4">
-                @include('partials.card_official_doc')
-                @include('partials.card_our_discord')
-            </div>
         </div>
-        @include('partials.row_trainers', ['trainers' => $users])
     </div>
-</div>
+</section>
 @endsection

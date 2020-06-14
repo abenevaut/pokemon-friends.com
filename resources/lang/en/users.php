@@ -40,8 +40,8 @@ return [
     'dashboard' => 'Dashboard',
     'change_password' => 'Change your password',
     'change_email' => 'Change your email',
-    'baseline' => 'Sign up to share your friend code and join your trainer community!',
-    'welcome' => "Now go share 'em all!",
+    'welcome' => 'Pokemon go "friends codes" sharing community',
+    'baseline' => 'Now go share \'em all! Make new friends simply like a pic!',
     'anonymous.dashboard.to_come_up' => "<p>The <a href=\":home_url\">:app_name</a> team is actively working on the next features of your platform for your enjoyment</p>
 <ul>
     <li>Register or join teams made up of your friends</li>
