@@ -22,9 +22,6 @@
                                 @endif
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('anonymous.contact.index') }}" class="nav-link @if (Route::currentRouteNamed('anonymous.contact.index')) active @endif">{{ trans('users.leads.contact') }}</a>
-                        </li>
                     </ul>
                 </div>
                 <ul class="navbar-nav navbar-right flex-row d-flex align-items-center">
@@ -64,7 +61,8 @@
         </nav>
     </header>
     <div class="site-content" role="main">
-    @yield('content')
+        @yield('content')
+    </div>
     <footer class="site-footer bg-dark">
         <div class="container">
             <div class="row">
@@ -139,8 +137,8 @@
             <div class="container d-flex flex-column flex-md-row">
                 <div class="order-2 order-md-1">
                     <div class="footer-links d-none d-md-inline-block">
-                        <a href="{{ route('anonymous.contact.index') }}" target="_blank" rel="noopener">{{ trans('users.leads.contact') }}</a>
                         <a href="{{ route('anonymous.terms') }}" target="_blank" rel="noopener">{{ trans('users.terms') }}</a>
+                        <a href="{{ config('services.github.issues') }}" target="_blank" rel="noopener">Support</a>
                         <a href="{{ config('services.github.changelog') }}" target="_blank" rel="noopener">Changelog</a>
                     </div>
                     <p class="footer-copyright">{!! trans('global.copyright', ['date' => date('Y'), 'route' => route('anonymous.dashboard'), 'name' => config('app.name')]) !!}</p>

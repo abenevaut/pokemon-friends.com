@@ -1,4 +1,4 @@
-@extends('administrator.default')
+@extends('default')
 
 @section('content')
 <section class="content-header">
@@ -66,7 +66,6 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th class="text-center w-5"><i class="far fa-user-circle" title="{{ trans('users.leads.transformed_user') }}"></i></th>
                                 <th class="text-center w-25">{!! trans('users.civility_name') !!}</th>
                                 <th class="text-center w-30">{!! trans('users.email') !!}</th>
                                 <th class="text-center w-40">{!! trans('global.actions') !!}</th>
@@ -75,11 +74,6 @@
                             <tbody>
                             @foreach ($users['data'] as $user)
                             <tr>
-                                <td class="align-middle text-center">
-                                    @if ($user['lead']['is_lead'])
-                                    <i class="fa fa-user-circle-o" title="{{ trans('users.leads.transformed_user') }}"></i>
-                                    @endif
-                                </td>
                                 <td class="align-middle text-center">
                                     <a href="{{ route('administrator.users.show', ['user' => $user['identifier']]) }}">{{ $user['civility_name'] }}</a>
                                 </td>

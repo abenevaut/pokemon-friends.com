@@ -1,4 +1,4 @@
-@extends('anonymous.default')
+@extends('default')
 
 @section('content')
 

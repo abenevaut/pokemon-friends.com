@@ -1,4 +1,4 @@
-@extends('anonymous.default')
+@extends('default')
 
 @section('content')
     <section class="px-2 px-md-0 py-md-7" >

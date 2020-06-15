@@ -1,4 +1,4 @@
-@extends('customer.default')
+@extends('default')
 
 @section('js')
 <script type="text/javascript">
@@ -20,19 +20,84 @@
 @endsection
 
 @section('content')
-<section class="content-header">
-    <div class="container">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1><i class="fa fa-user mr-2"></i>{{ trans('users.profiles.edit.title') }}</h1>
+<section class="bg-image bg-dark d-flex align-items-end py-3" style="background-color: #3a3a3c !important;min-height: 320px;">
+    <img class="background" src="https://img.youtube.com/vi/715r-8JJhpM/maxresdefault.jpg" alt="" ya-style="opacity: .25">
+    <div class="container position-relative">
+        <div class="row">
+            <div class="col d-flex flex-column flex-lg-row align-items-center text-center position-absolute bottom left pl-lg-8">
+                <a class="avatar-thumbnail avatar-lg d-lg-none bg-dark mb-3 mb-lg-0 border-0" href="#">
+                    <img src="img/user-profile.jpg" alt="">
+                </a>
+                <h2 class="h4 text-white mb-0 ml-2 pl-lg-8"><i class="ya ya-check bg-primary float-left font-size-xs rounded-circle p-2 mr-2"  data-toggle="tooltip" title="verified user"></i> Nathan Drake</h2>
+                <div class="ml-lg-auto mt-4 mb-3 my-lg-0">
+                    <a class="btn btn-primary btn-sm btn-icon-left font-weight-semibold" href="#"><i class="ya ya-user-add"></i> Add friend</a>
+                    <a class="btn btn-outline-light btn-sm btn-icon-left font-weight-semibold ml-2" href="#"><i class="ya ya-email"></i> Send message</a>
+                </div>
             </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('anonymous.dashboard') }}"><i class="fas fa-tachometer-alt mr-2"></i>{{ trans('users.dashboard') }}</a>
-                    </li>
-                    <li class="breadcrumb-item active"><i class="fa fa-user mr-2"></i>{{ trans('users.profiles.edit.title') }}</li>
-                </ol>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white border-bottom nav-profile py-0" ya-sticky>
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex align-items-center">
+                <a class="avatar-thumbnail avatar-xl position-absolute d-none d-lg-block" href="#">
+                    <img src="img/user-profile.jpg" alt="">
+                </a>
+                <div class="avatar-fixed d-none d-lg-block">
+                    <a class="avatar-tile" href="#">
+                        <img src="https://i1.ytimg.com/vi/YIRWzlMki4E/maxresdefault.jpg" alt="">
+                        <div>
+                            <strong>Nathan Drake</strong>
+                            <span class="d-block">@nathan</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="nav-scroll">
+                    <div class="nav nav-list nav-list-profile">
+                        <a class="nav-item nav-link active" href="#">Timeline</a>
+                        <a class="nav-item nav-link" href="#">Friends (679)</a>
+                        <a class="nav-item nav-link" href="#">Groups</a>
+                        <a class="nav-item nav-link" href="#">Games (38)</a>
+                        <a class="nav-item nav-link" href="#">Images</a>
+                        <a class="nav-item nav-link" href="#">Videos</a>
+                        <a class="nav-item nav-link" href="#">Streams</a>
+                        <a class="nav-item nav-link" href="#">Forums</a>
+                    </div>
+                </div>
+                <div class="dropdown d-none d-xl-inline-block ml-auto">
+                    <button class="btn btn-default btn-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ya ya-gear"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="profile-settings.html">Settings</a>
+                        <a class="dropdown-item" href="#">Edit Games</a>
+                        <a class="dropdown-item" href="#">Mail</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">History</a>
+                        <a class="dropdown-item" href="#">Security</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-lg-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 order-2 order-lg-1">
+                <div class="widget mt-4">
+                    <div class="widget-header">About me</div>
+                    <div class="widget-body">
+                        <p>I am a frontend developer &amp; web designer. I love to work on creative and standalone projects like gameforest.</p>
+                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-pin mr-1"></i> Budapest</p>
+                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-twitter mr-1"></i> <a href="https://twitter.com/yakuthemes" target="_blank">yakuthemes</a></p>
+                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-calendar mr-1"></i> Joined December 2009</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 order-1 order-lg-2">
+
             </div>
         </div>
     </div>

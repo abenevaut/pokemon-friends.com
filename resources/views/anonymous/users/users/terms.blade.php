@@ -1,4 +1,4 @@
-@extends('anonymous.default')
+@extends('default')
 
 @section('title', $metadata['title'])
 @section('description', $metadata['description'])
@@ -24,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                {!! trans('users.terms-of-services', ['home_url' => route('anonymous.dashboard'), 'contact_url' => route('anonymous.contact.index')]) !!}
+                {!! trans('users.terms-of-services', ['home_url' => route('anonymous.dashboard'), 'contact_url' => config('services.github.issues')]) !!}
             </div>
         </div>
     </div>

@@ -12,9 +12,6 @@
                 <collapse-sidebar-component></collapse-sidebar-component>
             </li>
             <li class="nav-item">
-                <a href="{{ route('anonymous.contact.index') }}" class="nav-link @if (Route::currentRouteNamed('anonymous.contact.index')) active @endif"><i class="fas fa-envelope mr-2"></i>{{ trans('users.leads.contact') }}</a>
-            </li>
-            <li class="nav-item">
                 <a href="{{ config('services.discord.url') }}" target="_blank" rel="noopener" class="nav-link"><i class="fab fa-discord mr-2"></i>Discord</a>
             </li>
         </ul>

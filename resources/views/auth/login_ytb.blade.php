@@ -1,4 +1,4 @@
-@extends('anonymous.default')
+@extends('default')
 
 @section('content')
 <section class="px-2 px-md-0 py-md-7" ya-background="{{ (new \Illuminate\Support\Collection(config('services.youtube.backgrounds')))->random() }}" ya-option="loop: true;mute: true;controls: 0;opacity: .4" style="background-color: #464242;height: calc(100vh - 60px);">
