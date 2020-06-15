@@ -35,7 +35,7 @@
                             </ul>
                         </div>
                         <div class="card-tools">
-                            <a href="{{ route('administrator.users.edit', ['id' => $user['data']['identifier']]) }}" class="btn btn-tool"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('administrator.users.edit', ['user' => $user['data']['identifier']]) }}" class="btn btn-tool"><i class="fa fa-edit"></i></a>
                         </div>
                     </div>
                     <div class="card-body">

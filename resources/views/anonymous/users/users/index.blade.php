@@ -22,41 +22,13 @@
     <div class="container">
 
         <div class="row">
-            @foreach (array_chunk($users['data'], count($users['data'])/4)[0] as $trainer)
+            @foreach ($users['data'] as $trainer)
             <div id="{{ $trainer['friend_code']['default'] }}" class="col-12 col-md-4 col-lg-3">
                 @include('partials.card_trainer', ['trainer' => $trainer])
             </div>
             @endforeach
         </div>
         @include('partials.row_amazon')
-
-        <div class="row">
-            @foreach (array_chunk($users['data'], count($users['data'])/4)[1] as $trainer)
-                <div id="{{ $trainer['friend_code']['default'] }}" class="col-12 col-md-4 col-lg-3">
-                    @include('partials.card_trainer', ['trainer' => $trainer])
-                </div>
-            @endforeach
-        </div>
-        @include('partials.row_amazon')
-
-        <div class="row">
-            @foreach (array_chunk($users['data'], count($users['data'])/4)[2] as $trainer)
-                <div id="{{ $trainer['friend_code']['default'] }}" class="col-12 col-md-4 col-lg-3">
-                    @include('partials.card_trainer', ['trainer' => $trainer])
-                </div>
-            @endforeach
-        </div>
-        @include('partials.row_amazon')
-
-        <div class="row">
-            @foreach (array_chunk($users['data'], count($users['data'])/4)[3] as $trainer)
-                <div id="{{ $trainer['friend_code']['default'] }}" class="col-12 col-md-4 col-lg-3">
-                    @include('partials.card_trainer', ['trainer' => $trainer])
-                </div>
-            @endforeach
-        </div>
-        @include('partials.row_amazon')
-
         @if ($users['meta']['pagination']['total'] > $users['meta']['pagination']['count'])
         <div class="row">
             <div class="col-12">

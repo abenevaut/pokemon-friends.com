@@ -81,7 +81,7 @@
                                     @endif
                                 </td>
                                 <td class="align-middle text-center">
-                                    <a href="{{ route('administrator.users.show', ['id' => $user['identifier']]) }}">{{ $user['civility_name'] }}</a>
+                                    <a href="{{ route('administrator.users.show', ['user' => $user['identifier']]) }}">{{ $user['civility_name'] }}</a>
                                 </td>
                                 <td class="align-middle text-center"><a href="mailto:{{ $user['email'] }}">{{ $user['email'] }}</a></td>
                                 <td class="align-middle text-right">
@@ -92,7 +92,7 @@
                                     </a>
                                     @endif
                                     @endCanImpersonate
-                                    <a href="{{ route('administrator.users.edit', ['id' => $user['identifier']]) }}"
+                                    <a href="{{ route('administrator.users.edit', ['user' => $user['identifier']]) }}"
                                        class="btn btn-primary btn-sm">
                                         <i class="fa fa-edit mr-2"></i>{!! trans('global.edit') !!}
                                     </a>

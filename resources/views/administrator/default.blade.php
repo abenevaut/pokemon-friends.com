@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ Session::get('locale') }}">
 <head>
-    @include('partials.metadata')
+    @include('partials.metadata_adminlte')
 </head>
 <body class="hold-transition sidebar-mini @if (Auth::user()->profile->is_sidebar_pined) sidebar-collapse @else layout-fixed @endif">
 @include('partials.googletag-body')
@@ -98,6 +98,6 @@
     </footer>
     <aside class="control-sidebar control-sidebar-dark"></aside>
 </div>
-@include('partials.scripts')
+@include('partials.scripts_adminlte')
 </body>
 </html>
