@@ -1,4 +1,4 @@
-@extends('default')
+@extends('administrator.default')
 
 @section('content')
     <section class="content-header">

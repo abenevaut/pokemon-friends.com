@@ -50,9 +50,6 @@
                             {{--                     style="background-color:transparent;box-shadow:none;"--}}
                     >
                         <div class="card-body p-3">
-                            {{--                        @if (Route::has('login'))--}}
-                            {{--                            <a href="{{ route('register') }}" class="btn btn-secondary btn-block">{{ trans('auth.register') }}</a>--}}
-                            {{--                        @endif--}}
                             @if (Route::has('login'))
                                 <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-block">{{ trans('login') }}</a>
                             @endif

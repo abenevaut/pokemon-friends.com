@@ -1,8 +1,8 @@
-@extends('default')
+@extends('customer.default')
 
 @section('content')
 <section class="bg-image bg-dark d-flex align-items-end py-3" style="background-color: #3a3a3c !important;min-height: 320px;">
-    <img class="background" src="{{ asset_cdn('images/pokemon-go-1569794_1920.jpg') }}" alt="" ya-style="opacity: .25">
+    <img class="background" src="{{ asset_cdn('images/david-grandmougin-Am1io6KusFM-unsplash.jpg') }}" alt="" ya-style="opacity: .25">
     <div class="container position-relative">
         <div class="row">
             <div class="col d-flex flex-column flex-lg-row align-items-center text-center position-absolute bottom left pl-lg-8">
@@ -41,7 +41,7 @@
                 <div class="dropdown d-none d-xl-inline-block ml-auto">
                     <button class="btn btn-default btn-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ya ya-gear"></i></button>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{ route('anonymous.trainers.show', ['trainer' => $user['identifier']]) }}">Settings</a>
+                        <a class="dropdown-item" href="{{ route('customer.users.edit', ['user' => $user['identifier']]) }}">Settings</a>
                     </div>
                 </div>
             </div>

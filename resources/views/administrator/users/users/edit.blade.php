@@ -1,4 +1,4 @@
-@extends('default')
+@extends('administrator.default')
 
 {{--@section('js')--}}
 {{--    <script type="text/javascript">--}}

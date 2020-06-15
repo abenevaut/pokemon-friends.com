@@ -1,4 +1,4 @@
-@extends('default')
+@extends('customer.default')
 
 @section('js')
 <script type="text/javascript">
@@ -20,63 +20,22 @@
 @endsection
 
 @section('content')
-<section class="bg-image bg-dark d-flex align-items-end py-3" style="background-color: #3a3a3c !important;min-height: 320px;">
-    <img class="background" src="https://img.youtube.com/vi/715r-8JJhpM/maxresdefault.jpg" alt="" ya-style="opacity: .25">
-    <div class="container position-relative">
-        <div class="row">
-            <div class="col d-flex flex-column flex-lg-row align-items-center text-center position-absolute bottom left pl-lg-8">
-                <a class="avatar-thumbnail avatar-lg d-lg-none bg-dark mb-3 mb-lg-0 border-0" href="#">
-                    <img src="img/user-profile.jpg" alt="">
-                </a>
-                <h2 class="h4 text-white mb-0 ml-2 pl-lg-8"><i class="ya ya-check bg-primary float-left font-size-xs rounded-circle p-2 mr-2"  data-toggle="tooltip" title="verified user"></i> Nathan Drake</h2>
-                <div class="ml-lg-auto mt-4 mb-3 my-lg-0">
-                    <a class="btn btn-primary btn-sm btn-icon-left font-weight-semibold" href="#"><i class="ya ya-user-add"></i> Add friend</a>
-                    <a class="btn btn-outline-light btn-sm btn-icon-left font-weight-semibold ml-2" href="#"><i class="ya ya-email"></i> Send message</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg-white border-bottom nav-profile py-0" ya-sticky>
+<section class="overflow-hidden py-0" data-parallax="scroll" data-image-src="{{ asset_cdn('images/david-grandmougin-Am1io6KusFM-unsplash.jpg') }}">
+    <div class="overlay" ya-style="background-color: #36373a;opacity: .9"></div>
     <div class="container">
         <div class="row">
+            <div class="col">
+                <h1 class="text-white py-7 mb-0 mt-3">Profile Settings</h1>
+            </div>
+        </div>
+        <div class="row">
             <div class="col d-flex align-items-center">
-                <a class="avatar-thumbnail avatar-xl position-absolute d-none d-lg-block" href="#">
-                    <img src="img/user-profile.jpg" alt="">
-                </a>
-                <div class="avatar-fixed d-none d-lg-block">
-                    <a class="avatar-tile" href="#">
-                        <img src="https://i1.ytimg.com/vi/YIRWzlMki4E/maxresdefault.jpg" alt="">
-                        <div>
-                            <strong>Nathan Drake</strong>
-                            <span class="d-block">@nathan</span>
-                        </div>
-                    </a>
-                </div>
                 <div class="nav-scroll">
-                    <div class="nav nav-list nav-list-profile">
-                        <a class="nav-item nav-link active" href="#">Timeline</a>
-                        <a class="nav-item nav-link" href="#">Friends (679)</a>
-                        <a class="nav-item nav-link" href="#">Groups</a>
-                        <a class="nav-item nav-link" href="#">Games (38)</a>
-                        <a class="nav-item nav-link" href="#">Images</a>
-                        <a class="nav-item nav-link" href="#">Videos</a>
-                        <a class="nav-item nav-link" href="#">Streams</a>
-                        <a class="nav-item nav-link" href="#">Forums</a>
+                    <div class="nav nav-list nav-light">
+                        <a class="nav-item nav-link active pl-0" href="javascript:void(0);">General</a>
                     </div>
                 </div>
-                <div class="dropdown d-none d-xl-inline-block ml-auto">
-                    <button class="btn btn-default btn-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ya ya-gear"></i></button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="profile-settings.html">Settings</a>
-                        <a class="dropdown-item" href="#">Edit Games</a>
-                        <a class="dropdown-item" href="#">Mail</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">History</a>
-                        <a class="dropdown-item" href="#">Security</a>
-                    </div>
-                </div>
+                <a class="btn btn-outline-light btn-icon ml-auto mb-3 d-none d-md-inline" href="{{ route('customer.users.dashboard') }}">Back to profile</a>
             </div>
         </div>
     </div>
@@ -85,27 +44,7 @@
 <section class="py-lg-5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 order-2 order-lg-1">
-                <div class="widget mt-4">
-                    <div class="widget-header">About me</div>
-                    <div class="widget-body">
-                        <p>I am a frontend developer &amp; web designer. I love to work on creative and standalone projects like gameforest.</p>
-                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-pin mr-1"></i> Budapest</p>
-                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-twitter mr-1"></i> <a href="https://twitter.com/yakuthemes" target="_blank">yakuthemes</a></p>
-                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-calendar mr-1"></i> Joined December 2009</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9 order-1 order-lg-2">
-
-            </div>
-        </div>
-    </div>
-</section>
-<section class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-8">
+            <div class="col-lg-8">
                 {!! Form::open(['route' => ['customer.users.update', $profile['data']['user']['identifier']], 'class' => 'form-horizontal', 'role' => 'form', 'autoprimary' => 'off', 'novalidate' => 'novalidate', 'method' => 'PUT']) !!}
                 <div class="card">
                     <div class="card-body">
@@ -209,22 +148,22 @@
                                 @endif
                             </div>
                         </div>
-{{--                            <div class="form-group row">--}}
-{{--                                <label for="family_situation" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.profiles.family_situation') }}</label>--}}
-{{--                                <div class="col-sm-9">--}}
-{{--                                    <select name="family_situation" class="select2 w-100 form-control">--}}
-{{--                                        @foreach ($families_situations as $key => $trans)--}}
-{{--                                            <option value="{{ $key }}" @if ($key === $profile['data']['family_situation']['key']) selected="selected" @endif>{{ $trans }}</option>--}}
-{{--                                        @endforeach--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="form-group row">--}}
-{{--                                <label for="maiden_name" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.profiles.maiden_name') }}</label>--}}
-{{--                                <div class="col-sm-9">--}}
-{{--                                    <input type="text" class="form-control" id="maiden_name" placeholder="{{ trans('users.profiles.maiden_name') }}" name="maiden_name" value="{{ $profile['data']['maiden_name'] }}">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                        {{--                            <div class="form-group row">--}}
+                        {{--                                <label for="family_situation" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.profiles.family_situation') }}</label>--}}
+                        {{--                                <div class="col-sm-9">--}}
+                        {{--                                    <select name="family_situation" class="select2 w-100 form-control">--}}
+                        {{--                                        @foreach ($families_situations as $key => $trans)--}}
+                        {{--                                            <option value="{{ $key }}" @if ($key === $profile['data']['family_situation']['key']) selected="selected" @endif>{{ $trans }}</option>--}}
+                        {{--                                        @endforeach--}}
+                        {{--                                    </select>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                            <div class="form-group row">--}}
+                        {{--                                <label for="maiden_name" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.profiles.maiden_name') }}</label>--}}
+                        {{--                                <div class="col-sm-9">--}}
+                        {{--                                    <input type="text" class="form-control" id="maiden_name" placeholder="{{ trans('users.profiles.maiden_name') }}" name="maiden_name" value="{{ $profile['data']['maiden_name'] }}">--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
                         <div class="form-group row">
                             <label for="birth_date" class="col-sm-3 col-form-label text-sm-right">{{ trans('users.profiles.birth_date') }}</label>
                             <div class="col-sm-9">
@@ -243,7 +182,7 @@
                 </div>
                 {{ Form::close() }}
             </div>
-            <div class="d-none d-md-block col-md-4">
+            <div class="col-lg-4">
                 <div class="card">
                     <div class="card-header">
                         {{ trans('users.profiles.providers_tokens') }}
