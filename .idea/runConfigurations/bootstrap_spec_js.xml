@@ -8,7 +8,7 @@
     <ui>bdd</ui>
     <extra-mocha-options>--webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/bootstrap.js</extra-mocha-options>
     <test-kind>TEST_FILE</test-kind>
-    <test-file>$PROJECT_DIR$/tests/Unit/Vue/bootstrap.spec.js</test-file>
+    <test-file>$PROJECT_DIR$/tests/Unit/AppJS/bootstrap.spec.js</test-file>
     <method v="2" />
   </configuration>
 </component>
