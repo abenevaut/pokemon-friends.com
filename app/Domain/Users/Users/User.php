@@ -81,8 +81,9 @@ class User extends AuthenticatableModelAbstract implements
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     /**
@@ -91,11 +92,8 @@ class User extends AuthenticatableModelAbstract implements
      * @var array
      */
     protected $dates = [
-        'deleted_at',
-    ];
-
-    protected $with = [
-        'profile',
+        'created_at',
+        'updated_at',
     ];
 
     /**
