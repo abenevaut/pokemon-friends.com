@@ -27,3 +27,4 @@ travis.tar
 .nyc_output
 public/sitemap.xml
 http-client.env.json
+testim-*
