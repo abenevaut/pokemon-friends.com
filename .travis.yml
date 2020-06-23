@@ -165,4 +165,4 @@ jobs:
     install:
       - npm install
     script:
-      - npm run testim
+      - npm run testim-prod
