@@ -139,36 +139,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - run: npm run dev
       - run: vendor/bin/phpunit
       - if: ${{ matrix.node-version == '12.x'}}
         run: bash <(curl -s https://codecov.io/bash) -f coverage/clover.xml
-
-  deploy:
-
-    needs: [tests-php, tests-js]
-
-    runs-on: ubuntu-latest
-
-    if: contains(github.ref, 'refs/heads/master')
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-nodejs_12.x-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-nodejs_12.x-
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-          registry-url: https://npm.pkg.github.com
-      - run: npm install
-      - run: npm run prod
-      - uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: public
