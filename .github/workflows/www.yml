@@ -133,16 +133,6 @@ jobs:
           key: ${{ runner.os }}-node-nodejs_${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-nodejs_${{ matrix.node-version }}-
-      - uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-version }}
-          coverage: xdebug
-          tools: pecl
-          extensions: gd, imagick
-      - if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install -o --no-interaction --prefer-dist --no-suggest
-      - run: cp .env.example .env
-      - run: php artisan key:generate
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -155,6 +145,18 @@ jobs:
           MIX_PUSHER_APP_ID: ${{ secrets.DEV_PUSHER_APP_ID }}
           MIX_PUSHER_APP_KEY: ${{ secrets.DEV_PUSHER_APP_KEY }}
           MIX_PUSHER_APP_SECRET: ${{ secrets.DEV_PUSHER_APP_SECRET }}
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: xdebug
+          tools: pecl
+          extensions: gd, imagick
+      - if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install -o --no-interaction --prefer-dist --no-suggest
+      - run: cp .env.example .env
+      - run: php artisan key:generate
+        env:
+          MOLLIE_KEY: ${{ secrets.MOLLIE_KEY }}
       - run: vendor/bin/phpunit
         env:
           MOLLIE_KEY: ${{ secrets.MOLLIE_KEY }}
