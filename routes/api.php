@@ -60,10 +60,8 @@ Route::group(
         // 'middleware' => ['api', 'client'],
     ],
     function () {
-        Route::group(['namespace' => 'Users'], function () {
-            Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-                Route::get('channels', ['as' => 'user', 'uses' => 'UsersController@channels']);
-            });
+        Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+            Route::get('channels', ['as' => 'channels', 'uses' => 'UsersController@channels']);
         });
     }
 );
@@ -76,11 +74,9 @@ Route::group(
         'middleware' => ['api', 'auth:api'],
     ],
     function () {
-        Route::group(['namespace' => 'Users'], function () {
-            Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-                Route::get('user', ['as' => 'user', 'uses' => 'UsersController@user']);
-            });
-            Route::resource('users', 'UsersController', ['only' => ['show']]);
+        Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+            Route::get('user', ['as' => 'user', 'uses' => 'UsersController@user']);
         });
+        Route::resource('users', 'UsersController', ['only' => ['show']]);
     }
 );
