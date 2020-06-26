@@ -109,7 +109,7 @@ jobs:
 
   tests-php:
 
-    needs: [codestyle-phpcs, codestyle-phpstan]
+    needs: [codestyle-phpcs, codestyle-phpstan, tests-js]
 
     runs-on: ubuntu-latest
 
