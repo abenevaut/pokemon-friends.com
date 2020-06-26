@@ -90,6 +90,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run dev
       - run: npm test
       - if: ${{ matrix.node-version == '12.x'}}
@@ -131,6 +133,14 @@ jobs:
         run: composer install -o --no-interaction --prefer-dist --no-suggest
       - run: cp .env.example .env
       - run: php artisan key:generate
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm run dev
       - run: vendor/bin/phpunit
       - if: ${{ matrix.node-version == '12.x'}}
         run: bash <(curl -s https://codecov.io/bash) -f coverage/clover.xml
@@ -159,6 +169,6 @@ jobs:
       - run: npm run prod
       - uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: public
