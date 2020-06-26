@@ -91,7 +91,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.ABENEVAUT_GITHUB_TOKEN }}
       - run: npm run dev
       - run: npm test
       - if: ${{ matrix.node-version == '12.x'}}
