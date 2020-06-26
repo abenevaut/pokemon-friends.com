@@ -135,7 +135,7 @@ jobs:
       - if: ${{ matrix.node-version == '12.x'}}
         run: bash <(curl -s https://codecov.io/bash) -f coverage/clover.xml
 
-  gh-pages:
+  deploy:
 
     needs: [tests-php, tests-js]
 
