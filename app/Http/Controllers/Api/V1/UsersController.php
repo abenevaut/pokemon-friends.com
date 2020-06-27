@@ -1,6 +1,6 @@
 <?php
 
-namespace template\Http\Controllers\Api\V1\Users;
+namespace template\Http\Controllers\Api\V1;
 
 use Illuminate\Http\Request;
 use Laravel\Cashier\Subscription;
