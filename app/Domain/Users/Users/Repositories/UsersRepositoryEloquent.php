@@ -1,15 +1,15 @@
 <?php
 
-namespace template\Domain\Users\Users\Repositories;
+namespace pkmnfriends\Domain\Users\Users\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use template\Infrastructure\Contracts\
+use pkmnfriends\Infrastructure\Contracts\
 {
     Repositories\RepositoryEloquentAbstract,
     Request\RequestAbstract
 };
-use template\Domain\Users\Users\{
+use pkmnfriends\Domain\Users\Users\{
     Presenters\TrainerPresenter,
     User,
     Criterias\EmailLikeCriteria,

@@ -2,16 +2,16 @@
 
 namespace Tests\Feature\Http\Controllers\Api\V1\Users;
 
-use template\Infrastructure\Interfaces\Domain\Users\Profiles\ProfileFamiliesSituationsInterface;
+use pkmnfriends\Infrastructure\Interfaces\Domain\Users\Profiles\ProfileFamiliesSituationsInterface;
 use Tests\TestCase;
 use Tests\OAuthTestCaseTrait;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Laravel\Passport\Passport;
-use template\Domain\Users\Profiles\Profile;
-use template\Domain\Users\Users\User;
-use template\Domain\Users\Users\Transformers\UserTransformer;
+use pkmnfriends\Domain\Users\Profiles\Profile;
+use pkmnfriends\Domain\Users\Users\User;
+use pkmnfriends\Domain\Users\Users\Transformers\UserTransformer;
 
 class ProfilesControllerTest extends TestCase
 {

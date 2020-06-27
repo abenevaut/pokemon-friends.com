@@ -1,14 +1,14 @@
 <?php
 
-namespace template\Http\Controllers\Api\V1;
+namespace pkmnfriends\Http\Controllers\Api\V1;
 
 use Illuminate\Http\Request;
 use Laravel\Cashier\Subscription;
-use template\Domain\Users\Profiles\Profile;
-use template\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
-use template\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use template\Domain\Users\Users\Transformers\UserTransformer;
-use template\Domain\Users\Users\User;
+use pkmnfriends\Domain\Users\Profiles\Profile;
+use pkmnfriends\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
+use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Domain\Users\Users\Transformers\UserTransformer;
+use pkmnfriends\Domain\Users\Users\User;
 
 class UsersController extends ControllerAbstract
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace template\Http\Request\Api\V1\Users\Profiles;
+namespace pkmnfriends\Http\Request\Api\V1\Users\Profiles;
 
-use template\Infrastructure\Contracts\Request\RequestAbstract;
-use template\Domain\Users\
+use pkmnfriends\Infrastructure\Contracts\Request\RequestAbstract;
+use pkmnfriends\Domain\Users\
 {
     Users\User,
     Profiles\Profile

@@ -76,7 +76,7 @@
     },
     "autoload": {
         "psr-4": {
-            "template\\": "app/"
+            "pkmnfriends\\": "app/"
         },
         "classmap": [
             "database/seeds",
