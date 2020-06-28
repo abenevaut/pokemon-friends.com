@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Http\Controllers\Api\V1\Users;
+namespace Tests\Feature\Http\Controllers\Api\V1;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
