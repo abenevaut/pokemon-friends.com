@@ -4,6 +4,7 @@ namespace pkmnfriends\Domain\Users\Users\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Prettus\Repository\Criteria\RequestCriteria;
 use pkmnfriends\Infrastructure\Contracts\
 {
     Repositories\RepositoryEloquentAbstract,
@@ -26,6 +27,17 @@ use pkmnfriends\Domain\Users\Users\{
 
 class UsersRepositoryEloquent extends RepositoryEloquentAbstract implements UsersRepositoryInterface
 {
+
+    protected $fieldSearchable = [
+        'uniqid',
+        'email' => 'like',
+        'profile.nickname' => 'like',
+    ];
+
+    public function boot()
+    {
+        $this->pushCriteria(app(RequestCriteria::class));
+    }
 
     /**
      * {@inheritdoc}

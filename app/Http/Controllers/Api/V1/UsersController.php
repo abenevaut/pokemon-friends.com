@@ -29,6 +29,18 @@ class UsersController extends ControllerAbstract
     }
 
     /**
+     * Get users list.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
+    {
+        $users = $this->rUsers->with(['profile'])->all();
+
+        return response()->json($users);
+    }
+
+    /**
      * Get User.
      *
      * @param User $user
@@ -83,18 +95,5 @@ class UsersController extends ControllerAbstract
         }
 
         return $user->profile->getMedia('trainer')->first()->toResponse($request);
-    }
-
-    public function channels()
-    {
-
-//        $subscriptions = Profile::whith('subscription')
-//            ->addSelect([
-//                'subscription' => Subscription::whereColumn('ends_at', null)
-//                    ->whereColumn('trial_ends_at')
-//                    ->whereColumn('trial_ends_at')
-//            ]);
-
-        return response()->json(['blazed_css']);
     }
 }

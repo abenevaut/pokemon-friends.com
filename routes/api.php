@@ -56,12 +56,10 @@ Route::group(
         'prefix' => 'v1',
         'as' => 'v1.',
         'namespace' => 'Api\V1',
-        // 'middleware' => ['api', 'client'],
+         'middleware' => ['api', 'client'],
     ],
     function () {
-        Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-            Route::get('channels', ['as' => 'channels', 'uses' => 'UsersController@channels']);
-        });
+        Route::resource('users', 'UsersController', ['only' => ['index']]);
     }
 );
 
