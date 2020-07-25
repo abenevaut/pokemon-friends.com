@@ -190,14 +190,14 @@ jobs:
           key: ${{ runner.os }}-node-php_${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-php_${{ matrix.php-version }}-
-      - if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install -o --no-interaction --prefer-dist --no-suggest
       - uses: shivammathur/setup-php@v2
         with:
           php-version: 7.3
           coverage: xdebug
           tools: pecl
           extensions: gd, imagick
+      - if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install -o --no-interaction --prefer-dist --no-suggest
       - name: pre-deploy
         uses: fifsky/ssh-action@master
         with:
