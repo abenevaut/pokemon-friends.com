@@ -162,3 +162,66 @@ jobs:
           MOLLIE_KEY: ${{ secrets.MOLLIE_KEY }}
       - if: ${{ matrix.node-version == '12.x'}}
         run: bash <(curl -s https://codecov.io/bash) -f coverage/clover.xml
+
+publish:
+
+  needs: [tests-php, tests-js]
+
+  runs-on: ubuntu-latest
+#    if: contains(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node_12.x-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+          registry-url: https://npm.pkg.github.com
+      - run: npm install
+      - run: npm run prod
+      - uses: actions/cache@v2
+        with:
+          path: ~/vendor
+          key: ${{ runner.os }}-node-php_${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-php_${{ matrix.php-version }}-
+      - if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install -o --no-interaction --prefer-dist --no-suggest
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.3
+          coverage: xdebug
+          tools: pecl
+          extensions: gd, imagick
+      - name: pre-deploy
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            php artisan config:clear
+            php artisan route:clear
+          host: deploy.eu2.frbit.com
+          user: pkmn-friends
+          key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
+      - name: Deploy www.pokemon-friends.com
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: pkmn-friends@deploy.eu2.frbit.com:pkmn-friends.git
+          BRANCH: master
+          FOLDER: .
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY_FORTRABBIT }}
+      - name: post-deploy
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:clear
+            php artisan migrate --force
+          host: deploy.eu2.frbit.com
+          user: pkmn-friends
+          key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
