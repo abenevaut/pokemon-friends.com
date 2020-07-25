@@ -163,11 +163,12 @@ jobs:
       - if: ${{ matrix.node-version == '12.x'}}
         run: bash <(curl -s https://codecov.io/bash) -f coverage/clover.xml
 
-publish:
+  publish:
 
-  needs: [tests-php, tests-js]
+    needs: [tests-php, tests-js]
 
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
