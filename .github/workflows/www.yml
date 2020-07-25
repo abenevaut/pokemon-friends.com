@@ -168,7 +168,6 @@ publish:
   needs: [tests-php, tests-js]
 
   runs-on: ubuntu-latest
-#    if: contains(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
