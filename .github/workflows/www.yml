@@ -205,7 +205,6 @@ jobs:
           OBJECT_STORAGE_BUCKET: ${{ secrets.OBJECT_STORAGE_BUCKET }}
           OBJECT_STORAGE_SERVER: ${{ secrets.OBJECT_STORAGE_SERVER }}
           OBJECT_STORAGE_URL: ${{ secrets.OBJECT_STORAGE_URL }}
-      - run: ssh-keyscan -H ${{secrets.PRIVATE_KEY_FORTRABBIT}} > ~/.ssh/known_hosts
       - name: pre-deploy
         uses: appleboy/ssh-action@master
         with:
