@@ -198,6 +198,8 @@ jobs:
           extensions: gd, imagick
       - if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install -o --no-interaction --prefer-dist --no-suggest
+      - run: php artisan elfinder:publish
+      - run: php artisan asset-cdn:sync --env=production
       - name: pre-deploy
         uses: fifsky/ssh-action@master
         with:
