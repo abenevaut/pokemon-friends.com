@@ -165,8 +165,11 @@ jobs:
 
   deploy:
 
+    #needs: [tests-js, tests-php]
+
     runs-on: ubuntu-latest
 
+    #if: contains(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -205,6 +208,11 @@ jobs:
           OBJECT_STORAGE_BUCKET: ${{ secrets.OBJECT_STORAGE_BUCKET }}
           OBJECT_STORAGE_SERVER: ${{ secrets.OBJECT_STORAGE_SERVER }}
           OBJECT_STORAGE_URL: ${{ secrets.OBJECT_STORAGE_URL }}
+      - name: install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.PRIVATE_KEY_FORTRABBIT }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
       - name: pre-deploy
         uses: appleboy/ssh-action@master
         with:
@@ -214,14 +222,13 @@ jobs:
           script: |
             php artisan config:clear
             php artisan route:clear
-      - name: deploy www.pokemon-friends.com
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: pkmn-friends@deploy.eu2.frbit.com:pkmn-friends.git
-          BRANCH: master
-          FOLDER: .
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY_FORTRABBIT }}
-          KNOWN_HOSTS_FILE: known_hosts
+      - name: deploy
+        run: |
+          git remote add fortrabbit pkmn-friends@deploy.eu2.frbit.com:pkmn-friends.git
+          git config --global user.email "fortrabbit@pokemon-friends.com"
+          git config --global user.name "gh-pkmn-friends"
+          git checkout master
+          git push -u fortrabbit master
       - name: post-deploy
         uses: appleboy/ssh-action@master
         with:
