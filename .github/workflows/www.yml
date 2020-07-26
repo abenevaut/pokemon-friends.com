@@ -163,9 +163,7 @@ jobs:
       - if: ${{ matrix.node-version == '12.x'}}
         run: bash <(curl -s https://codecov.io/bash) -f coverage/clover.xml
 
-  publish:
-
-    needs: [tests-php, tests-js]
+  deploy:
 
     runs-on: ubuntu-latest
 
@@ -200,6 +198,13 @@ jobs:
         run: composer install -o --no-interaction --prefer-dist --no-suggest
       - run: php artisan elfinder:publish
       - run: php artisan asset-cdn:sync --env=production
+        env:
+          OBJECT_STORAGE_KEY: ${{ secrets.OBJECT_STORAGE_KEY }}
+          OBJECT_STORAGE_SECRET: ${{ secrets.OBJECT_STORAGE_SECRET }}
+          OBJECT_STORAGE_REGION: ${{ secrets.OBJECT_STORAGE_REGION }}
+          OBJECT_STORAGE_BUCKET: ${{ secrets.OBJECT_STORAGE_BUCKET }}
+          OBJECT_STORAGE_SERVER: ${{ secrets.OBJECT_STORAGE_SERVER }}
+          OBJECT_STORAGE_URL: ${{ secrets.OBJECT_STORAGE_URL }}
       - name: pre-deploy
         uses: fifsky/ssh-action@master
         with:
