@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "babel-preset-expo": "~8.1.0",
+    "babel-preset-expo": "~8.2.3",
     "vue-native-scripts": "^0.1.4"
   },
   "private": true
