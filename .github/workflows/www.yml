@@ -205,30 +205,52 @@ jobs:
           OBJECT_STORAGE_BUCKET: ${{ secrets.OBJECT_STORAGE_BUCKET }}
           OBJECT_STORAGE_SERVER: ${{ secrets.OBJECT_STORAGE_SERVER }}
           OBJECT_STORAGE_URL: ${{ secrets.OBJECT_STORAGE_URL }}
-      - name: pre-deploy
-        uses: fifsky/ssh-action@master
+      - name: clear config
+        uses: appleboy/ssh-action@master
         with:
-          command: |
-            php artisan config:clear
-            php artisan route:clear
           host: deploy.eu2.frbit.com
-          user: pkmn-friends
+          username: pkmn-friends
           key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
-      - name: Deploy www.pokemon-friends.com
+          script: php artisan config:clear
+      - name: clear route
+        uses: appleboy/ssh-action@master
+        with:
+          host: deploy.eu2.frbit.com
+          username: pkmn-friends
+          key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
+          script: php artisan route:clear
+      - name: deploy www.pokemon-friends.com
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: pkmn-friends@deploy.eu2.frbit.com:pkmn-friends.git
           BRANCH: master
           FOLDER: .
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY_FORTRABBIT }}
-      - name: post-deploy
-        uses: fifsky/ssh-action@master
+      - name: cache config
+        uses: appleboy/ssh-action@master
         with:
-          command: |
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:clear
-            php artisan migrate --force
           host: deploy.eu2.frbit.com
-          user: pkmn-friends
+          username: pkmn-friends
           key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
+          script: php artisan config:cache
+      - name: cache route
+        uses: appleboy/ssh-action@master
+        with:
+          host: deploy.eu2.frbit.com
+          username: pkmn-friends
+          key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
+          script: php artisan route:cache
+      - name: clear view
+        uses: appleboy/ssh-action@master
+        with:
+          host: deploy.eu2.frbit.com
+          username: pkmn-friends
+          key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
+          script: php artisan view:clear
+      - name: migrate
+        uses: appleboy/ssh-action@master
+        with:
+          host: deploy.eu2.frbit.com
+          username: pkmn-friends
+          key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
+          script: php artisan migrate --force
