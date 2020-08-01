@@ -28,7 +28,7 @@ jobs:
           extensions: gd, imagick
       - if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install -o --no-interaction --prefer-dist --no-suggest
-      - runs: |
+      - run: |
           vendor/bin/phpcs --standard=PSR12 app
           vendor/bin/phpcs --standard=PSR12 components
           vendor/bin/phpcs --standard=PSR12 database/factories
