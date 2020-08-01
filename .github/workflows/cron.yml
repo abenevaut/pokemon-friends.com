@@ -20,6 +20,13 @@ jobs:
           url: "https://www.pokemon-friends.com"
           threshold: 50
           strategy: desktop
+      - name: Running Page Speed Insights on home
+        uses: jakepartusch/psi-action@v1
+        id: psi-home
+        with:
+          url: "https://www.pokemon-friends.com"
+          threshold: 25
+          strategy: mobile
 
   psi-trainers:
     runs-on: ubuntu-latest
