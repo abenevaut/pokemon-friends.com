@@ -165,11 +165,11 @@ jobs:
 
   deploy:
 
-    #needs: [tests-js, tests-php]
+    needs: [tests-js, tests-php]
 
     runs-on: ubuntu-latest
 
-    #if: contains(github.ref, 'refs/tags/')
+    if: contains(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
