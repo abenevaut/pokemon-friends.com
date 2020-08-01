@@ -1,4 +1,4 @@
-name: www.pokemon-friends.com
+name: deploy
 
 on:
   release:
