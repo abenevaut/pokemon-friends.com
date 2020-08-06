@@ -4,7 +4,7 @@ import '@abenevaut/gameforest/src/js/index';
 import Vue from 'vue';
 import LazyLoad from 'vanilla-lazyload';
 import ClipboardJS from 'clipboard';
-import Swal from 'admin-lte/plugins/sweetalert2/sweetalert2.all';
+import Swal from 'sweetalert2';
 import * as Sentry from '@sentry/browser';
 import * as Integrations from '@sentry/integrations';
 import VueInternationalization from 'vue-i18n';
