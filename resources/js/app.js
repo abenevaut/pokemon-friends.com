@@ -1,6 +1,6 @@
 import './bootstrap';
 import 'ekko-lightbox';
-import '@abenevaut/gameforest/src/js/index';
+import './theme';
 import Vue from 'vue';
 import LazyLoad from 'vanilla-lazyload';
 import ClipboardJS from 'clipboard';
