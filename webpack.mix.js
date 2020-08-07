@@ -119,5 +119,5 @@ mix
     ],
   })
   .sourceMaps(false, 'eval')
-  .js('resources/js/theme.js', 'public/js')
-  .sass('resources/sass/theme.scss', 'public/css');
+  .js('resources/js/app.js', 'public/js')
+  .sass('resources/sass/app.scss', 'public/css');
