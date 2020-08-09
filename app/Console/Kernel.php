@@ -41,6 +41,10 @@ class Kernel extends ConsoleKernel
             ->everyFiveMinutes()
             ->withoutOverlapping();
         $schedule
+            ->command('crawler:pokemongofriendcodes', ['maximum-crawl' => 30])
+            ->hourly()
+            ->withoutOverlapping();
+        $schedule
             ->command('pkmn:daily-sponsor')
             ->daily()
             ->withoutOverlapping();
