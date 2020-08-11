@@ -74,14 +74,15 @@ class TrainersPagesSitemapPipe implements StageInterface
 
     protected function indexTrainersProfiles($sitemap)
     {
+        $fileIndex = 0;
         $this
             ->rProfiles
             ->with(['user'])
             ->whereNotNull('friend_code')
-            ->chunk(1000, function ($profiles) use ($sitemap) {
-                $id = uniqid();
+            ->chunk(1000, function ($profiles) use ($sitemap, &$fileIndex) {
                 $trainersProfilesSitemap = Sitemap::create();
-                $trainerSitemapFileName = "trainers.{$id}.xml";
+                $fileIndex = sprintf("%'.09d", $fileIndex);
+                $trainerSitemapFileName = "trainers.{$fileIndex}.xml";
                 $profiles->each(function ($profile) use ($sitemap, $trainersProfilesSitemap) {
                     $trainersProfilesSitemap->add(
                         Url::create(route('anonymous.trainers.show', ['trainer' => $profile->user->uniqid]))
@@ -97,6 +98,7 @@ class TrainersPagesSitemapPipe implements StageInterface
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_HOURLY)
                         ->setPriority(0.1)
                 );
+                ++$fileIndex;
             });
 
         return $this;
