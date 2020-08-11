@@ -17,6 +17,14 @@ Route::group(
         'namespace' => 'Anonymous',
     ],
     function () {
+        Route::get(
+            'display-your-pokemon-go-code-friend-qrcode-on-twitchtv',
+            ['uses' => 'LandingPAgesController@displayQrcodeOnTwitchtv']
+        );
+        Route::get(
+            'share-your-pokemon-go-code-friend-profile-on-social-networks',
+            ['uses' => 'LandingPAgesController@shareProfileOnSocialNetworks']
+        );
         Route::get('sitemap.xml', ['as' => 'sitemap', 'uses' => 'SiteMapController@index']);
         Route::group(['namespace' => 'Files'], function () {
             Route::get('files/media/{hash}', ['as' => 'files.media', 'uses' => 'MediasController@media']);
