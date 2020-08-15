@@ -25,7 +25,7 @@ class AlterProfileToAddColumnTitchChannel extends Migration
      */
     public function down()
     {
-        Schema::table('add_column_titch_channel', function (Blueprint $table) {
+        Schema::table('users_profiles', function (Blueprint $table) {
             $table->dropColumn('twitch_channel');
         });
     }
