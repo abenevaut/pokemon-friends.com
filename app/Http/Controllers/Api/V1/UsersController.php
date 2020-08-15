@@ -126,7 +126,7 @@ class UsersController extends ControllerAbstract
      */
     public function stream($channel, $friendCode)
     {
-        event(new DispatchFriendCodeOnStreamEvent($channel, $friendCode));
+        broadcast(new DispatchFriendCodeOnStreamEvent($channel, $friendCode));
 
         return response()->noContent();
     }

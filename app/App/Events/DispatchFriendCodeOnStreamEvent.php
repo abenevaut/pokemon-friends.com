@@ -17,13 +17,6 @@ class DispatchFriendCodeOnStreamEvent implements ShouldBroadcast
     public $streamChannel;
     public $friendCode;
 
-    /**
-     * The name of the queue on which to place the event.
-     *
-     * @var string
-     */
-    public $broadcastQueue = 'high';
-
     public function __construct($streamChannel, $friendCode)
     {
         $this->streamChannel = $streamChannel;
@@ -38,18 +31,5 @@ class DispatchFriendCodeOnStreamEvent implements ShouldBroadcast
     public function broadcastAs()
     {
         return 'add-qrcode';
-    }
-
-    /**
-     * Get the data to broadcast.
-     *
-     * @return array
-     */
-    public function broadcastWith()
-    {
-        return [
-            'streamChannel' => $this->streamChannel,
-            'friendCode' => $this->friendCode,
-        ];
     }
 }
