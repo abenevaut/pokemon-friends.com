@@ -7,6 +7,7 @@ import ClipboardJS from 'clipboard';
 import Swal from 'sweetalert2';
 import * as Sentry from '@sentry/browser';
 import * as Integrations from '@sentry/integrations';
+import * as VueGoogleMaps from 'vue2-google-maps';
 import VueInternationalization from 'vue-i18n';
 import Locale from './vue-i18n-locales.generated';
 
@@ -32,6 +33,19 @@ const i18n = new VueInternationalization({
   locale: document.head.querySelector('meta[name="locale"]'),
   fallbackLocale: 'en',
   messages: Locale,
+});
+
+/**
+ * Vue googleMaps
+ */
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: process.env.MIX_GOOGLE_APIKEY,
+    libraries: 'places',
+    language: document.head.querySelector('meta[name="locale"]'),
+  },
+  installComponents: true,
 });
 
 /**
