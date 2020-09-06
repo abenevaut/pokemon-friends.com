@@ -25,7 +25,7 @@ Route::group(
             'share-your-pokemon-go-code-friend-profile-on-social-networks',
             ['uses' => 'LandingPAgesController@shareProfileOnSocialNetworks']
         );
-        Route::get('sitemap.xml', ['as' => 'sitemap', 'uses' => 'SiteMapController@index']);
+        Route::get('sitemap.xml', ['as' => 'sitemap', 'uses' => 'SitemapController@index']);
         Route::group(['namespace' => 'Files'], function () {
             Route::get('files/media/{hash}', ['as' => 'files.media', 'uses' => 'MediasController@media']);
             Route::get('files/document/{path}', [
@@ -42,6 +42,7 @@ Route::group(
             Route::get('subscribe/{plan}', ['as' => 'subscribe', 'uses' => 'CreateSubscriptionController']);
             Route::get('trainer/{user}', ['as' => 'trainer', 'uses' => 'UsersController@show']);
             Route::get('terms-of-services', ['as' => 'terms', 'uses' => 'UsersController@terms']);
+            Route::get('streamfeed', ['as' => 'streamfeed', 'uses' => 'UsersController@feed']);
             Route::model('trainer', \pkmnfriends\Domain\Users\Users\User::class);
             Route::resource('trainers', 'UsersController')->only(['index', 'show']);
         });
