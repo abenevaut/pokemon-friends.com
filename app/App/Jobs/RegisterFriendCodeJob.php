@@ -32,13 +32,6 @@ class RegisterFriendCodeJob implements ShouldQueue
     protected $teamColor;
 
     /**
-     * The name of the queue the job should be sent to.
-     *
-     * @var string|null
-     */
-    public $queue = 'low';
-
-    /**
      * RegisterFriendCodeJob constructor.
      *
      * @param string $friendCode
@@ -48,6 +41,7 @@ class RegisterFriendCodeJob implements ShouldQueue
         string $friendCode,
         string $teamColor = ProfilesTeamsColors::DEFAULT
     ) {
+        $this->queue = 'low';
         $this->friendCode = $friendCode;
         $this->teamColor = $teamColor;
     }
