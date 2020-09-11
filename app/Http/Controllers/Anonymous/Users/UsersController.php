@@ -135,8 +135,24 @@ class UsersController extends ControllerAbstract
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function feed(Request $request, User $user)
+    public function streamfeed(Request $request, User $user)
     {
-        return view('anonymous.users.users.streamfeed', compact('user'));
+        try {
+            if (
+                $request->has('token')
+                && $user->validateStreamfeedTokenAttribute($request->get('token'))
+            ) {
+                $user = $this
+                    ->rUsers
+                    ->with(['profile'])
+                    ->find($user->id);
+
+                return view('anonymous.users.users.streamfeed', compact('user'));
+            }
+        } catch (\Exception $exception) {
+            app('sentry')->captureException($exception);
+        }
+
+        abort(403);
     }
 }

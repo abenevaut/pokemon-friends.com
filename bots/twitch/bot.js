@@ -98,17 +98,19 @@ client.on('message', (target, context, msg, self) => {
         .catch((error) => {
           logger.error(`${error}`);
         });
-      chatBase
-        .newMessage()
-        .setAsTypeUser()
-        .setAsHandled()
-        .setIntent('display-pkmn-friend-code-on-live-stream')
-        .setMessage(msg.trim())
-        .setCustomSessionId(context['room-id'])
-        .setUserId(context['user-id'])
-        .setMessageId(context.id)
-        .send()
-        .catch((err) => logger.error(err));
+      if (process.env.NODE_ENV === 'production') {
+        chatBase
+          .newMessage()
+          .setAsTypeUser()
+          .setAsHandled()
+          .setIntent('display-pkmn-friend-code-on-live-stream')
+          .setMessage(msg.trim())
+          .setCustomSessionId(context['room-id'])
+          .setUserId(context['user-id'])
+          .setMessageId(context.id)
+          .send()
+          .catch((err) => logger.error(err));
+      }
     } else if (parsed && 'help' === parsed.command) {
       helpMessage(target);
     }
