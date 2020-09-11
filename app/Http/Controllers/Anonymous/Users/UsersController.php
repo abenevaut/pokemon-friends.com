@@ -140,19 +140,18 @@ class UsersController extends ControllerAbstract
         try {
             if (
                 $request->has('token')
+                && !is_null($request->get('token'))
                 && $user->validateStreamfeedTokenAttribute($request->get('token'))
             ) {
                 $user = $this
                     ->rUsers
                     ->with(['profile'])
                     ->find($user->id);
-
-                return view('anonymous.users.users.streamfeed', compact('user'));
             }
         } catch (\Exception $exception) {
-            app('sentry')->captureException($exception);
+            abort(403);
         }
 
-        abort(403);
+        return view('anonymous.users.users.streamfeed', compact('user'));
     }
 }
