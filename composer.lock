@@ -1254,21 +1254,22 @@
         },
         {
             "name": "fedeisas/laravel-mail-css-inliner",
-            "version": "3.0.1",
+            "version": "3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fedeisas/laravel-mail-css-inliner.git",
-                "reference": "f414cb31536dcb132338042c8b7fd43e73fbb1b9"
+                "reference": "263f395b46ef9666151ac78daf429632b0b2e2c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fedeisas/laravel-mail-css-inliner/zipball/f414cb31536dcb132338042c8b7fd43e73fbb1b9",
-                "reference": "f414cb31536dcb132338042c8b7fd43e73fbb1b9",
+                "url": "https://api.github.com/repos/fedeisas/laravel-mail-css-inliner/zipball/263f395b46ef9666151ac78daf429632b0b2e2c3",
+                "reference": "263f395b46ef9666151ac78daf429632b0b2e2c3",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
-                "illuminate/support": "^7.4",
+                "illuminate/mail": "^7.4 || ^8.0",
+                "illuminate/support": "^7.4 || ^8.0",
                 "php": "^7.2.5",
                 "tijsverkoyen/css-to-inline-styles": "~2.0"
             },
@@ -1305,7 +1306,7 @@
                 "laravel",
                 "mailer"
             ],
-            "time": "2020-04-08T17:22:14+00:00"
+            "time": "2020-09-12T05:00:14+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -9637,12 +9638,12 @@
             "version": "v7.19.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/tightenco/collect.git",
+                "url": "https://github.com/tighten/collect.git",
                 "reference": "e070bf74564f311bb3c97e673e97ea036b38a449"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/collect/zipball/e070bf74564f311bb3c97e673e97ea036b38a449",
+                "url": "https://api.github.com/repos/tighten/collect/zipball/e070bf74564f311bb3c97e673e97ea036b38a449",
                 "reference": "e070bf74564f311bb3c97e673e97ea036b38a449",
                 "shasum": ""
             },
