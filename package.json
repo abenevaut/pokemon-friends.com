@@ -53,7 +53,7 @@
         "eslint-plugin-no-jquery": "^2.5.0",
         "eslint-plugin-vue": "^7.1.0",
         "expect": "^26.6.1",
-        "expose-loader": "^0.7.5",
+        "expose-loader": "^1.0.1",
         "false": "^0.0.4",
         "favicons-webpack-plugin": "^4.2.0",
         "flatpickr": "^4.6.6",
