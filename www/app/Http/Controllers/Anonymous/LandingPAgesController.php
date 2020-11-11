@@ -4,7 +4,7 @@ namespace pkmnfriends\Http\Controllers\Anonymous;
 
 use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
 
-class LandingPAgesController extends ControllerAbstract
+class LandingPagesController extends ControllerAbstract
 {
 
     public function displayQrcodeOnTwitchtv()
