@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: [7.3]
+        php-version: [ 7.3 ]
     steps:
       - uses: actions/checkout@v2
       - run: composer validate --strict
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: [7.3]
+        php-version: [ 7.3 ]
     steps:
       - uses: actions/checkout@v2
       - run: composer validate --strict
@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: [ 12.x, 14.x ]
     continue-on-error: ${{ matrix.node-version == '14.x' }}
     steps:
       - uses: actions/checkout@v2
@@ -105,12 +105,12 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   tests-php:
-    needs: [codestyle-phpcs, codestyle-phpstan, tests-js]
+    needs: [ codestyle-phpcs, codestyle-phpstan, tests-js ]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
-        php-version: [7.3, 7.4]
+        node-version: [ 12.x ]
+        php-version: [ 7.3, 7.4 ]
     continue-on-error: ${{ matrix.php-version == '7.4' }}
     steps:
       - uses: actions/checkout@v2
