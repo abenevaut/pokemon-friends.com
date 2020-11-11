@@ -26,7 +26,7 @@
     },
     "devDependencies": {
         "@abenevaut/gameforest": "^6.0.2",
-        "@sentry/browser": "^5.22.3",
+        "@sentry/browser": "^5.27.3",
         "@sentry/integrations": "^5.22.3",
         "@sentry/types": "^5.22.3",
         "@testim/testim-cli": "^3.94.0",
