@@ -36,7 +36,6 @@ jobs:
         run: composer install -o --no-interaction --prefer-dist --no-suggest
       - run: |
           vendor/bin/phpcs --standard=PSR12 app
-          vendor/bin/phpcs --standard=PSR12 components
           vendor/bin/phpcs --standard=PSR12 database/factories
           vendor/bin/phpcs --standard=PSR12 routes
           vendor/bin/phpcs --standard=PSR12 tests --extensions=php
@@ -64,7 +63,7 @@ jobs:
       - if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install -o --no-interaction --prefer-dist --no-suggest
       - run: |
-          vendor/bin/phpstan analyse -l 0 app components tests
+          vendor/bin/phpstan analyse
 
   tests-js:
     runs-on: ubuntu-latest
