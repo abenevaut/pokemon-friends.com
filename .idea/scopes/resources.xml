@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="resources" pattern="file[www]:www/resources//*" />
-</component>
