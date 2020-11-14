@@ -70,22 +70,8 @@ jobs:
           OBJECT_STORAGE_SERVER: ${{ secrets.PROD_OBJECT_STORAGE_SERVER }}
           OBJECT_STORAGE_URL: ${{ secrets.PROD_OBJECT_STORAGE_URL }}
 
-  fortrabbit-pre-deploy:
-    needs: [ fortrabbit-object-storage ]
-    runs-on: ubuntu-latest
-    if: contains(github.ref, 'refs/tags/')
-    steps:
-      - uses: appleboy/ssh-action@master
-        with:
-          host: deploy.eu2.frbit.com
-          username: pkmn-friends
-          key: ${{ secrets.PRIVATE_KEY_FORTRABBIT}}
-          script: |
-            php artisan config:clear
-            php artisan route:clear
-
   fortrabbit-deploy:
-    needs: [ fortrabbit-pre-deploy ]
+    needs: [ fortrabbit-object-storage ]
     runs-on: ubuntu-latest
     if: contains(github.ref, 'refs/tags/')
     steps:
