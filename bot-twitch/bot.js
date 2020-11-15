@@ -11,35 +11,36 @@ const chatBase = require('@google/chatbase')
   .setApiKey(process.env.CHATBASE_KEY)
   .setPlatform('twitch.tv');
 const { version } = require('./package.json');
-
-const logger = winston.createLogger({
-  level: 'info',
-  transports: [
-    new winston.transports.Console(),
-    new WinstonSentry({
-      level: 'warn',
-      dsn: process.env.SENTRY_DSN,
-      environment: process.env.NODE_ENV,
-      release: version,
-      tags: { host: 'glitch.com' },
-    }),
-  ],
-});
-const chatCommands = new chatCommand.Parser({
-  'pkmn-friends': {
-    friend_code: ['int'],
-  },
-  help: {},
-}, '!');
-const tmiOpts = {
-  identity: {
-    username: process.env.BOT_USERNAME,
-    password: process.env.OAUTH_TOKEN,
-  },
-  channels: [
-    process.env.CHANNEL_NAME,
-  ],
-};
+const logger = winston
+  .createLogger({
+    level: 'info',
+    transports: [
+      new winston.transports.Console(),
+      new WinstonSentry({
+        level: 'warn',
+        dsn: process.env.SENTRY_DSN,
+        environment: process.env.NODE_ENV,
+        release: version,
+        tags: { host: 'glitch.com' },
+      }),
+    ],
+  });
+const chatCommands = new chatCommand
+  .Parser({
+    'pkmn-friends': {
+      friend_code: ['int'],
+    },
+    help: {},
+  }, '!');
+  const tmiOpts = {
+    identity: {
+      username: process.env.BOT_USERNAME,
+      password: process.env.OAUTH_TOKEN,
+    },
+    channels: [
+      process.env.CHANNEL_NAME,
+    ],
+  };
 const client = new tmi.client(tmiOpts);
 const axiosOpts = {
   baseURL: process.env.API_BASE_URL,
@@ -55,7 +56,10 @@ const helpMessage = (target) => {
 };
 const axiosInstance = axios.create(axiosOpts);
 
-axiosInstance.interceptors.request.use(oauth.interceptor(tokenProvider, getAuthorizationCode));
+axiosInstance
+  .interceptors
+  .request
+  .use(oauth.interceptor(tokenProvider, getAuthorizationCode));
 
 chatBase.setVersion(version);
 

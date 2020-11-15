@@ -1,0 +1,24 @@
+name: bot-twitch-deploy
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'bot-twitch/**'
+
+defaults:
+  run:
+    working-directory: ./bot-twitch
+
+jobs:
+
+  glitch-deploy:
+    runs-on: ubuntu-latest
+    if: contains(github.ref, 'refs/heads/master')
+    steps:
+      - uses: actions/checkout@master
+      - name: Publish bot-twitch
+        uses: glitch-tools/sync-glitch-github-action@master
+        env:
+          GLITCH_PROJECT_ID: ${{ secrets.GLITCH_PROJECT_ID }}
+          GLITCH_TOKEN: ${{ secrets.GLITCH_TOKEN }}
