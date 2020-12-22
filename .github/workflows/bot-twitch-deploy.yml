@@ -5,10 +5,6 @@ on:
     branches: [ master ]
     paths:
       - 'bot-twitch/**'
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'bot-twitch/**'
 
 defaults:
   run:
