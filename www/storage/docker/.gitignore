@@ -1,6 +1,0 @@
-!.gitignore
-!apache2/sites/default.apache.conf.example
-!php-worker/supervisord.d/*.conf.example
-apache2/logs/*
-redis/*
-mysql/*

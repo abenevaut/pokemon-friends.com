@@ -1,15 +1,24 @@
-service: pokemon-friends
+service: pkmnfriends
 
 provider:
     name: aws
     region: eu-west-3
     runtime: provided.al2
+    environment:
+        APP_STORAGE: '/tmp/storage'
+        DB_CONNECTION: mysql
+        DB_HOST: pkmnfriends-prod.cluster-ccwv2imsrlnk.eu-west-3.rds.amazonaws.com
+        DB_PORT: 3306
+        DB_DATABASE: pkmnfriends
+        DB_USERNAME: admin
+        DB_PASSWORD: 'o_-y6d*TboP*wMf2BmMny'
 
 plugins:
     - ./vendor/bref/bref
 
 package:
     exclude:
+        - .tmp/**
         - node_modules/**
         - public/storage
         - public/app/**
@@ -17,6 +26,7 @@ package:
         - public/fonts/**
         - public/images/**
         - public/js/**
+        - public/mix-manifest.json
         - resources/fonts/**
         - resources/images/**
         - resources/js/**
@@ -33,9 +43,19 @@ functions:
         events:
             - http: 'ANY /'
             - http: 'ANY /{proxy+}'
+        vpc:
+            securityGroupIds:
+                - sg-0f974d3d3cd176233
+            subnetIds:
+                - subnet-7c784f07
     artisan:
         handler: artisan
         timeout: 120 # in seconds
         layers:
             - ${bref:layer.php-74}
             - ${bref:layer.console}
+        vpc:
+            securityGroupIds:
+                - sg-0f974d3d3cd176233
+            subnetIds:
+                - subnet-7c784f07
