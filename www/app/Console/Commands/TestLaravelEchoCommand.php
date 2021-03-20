@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Console\Commands;
 
-use pkmnfriends\Infrastructure\Contracts\Commands\CommandAbstract;
+use pkmnfriends\Infrastructure\Commands\CommandAbstract;
 use pkmnfriends\App\Events\LaravelEchoEvent;
 
 class TestLaravelEchoCommand extends CommandAbstract

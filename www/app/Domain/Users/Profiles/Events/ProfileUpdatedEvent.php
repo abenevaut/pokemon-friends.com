@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Domain\Users\Profiles\Events;
 
-use pkmnfriends\Infrastructure\Contracts\Events\EventAbstract;
+use pkmnfriends\Infrastructure\Events\EventAbstract;
 use pkmnfriends\Domain\Users\Profiles\Profile;
 
 class ProfileUpdatedEvent extends EventAbstract

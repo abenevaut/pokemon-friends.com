@@ -5,7 +5,7 @@ namespace pkmnfriends\Domain\Users\ProvidersTokens\Repositories;
 use Illuminate\Support\Collection;
 use pkmnfriends\Domain\Users\ProvidersTokens\ProviderToken;
 use pkmnfriends\Domain\Users\Users\User;
-use pkmnfriends\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use pkmnfriends\Infrastructure\Repositories\RepositoryInterface;
 
 interface ProvidersTokensRepositoryInterface extends RepositoryInterface
 {

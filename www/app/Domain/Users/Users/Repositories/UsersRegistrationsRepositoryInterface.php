@@ -3,7 +3,7 @@
 namespace pkmnfriends\Domain\Users\Users\Repositories;
 
 use Illuminate\Contracts\Validation\Validator as ContractsValidator;
-use pkmnfriends\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use pkmnfriends\Infrastructure\Repositories\RepositoryInterface;
 use pkmnfriends\Domain\Users\Users\User;
 
 interface UsersRegistrationsRepositoryInterface extends RepositoryInterface

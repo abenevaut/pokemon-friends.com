@@ -3,7 +3,7 @@
 namespace pkmnfriends\Domain\Users\Users\Transformers;
 
 use pkmnfriends\Domain\Users\Profiles\Profile;
-use pkmnfriends\Infrastructure\Contracts\Transformers\TransformerAbstract;
+use pkmnfriends\Infrastructure\Transformers\TransformerAbstract;
 use pkmnfriends\Domain\Users\Users\User;
 
 class UsersListTransformer extends TransformerAbstract

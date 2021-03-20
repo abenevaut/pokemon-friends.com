@@ -4,7 +4,7 @@ namespace pkmnfriends\Domain\Files\Medias\Repositories;
 
 use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
-use pkmnfriends\Infrastructure\Contracts\
+use pkmnfriends\Infrastructure\
 {
     Request\RequestAbstract,
     Repositories\RepositoryEloquentAbstract,

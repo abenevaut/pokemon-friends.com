@@ -7,17 +7,17 @@ use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Passport\HasApiTokens;
 use Yaquawa\Laravel\EmailReset\CanResetEmail;
 use pkmnfriends\Domain\Users\Profiles\Profile;
-use pkmnfriends\Infrastructure\Interfaces\Domain\Users\{
+use pkmnfriends\Infrastructure\Domain\Users\{
     Users\HandshakableInterface,
     Users\UserCivilitiesInterface,
     Users\UserGendersInterface,
     Users\UserRolesInterface
 };
-use pkmnfriends\Infrastructure\Interfaces\Domain\{
+use pkmnfriends\Infrastructure\Domain\{
     Locale\LocalesInterface,
     Locale\TimeZonesInterface
 };
-use pkmnfriends\Infrastructure\Contracts\{Model\AuthenticatableModelAbstract,
+use pkmnfriends\Infrastructure\{Model\AuthenticatableModelAbstract,
     Model\IdentifiableTrait,
     Model\Notifiable,
     Model\RouteKeyNameUniquidTrait,

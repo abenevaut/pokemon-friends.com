@@ -12,8 +12,8 @@ use Spatie\MediaLibrary\
 };
 use Spatie\SchemaOrg\Barcode;
 use Spatie\SchemaOrg\Schema;
-use pkmnfriends\Infrastructure\Interfaces\Domain\Users\Profiles\ProfileFamiliesSituationsInterface;
-use pkmnfriends\Infrastructure\Contracts\
+use pkmnfriends\Infrastructure\Domain\Users\Profiles\ProfileFamiliesSituationsInterface;
+use pkmnfriends\Infrastructure\
 {
     Model\ModelAbstract,
     Model\TimeStampsTz,

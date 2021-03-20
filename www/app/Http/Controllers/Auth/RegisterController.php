@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use pkmnfriends\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use pkmnfriends\Domain\Users\Users\Repositories\UsersRegistrationsRepositoryEloquent;
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 use pkmnfriends\Domain\Users\Users\User;
 
 class RegisterController extends ControllerAbstract

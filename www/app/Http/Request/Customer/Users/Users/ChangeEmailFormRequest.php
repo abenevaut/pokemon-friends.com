@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Http\Request\Customer\Users\Users;
 
-use pkmnfriends\Infrastructure\Contracts\Request\RequestAbstract;
+use pkmnfriends\Infrastructure\Request\RequestAbstract;
 
 class ChangeEmailFormRequest extends RequestAbstract
 {

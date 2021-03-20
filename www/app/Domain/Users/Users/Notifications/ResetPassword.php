@@ -2,8 +2,8 @@
 
 namespace pkmnfriends\Domain\Users\Users\Notifications;
 
-use pkmnfriends\Infrastructure\Interfaces\Queues\ShouldQueueInterface;
-use pkmnfriends\Infrastructure\Contracts\{
+use pkmnfriends\Infrastructure\Queues\ShouldQueueInterface;
+use pkmnfriends\Infrastructure\{
     Queues\QueueableTrait,
     Notifications\Notification
 };

@@ -4,7 +4,7 @@ namespace pkmnfriends\Http\Controllers\Anonymous\Users;
 
 use Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse;
 use Illuminate\Support\Facades\Auth;
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 
 class CreateSubscriptionController extends ControllerAbstract
 {

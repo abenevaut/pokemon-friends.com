@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Domain\Files\Medias\Repositories;
 
-use pkmnfriends\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use pkmnfriends\Infrastructure\Repositories\RepositoryInterface;
 
 interface MediasRepository extends RepositoryInterface
 {
