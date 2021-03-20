@@ -5,7 +5,7 @@ namespace pkmnfriends\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use pkmnfriends\Infrastructure\Interfaces\Domain\Locale\LocalesInterface;
+use pkmnfriends\Infrastructure\Domain\Locale\LocalesInterface;
 
 class Locale
 {

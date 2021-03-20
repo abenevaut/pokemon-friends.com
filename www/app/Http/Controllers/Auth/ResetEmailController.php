@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Http\Controllers\Auth;
 
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 use Yaquawa\Laravel\EmailReset\ResetEmail;
 
 class ResetEmailController extends ControllerAbstract

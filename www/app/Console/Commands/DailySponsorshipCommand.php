@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use pkmnfriends\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
-use pkmnfriends\Infrastructure\Contracts\Commands\CommandAbstract;
+use pkmnfriends\Infrastructure\Commands\CommandAbstract;
 
 class DailySponsorshipCommand extends CommandAbstract
 {

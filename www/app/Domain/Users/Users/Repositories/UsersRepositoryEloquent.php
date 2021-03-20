@@ -5,7 +5,7 @@ namespace pkmnfriends\Domain\Users\Users\Repositories;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Prettus\Repository\Criteria\RequestCriteria;
-use pkmnfriends\Infrastructure\Contracts\
+use pkmnfriends\Infrastructure\
 {
     Repositories\RepositoryEloquentAbstract,
     Request\RequestAbstract

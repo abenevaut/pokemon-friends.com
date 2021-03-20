@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 use pkmnfriends\Domain\Users\ProvidersTokens\Repositories\ProvidersTokensRepositoryEloquent;
 use pkmnfriends\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
 

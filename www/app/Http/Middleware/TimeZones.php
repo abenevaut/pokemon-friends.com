@@ -4,7 +4,7 @@ namespace pkmnfriends\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Session;
-use pkmnfriends\Infrastructure\Interfaces\Domain\Locale\TimeZonesInterface;
+use pkmnfriends\Infrastructure\Domain\Locale\TimeZonesInterface;
 
 class TimeZones
 {

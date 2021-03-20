@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Honeypot\ProtectAgainstSpam;
 use pkmnfriends\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
 use pkmnfriends\Domain\Users\Users\User;
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 
 class UsersController extends ControllerAbstract
 {

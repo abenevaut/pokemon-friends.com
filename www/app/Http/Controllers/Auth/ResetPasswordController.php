@@ -4,7 +4,7 @@ namespace pkmnfriends\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use pkmnfriends\Domain\Users\Users\Repositories\UsersResetPasswordRepositoryEloquent;
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 
 class ResetPasswordController extends ControllerAbstract
 {
