@@ -1,17 +1,30 @@
 service: pkmnfriends
 
+useDotenv: true
+
 provider:
+    stage: prod
     name: aws
     region: eu-west-3
     runtime: provided.al2
+    lambdaHashingVersion: 20201221
+    apiGateway:
+        shouldStartNameWithService: true
     environment:
+        APP_NAME: pkmnfriends
+        APP_ENV: production
+        APP_KEY: base64:oFzoAmKAfcPUcRCJNKkrMHNU/yF4xCJsk/KZ7qQWouw=
+        APP_DEBUG: true
+        APP_URL: https://www.pokemon-friends.com
+        APP_TAG: 1.2.10
         APP_STORAGE: '/tmp/storage'
         DB_CONNECTION: mysql
-        DB_HOST: pkmnfriends-prod.cluster-ccwv2imsrlnk.eu-west-3.rds.amazonaws.com
+        DB_HOST:
         DB_PORT: 3306
         DB_DATABASE: pkmnfriends
         DB_USERNAME: admin
-        DB_PASSWORD: 'o_-y6d*TboP*wMf2BmMny'
+        DB_PASSWORD: ''
+        SESSION_DOMAIN: .pokemon-friends.com
 
 plugins:
     - ./vendor/bref/bref
@@ -45,7 +58,7 @@ functions:
             - http: 'ANY /{proxy+}'
         vpc:
             securityGroupIds:
-                - sg-0f974d3d3cd176233
+                - sg-038592ea383fa2cfd
             subnetIds:
                 - subnet-7c784f07
     artisan:
@@ -56,6 +69,26 @@ functions:
             - ${bref:layer.console}
         vpc:
             securityGroupIds:
-                - sg-0f974d3d3cd176233
+                - sg-038592ea383fa2cfd
             subnetIds:
                 - subnet-7c784f07
+
+resources:
+    Resources:
+        # The S3 bucket that stores the assets
+        Assets:
+            Type: AWS::S3::Bucket
+            Properties:
+                BucketName: assets.pokemon-friends.com
+        # The policy that makes the bucket publicly readable
+        AssetsBucketPolicy:
+            Type: AWS::S3::BucketPolicy
+            Properties:
+                Bucket: !Ref Assets # References the bucket we defined above
+                PolicyDocument:
+                    Statement:
+                        - Effect: Allow
+                          Principal: '*' # everyone
+                          Action: 's3:GetObject' # to read
+                          Resource: !Join ['/', [!GetAtt Assets.Arn, '*']] # things in the bucket
+                          # alternatively you can write out Resource: 'arn:aws:s3:::<bucket-name>/*'

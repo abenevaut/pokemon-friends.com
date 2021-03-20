@@ -16,7 +16,7 @@
             <div class="col-md-4">
                 <div class="card card-sm">
                     <span class="card-img card-img-lg">
-                        <img class="card-img-top" src="{{ asset_cdn('images/pokemon-1581774_1920.jpg') }}" alt="Pokemon Go mobile">
+                        <img class="card-img-top" src="{{ asset('images/pokemon-1581774_1920.jpg') }}" alt="Pokemon Go mobile">
                     </span>
                     <div class="card-body">
                         <h5 class="card-title text-center">You only need a Pokemon Go account</h5>
@@ -26,7 +26,7 @@
             <div class="col-md-4">
                 <div class="card card-sm">
                     <span class="card-img card-img-lg">
-                        <img class="card-img-top" src="{{ asset_cdn('images/hands-1167612_1920.jpg') }}" alt="Capture a qrcode">
+                        <img class="card-img-top" src="{{ asset('images/hands-1167612_1920.jpg') }}" alt="Capture a qrcode">
                     </span>
                     <div class="card-body">
                         <h5 class="card-title text-center">Meet friends worldwide and connect with</h5>
@@ -36,7 +36,7 @@
             <div class="col-md-4">
                 <div class="card card-sm">
                     <span class="card-img card-img-lg">
-                        <img class="card-img-top" src="{{ asset_cdn('images/pokemon-2965902_1920.jpg') }}" alt="Pokemon Go mobile with friend">
+                        <img class="card-img-top" src="{{ asset('images/pokemon-2965902_1920.jpg') }}" alt="Pokemon Go mobile with friend">
                     </span>
                     <div class="card-body">
                         <h5 class="card-title text-center">Share gift, get opponents, won eggs & XP</h5>
@@ -51,7 +51,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-10 px-0 mx-auto">
-                <div class="d-flex align-items-center position-relative overflow-hidden py-5 py-md-7 px-3 px-xl-0" data-parallax="scroll" data-image-src="{{ asset_cdn('images/pokemon-go-1569794_1920.jpg') }}" style="min-height: 500px">
+                <div class="d-flex align-items-center position-relative overflow-hidden py-5 py-md-7 px-3 px-xl-0" data-parallax="scroll" data-image-src="{{ asset('images/pokemon-go-1569794_1920.jpg') }}" style="min-height: 500px">
                     <div class="overlay" ya-style="background-color: #292b2f"></div>
                     <div class="container">
                         <div class="row">
@@ -102,7 +102,7 @@
         <div class="row justify-content-around align-items-center">
             <div class="col-lg-6 px-xs-0">
                 <div class="img-cover" style="min-height: 600px;">
-                    <img src="{{ asset_cdn('images/qrcode-sharing.jpg') }}" alt="">
+                    <img src="{{ asset('images/qrcode-sharing.jpg') }}" alt="">
                 </div>
             </div>
             <div class="col-lg-5 pl-md-5 pb-4 pb-md-0 mr-auto mt-4 mt-md-0 mb-2 mb-md-0">
@@ -129,7 +129,7 @@
             </div>
             <div class="col-lg-6 px-xs-0">
                 <div class="img-cover" style="min-height: 600px;">
-                    <img src="{{ asset_cdn('images/qrcode-stream-2.jpg') }}" alt="">
+                    <img src="{{ asset('images/qrcode-stream-2.jpg') }}" alt="">
                 </div>
             </div>
         </div>

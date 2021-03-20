@@ -19,7 +19,7 @@
                         @if ($nickname)
                             <div class="separator mt-1"><h2 class="text-primary">{{ $nickname }}</h2></div>
                         @endif
-                        <img class="img-fluid lazy" src="{{ asset_cdn('images/pokeball.jpg') }}" data-src="{{ $qr }}" alt="{{ $friend_code }}">
+                        <img class="img-fluid lazy" src="{{ asset('images/pokeball.jpg') }}" data-src="{{ $qr }}" alt="{{ $friend_code }}">
                     </div>
                     <div class="card mt-2 mb-0 border-0">
                         <div class="card-body p-3">
