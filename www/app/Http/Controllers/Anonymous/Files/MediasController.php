@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Http\Controllers\Anonymous\Files;
 
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 use pkmnfriends\Domain\Files\Medias\Repositories\MediasRepositoryEloquent;
 
 class MediasController extends ControllerAbstract

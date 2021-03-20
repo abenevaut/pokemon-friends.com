@@ -9,7 +9,7 @@ use pkmnfriends\App\Events\DispatchFriendCodeOnStreamEvent;
 use pkmnfriends\Domain\Users\Users\Notifications\DispatchFriendCodeOnStream;
 use pkmnfriends\Domain\Users\Users\Presenters\TrainerChannelPresenter;
 use pkmnfriends\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 use pkmnfriends\Domain\Users\Users\Transformers\UserTransformer;
 use pkmnfriends\Domain\Users\Users\User;
 

@@ -4,7 +4,7 @@ namespace pkmnfriends\Http\Request\Administrator\Users\Users;
 
 use Illuminate\Validation\Rule;
 use pkmnfriends\Domain\Users\Profiles\ProfilesTeamsColors;
-use pkmnfriends\Infrastructure\Contracts\Request\RequestAbstract;
+use pkmnfriends\Infrastructure\Request\RequestAbstract;
 use pkmnfriends\Domain\Users\Users\User;
 
 class UserStoreFormRequest extends RequestAbstract
@@ -40,6 +40,10 @@ class UserStoreFormRequest extends RequestAbstract
                 . User::CIVILITY_MISTER,
             'locale' => 'required|in:' . collect(User::LOCALES)->implode(','),
             'timezone' => 'required|in:' . collect(timezones())->implode(','),
+            'team_color' => 'in:'
+                . ProfilesTeamsColors::RED . ','
+                . ProfilesTeamsColors::BLUE . ','
+                . ProfilesTeamsColors::YELLOW,
         ];
     }
 }

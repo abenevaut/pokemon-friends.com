@@ -8,7 +8,7 @@ use Illuminate\Auth\Events\{
     Logout,
     PasswordReset
 };
-use pkmnfriends\Infrastructure\Interfaces\Queues\ShouldQueueInterface;
+use pkmnfriends\Infrastructure\Queues\ShouldQueueInterface;
 
 class AuthEventsListener
 {

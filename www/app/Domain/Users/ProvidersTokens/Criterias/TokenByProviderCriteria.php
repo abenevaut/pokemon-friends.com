@@ -3,7 +3,7 @@
 namespace pkmnfriends\Domain\Users\ProvidersTokens\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
-use pkmnfriends\Infrastructure\Contracts\Criterias\CriteriaAbstract;
+use pkmnfriends\Infrastructure\Criterias\CriteriaAbstract;
 
 class TokenByProviderCriteria extends CriteriaAbstract
 {

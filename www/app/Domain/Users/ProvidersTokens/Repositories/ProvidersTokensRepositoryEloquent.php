@@ -5,7 +5,7 @@ namespace pkmnfriends\Domain\Users\ProvidersTokens\Repositories;
 use Illuminate\Container\Container as Application;
 use Illuminate\Support\Collection;
 use PhpParser\ErrorHandler\Collecting;
-use pkmnfriends\Infrastructure\Contracts\
+use pkmnfriends\Infrastructure\
 {
     Repositories\RepositoryEloquentAbstract,
     Request\RequestAbstract

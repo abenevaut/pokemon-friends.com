@@ -3,7 +3,7 @@
 namespace pkmnfriends\Domain\Users\Profiles\Criterias;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
-use pkmnfriends\Infrastructure\Contracts\Criterias\CriteriaAbstract;
+use pkmnfriends\Infrastructure\Criterias\CriteriaAbstract;
 
 class WhereUserIdIsCriteria extends CriteriaAbstract
 {

@@ -6,7 +6,7 @@ use NotificationChannels\Twitter\TwitterChannel;
 use NotificationChannels\Twitter\TwitterStatusUpdate;
 use pkmnfriends\App\Notifications\Messages\CustomerMailMessage;
 use pkmnfriends\Domain\Users\Users\User;
-use pkmnfriends\Infrastructure\Contracts\Notifications\Notification;
+use pkmnfriends\Infrastructure\Notifications\Notification;
 
 class SponsoredFriendCode extends Notification
 {

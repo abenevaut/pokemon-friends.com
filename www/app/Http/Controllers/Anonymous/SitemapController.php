@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\{Cache, Storage};
 use Illuminate\Http\Response;
 use Spatie\Sitemap\{Sitemap, Tags\Url};
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 
 class SitemapController extends ControllerAbstract
 {

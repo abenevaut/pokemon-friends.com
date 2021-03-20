@@ -3,7 +3,7 @@
 namespace pkmnfriends\Domain\Files\Medias\UrlGenerator;
 
 use Spatie\MediaLibrary\UrlGenerator\LocalUrlGenerator;
-use pkmnfriends\Infrastructure\Contracts\Traits\SecurityHashTrait;
+use pkmnfriends\Infrastructure\Traits\SecurityHashTrait;
 
 class PrivateStorageUrlGenerator extends LocalUrlGenerator
 {

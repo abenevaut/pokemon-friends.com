@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Http\Request\Customer\Users\Profiles;
 
-use pkmnfriends\Infrastructure\Contracts\Request\RequestAbstract;
+use pkmnfriends\Infrastructure\Request\RequestAbstract;
 use pkmnfriends\Domain\Users\{Profiles\ProfilesTeamsColors,
     Users\User,
     Profiles\Profile};
