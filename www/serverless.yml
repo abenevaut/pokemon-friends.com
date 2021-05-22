@@ -1,9 +1,9 @@
-service: pkmnfriends
+service: pkmn-friends
 
 useDotenv: true
 
 provider:
-    stage: prod
+    stage: production
     name: aws
     region: eu-west-3
     runtime: provided.al2
@@ -11,20 +11,26 @@ provider:
     apiGateway:
         shouldStartNameWithService: true
     environment:
-        APP_NAME: pkmnfriends
-        APP_ENV: production
+        APP_NAME: pkmn-friends
+        APP_ENV: ${opt:stage, self:provider.stage}
         APP_KEY: base64:oFzoAmKAfcPUcRCJNKkrMHNU/yF4xCJsk/KZ7qQWouw=
         APP_DEBUG: true
         APP_URL: https://www.pokemon-friends.com
         APP_TAG: 1.2.10
         APP_STORAGE: '/tmp/storage'
+        LOG_CHANNEL: stderr
         DB_CONNECTION: mysql
-        DB_HOST:
+        DB_HOST: pkmn-friends.cluster-ccwv2imsrlnk.eu-west-3.rds.amazonaws.com
         DB_PORT: 3306
-        DB_DATABASE: pkmnfriends
+        DB_DATABASE: ${opt:stage, self:provider.stage}
         DB_USERNAME: admin
         DB_PASSWORD: ''
         SESSION_DOMAIN: .pokemon-friends.com
+        USE_CDN: true
+        AWS_BUCKET: pkmn-friends-production-assets
+        AWS_ACCESS_KEY_ID:
+        AWS_SECRET_ACCESS_KEY:
+        AWS_DEFAULT_REGION: eu-west-3
 
 plugins:
     - ./vendor/bref/bref
@@ -72,6 +78,15 @@ functions:
                 - sg-038592ea383fa2cfd
             subnetIds:
                 - subnet-7c784f07
+#    scheduler:
+#        handler: artisan
+#        layers:
+#            - ${bref:layer.php-74}
+#            - ${bref:layer.console}
+#        events:
+#            - schedule:
+#                rate: rate(1 minute)
+#                input: '"schedule:run"'
 
 resources:
     Resources:
@@ -79,7 +94,7 @@ resources:
         Assets:
             Type: AWS::S3::Bucket
             Properties:
-                BucketName: assets.pokemon-friends.com
+                BucketName: ${opt:stage, self:service}-${opt:stage, self:provider.stage}-assets
         # The policy that makes the bucket publicly readable
         AssetsBucketPolicy:
             Type: AWS::S3::BucketPolicy
@@ -90,5 +105,4 @@ resources:
                         - Effect: Allow
                           Principal: '*' # everyone
                           Action: 's3:GetObject' # to read
-                          Resource: !Join ['/', [!GetAtt Assets.Arn, '*']] # things in the bucket
-                          # alternatively you can write out Resource: 'arn:aws:s3:::<bucket-name>/*'
+                          Resource: !Join ['/', [!GetAtt Assets.Arn, '*']]

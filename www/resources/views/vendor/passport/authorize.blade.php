@@ -8,7 +8,7 @@
     <title>{{ config('app.name') }} - Authorization</title>
 
     <!-- Styles -->
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset_cdn('/css/app.css') }}" rel="stylesheet">
 
     <style>
         .passport-authorize .container {

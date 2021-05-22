@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="bg-image bg-dark d-flex align-items-end py-3" style="background-color: #3a3a3c !important;min-height: 320px;">
-    <img class="background" src="{{ asset('images/david-grandmougin-Am1io6KusFM-unsplash.jpg') }}" alt="" ya-style="opacity: .25">
+    <img class="background" src="{{ asset_cdn('images/david-grandmougin-Am1io6KusFM-unsplash.jpg') }}" alt="" ya-style="opacity: .25">
     <div class="container position-relative">
         <div class="row">
             <div class="col d-flex flex-column flex-lg-row align-items-center text-center position-absolute bottom left pl-lg-8">

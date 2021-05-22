@@ -20,7 +20,7 @@
 @endsection
 
 @section('content')
-<section class="overflow-hidden py-0" data-parallax="scroll" data-image-src="{{ asset('images/david-grandmougin-Am1io6KusFM-unsplash.jpg') }}">
+<section class="overflow-hidden py-0" data-parallax="scroll" data-image-src="{{ asset_cdn('images/david-grandmougin-Am1io6KusFM-unsplash.jpg') }}">
     <div class="overlay" ya-style="background-color: #36373a;opacity: .9"></div>
     <div class="container">
         <div class="row">

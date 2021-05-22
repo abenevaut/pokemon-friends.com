@@ -42,13 +42,9 @@ return [
     */
 
     'disks' => [
-        'object-storage' => [
-            'driver' => 'production' === env('APP_ENV', 'production')
-                ? 's3'
-                : 'local',
-            'root' => 'production' === env('APP_ENV', 'production')
-                ? '/'
-                : storage_path('app'),
+        'public' => [
+            'driver' => 's3',
+            'root' => '/',
         ],
     ],
 

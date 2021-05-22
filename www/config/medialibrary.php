@@ -31,14 +31,7 @@ return [
         /*
          * The domain that should be prepended when generating urls.
          */
-        'domain' => 'https://'.env('AWS_BUCKET').'.s3.amazonaws.com',
-    ],
-
-    'fortrabbit' => [
-        /*
-         * The domain that should be prepended when generating urls.
-         */
-        'domain' => env('OBJECT_STORAGE_URL', 'https://pkmn-friends.objects.frb.io'),
+        'domain' => 'https://'.env('AWS_BUCKET').'.s3.'.env('AWS_DEFAULT_REGION').'.amazonaws.com',
     ],
 
     'remote' => [

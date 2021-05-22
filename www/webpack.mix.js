@@ -19,14 +19,12 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
  */
 
 let publicPath = '';
-// if (mix.inProduction() && process.env.USE_CDN) {
-  publicPath = process.env.OBJECT_STORAGE_URL
-    ? process.env.OBJECT_STORAGE_URL
-    : 'https://pkmnfriends-staging.s3.amazonaws.com';
+if (mix.inProduction()) {
+  publicPath = 'https://pkmn-friends-production-assets.s3.eu-west-3.amazonaws.com';
   mix
     .version()
     .setResourceRoot('/');
-// }
+}
 
 mix
   .autoload({
