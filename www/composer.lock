@@ -65,21 +65,21 @@
         },
         {
             "name": "arubacao/asset-cdn",
-            "version": "0.2.4",
+            "version": "0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arubacao/asset-cdn.git",
-                "reference": "f408dbfdd12ccbbe59c6d8925823b8a9d7c0964a"
+                "reference": "25718d59e6edf37c1975e68413851e7310ea0964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arubacao/asset-cdn/zipball/f408dbfdd12ccbbe59c6d8925823b8a9d7c0964a",
-                "reference": "f408dbfdd12ccbbe59c6d8925823b8a9d7c0964a",
+                "url": "https://api.github.com/repos/arubacao/asset-cdn/zipball/25718d59e6edf37c1975e68413851e7310ea0964",
+                "reference": "25718d59e6edf37c1975e68413851e7310ea0964",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "~5.4|^6.0|^7.0|^8.0",
-                "php": "^7.0"
+                "php": "^7.0|^8.0"
             },
             "require-dev": {
                 "league/flysystem-aws-s3-v3": "^1.0",
@@ -122,7 +122,7 @@
                 "content delivery network",
                 "laravel"
             ],
-            "time": "2020-09-14T14:33:59+00:00"
+            "time": "2020-12-29T09:41:09+00:00"
         },
         {
             "name": "aws/aws-sdk-php",
