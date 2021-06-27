@@ -4,11 +4,8 @@ namespace pkmnfriends\Domain\Users\Profiles;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\
-{
-    HasMedia\HasMedia,
-    HasMedia\HasMediaTrait
-};
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\SchemaOrg\Barcode;
 use Spatie\SchemaOrg\Schema;
 use pkmnfriends\Infrastructure\Domain\Users\Profiles\ProfileFamiliesSituationsInterface;
@@ -26,7 +23,7 @@ use pkmnfriends\Domain\Users\Profiles\ProfilesTeamsColors;
 
 class Profile extends ModelAbstract implements ProfileFamiliesSituationsInterface, HasMedia, ProfilesTeamsColors
 {
-    use HasMediaTrait;
+    use InteractsWithMedia;
     use SoftDeletes;
     use TimeStampsTz;
     use SoftDeletesTz;
