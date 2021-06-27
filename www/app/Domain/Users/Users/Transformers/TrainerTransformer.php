@@ -4,7 +4,7 @@ namespace pkmnfriends\Domain\Users\Users\Transformers;
 
 use Carbon\Carbon;
 use pkmnfriends\Domain\Users\Users\User;
-use pkmnfriends\Infrastructure\Contracts\Transformers\TransformerAbstract;
+use pkmnfriends\Infrastructure\Transformers\TransformerAbstract;
 
 class TrainerTransformer extends TransformerAbstract
 {

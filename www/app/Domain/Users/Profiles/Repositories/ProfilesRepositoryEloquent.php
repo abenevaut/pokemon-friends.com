@@ -5,7 +5,7 @@ namespace pkmnfriends\Domain\Users\Profiles\Repositories;
 use Carbon\Carbon;
 use Illuminate\Container\Container as Application;
 use Illuminate\Support\Collection;
-use pkmnfriends\Infrastructure\Contracts\{
+use pkmnfriends\Infrastructure\{
     Request\RequestAbstract,
     Repositories\RepositoryEloquentAbstract
 };

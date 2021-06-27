@@ -7,12 +7,10 @@ use League\Csv\Writer;
 use Illuminate\Support\Facades\Auth;
 use pkmnfriends\Domain\Users\Profiles\Repositories\ProfilesRepositoryEloquent;
 use pkmnfriends\Domain\Users\Users\User;
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
-use pkmnfriends\Http\Request\Administrator\Users\Users\
-{
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
+use pkmnfriends\Http\Request\Administrator\Users\Users\{UserStoreFormRequest,
     UserUpdateFormRequest,
-    UsersFiltersFormRequest
-};
+    UsersFiltersFormRequest};
 use pkmnfriends\Domain\Users\Users\Repositories\UsersRepositoryEloquent;
 
 class UsersController extends ControllerAbstract
@@ -117,12 +115,12 @@ class UsersController extends ControllerAbstract
     /**
      * Store a newly created resource in storage.
      *
-     * @param UserUpdateFormRequest $request
+     * @param UserStoreFormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(UserUpdateFormRequest $request)
+    public function store(UserStoreFormRequest $request)
     {
         $this
             ->rUsers

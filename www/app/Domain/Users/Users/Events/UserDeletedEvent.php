@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Domain\Users\Users\Events;
 
-use pkmnfriends\Infrastructure\Contracts\Events\EventAbstract;
+use pkmnfriends\Infrastructure\Events\EventAbstract;
 use pkmnfriends\Domain\Users\Users\User;
 
 class UserDeletedEvent extends EventAbstract

@@ -3,7 +3,7 @@
 namespace pkmnfriends\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use pkmnfriends\Infrastructure\Interfaces\Domain\Users\Users\UserRolesInterface;
+use pkmnfriends\Infrastructure\Domain\Users\Users\UserRolesInterface;
 
 class Kernel extends HttpKernel
 {

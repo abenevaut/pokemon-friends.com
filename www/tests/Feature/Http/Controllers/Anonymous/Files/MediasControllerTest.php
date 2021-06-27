@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use pkmnfriends\Domain\Files\Medias\Media;
 use pkmnfriends\Domain\Users\Profiles\Profile;
 use pkmnfriends\Domain\Users\Users\User;
-use pkmnfriends\Infrastructure\Contracts\Traits\SecurityHashTrait;
+use pkmnfriends\Infrastructure\Traits\SecurityHashTrait;
 use Tests\OAuthTestCaseTrait;
 use Tests\TestCase;
 

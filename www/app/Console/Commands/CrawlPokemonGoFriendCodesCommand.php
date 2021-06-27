@@ -7,7 +7,7 @@ use Repat\CrawlQueue\RedisCrawlQueue;
 use Spatie\Crawler\Crawler;
 use Spatie\Crawler\CrawlInternalUrls;
 use pkmnfriends\App\Crawlers\Observers\PokemonGoFriendCodesCrawlObserver;
-use pkmnfriends\Infrastructure\Contracts\Commands\CommandAbstract;
+use pkmnfriends\Infrastructure\Commands\CommandAbstract;
 
 class CrawlPokemonGoFriendCodesCommand extends CommandAbstract
 {
