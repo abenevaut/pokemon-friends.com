@@ -297,7 +297,6 @@
       <path value="$PROJECT_DIR$/www/vendor/league/event" />
       <path value="$PROJECT_DIR$/www/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/www/vendor/league/csv" />
-      <path value="$PROJECT_DIR$/www/vendor/league/flysystem-aws-s3-v3" />
       <path value="$PROJECT_DIR$/www/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/www/vendor/league/glide" />
       <path value="$PROJECT_DIR$/www/vendor/league/oauth1-client" />
@@ -414,7 +413,6 @@
       <path value="$PROJECT_DIR$/www/vendor/symfony/polyfill-iconv" />
       <path value="$PROJECT_DIR$/www/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/www/vendor/prettus/laravel-validation" />
-      <path value="$PROJECT_DIR$/www/vendor/fortrabbit/laravel-object-storage" />
       <path value="$PROJECT_DIR$/www/vendor/prettus/l5-repository" />
       <path value="$PROJECT_DIR$/www/vendor/beyondcode/laravel-dump-server" />
       <path value="$PROJECT_DIR$/www/vendor/swiftmailer/swiftmailer" />
@@ -460,6 +458,8 @@
       <path value="$PROJECT_DIR$/www/vendor/bref/laravel-bridge" />
       <path value="$PROJECT_DIR$/www/vendor/riverline/multipart-parser" />
       <path value="$PROJECT_DIR$/www/vendor/mnapoli/silly" />
+      <path value="$PROJECT_DIR$/www/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/www/vendor/league/flysystem-aws-s3-v3" />
     </include_path>
   </component>
   <component name="PhpProjectServersManager">

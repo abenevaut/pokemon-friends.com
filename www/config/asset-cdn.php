@@ -2,9 +2,9 @@
 
 return [
     'use_cdn' => env('USE_CDN', false),
-    'cdn_url' => env('OBJECT_STORAGE_URL', 'https://pkmn-friends.objects.frb.io/assets/'),
+    'cdn_url' => 'https://'.env('AWS_BUCKET').'.s3.'.env('AWS_DEFAULT_REGION').'.amazonaws.com',
     'filesystem' => [
-        'disk' => 'asset-cdn',
+        'disk' => 'public',
         'options' => [
             // File is available to the public, independent of the S3 Bucket policy
             'ACL' => 'public-read',

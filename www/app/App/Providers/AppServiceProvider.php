@@ -2,17 +2,30 @@
 
 namespace pkmnfriends\App\Providers;
 
-use Illuminate\Support\{Facades\Config, Facades\Schema, Facades\URL, ServiceProvider};
+use Illuminate\Support\{
+    Facades\Config,
+    ServiceProvider
+};
 use Barryvdh\{
     Debugbar\ServiceProvider as DebugbarServiceProvider,
     LaravelIdeHelper\IdeHelperServiceProvider
 };
 use Illuminate\Notifications\Messages\MailMessage;
+use pkmnfriends\Infrastructure\Providers\{
+    AppHttpsServiceProviderTrait,
+    AppLambdaServerlessServiceProviderTrait,
+    // @todo xABE: remove this for serverless
+    AppFortrabbitMysqlServiceProviderTrait
+};
 use Sentry\Laravel\ServiceProvider as SentryServiceProvider;
 use Yaquawa\Laravel\EmailReset\Notifications\EmailResetNotification;
 
 class AppServiceProvider extends ServiceProvider
 {
+    use AppHttpsServiceProviderTrait;
+    use AppLambdaServerlessServiceProviderTrait;
+    // @todo xABE: remove this for serverless
+    use AppFortrabbitMysqlServiceProviderTrait;
 
     /**
      * Bootstrap any application services.
@@ -23,16 +36,19 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // @codeCoverageIgnoreStart
-        if ($this->app->environment('production')) {
-            URL::forceScheme('https');
-        }
-        // Make sure the directory for compiled views exist #serverless
-        if (!is_dir(config('view.compiled'))) {
-            mkdir(config('view.compiled'), 0755, true);
-        }
-        // https://laravel-news.com/laravel-5-4-key-too-long-error - mysql 5.6 @fortrabbit
-        Schema::defaultStringLength(191);
+        $this
+            ->forceHttps()
+            ->verifyStorageAvailability()
+            // @todo xABE: remove this for serverless
+            ->fixDefaultStringSizeForMySQL();
+
+        /*
+         * Set app release for sentry.
+         */
         Config::set('sentry.release', Config::get('version.app_tag'));
+        /*
+         * Overwrite "Change your email" email title and view, to customize it.
+         */
         EmailResetNotification::toMailUsing(function ($user, $token, $resetLink) {
             return (new MailMessage())
                 ->subject(trans('auth.email_reset_title'))

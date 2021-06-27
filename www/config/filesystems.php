@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => 'object-storage',
+    'default' => 's3',
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'cloud' => 'object-storage',
+    'cloud' => 's3',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,29 +42,9 @@ return [
     */
 
     'disks' => [
-        'object-storage' => [
-            'driver' => 'production' === env('APP_ENV', 'production')
-                ? 'object-storage'
-                : 'local',
-            'root' => 'production' === env('APP_ENV', 'production')
-                ? 'private'
-                : storage_path('app'),
-        ],
-        'thumbnails' => [
-            'driver' => 'production' === env('APP_ENV', 'production')
-                ? 'object-storage'
-                : 'local',
-            'root' => 'production' === env('APP_ENV', 'production')
-                ? 'private/thumbnails'
-                : public_path('app/thumbnails'),
-        ],
-        'asset-cdn' => [
-            'driver' => 'production' === env('APP_ENV', 'production')
-                ? 'object-storage'
-                : 'local',
-            'root' => 'production' === env('APP_ENV', 'production')
-                ? 'assets'
-                : public_path('assets'),
+        'public' => [
+            'driver' => 's3',
+            'root' => '/',
         ],
     ],
 

@@ -13,11 +13,11 @@
       <time-zone>Europe/Paris</time-zone>
     </data-source>
     <data-source source="LOCAL" name="@production" uuid="cf90b89d-3b78-4f88-a426-95433b1b9102">
-      <driver-ref>mysql.8</driver-ref>
+      <driver-ref>mysql_aurora</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>fortrrabit</remarks>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://pokemon-friends.mysql.eu2.frbit.com:3306/pokemon-friends</jdbc-url>
+      <remarks>aurora-prod-aws</remarks>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql:aurora://pkmnfriends-prod.cluster-ccwv2imsrlnk.eu-west-3.rds.amazonaws.com:3306</jdbc-url>
     </data-source>
   </component>
 </project>
