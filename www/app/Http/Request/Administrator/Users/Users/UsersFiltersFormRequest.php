@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Http\Request\Administrator\Users\Users;
 
-use pkmnfriends\Infrastructure\Contracts\Request\RequestAbstract;
+use pkmnfriends\Infrastructure\Request\RequestAbstract;
 
 class UsersFiltersFormRequest extends RequestAbstract
 {

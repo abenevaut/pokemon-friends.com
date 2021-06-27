@@ -10,7 +10,7 @@ use pkmnfriends\App\Pipelines\Sitemap\{
     TrainersPagesSitemapPipe
 };
 use Spatie\Sitemap\Sitemap;
-use pkmnfriends\Infrastructure\Contracts\Commands\CommandAbstract;
+use pkmnfriends\Infrastructure\Commands\CommandAbstract;
 
 class GenerateSitemapCommand extends CommandAbstract
 {

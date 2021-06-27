@@ -31,7 +31,7 @@ return [
         'issues' => 'https://github.com/pokemon-friends-com/www/issues',
     ],
 
-    pkmnfriends\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface::GOOGLE => [
+    pkmnfriends\Infrastructure\Domain\Users\ProvidersTokens\ProvidersInterface::GOOGLE => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URI', '/login/google/callback'),
@@ -43,7 +43,7 @@ return [
         'env' => env('GOOGLE_TM_ENV', ''),
     ],
 
-    pkmnfriends\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface::TWITTER => [
+    pkmnfriends\Infrastructure\Domain\Users\ProvidersTokens\ProvidersInterface::TWITTER => [
         'consumer_key' => env('TWITTER_CONSUMER_KEY'),
         'consumer_secret' => env('TWITTER_CONSUMER_SECRET'),
         'access_token' => env('TWITTER_ACCESS_TOKEN'),

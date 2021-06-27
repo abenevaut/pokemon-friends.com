@@ -98,7 +98,7 @@ return [
     |
     */
 
-    'timezone' => \pkmnfriends\Infrastructure\Interfaces\Domain\Locale\TimeZonesInterface::DEFAULT_TZ,
+    'timezone' => \pkmnfriends\Infrastructure\Domain\Locale\TimeZonesInterface::DEFAULT_TZ,
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +111,7 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', \pkmnfriends\Infrastructure\Interfaces\Domain\Locale\LocalesInterface::DEFAULT_LOCALE),
+    'locale' => env('APP_LOCALE', \pkmnfriends\Infrastructure\Domain\Locale\LocalesInterface::DEFAULT_LOCALE),
 
     /*
     |--------------------------------------------------------------------------
@@ -124,7 +124,7 @@ return [
     |
     */
 
-    'fallback_locale' => \pkmnfriends\Infrastructure\Interfaces\Domain\Locale\LocalesInterface::DEFAULT_LOCALE,
+    'fallback_locale' => \pkmnfriends\Infrastructure\Domain\Locale\LocalesInterface::DEFAULT_FALLBACK_LOCALE,
 
     /*
     |--------------------------------------------------------------------------

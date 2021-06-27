@@ -4,8 +4,8 @@ namespace pkmnfriends\Domain\Users\Users\Repositories;
 
 use Illuminate\Support\Collection;
 use pkmnfriends\Domain\Users\Users\User;
-use pkmnfriends\Infrastructure\Contracts\Request\RequestAbstract;
-use pkmnfriends\Infrastructure\Interfaces\Repositories\RepositoryInterface;
+use pkmnfriends\Infrastructure\Request\RequestAbstract;
+use pkmnfriends\Infrastructure\Repositories\RepositoryInterface;
 
 interface UsersRepositoryInterface extends RepositoryInterface
 {

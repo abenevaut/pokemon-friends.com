@@ -4,7 +4,7 @@ namespace pkmnfriends\Domain\Users\Users\Repositories;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Validation\Validator as ContractsValidator;
-use pkmnfriends\Infrastructure\Interfaces\Domain\Users\Users\UserCivilitiesInterface;
+use pkmnfriends\Infrastructure\Domain\Users\Users\UserCivilitiesInterface;
 use pkmnfriends\Domain\Users\Users\{
     User,
     Repositories\UsersRegistrationsRepositoryInterface

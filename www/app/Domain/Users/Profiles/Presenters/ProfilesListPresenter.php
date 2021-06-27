@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Domain\Users\Profiles\Presenters;
 
-use pkmnfriends\Infrastructure\Contracts\Presenters\PresenterAbstract;
+use pkmnfriends\Infrastructure\Presenters\PresenterAbstract;
 use pkmnfriends\Domain\Users\Profiles\Transformers\ProfilesListTransformer;
 
 class ProfilesListPresenter extends PresenterAbstract

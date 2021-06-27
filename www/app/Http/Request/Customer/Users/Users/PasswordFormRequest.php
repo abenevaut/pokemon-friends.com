@@ -5,7 +5,7 @@ namespace pkmnfriends\Http\Request\Customer\Users\Users;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use pkmnfriends\Infrastructure\Contracts\Request\RequestAbstract;
+use pkmnfriends\Infrastructure\Request\RequestAbstract;
 use pkmnfriends\Domain\Users\Users\Repositories\UsersResetPasswordRepositoryEloquent;
 
 class PasswordFormRequest extends RequestAbstract

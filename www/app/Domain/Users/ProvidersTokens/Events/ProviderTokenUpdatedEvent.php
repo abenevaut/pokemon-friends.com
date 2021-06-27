@@ -2,7 +2,7 @@
 
 namespace pkmnfriends\Domain\Users\ProvidersTokens\Events;
 
-use pkmnfriends\Infrastructure\Contracts\Events\EventAbstract;
+use pkmnfriends\Infrastructure\Events\EventAbstract;
 use pkmnfriends\Domain\Users\ProvidersTokens\ProviderToken;
 
 class ProviderTokenUpdatedEvent extends EventAbstract

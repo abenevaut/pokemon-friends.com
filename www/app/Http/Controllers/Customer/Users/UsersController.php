@@ -13,7 +13,7 @@ use pkmnfriends\Domain\Users\Users\User;
 use pkmnfriends\Http\Request\Customer\Users\Profiles\ProfileFormRequest;
 use pkmnfriends\Http\Request\Customer\Users\Users\PasswordFormRequest;
 use pkmnfriends\Http\Request\Customer\Users\Users\ChangeEmailFormRequest;
-use pkmnfriends\Infrastructure\Contracts\Controllers\ControllerAbstract;
+use pkmnfriends\Infrastructure\Controllers\ControllerAbstract;
 
 class UsersController extends ControllerAbstract
 {

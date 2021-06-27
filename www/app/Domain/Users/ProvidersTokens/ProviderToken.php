@@ -2,8 +2,8 @@
 
 namespace pkmnfriends\Domain\Users\ProvidersTokens;
 
-use pkmnfriends\Infrastructure\Interfaces\Domain\Users\ProvidersTokens\ProvidersInterface;
-use pkmnfriends\Infrastructure\Contracts\{
+use pkmnfriends\Infrastructure\Domain\Users\ProvidersTokens\ProvidersInterface;
+use pkmnfriends\Infrastructure\{
     Model\ModelAbstract,
     Model\Notifiable,
     Model\IdentifiableTrait,
