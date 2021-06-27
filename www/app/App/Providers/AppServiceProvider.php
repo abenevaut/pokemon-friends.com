@@ -7,9 +7,7 @@ use Barryvdh\{
     Debugbar\ServiceProvider as DebugbarServiceProvider,
     LaravelIdeHelper\IdeHelperServiceProvider
 };
-use Illuminate\Notifications\Messages\MailMessage;
 use Sentry\Laravel\ServiceProvider as SentryServiceProvider;
-use Yaquawa\Laravel\EmailReset\Notifications\EmailResetNotification;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,13 +25,8 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
         // https://laravel-news.com/laravel-5-4-key-too-long-error - mysql 5.6 @fortrabbit
-        Schema::defaultStringLength(191);
+//        Schema::defaultStringLength(191);
         Config::set('sentry.release', Config::get('version.app_tag'));
-        EmailResetNotification::toMailUsing(function ($user, $token, $resetLink) {
-            return (new MailMessage())
-                ->subject(trans('auth.email_reset_title'))
-                ->view('emails.users.users.reset_email', compact('token'));
-        });
         // @codeCoverageIgnoreEnd
     }
 

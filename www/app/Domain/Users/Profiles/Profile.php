@@ -4,7 +4,6 @@ namespace pkmnfriends\Domain\Users\Profiles;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Cashier\Billable;
 use Spatie\MediaLibrary\
 {
     HasMedia\HasMedia,
@@ -27,7 +26,6 @@ use pkmnfriends\Domain\Users\Profiles\ProfilesTeamsColors;
 
 class Profile extends ModelAbstract implements ProfileFamiliesSituationsInterface, HasMedia, ProfilesTeamsColors
 {
-    use Billable;
     use HasMediaTrait;
     use SoftDeletes;
     use TimeStampsTz;
