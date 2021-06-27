@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="OPEN_SSH" host="deploy.eu2.frbit.com" id="f30dec70-a17d-4bb4-980d-c048544708ae" nameFormat="DESCRIPTIVE" username="pokemon-friends" />
+    </configs>
+  </component>
+</project>
