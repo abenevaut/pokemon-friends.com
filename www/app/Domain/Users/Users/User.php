@@ -5,7 +5,6 @@ namespace pkmnfriends\Domain\Users\Users;
 use Illuminate\Contracts\Translation\HasLocalePreference;
 use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Passport\HasApiTokens;
-use Yaquawa\Laravel\EmailReset\CanResetEmail;
 use pkmnfriends\Domain\Users\Profiles\Profile;
 use pkmnfriends\Infrastructure\Domain\Users\{
     Users\HandshakableInterface,
@@ -55,7 +54,6 @@ class User extends AuthenticatableModelAbstract implements
     use TimeStampsTz;
     use SoftDeletesTz;
     use Impersonate;
-    use CanResetEmail;
     use SecurityHashTrait;
 
     /**

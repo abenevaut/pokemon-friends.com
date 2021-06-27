@@ -2,9 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig host="ec2-35-180-85-43.eu-west-3.compute.amazonaws.com" id="57a0eb79-4b48-45de-8252-cf01b7f56805" keyPath="$USER_HOME$/.ssh/abenevaut-macbook.pem" port="22" customName="bastion-abenevaut" nameFormat="CUSTOM" username="admin">
-        <option name="customName" value="bastion-abenevaut" />
-      </sshConfig>
+      <sshConfig authType="OPEN_SSH" host="deploy.eu2.frbit.com" id="f30dec70-a17d-4bb4-980d-c048544708ae" nameFormat="DESCRIPTIVE" username="pokemon-friends" />
     </configs>
   </component>
 </project>
