@@ -18,7 +18,7 @@
         "barryvdh/laravel-elfinder": "^0.4.2",
         "bref/bref": "^1.2",
         "bref/laravel-bridge": "^1.0",
-        "doctrine/dbal": "^2.10",
+        "doctrine/dbal": "^3.1",
         "fedeisas/laravel-mail-css-inliner": "^4.0",
         "fideloper/proxy": "^4.0",
         "lab404/laravel-impersonate": "^1.4",
